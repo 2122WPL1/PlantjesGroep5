@@ -203,7 +203,7 @@ namespace Plantjes.Dao
         ///Owen
         public string GetImages(long id , string ImageCategorie)
         {
-            var foto = context.Fotos.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            var foto = context.Fotos.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.PlantId == id);
             
 
             if (foto != null)
