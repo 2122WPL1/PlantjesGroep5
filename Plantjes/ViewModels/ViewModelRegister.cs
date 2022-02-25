@@ -30,7 +30,7 @@ namespace Plantjes.ViewModels
             errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                  firstNameInput, emailAdresInput,
                  passwordInput, passwordRepeatInput, rolInput);
-            
+            Application.Current.Windows[0]?.Close();
         }
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
