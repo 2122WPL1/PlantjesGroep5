@@ -34,7 +34,7 @@ namespace Plantjes.ViewModels.Services
             var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
            
             //check if email is valid email
-            if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
+            if (userNameInput != null && userNameInput.Contains("@"))
             {   //gebruiker zoeken in de databank
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
@@ -93,36 +93,107 @@ namespace Plantjes.ViewModels.Services
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
             //checken of alle velden ingevuld zijn
-            if (vivesNrInput != null &&
+            if (
                 firstNameInput != null &&
                 lastNameInput != null &&
+                rolInput != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
-                passwordRepeatInput != null &&
-                rolInput != null)
+                passwordRepeatInput != null)
             {   //checken als het emailadres een geldig vives email is.
-                if (emailAdresInput != null && emailAdresInput.Contains(".vives.be") && emailAdresInput.Contains("@")
-                    //checken als het email adres al bestaat of niet.
-                    && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
-                {   //checken als het herhaalde wachtwoord klopt of niet.
-                    if (passwordInput == passwordRepeatInput)
-                    {   //gebruiker registreren.
-                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        Message = $"{firstNameInput}, je bent succevol geregistreerd,"+"\r\n"+$" uw gebruikersnaam is {emailAdresInput}." + 
-                                       "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                        LoginWindow loginWindow = new LoginWindow();
-                        loginWindow.Show();
-                    }//foutafhandeling
+                    if (rolInput == "docent")
+                    {
+                        if (vivesNrInput.Contains("u"))
+                        {
+                            if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
+                            //checken als het email adres al bestaat of niet.
+                            && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                            {   //checken als het herhaalde wachtwoord klopt of niet.
+                                if (passwordInput == passwordRepeatInput)
+                                {   //gebruiker registreren.
+                                    _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                                    Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                                                   "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
+                                    LoginWindow loginWindow = new LoginWindow();
+                                    loginWindow.Show();
+                                }//foutafhandeling
+                                else
+                                {
+                                    Message = "zorg dat de wachtwoorden overeen komen.";
+                                }
+                            }
+                            else
+                            {
+                                Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een docent, " + "\r\n" + " of het eamiladres is al in gebruik.";
+                            }
+                        }
+                        else
+                        {
+                            Message = "Het vives nummer is niet juist";
+                        }
+                    }
+                    else if (rolInput == "student")
+                    {
+                        if (vivesNrInput.Contains("r"))
+                        {
+                            if (emailAdresInput != null && emailAdresInput.Contains("student.vives.be") && emailAdresInput.Contains("@")
+                                //checken als het email adres al bestaat of niet.
+                                && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                            {   //checken als het herhaalde wachtwoord klopt of niet.
+                                if (passwordInput == passwordRepeatInput)
+                                {   //gebruiker registreren.
+                                    _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                                    Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                                                   "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
+                                    LoginWindow loginWindow = new LoginWindow();
+                                    loginWindow.Show();
+                                }//foutafhandeling
+                                else
+                                {
+                                    Message = "zorg dat de wachtwoorden overeen komen.";
+                                }
+                            }
+                            else
+                            {
+                                Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een student, " + "\r\n" + " of het eamiladres is al in gebruik.";
+                            }
+                        }
+                        else
+                        {
+                            Message = "Het vives nummer is niet juist";
+                        }
+                    }
+                    else if (rolInput == "oudstudent")
+                    {
+                        if (vivesNrInput == string.Empty)
+                        {
+                            if (emailAdresInput != null && emailAdresInput.Contains("@")
+                            && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                            {
+                                if (passwordInput == passwordRepeatInput)
+                                {   //gebruiker registreren.
+                                    _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                                    Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                                                   "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
+                                    LoginWindow loginWindow = new LoginWindow();
+                                    loginWindow.Show();
+                                }//foutafhandeling
+                                else
+                                {
+                                    Message = "zorg dat de wachtwoorden overeen komen.";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Message = "vivesnummer moet leeg zijn.";
+                        }
+                    }
                     else
                     {
-                        Message = "zorg dat de wachtwoorden overeen komen.";
+                        Message = "Het in gegeven rol bestaat niet, kies uit:\r\n docent, student, oudstudent.";
                     }
                 }
-                else
-                {
-                    Message = $"{emailAdresInput} is geen geldig emailadres, "+"\r\n"+" of het eamiladres is al in gebruik.";
-                }
-            }
             else
             {
                 Message = "zorg dat alle velden ingevuld zijn";
