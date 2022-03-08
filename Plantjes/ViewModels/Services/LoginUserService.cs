@@ -93,18 +93,17 @@ namespace Plantjes.ViewModels.Services
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
             //checken of alle velden ingevuld zijn
-            if (
-                firstNameInput != null &&
+            if (firstNameInput != null &&
                 lastNameInput != null &&
                 rolInput != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
-            {   //checken als het emailadres een geldig vives email is.
+            {       //checken welke rol je hebt gekozen.
                     if (rolInput == "docent")
-                    {
+                    {   //checken of het de juiste kenmerken geeft voor een docent nummer.
                         if (vivesNrInput.Contains("u"))
-                        {
+                        {   //checken als het emailadres een geldig vives email is voor een docent.
                             if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
                             //checken als het email adres al bestaat of niet.
                             && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
@@ -121,21 +120,21 @@ namespace Plantjes.ViewModels.Services
                                 {
                                     Message = "zorg dat de wachtwoorden overeen komen.";
                                 }
-                            }
+                            }//foutafhandeling
                             else
                             {
                                 Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een docent, " + "\r\n" + " of het eamiladres is al in gebruik.";
                             }
-                        }
+                        }//foutafhandeling
                         else
                         {
                             Message = "Het vives nummer is niet juist";
                         }
-                    }
+                    }//checken welke rol je hebt gekozen.
                     else if (rolInput == "student")
-                    {
+                    {   //checken of het de juiste kenmerken geeft voor een student nummer.
                         if (vivesNrInput.Contains("r"))
-                        {
+                        {   //checken als het emailadres een geldig vives email is voor een student.
                             if (emailAdresInput != null && emailAdresInput.Contains("student.vives.be") && emailAdresInput.Contains("@")
                                 //checken als het email adres al bestaat of niet.
                                 && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
@@ -152,24 +151,24 @@ namespace Plantjes.ViewModels.Services
                                 {
                                     Message = "zorg dat de wachtwoorden overeen komen.";
                                 }
-                            }
+                            }//foutafhandeling
                             else
                             {
                                 Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een student, " + "\r\n" + " of het eamiladres is al in gebruik.";
                             }
-                        }
+                        }//foutafhandeling
                         else
                         {
                             Message = "Het vives nummer is niet juist";
                         }
-                    }
+                    }//checken welke rol je hebt gekozen.
                     else if (rolInput == "oudstudent")
-                    {
+                    {   //checken of het leeg is voor een oudstudent.
                         if (vivesNrInput == string.Empty)
-                        {
+                        {   //checken als het een geldig emailadres is.
                             if (emailAdresInput != null && emailAdresInput.Contains("@")
                             && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
-                            {
+                            {   //checken als het herhaalde wachtwoord klopt of niet.
                                 if (passwordInput == passwordRepeatInput)
                                 {   //gebruiker registreren.
                                     _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
@@ -183,17 +182,17 @@ namespace Plantjes.ViewModels.Services
                                     Message = "zorg dat de wachtwoorden overeen komen.";
                                 }
                             }
-                        }
+                        }//foutafhandeling
                         else
                         {
                             Message = "vivesnummer moet leeg zijn.";
                         }
-                    }
+                    }//foutafhandeling
                     else
                     {
                         Message = "Het in gegeven rol bestaat niet, kies uit:\r\n docent, student, oudstudent.";
                     }
-                }
+            }//foutafhandeling
             else
             {
                 Message = "zorg dat alle velden ingevuld zijn";
