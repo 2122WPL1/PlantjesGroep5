@@ -4,16 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" 
-             d:DesignHeight="790" d:DesignWidth="1160">
+             d:DesignHeight="790" d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="cvsVerzorging" Margin="0,30,0,10" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1140">
-            <Canvas.Effect>
-                <DropShadowEffect/>
-            </Canvas.Effect>
-            <Button Content="Opslag Zoeken Groei" Canvas.Left="959" Canvas.Top="459" Height="50" Width="172" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Canvas x:Name="cvsVerzorging" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
+            <Button Content="Opslag Zoeken Groei" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -47,93 +44,57 @@
             <CheckBox x:Name="CbxJan" 
                       IsChecked="{Binding Path=SelectedCheckBoxJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="189" Canvas.Top="293" Height="15" Width="16" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxFeb"
                       IsChecked="{Binding Path=SelectedCheckBoxFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="261" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxMaa" 
                       IsChecked="{Binding Path=SelectedCheckBoxMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="333" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxApr" 
                       IsChecked="{Binding Path=SelectedCheckBoxApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="413" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxMei" 
                       IsChecked="{Binding Path=SelectedCheckBoxMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="497" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxJun"
                       IsChecked="{Binding Path=SelectedCheckBoxJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" 
                       Canvas.Left="581" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxJul"
                       IsChecked="{Binding Path=SelectedCheckBoxJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="661" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxAug"
                        IsChecked="{Binding Path=SelectedCheckBoxAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="747" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxSep" 
                        IsChecked="{Binding Path=SelectedCheckBoxSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="821" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxOkt" 
                        IsChecked="{Binding Path=SelectedCheckBoxOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="904" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxNov"
                       IsChecked="{Binding Path=SelectedCheckBoxNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="987" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxDec" 
                       IsChecked="{Binding Path=SelectedCheckBoxDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="1063" Canvas.Top="293" Height="15" Width="14" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
             </CheckBox>
 
 
             <TextBox Canvas.Left="281" Canvas.Top="435" TextWrapping="Wrap" Width="172" Height="49"/>
             <TextBox Canvas.Left="510" Canvas.Top="435" TextWrapping="Wrap" Width="172" Height="49"/>
-            
+
 
             <ComboBox x:Name="CmbBeheerdaad" 
                       ItemsSource="{Binding cmbBeheerdaad}" 

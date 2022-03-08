@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\waterval.jpeg" />
+    <None Remove="Views\Home\LogoVives.ZonderAchtergrondJPG.JPG" />
+    <None Remove="Views\Home\vivesNew-removebg-preview.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,13 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\waterval.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Folder Include="Models\Db\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Db\" />
+    <Resource Include="Image\LogoVives.ZonderAchtergrondJPG.JPG" />
+    <Resource Include="Views\Home\vivesNew-removebg-preview.png" />
   </ItemGroup>
 
 </Project>

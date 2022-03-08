@@ -571,7 +571,7 @@ namespace Plantjes.Dao
                     .HasMaxLength(20)
                     .HasColumnName("eigenschap");
 
-                entity.Property(e => e.Plant).HasColumnName("plant");
+                entity.Property(e => e.PlantId).HasColumnName("plant");
 
                 entity.Property(e => e.Tumbnail)
                     .HasColumnType("image")
@@ -583,7 +583,7 @@ namespace Plantjes.Dao
 
                 entity.HasOne(d => d.PlantNavigation)
                     .WithMany(p => p.Fotos)
-                    .HasForeignKey(d => d.Plant)
+                    .HasForeignKey(d => d.PlantId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("foto_plant_FK");
             });
