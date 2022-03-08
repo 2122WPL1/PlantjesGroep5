@@ -222,7 +222,7 @@
             </CheckBox>
             <CheckBox x:Name="CbxVochtbehoefteNat" Content="CheckBox" Canvas.Left="417" Canvas.Top="545" Height="15" Width="15" BorderBrush="Gray">
             </CheckBox>
-            <Button Content="Opslag Zoeken Groei" Canvas.Left="876" Canvas.Top="504" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button Content="Opslaan Groei" Canvas.Left="876" Canvas.Top="504" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>

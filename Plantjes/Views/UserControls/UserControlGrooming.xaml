@@ -10,22 +10,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Canvas x:Name="cvsVerzorging" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
-            <Button Content="Opslag Zoeken Groei" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button Content="Opslaan Groei" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
             </Button>
 
             <Label Content="Frequentie/Jaar" Canvas.Left="533" Canvas.Top="372" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Opmerking" Canvas.Left="302" Canvas.Top="372" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Maand" Canvas.Left="49" Canvas.Top="234" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Maand" Canvas.Left="49" Canvas.Top="234" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Verzorging" Canvas.Left="49" Canvas.Top="66" Height="94" Width="341"  BorderBrush="Orange" FontWeight="Bold" FontSize="60"/>
             <Label Content="Beheersdaad" Canvas.Left="49" Canvas.Top="286" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Canvas.Left="264" Canvas.Top="238" Height="29" Width="59"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="JAN" Canvas.Left="175" Canvas.Top="238" Height="29" Width="59"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>

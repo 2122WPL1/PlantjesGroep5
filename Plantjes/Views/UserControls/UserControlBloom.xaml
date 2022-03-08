@@ -9,18 +9,18 @@
         <Canvas x:Name="cvsBloei" Margin="0,30,0,84" Visibility="Visible"  HorizontalAlignment="Center" Width="1150">
             <Label Content="Kleuren" Canvas.Left="28" Canvas.Top="21" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Zwart" Foreground="Black" Canvas.Left="150" Canvas.Top="27" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
-            <Label Content="  Wit" Foreground="Black" Canvas.Left="215" Canvas.Top="27" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
-            <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="282" Canvas.Top="27" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
-            <Label Content=" Rood" Foreground="Red" Canvas.Left="347" Canvas.Top="27" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
-            <Label Content="Oranje" Foreground="Orange" Canvas.Left="416" Canvas.Top="28" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
-            <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="484" Canvas.Top="28" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
-            <Label Content="  Grijs" Foreground="Gray" Canvas.Left="552" Canvas.Top="28" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
-            <Label Content=" Groen" Foreground="Green" Canvas.Left="618" Canvas.Top="28" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
-            <Label Content=" Geel" Foreground="Yellow" Canvas.Left="688" Canvas.Top="28" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
-            <Label Content=" Blauw" Foreground="Blue" Canvas.Left="756" Canvas.Top="28" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
-            <Label Content=" Violet" Foreground="Violet" Canvas.Left="822" Canvas.Top="27" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
-            <Label Content=" Paars" Foreground="Purple" Canvas.Left="890" Canvas.Top="28" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
-            <Label Content=" Bruin" Foreground="Brown" Canvas.Left="958" Canvas.Top="28" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+            <Label Content="  Wit" Foreground="Black" Canvas.Left="215" Canvas.Top="27" Height="28" Width="50" BorderBrush="White" BorderThickness="1"/>
+            <Label Content=" Rosé" Foreground="Black" Canvas.Left="282" Canvas.Top="27" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+            <Label Content=" Rood" Foreground="Black" Canvas.Left="347" Canvas.Top="27" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+            <Label Content="Oranje" Foreground="Black" Canvas.Left="416" Canvas.Top="28" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+            <Label Content="  Lila" Foreground="Black" Canvas.Left="484" Canvas.Top="28" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+            <Label Content="  Grijs" Foreground="Black" Canvas.Left="552" Canvas.Top="28" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+            <Label Content=" Groen" Foreground="Black" Canvas.Left="618" Canvas.Top="28" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+            <Label Content=" Geel" Foreground="Black" Canvas.Left="688" Canvas.Top="28" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+            <Label Content=" Blauw" Foreground="Black" Canvas.Left="756" Canvas.Top="28" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+            <Label Content=" Violet" Foreground="Black" Canvas.Left="822" Canvas.Top="27" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+            <Label Content=" Paars" Foreground="Black" Canvas.Left="890" Canvas.Top="28" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+            <Label Content=" Bruin" Foreground="Black" Canvas.Left="958" Canvas.Top="28" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
             <TextBox Canvas.Left="158" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="Black"/>
             <CheckBox x:Name="CbxBloeikleurZwart" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeikleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -251,12 +251,12 @@
                       Content="CheckBox" Canvas.Left="908" Canvas.Top="269" Height="15" Width="15">
             </CheckBox>
             <Label Content="Bloeiwijze" Canvas.Left="28" Canvas.Top="368" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14" />
-            <Label Content="Vorm 1"  Canvas.Left="59" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="155" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 3"  Canvas.Left="256" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="347" Canvas.Top="420" Height="40" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 5"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="aar"  Canvas.Left="59" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="schermbloemig"  Canvas.Left="124" Canvas.Top="420" Height="40" Width="116" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="pluim"  Canvas.Left="256" Canvas.Top="420" Height="40" Width="51" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="bol of knop"  Canvas.Left="329" Canvas.Top="420" Height="40" Width="87" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="margrietachtig"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="126" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="transparant"  Canvas.Left="560" Canvas.Top="420" Height="40" Width="93" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <CheckBox x:Name="CbxBloeiwijzeVorm1" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                       Content="CheckBox" Canvas.Left="76" Canvas.Top="483" Height="15" Width="15">
@@ -275,13 +275,13 @@
             </CheckBox>
             <CheckBox x:Name="CbxBloeiwijzeVorm5" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="452" Canvas.Top="483" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="482" Canvas.Top="483" Height="15" Width="15">
             </CheckBox>
             <CheckBox x:Name="CbxBloeiwijzeVorm6" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="536" Canvas.Top="483" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="599" Canvas.Top="483" Height="15" Width="15">
             </CheckBox>
-            <Button x:Name="BtnOpslagZoekenBloei" Content="Opslag Zoeken Bloei" Width="241" Height="50" Canvas.Left="847" Canvas.Top="490" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="BtnOpslagZoekenBloei" Content="Opslaan Bloei" Width="241" Height="50" Canvas.Left="847" Canvas.Top="490" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>

@@ -331,7 +331,7 @@
                       IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Canvas.Left="1012" Canvas.Top="467" Height="16" Width="16">
             </CheckBox>
-            <Button x:Name="BtnOpslagZoekenAppearance" Content="Opslag Zoeken Appearance" Width="286" Height="50" Canvas.Left="802" Canvas.Top="600" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="BtnOpslagZoekenAppearance" Content="Opslaan Appearance" Width="286" Height="50" Canvas.Left="802" Canvas.Top="600" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
