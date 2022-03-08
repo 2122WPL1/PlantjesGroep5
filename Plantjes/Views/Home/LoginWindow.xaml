@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Plantjes.ViewModels"
-        xmlns:uc="clr-namespace:Plantjes.Views.UserControls"
+        xmlns:uc="clr-namespace:Plantjes.Views.UserControls" d:DataContext="{d:DesignInstance Type=vm:ViewModelLogin}"
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="464">
     <!--Written by Kenny-->
@@ -22,7 +22,7 @@
 
         <Grid.Background>
             <!--add background image-->
-            <ImageBrush  Stretch="Fill" ImageSource="../../../Image/waterval.jpeg"/>
+            <ImageBrush  Stretch="Fill" ImageSource="/Views/Home/waterval.jpeg" />
         </Grid.Background>
 
         <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="41,61,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -30,8 +30,9 @@
 
         <TextBox Name="txtGebruikersnaam"
                  Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="155,61,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="236"/>
-        <TextBox x:Name="txtWachtwoord"
-                 Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="155,92,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="236"/>
+
+        <uc:UserControlPassword  Password="{Binding passwordInput}" 
+                     HorizontalAlignment="Left" Margin="155,98,0,0" VerticalAlignment="Top" Height="26" Width="236"/>
 
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="155,130,0,0" VerticalAlignment="Top" Height="25" Width="87" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" 
                 Command="{Binding Path= loginCommand}">
