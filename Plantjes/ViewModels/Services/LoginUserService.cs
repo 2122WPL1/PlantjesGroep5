@@ -102,7 +102,7 @@ namespace Plantjes.ViewModels.Services
             { //checken welke rol je hebt gekozen.
                if (rolInput == "docent")
                {   //checken of het de juiste kenmerken geeft voor een docent nummer.
-                   if (vivesNrInput.Contains("u"))
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
                    {   //checken als het emailadres een geldig vives email is voor een docent.
                        if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
                        //checken als het email adres al bestaat of niet.
@@ -115,17 +115,17 @@ namespace Plantjes.ViewModels.Services
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();
                                loginWindow.Show();
-                           }//foutafhandeling
+                           }//foutafhandeling wachtwoord
                            else
                            {
                                Message = "zorg dat de wachtwoorden overeen komen.";
                            }
-                       }//foutafhandeling
+                       }//foutafhandeling emailadres
                        else
                        {
                            Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een docent, " + "\r\n" + " of het eamiladres is al in gebruik.";
                        }
-                   }//foutafhandeling
+                   }//foutafhandeling vives nummer
                    else
                    {
                        Message = "Het vives nummer is niet juist";
@@ -133,7 +133,7 @@ namespace Plantjes.ViewModels.Services
                }//checken welke rol je hebt gekozen.
                else if (rolInput == "student")
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
-                   if (vivesNrInput.Contains("r"))
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
                        if (emailAdresInput != null && emailAdresInput.Contains("student.vives.be") && emailAdresInput.Contains("@")
                            //checken als het email adres al bestaat of niet.
@@ -146,17 +146,17 @@ namespace Plantjes.ViewModels.Services
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();
                                loginWindow.Show();
-                           }//foutafhandeling
+                            }//foutafhandeling wachtwoord
                            else
                            {
                                Message = "zorg dat de wachtwoorden overeen komen.";
                            }
-                       }//foutafhandeling
+                       }//foutafhandeling emailadres
                        else
                        {
                            Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een student, " + "\r\n" + " of het eamiladres is al in gebruik.";
                        }
-                   }//foutafhandeling
+                   }//foutafhandeling vives nummer
                    else
                    {
                        Message = "Het vives nummer is niet juist";
@@ -176,23 +176,27 @@ namespace Plantjes.ViewModels.Services
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();
                                loginWindow.Show();
-                           }//foutafhandeling
-                           else
+                            }//foutafhandeling wachtwoord
+                            else
                            {
                                Message = "zorg dat de wachtwoorden overeen komen.";
                            }
-                       }
-                   }//foutafhandeling
+                       }//foutafhandeling emailadres
+                        else
+                        {
+                            Message = $"{emailAdresInput} is geen geldig emailadres.";
+                        }
+                   }//foutafhandeling vives nummer
                    else
                    {
                        Message = "vivesnummer moet leeg zijn.";
                    }
-               }//foutafhandeling
+               }//foutafhandeling rol
                else
                {
                    Message = "Het in gegeven rol bestaat niet, kies uit:\r\n docent, student, oudstudent.";
                }
-            }//foutafhandeling
+            }//foutafhandeling velden
             else
             {
                 Message = "zorg dat alle velden ingevuld zijn";

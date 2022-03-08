@@ -26,7 +26,7 @@ namespace Plantjes.ViewModels
             Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
-        { 
+        {   //checken dat er iets is in gevult zo dat het programma niet crached.
             if (firstNameInput != null &&
                 lastNameInput != null &&
                 rolInput != null &&
@@ -37,10 +37,10 @@ namespace Plantjes.ViewModels
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
                 passwordInput, passwordRepeatInput, rolInput.ToLower());
-            }
+            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {
-                errorMessage = "de velden moeten worden in gevuld \r\n om te registeren";
+                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren,\r\n maar niet voor oudstudenten";
             }
 
             //Application.Current.Windows[0]?.Close();
