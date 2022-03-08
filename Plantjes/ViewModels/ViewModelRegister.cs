@@ -26,10 +26,23 @@ namespace Plantjes.ViewModels
             Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
-        {
-            errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
-                 firstNameInput, emailAdresInput,
-                 passwordInput, passwordRepeatInput, rolInput.ToLower());
+        { 
+            if (firstNameInput != null &&
+                lastNameInput != null &&
+                rolInput != null &&
+                emailAdresInput != null &&
+                passwordInput != null &&
+                passwordRepeatInput != null)
+            {
+                errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
+                firstNameInput, emailAdresInput,
+                passwordInput, passwordRepeatInput, rolInput.ToLower());
+            }
+            else
+            {
+                errorMessage = "de velden moeten worden in gevuld \r\n om te registeren";
+            }
+
             //Application.Current.Windows[0]?.Close();
         }
         #region MVVM TextFieldsBinding

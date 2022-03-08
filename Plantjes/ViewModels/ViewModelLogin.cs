@@ -39,21 +39,28 @@ namespace Plantjes.ViewModels
         }
 
         private void LoginButtonClick()
-        {
+        {   //checkt of er wel iets is ingegeven bij username
             if (!string.IsNullOrWhiteSpace(userNameInput))
-            {
-                LoginResult loginResult = _loginService.CheckCredentials(userNameInput, passwordInput);
-
-                if (loginResult.loginStatus == LoginStatus.LoggedIn)
+            {   //checkt of er wel iets is ingegeven bij password
+                if (!string.IsNullOrWhiteSpace(passwordInput))
                 {
-                  //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    Application.Current.Windows[0]?.Close();
+                    LoginResult loginResult = _loginService.CheckCredentials(userNameInput, passwordInput);
+
+                    if (loginResult.loginStatus == LoginStatus.LoggedIn)
+                    {
+                        //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        Application.Current.Windows[0]?.Close();
+                    }
+                    else
+                    {
+                        errorMessage = loginResult.errorMessage;
+                    }
                 }
                 else
                 {
-                    errorMessage = loginResult.errorMessage;
+                    errorMessage = "wachtwoord invullen";
                 }
             }
             else
