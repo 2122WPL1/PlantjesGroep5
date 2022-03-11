@@ -88,7 +88,7 @@ namespace Plantjes.ViewModels.Services
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
-                                   string passwordInput, string passwordRepeatInput, string rolInput)
+                                   string passwordInput, string passwordRepeatInput, Rol rolInput)
         {
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
@@ -100,7 +100,7 @@ namespace Plantjes.ViewModels.Services
                 passwordInput != null &&
                 passwordRepeatInput != null)
             { //checken welke rol je hebt gekozen.
-               if (rolInput == "docent")
+               if (rolInput.Equals("docent"))
                {   //checken of het de juiste kenmerken geeft voor een docent nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
                    {   //checken als het emailadres een geldig vives email is voor een docent.
@@ -131,7 +131,7 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput == "student")
+               else if (rolInput.Equals("student"))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
@@ -162,7 +162,7 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput == "oudstudent")
+               else if (rolInput.Equals("oudstudent"))
                {   //checken of het leeg is voor een oudstudent.
                    if (string.IsNullOrWhiteSpace(vivesNrInput))
                    {   //checken als het een geldig emailadres is.

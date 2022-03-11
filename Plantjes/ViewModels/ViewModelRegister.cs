@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Plantjes.Models.Db;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Views.Home;
 using System.Windows;
@@ -36,11 +37,11 @@ namespace Plantjes.ViewModels
             {
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
-                passwordInput, passwordRepeatInput, rolInput.ToLower());
+                passwordInput, passwordRepeatInput, rolInput);
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {
-                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren,\r\n maar niet voor oudstudenten";
+                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
             }
 
             //Application.Current.Windows[0]?.Close();
@@ -52,7 +53,7 @@ namespace Plantjes.ViewModels
         private string _emailAdresInput;
         private string _passwordInput;
         private string _passwordRepeatInput;
-        private string _rolInput;
+        private Rol _rolInput;
         private string _errorMessage;
 
         public string errorMessage
@@ -141,11 +142,11 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string rolInput
+        public Rol rolInput
         {
             get
             {
-                return _rolInput;
+                return  _rolInput;
             }
             set
             {

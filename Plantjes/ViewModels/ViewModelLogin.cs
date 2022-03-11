@@ -57,12 +57,12 @@ namespace Plantjes.ViewModels
                     {
                         errorMessage = loginResult.errorMessage;
                     }
-                }
+                }//foutafhandeling voor password
                 else
                 {
                     errorMessage = "wachtwoord invullen";
                 }
-            }
+            }//foutafhandeling voor de gebruikers naam
             else
             {
                 errorMessage = "gebruikersnaam invullen";
