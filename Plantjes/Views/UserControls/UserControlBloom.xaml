@@ -281,7 +281,7 @@
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                       Content="CheckBox" Canvas.Left="599" Canvas.Top="483" Height="15" Width="15">
             </CheckBox>
-            <Button x:Name="BtnOpslagZoekenBloei" Content="Opslaan Bloei" Width="241" Height="50" Canvas.Left="847" Canvas.Top="490" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="BtnOpslagZoekenBloei" Content="opslaan bloei" Width="241" Height="50" Canvas.Left="847" Canvas.Top="490" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>

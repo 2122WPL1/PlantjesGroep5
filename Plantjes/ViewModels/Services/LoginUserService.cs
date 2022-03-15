@@ -88,7 +88,7 @@ namespace Plantjes.ViewModels.Services
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
-                                   string passwordInput, string passwordRepeatInput, string rolInput)
+                                   string passwordInput, string passwordRepeatInput, object rolInput)
         {
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;

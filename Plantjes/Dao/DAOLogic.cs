@@ -497,7 +497,7 @@ namespace Plantjes.Dao
         }
 
         //written by kenny
-        public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
+        public void RegisterUser(string vivesNr, string firstName, string lastName, object rol, string emailadres, string password)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();

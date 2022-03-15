@@ -10,7 +10,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Canvas x:Name="cvsVerzorging" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
-            <Button Content="Opslaan Groei" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button Content="opslaan verzorging" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

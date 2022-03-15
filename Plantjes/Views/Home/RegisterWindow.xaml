@@ -57,7 +57,7 @@
             <TextBox x:Name="txtRol"
                  Text="{Binding rolInput, UpdateSourceTrigger=PropertyChanged}" Margin="50,381,0,0"  TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="265"/>
 
-            <Button x:Name="btnRegister" Content="Registreer" Margin="175,315,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
+            <Button x:Name="btnRegister" Content="registreer" Margin="175,323,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
                 Command="{Binding registerCommand}" HorizontalAlignment="Left" Width="265">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -65,7 +65,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="btnBack" Content="Back" Margin="175,344,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
+            <Button x:Name="btnBack" Content="terug naar login" Margin="175,352,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
             Command="{Binding backCommand}" HorizontalAlignment="Left" Width="265">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">

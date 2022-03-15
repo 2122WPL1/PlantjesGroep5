@@ -67,7 +67,7 @@
    
             </ComboBox>
             <!-- Button voor het zoeken -->
-            <Button x:Name="btnZoeken" Content="Zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+            <Button x:Name="btnZoeken" Content="zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding SearchCommand}"
                     Height="35" Canvas.Left="20" Canvas.Top="488" Width="176">
                 <Button.Resources>
@@ -78,7 +78,7 @@
             </Button>
             <!-- Button voor het resetten -->
             <Button x:Name="btnNameReset"
-                    Content="Reset" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Content="reset" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="618" Width="176">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -87,7 +87,7 @@
                 </Button.Resources>
             </Button>
             <!-- Button voor het toevoegen -->
-            <Button x:Name="btnToevoegen" Content="Toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
+            <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
                 Command="{Binding SearchCommand}"
                 Height="35" Canvas.Left="20" Canvas.Top="553" Width="176">
                 <Button.Resources>

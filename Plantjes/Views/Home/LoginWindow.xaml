@@ -30,7 +30,7 @@
             <TextBox x:Name="txtWachtwoord"
                  Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,199,72,139"  TextWrapping="Wrap" Height="26" Width="236"/>
 
-            <Button x:Name="btnLogin" Content="Login" Margin="112,244,265,96" Height="24" Width="87" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            <Button x:Name="btnLogin" Content="login" Margin="186,278,191,69" Height="24" Width="236" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
                 Command="{Binding Path= loginCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -40,7 +40,7 @@
             </Button>
 
 
-            <Button x:Name="btnCancel" Content="Cancel" Margin="261,243,116,96" Height="25"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            <!--<Button x:Name="btnCancel" Content="Cancel" Margin="261,243,116,96" Height="25"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
                 Command="{Binding Path=cancelCommand}" Width="87" BorderBrush="#FF595757">
 
                 <Button.Resources>
@@ -48,9 +48,9 @@
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
-            </Button>
+            </Button>-->
 
-            <Button x:Name="btnRegister" Content="Registreer" Margin="112,289,116,50" Height="25" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            <Button x:Name="btnRegister" Content="registreer" Margin="186,336,191,10" Height="25" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
             Command="{Binding registerCommand}" Width="236">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
