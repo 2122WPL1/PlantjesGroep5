@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace Plantjes.ViewModels
 {
-    //written by kenny
+    //written by kenny test
     public class ViewModelRegister : ViewModelBase
     {
         private IloginUserService _loginService { get; }
