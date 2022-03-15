@@ -2,6 +2,7 @@
 using Plantjes.Models.Db;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Views.Home;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace Plantjes.ViewModels
@@ -9,7 +10,7 @@ namespace Plantjes.ViewModels
     //written by kenny test
     public class ViewModelRegister : ViewModelBase
     {
-        private IloginUserService _loginService { get; }
+        private IloginUserService _loginService { get; set; }
 
         public RelayCommand registerCommand { get; set; }
         public RelayCommand backCommand { get; set; }
@@ -18,6 +19,11 @@ namespace Plantjes.ViewModels
             this._loginService = loginUserService;
             registerCommand = new RelayCommand(RegisterButtonClick);
             backCommand = new RelayCommand(BackButtonClick);
+        }
+
+        public void fillComboboxe()
+        {
+            _loginService.fillComboBoxRol(cmbRols);
         }
 
         public void BackButtonClick()
@@ -30,7 +36,7 @@ namespace Plantjes.ViewModels
         {   //checken dat er iets is in gevult zo dat het programma niet crached.
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                rolInput != null &&
+                cmbRols != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -46,6 +52,7 @@ namespace Plantjes.ViewModels
 
             //Application.Current.Windows[0]?.Close();
         }
+        public ObservableCollection<Rol> cmbRols { get; set; }
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
         private string _firstNameInput;

@@ -12,17 +12,25 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Plantjes.Dao.DAOdb;
+using System.Collections.ObjectModel;
 
 namespace Plantjes.ViewModels.Services
 {
     public class LoginUserService : IloginUserService, INotifyPropertyChanged
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
+        private DAORol _daoRol;
         //dao verklaren om data op te vragen en te setten in de databank
         private DAOGebruiker _dao;
         public LoginUserService()
         {
             this._dao = DAOGebruiker.Instance();
+        }
+        public void fillComboBoxRol(ObservableCollection<Rol> cmbRolCollection)
+        {
+            this._daoRol = DAORol.Instance();
+            var list = _daoRol.GetAllRol();
+
         }
         #region Login Region
         //globale gebruiker om te gebruiken in de service
@@ -50,9 +58,6 @@ namespace Plantjes.ViewModels.Services
             //var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
             //var md5Hasher = new MD5CryptoServiceProvider();
             //var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
-
-
-
 
             if (gebruiker != null)
             {
@@ -93,19 +98,19 @@ namespace Plantjes.ViewModels.Services
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
-                                   string passwordInput, string passwordRepeatInput, Rol rolInput)
+                                   string passwordInput, string passwordRepeatInput, Rol cmbRols)
         {
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
             //checken of alle velden ingevuld zijn
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                rolInput != null &&
+                cmbRols != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
             { //checken welke rol je hebt gekozen.
-               if (rolInput.Omschrijving.Equals("Docent"))
+               if (cmbRols.Omschrijving.Equals("Docent"))
                {   //checken of het de juiste kenmerken geeft voor een docent nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
                    {   //checken als het emailadres een geldig vives email is voor een docent.
@@ -115,7 +120,7 @@ namespace Plantjes.ViewModels.Services
                        {   //checken als het herhaalde wachtwoord klopt of niet.
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
-                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, cmbRols, emailAdresInput, passwordInput);
                                Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();
@@ -136,7 +141,7 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput.Omschrijving.Equals("Student"))
+               else if (cmbRols.Omschrijving.Equals("Student"))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
@@ -146,7 +151,7 @@ namespace Plantjes.ViewModels.Services
                        {   //checken als het herhaalde wachtwoord klopt of niet.
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
-                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, cmbRols, emailAdresInput, passwordInput);
                                Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();
@@ -167,7 +172,7 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput.Omschrijving.Equals("Oud-Student"))
+               else if (cmbRols.Omschrijving.Equals("Oud-Student"))
                {   //checken of het leeg is voor een oudstudent.
                    if (string.IsNullOrWhiteSpace(vivesNrInput))
                    {   //checken als het een geldig emailadres is.
@@ -175,7 +180,7 @@ namespace Plantjes.ViewModels.Services
                        {   //checken als het herhaalde wachtwoord klopt of niet.
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
-                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                               _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, cmbRols, emailAdresInput, passwordInput);
                                Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                                LoginWindow loginWindow = new LoginWindow();

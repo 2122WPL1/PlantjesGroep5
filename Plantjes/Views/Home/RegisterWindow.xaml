@@ -47,10 +47,11 @@
             <TextBox x:Name="txtWachtwoordHerhaal"
             Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-            <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120">
-                <ComboBoxItem Content="docent"/>
-                <ComboBoxItem Content="student"/>
-                <ComboBoxItem Content="oud-student"/>
+            <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
+                      DisplayMemberPath="omschrijving"
+                      SelectedValuePath="id"
+                      SelectedItem="{Binding Path=SelectedRol, Mode=TwoWay}" IsEditable="True">
             </ComboBox>
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
@@ -74,7 +75,7 @@
                 </Button.Resources>
 
             </Button>
-            <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="44" Width="265" FontWeight="Bold"/>
+            <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="58" Width="265" FontWeight="Bold"/>
 
 
         </Grid>
