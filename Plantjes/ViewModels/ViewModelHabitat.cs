@@ -4,16 +4,19 @@ using Plantjes.Models;
 using Plantjes.Models.Db;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelHabitat : ViewModelBase
     {
-        private DAOLogic _dao;
+        private DAOExtraPollenWaarde _daoPollen;
+        private DAOExtraNectarWaarde _daoNectar;
 
         public ViewModelHabitat(IDetailService detailservice)
         {
-            this._dao = DAOLogic.Instance();
+            this._daoPollen = DAOExtraPollenWaarde.Instance();
+            this._daoNectar = DAOExtraNectarWaarde.Instance();
 
 
 
@@ -32,7 +35,7 @@ namespace Plantjes.ViewModels
         //geschreven door christophe, op basis van een voorbeeld van owen
         public void fillComboBoxPollenwaarde()
         {
-            var list = _dao.FillExtraPollenwaardes();
+            var list = _daoPollen.FillExtraPollenwaardes();
 
             foreach (var item in list)
             {
@@ -57,7 +60,7 @@ namespace Plantjes.ViewModels
 
         public void fillComboBoxNectarwaarde()
         {
-            var list = _dao.FillExtraNectarwaardes();
+            var list = _daoNectar.FillExtraNectarwaardes();
 
             foreach (var item in list)
             {

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -18,10 +19,10 @@ namespace Plantjes.ViewModels.Services
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
         //dao verklaren om data op te vragen en te setten in de databank
-        private DAOLogic _dao;
+        private DAOGebruiker _dao;
         public LoginUserService()
         {
-            this._dao = DAOLogic.Instance();
+            this._dao = DAOGebruiker.Instance();
         }
         #region Login Region
         //globale gebruiker om te gebruiken in de service
