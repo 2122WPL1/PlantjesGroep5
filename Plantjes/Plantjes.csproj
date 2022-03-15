@@ -40,7 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Db\" />
+    <Resource Include="Image\LogoVives.ZonderAchtergrondJPG.JPG" />
+    <Resource Include="Views\Home\vivesNew-removebg-preview.png" />
   </ItemGroup>
 
 </Project>
