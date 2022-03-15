@@ -100,11 +100,11 @@ namespace Plantjes.ViewModels.Services
                 passwordInput != null &&
                 passwordRepeatInput != null)
             { //checken welke rol je hebt gekozen.
-               if (rolInput.Equals("docent"))
+               if (rolInput.Omschrijving.Equals("Docent"))
                {   //checken of het de juiste kenmerken geeft voor een docent nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
                    {   //checken als het emailadres een geldig vives email is voor een docent.
-                       if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
+                       if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("vives.be") 
                        //checken als het email adres al bestaat of niet.
                        && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                        {   //checken als het herhaalde wachtwoord klopt of niet.
@@ -131,11 +131,11 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput.Equals("student"))
+               else if (rolInput.Omschrijving.Equals("Student"))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
-                       if (emailAdresInput != null && emailAdresInput.Contains("student.vives.be") && emailAdresInput.Contains("@")
+                       if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("student.vives.be") 
                            //checken als het email adres al bestaat of niet.
                            && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                        {   //checken als het herhaalde wachtwoord klopt of niet.
@@ -162,12 +162,11 @@ namespace Plantjes.ViewModels.Services
                        Message = "Het vives nummer is niet juist";
                    }
                }//checken welke rol je hebt gekozen.
-               else if (rolInput.Equals("oudstudent"))
+               else if (rolInput.Omschrijving.Equals("Oud-Student"))
                {   //checken of het leeg is voor een oudstudent.
                    if (string.IsNullOrWhiteSpace(vivesNrInput))
                    {   //checken als het een geldig emailadres is.
-                       if (emailAdresInput != null && emailAdresInput.Contains("@")
-                       && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                       if (emailAdresInput != null && emailAdresInput.Contains("@") && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                        {   //checken als het herhaalde wachtwoord klopt of niet.
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
