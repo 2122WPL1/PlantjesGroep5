@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Plantjes.ViewModels"
-        xmlns:uc="clr-namespace:Plantjes.Views.UserControls"
+        xmlns:uc="clr-namespace:Plantjes.Views.UserControls" d:DataContext="{d:DesignInstance Type=vm:ViewModelLogin}"
         mc:Ignorable="d"
         Title="LoginWindow" Height="499" Width="564" WindowState="Normal" ResizeMode="CanResize" MinHeight="499" MinWidth="564">
 
