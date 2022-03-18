@@ -57,13 +57,13 @@ namespace Plantjes.ViewModels.Services
             }
             else
             {//indien geen geldig emailadress, errorMessage opvullen
-                loginResult.errorMessage = "Dit is geen geldig Vives emailadres.";
+                loginResult.errorMessage = "Dit is geen geldig emailadres.";
             }
 
             //omzetten van het ingegeven passwoord naar een gehashed passwoord
-            //var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
-            //var md5Hasher = new MD5CryptoServiceProvider();
-            //var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+            var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
+            var md5Hasher = new MD5CryptoServiceProvider();
+            var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
 
             if (gebruiker != null)
             {
