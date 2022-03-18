@@ -33,9 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\waterval.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Views\Home\waterval.jpeg" />
   </ItemGroup>
 

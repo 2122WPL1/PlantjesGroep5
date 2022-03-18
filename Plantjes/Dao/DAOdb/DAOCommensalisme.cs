@@ -7,29 +7,17 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOCommensalisme
+    public class DAOCommensalisme : DAOGeneric
     {
-        private static readonly DAOCommensalisme instance = new DAOCommensalisme();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOCommensalisme()
+        public DAOCommensalisme() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOCommensalisme Instance()
-        {
-            return instance;
+            //ctor
         }
 
         //Get a list of all the Commensalisme types
         public List<Commensalisme> GetAllCommensalisme()
         {
-            var commensalisme = context.Commensalismes.ToList();
+            var commensalisme = base.Context.Commensalismes.ToList();
             return commensalisme;
         }
     }

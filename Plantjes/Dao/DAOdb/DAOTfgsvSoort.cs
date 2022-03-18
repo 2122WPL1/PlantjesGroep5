@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOTfgsvSoort
+    public class DAOTfgsvSoort : DAOGeneric
     {
-        private static readonly DAOTfgsvSoort instance = new DAOTfgsvSoort();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOTfgsvSoort()
+        public DAOTfgsvSoort() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOTfgsvSoort Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
@@ -36,12 +24,12 @@ namespace Plantjes.Dao.DAOdb
             // Good way to interact with our datacontext
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvSoorts.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
+                var selection = base.Context.TfgsvSoorts.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvSoorts.Distinct().OrderBy(s => s.Soortnaam);
+                var selection = base.Context.TfgsvSoorts.Distinct().OrderBy(s => s.Soortnaam);
                 return selection;
             }
 

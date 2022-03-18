@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    class DAOExtra : DAOGeneric
+    public class DAODerived : DAOGeneric
     {
-        public DAOExtra() : base()
+        public DAODerived() : base()
         {
             //ctor
+        }
+
+        public void SomeSpecialFunction()
+        {
+            var myplants = base.Context.Plants.ToList();
         }
     }
 }

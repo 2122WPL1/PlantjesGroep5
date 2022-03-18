@@ -15,15 +15,19 @@ using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels.Services
 {
-    public class LoginUserService : IloginUserService, INotifyPropertyChanged
+    public class LoginUserService : IloginUserService, INotifyPropertyChanged, IDAOGeneric
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
+
         //dao verklaren om data op te vragen en te setten in de databank
         private DAOGebruiker _dao;
+
         public LoginUserService()
         {
-            this._dao = DAOGebruiker.Instance();
+            this._dao = DAOGeneric.Context();
         }
+
+
         #region Login Region
         //globale gebruiker om te gebruiken in de service
         public Gebruiker gebruiker = new Gebruiker();
@@ -93,7 +97,7 @@ namespace Plantjes.ViewModels.Services
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
-                                   string passwordInput, string passwordRepeatInput, string rolInput)
+                                   string passwordInput, string passwordRepeatInput, int rolInput)
         {
             //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
@@ -134,6 +138,13 @@ namespace Plantjes.ViewModels.Services
             }//Message terugsturen om te binden aan een label in de viewModel.
             return Message;
         }
+
+        public void SaveChanges()
+        {
+            //throw new NotImplementedException();
+        }
+
+
 
         #endregion
     }
