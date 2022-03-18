@@ -10,7 +10,7 @@ namespace Plantjes.ViewModels.Interfaces
         LoginResult CheckCredentials(string userNameInput, string passwordInput);
         string RegisterButton(string vivesNrInput, string lastNameInput,
             string firstNameInput, string emailAdresInput,
-            string passwordInput, string passwordRepeatInput, Rol cmbRolCollection);
+            string passwordInput, string passwordRepeatInput, int cmbRolCollection);
         string LoggedInMessage();
 
     }

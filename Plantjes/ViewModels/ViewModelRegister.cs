@@ -11,14 +11,16 @@ namespace Plantjes.ViewModels
     public class ViewModelRegister : ViewModelBase
     {
         private IloginUserService _loginService { get; set; }
-
         public RelayCommand registerCommand { get; set; }
         public RelayCommand backCommand { get; set; }
+        public ObservableCollection<Rol> cmbRols { get; set; }
         public ViewModelRegister(IloginUserService loginUserService)
         {
             this._loginService = loginUserService;
+            cmbRols = new ObservableCollection<Rol>();
             registerCommand = new RelayCommand(RegisterButtonClick);
             backCommand = new RelayCommand(BackButtonClick);
+            fillComboboxe();
         }
 
         public void fillComboboxe()
@@ -43,16 +45,18 @@ namespace Plantjes.ViewModels
             {
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
-                passwordInput, passwordRepeatInput, rolInput);
+                passwordInput, passwordRepeatInput, _rolInput);
+                
+
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {
                 errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
             }
-
+            
             //Application.Current.Windows[0]?.Close();
         }
-        public ObservableCollection<Rol> cmbRols { get; set; }
+        
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
         private string _firstNameInput;
@@ -60,7 +64,7 @@ namespace Plantjes.ViewModels
         private string _emailAdresInput;
         private string _passwordInput;
         private string _passwordRepeatInput;
-        private Rol _rolInput;
+        private int _rolInput;
         private string _errorMessage;
 
         public string errorMessage
@@ -149,7 +153,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
-        public Rol rolInput
+        public int rolInput
         {
             get
             {
