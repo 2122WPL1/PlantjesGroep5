@@ -14,9 +14,9 @@ namespace Plantjes.ViewModels.Interfaces
     {
         public static DAOGeneric instance = new DAOGeneric();
 
-        public static plantenContext _context;
-
-        //public plantenContext Context { get { return instance._context; } }
+        protected static plantenContext Context;
+        //static over alles gaat bestaand en geen instance/ object
+        //plantenContext is partial => static instance aanmaken maar is geen echt instance
 
 
 

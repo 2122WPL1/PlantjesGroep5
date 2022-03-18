@@ -8,20 +8,21 @@ namespace Plantjes.Dao.DAOdb
 {
     public class DAOGeneric : plantenContext
     {
-        private static readonly DAOGeneric instance = new DAOGeneric();
 
-        private plantenContext _context;
+        //private static readonly DAOGeneric instance = new DAOGeneric();
+        //datacontext niet public maken (connectie nr db)
+        protected static plantenContext Context = new plantenContext();
 
-        public plantenContext Context{ get { return instance._context; } }
+        //public static plantenContext Context{ get { return instance._context; } }
 
         public DAOGeneric()
         {
-            this._context = new plantenContext();
+            //this._context = new plantenContext();
         }
 
         public void SaveChanges()
         {
-            this._context.SaveChanges();
+            Context.SaveChanges();
         }
 
     }

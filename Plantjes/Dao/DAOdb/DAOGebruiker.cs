@@ -17,7 +17,7 @@ namespace Plantjes.Dao.DAOdb
 
         public Gebruiker GetGebruikerWithEmail(string userEmail)
         {
-            var gebruiker = base.Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+            var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
             return gebruiker;
         }
 
@@ -36,14 +36,14 @@ namespace Plantjes.Dao.DAOdb
                 Emailadres = emailadres,
                 HashPaswoord = passwordHashed
             };
-            base.Context.Gebruikers.Add(gebruiker);
-            _ = base.Context.SaveChanges();
+            Context.Gebruikers.Add(gebruiker);
+            Context.SaveChanges();
         }
 
         //written by kenny
         public List<Gebruiker> getAllGebruikers()
         {
-            var gebruiker = base.Context.Gebruikers.ToList();
+            var gebruiker = Context.Gebruikers.ToList();
             return gebruiker;
         }
         public bool CheckIfEmailAlreadyExists(string email)

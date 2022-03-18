@@ -20,11 +20,12 @@ namespace Plantjes.ViewModels.Services
         private Gebruiker _gebruiker { get; set; }
 
         //dao verklaren om data op te vragen en te setten in de databank
-        private DAOGebruiker _dao;
+        private DAOGebruiker _dao = new DAOGebruiker();
+
 
         public LoginUserService()
         {
-            this._dao = DAOGeneric.Context();
+            this._dao = Context;
         }
 
 
