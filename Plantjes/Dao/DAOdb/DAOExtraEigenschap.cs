@@ -17,7 +17,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<ExtraEigenschap> GetAllExtraEigenschap()
         {
-            var extraEigenschap = base.Context.ExtraEigenschaps.ToList();
+            var extraEigenschap = Context.ExtraEigenschaps.ToList();
             return extraEigenschap;
         }
     }

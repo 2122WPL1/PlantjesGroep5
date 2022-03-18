@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<UpdatePlant> GetAllUpdatePlant()
         {
-            var updatePlant = base.Context.UpdatePlants.ToList();
+            var updatePlant = Context.UpdatePlants.ToList();
             return updatePlant;
         }
     }

@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<ExtraNectarwaarde> FillExtraNectarwaardes()
         {
-            var selection = context.ExtraNectarwaardes.ToList();
+            var selection = Context.ExtraNectarwaardes.ToList();
             return selection;
         }
     }

@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public string GetImages(long id, string ImageCategorie)
         {
-            var foto = base.Context.Fotos.Where(s => s.Eigenschap == ImageCategorie).SingleOrDefault(s => s.PlantId == id);
+            var foto = Context.Fotos.Where(s => s.Eigenschap == ImageCategorie).SingleOrDefault(s => s.PlantId == id);
 
 
             if (foto != null)
@@ -30,7 +30,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<Foto> GetAllFoto()
         {
-            var foto = base.Context.Fotos.ToList();
+            var foto = Context.Fotos.ToList();
             return foto;
         }
     }

@@ -18,14 +18,14 @@ namespace Plantjes.Dao.DAOdb
 
         public Rol GetRol(string Rol)
         {
-            var getRol = base.Context.Rols.SingleOrDefault(g => g == g.Gebruikers);
+            var getRol = Context.Rols.SingleOrDefault(g => g == g.Gebruikers);
             return getRol;
 
         }
 
         public List<Rol> GetAllRol()
         {
-            var updateRol = base.Context.Rols.ToList();
+            var updateRol = Context.Rols.ToList();
             return updateRol;
         }
     }

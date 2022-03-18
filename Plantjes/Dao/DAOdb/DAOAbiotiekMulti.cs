@@ -20,7 +20,7 @@ namespace Plantjes.Dao.DAOdb
             //List is unfiltered, a plantId can be present multiple times
             //The aditional filteren will take place in the ViewModel
 
-            var abioMultiList = base.Context.AbiotiekMultis.ToList();
+            var abioMultiList = Context.AbiotiekMultis.ToList();
 
             return abioMultiList;
         }

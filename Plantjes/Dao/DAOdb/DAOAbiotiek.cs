@@ -18,7 +18,7 @@ namespace Plantjes.Dao
         //Get a list of all the Abiotiek types
         public List<Abiotiek> GetAllAbiotieks()
         {
-            var abiotiek = base.Context.Abiotieks.ToList();
+            var abiotiek = Context.Abiotieks.ToList();
             return abiotiek;
         }
     }

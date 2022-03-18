@@ -25,13 +25,13 @@ namespace Plantjes.Dao.DAOdb
 
             if (selectedItem > 0)
             {
-                var selection = base.Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
+                var selection = Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
                 return selection;
 
             }
             else
             {
-                var selection = base.Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
+                var selection = Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
                 return selection;
             }
 

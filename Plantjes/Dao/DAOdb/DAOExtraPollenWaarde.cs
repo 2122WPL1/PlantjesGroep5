@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<ExtraPollenwaarde> FillExtraPollenwaardes()
         {
-            var selection = base.Context.ExtraPollenwaardes.ToList();
+            var selection = Context.ExtraPollenwaardes.ToList();
             return selection;
         }
 

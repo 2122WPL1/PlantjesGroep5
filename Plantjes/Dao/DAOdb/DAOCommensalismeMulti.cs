@@ -19,7 +19,7 @@ namespace Plantjes.Dao.DAOdb
             //List is unfiltered, a plantId can be present multiple times
             //The aditional filtering will take place in the ViewModel
 
-            var commensalismeMulti = base.Context.CommensalismeMultis.ToList();
+            var commensalismeMulti = Context.CommensalismeMultis.ToList();
             return commensalismeMulti;
         }
 

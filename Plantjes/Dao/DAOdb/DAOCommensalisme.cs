@@ -17,7 +17,7 @@ namespace Plantjes.Dao.DAOdb
         //Get a list of all the Commensalisme types
         public List<Commensalisme> GetAllCommensalisme()
         {
-            var commensalisme = base.Context.Commensalismes.ToList();
+            var commensalisme = Context.Commensalismes.ToList();
             return commensalisme;
         }
     }

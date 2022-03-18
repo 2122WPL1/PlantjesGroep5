@@ -17,7 +17,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<BeheerMaand> FillBeheerdaad()
         {
-            var selection = base.Context.BeheerMaands.ToList();
+            var selection = Context.BeheerMaands.ToList();
             return selection;
         }
 
@@ -26,7 +26,7 @@ namespace Plantjes.Dao.DAOdb
         //Get a list of all the Beheermaand types
         public List<BeheerMaand> GetBeheerMaanden()
         {
-            var beheerMaanden = base.Context.BeheerMaands.ToList();
+            var beheerMaanden = Context.BeheerMaands.ToList();
             return beheerMaanden;
         }
     }

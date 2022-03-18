@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public List<Fenotype> GetAllFenoTypes()
         {
-            var fenoTypes = base.Context.Fenotypes.ToList();
+            var fenoTypes = Context.Fenotypes.ToList();
             return fenoTypes;
         }
 
@@ -30,7 +30,7 @@ namespace Plantjes.Dao.DAOdb
             // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
             // Good way to interact with our datacontext
 
-            var selection = base.Context.Fenotypes.Distinct().OrderBy(s => s.RatioBloeiBlad);
+            var selection = Context.Fenotypes.Distinct().OrderBy(s => s.RatioBloeiBlad);
             return selection;
 
         }

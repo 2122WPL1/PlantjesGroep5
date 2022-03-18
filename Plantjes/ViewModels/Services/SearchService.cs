@@ -10,6 +10,7 @@ using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Models.Db;
 using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -34,9 +35,10 @@ namespace Plantjes.ViewModels.Services
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private DAOPlant _dao;
         public SearchService()
         {
-            this._daoPlant = DAOPlant.Instance();
+            this._dao = SimpleIoc.Default.GetInstance<DAOPlant>();
             //this._daoAbiotiek = DAOAbiotiek.Instance();
 
         }

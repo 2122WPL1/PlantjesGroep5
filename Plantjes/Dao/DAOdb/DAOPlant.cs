@@ -19,7 +19,7 @@ namespace Plantjes.Dao.DAOdb
         public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd
-            var plants = base.Context.Plants.ToList();
+            var plants = Context.Plants.ToList();
             return plants;
         }
     }

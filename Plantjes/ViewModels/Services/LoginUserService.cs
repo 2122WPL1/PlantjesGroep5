@@ -12,20 +12,21 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels.Services
 {
-    public class LoginUserService : IloginUserService, INotifyPropertyChanged, IDAOGeneric
+    public class LoginUserService : IloginUserService
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
 
         //dao verklaren om data op te vragen en te setten in de databank
-        private DAOGebruiker _dao = new DAOGebruiker();
+        private DAOGebruiker _dao;
 
 
         public LoginUserService()
         {
-            this._dao = Context;
+            this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
         }
 
 

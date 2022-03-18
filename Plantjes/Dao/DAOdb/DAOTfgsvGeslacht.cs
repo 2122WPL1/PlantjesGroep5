@@ -24,13 +24,13 @@ namespace Plantjes.Dao.DAOdb
             // Good way to interact with our datacontext
             if (selectedItem > 0)
             {
-                var selection = base.Context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam)
+                var selection = Context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam)
                     .Where(s => s.FamilieFamileId == selectedItem);
                 return selection;
             }
             else
             {
-                var selection = base.Context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam);
+                var selection = Context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam);
                 return selection;
             }
             //
