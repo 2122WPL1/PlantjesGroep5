@@ -70,7 +70,7 @@ namespace Plantjes.ViewModels.Services
                 _gebruiker = gebruiker;
                 loginResult.gebruiker = gebruiker;
                 //passwoord controle
-                if (gebruiker.HashPaswoord != null /*&& passwordInput.SequenceEqual(gebruiker.HashPaswoord)*/)
+                if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
                 {   //indien true status naar LoggedIn zetten
                     loginResult.loginStatus = LoginStatus.LoggedIn;
                 }
