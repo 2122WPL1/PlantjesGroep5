@@ -11,6 +11,7 @@ using Plantjes.ViewModels.Interfaces;
 using Plantjes.Models.Db;
 using Plantjes.Dao.DAOdb;
 using GalaSoft.MvvmLight.Ioc;
+using Plantjes.Models.Classes;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -195,7 +196,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin voor mvvm en later services
         public void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection)
         {
-            this._daoTfgsvType = DAOTfgsvType.Instance();
+            this._daoTfgsvType = SimpleIoc.Default.GetInstance<DAOTfgsvType>();
             var list = _daoTfgsvType.fillTfgsvType();
 
             foreach (var item in list)
@@ -206,7 +207,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection)
         {
-            this._daoTfgsvFamilie = DAOTfgsvFamilie.Instance();
+            this._daoTfgsvFamilie = SimpleIoc.Default.GetInstance<DAOTfgsvFamilie>();
             var list = new List<TfgsvFamilie>(); /*Enumerable.Empty<TfgsvFamilie>().AsQueryable();*/
 
             //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
@@ -240,7 +241,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection)
         {
-            this._daoTfgsvGeslacht = DAOTfgsvGeslacht.Instance();
+            this._daoTfgsvGeslacht = SimpleIoc.Default.GetInstance<DAOTfgsvGeslacht>();
             var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
 
             //use the FamilieId, selected in the combobox to filter the list and load the remaining plant geslacht in the geslacht combobox
@@ -275,7 +276,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
         {
-            this._daoTfgsvSoort = DAOTfgsvSoort.Instance();
+            this._daoTfgsvSoort = SimpleIoc.Default.GetInstance<DAOTfgsvSoort>();
             var list = Enumerable.Empty<TfgsvSoort>().AsQueryable();
 
             //use the GeslachtId, selected in the combobox to filter the list and load the remaining plant Soort in the Soort combobox
@@ -310,7 +311,7 @@ namespace Plantjes.ViewModels.Services
         {
 
             //initialiseer DAOTfgsvVariant:
-            this._daoTfgsvVariant = DAOTfgsvVariant.Instance();
+            this._daoTfgsvVariant = SimpleIoc.Default.GetInstance<DAOTfgsvVariant>();
             // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
             var list = _daoTfgsvVariant.fillTfgsvVariant();
                 // clearing te content of te combobox of Variant
@@ -331,7 +332,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
             {
-            this._daoFenotype = DAOFenotype.Instance();
+            this._daoFenotype = SimpleIoc.Default.GetInstance<DAOFenotype>();
             //not currently used in the cascade search
             //will be adjusted later (dao)
             var list = _daoFenotype.fillFenoTypeRatioBloeiBlad();
@@ -408,7 +409,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek list, then we'll need to filter that list
             ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
-            this._daoAbiotiek = DAOAbiotiek.Instance();
+            this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
             var abioList = _daoAbiotiek.GetAllAbiotieks();
 
             foreach (var itemAbio in abioList)
@@ -432,7 +433,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek_Multi list, then we'll need to filter that list
             ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
-            this._daoAbiotiekMulti = DAOAbiotiekMulti.Instance();
+            this._daoAbiotiekMulti = SimpleIoc.Default.GetInstance<DAOAbiotiekMulti>();
             var abioMultiList = _daoAbiotiekMulti.GetAllAbiotieksMulti();
             bool hasCheckedPlant;
 
@@ -464,7 +465,7 @@ namespace Plantjes.ViewModels.Services
             ////Once filtered: put the remaining Beheermaand types in the detailSelectedPlant Observable Collection
 
             //initialiseer DAOBeheerMaand
-            this._daoBeheerMaand = DAOBeheerMaand.Instance();
+            this._daoBeheerMaand = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var beheerMaandList = _daoBeheerMaand.GetBeheerMaanden();
 
@@ -501,7 +502,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Commensalisme list consisting of every possible property, then we'll need to filter that list
             ////by checking if the Commensalisme.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Commensalisme types in the detailSelectedPlant Observable Collection
-            this._daoCommensalisme = DAOCommensalisme.Instance();
+            this._daoCommensalisme = SimpleIoc.Default.GetInstance<DAOCommensalisme>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var commensalismeList = _daoCommensalisme.GetAllCommensalisme();
 
@@ -524,7 +525,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an CommensalismeMulti list consisting of every possible property, then we'll need to filter that list
             ////by checking if the CommensalismeMulti.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining CommensalismeMulti types in the detailSelectedPlant Observable Collection
-            this._daoCommensalismeMulti = DAOCommensalismeMulti.Instance();
+            this._daoCommensalismeMulti = SimpleIoc.Default.GetInstance<DAOCommensalismeMulti>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var commensalismeMultiList = _daoCommensalismeMulti.GetAllCommensalismeMulti();
             bool hasCheckedPlant;
@@ -551,7 +552,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an ExtraEigenschap list, then we'll need to filter that list
             ////by checking if the ExtraEigenschap.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining ExtraEigenschap types in the detailSelectedPlant Observable Collection
-            this._daoExtraEigenschap = DAOExtraEigenschap.Instance();
+            this._daoExtraEigenschap = SimpleIoc.Default.GetInstance<DAOExtraEigenschap>();
             var extraEigenschapList = _daoExtraEigenschap.GetAllExtraEigenschap();
 
             foreach (var itemExtraEigenschap in extraEigenschapList)
@@ -624,7 +625,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Fenotype list, then we'll need to filter that list
             ////by checking if the Fenotype.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Fenotype types in the detailSelectedPlant Observable Collection
-            this._daoFenotype = DAOFenotype.Instance();
+            this._daoFenotype = SimpleIoc.Default.GetInstance<DAOFenotype>();
             var fenoTypeList = _daoFenotype.GetAllFenoTypes();
 
             foreach (var itemFenotype in fenoTypeList)
@@ -653,7 +654,7 @@ namespace Plantjes.ViewModels.Services
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {
             //initialise DAOFoto
-            this._daoFoto = DAOFoto.Instance();
+            this._daoFoto = SimpleIoc.Default.GetInstance<DAOFoto>();
             // Request location of the image
             string location = "";
             if (SelectedPlantInResult != null)
@@ -676,6 +677,16 @@ namespace Plantjes.ViewModels.Services
             }
 
             return null;
+        }
+
+        public LoginResult CheckCredentials(string userNameInput, string passwordInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string RegisterButton(string vivesNrInput, string lastNameInput, string firstNameInput, string emailAdresInput, string passwordInput, string passwordRepeatInput, int rolInput)
+        {
+            throw new NotImplementedException();
         }
 
     }

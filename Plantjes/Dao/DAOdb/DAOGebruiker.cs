@@ -21,6 +21,13 @@ namespace Plantjes.Dao.DAOdb
             return gebruiker;
         }
 
+
+        public List<Gebruiker> getAllGebruikers()
+        {
+            var gebruiker = Context.Gebruikers.ToList();
+            return gebruiker;
+        }
+
         public void RegisterUser(string vivesNr, string firstName, string lastName, int rolId, string emailadres, string password)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
@@ -40,12 +47,7 @@ namespace Plantjes.Dao.DAOdb
             Context.SaveChanges();
         }
 
-        //written by kenny
-        public List<Gebruiker> getAllGebruikers()
-        {
-            var gebruiker = Context.Gebruikers.ToList();
-            return gebruiker;
-        }
+        
         public bool CheckIfEmailAlreadyExists(string email)
         {
             bool result = false;

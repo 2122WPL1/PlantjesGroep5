@@ -39,7 +39,7 @@ namespace Plantjes.ViewModels
         private string _emailAdresInput;
         private string _passwordInput;
         private string _passwordRepeatInput;
-        private string _rolInput;
+        private int _rolInput;
         private string _errorMessage;
 
         public string errorMessage
@@ -128,7 +128,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string rolInput
+        public int rolInput
         {
             get
             {
