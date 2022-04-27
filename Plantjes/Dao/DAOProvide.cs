@@ -44,7 +44,7 @@ namespace Plantjes.Dao.DAOdb
 
 
             //Voor Rol later:
-            iocc.Register<DAORol>(() => new DAORol());
+            //iocc.Register<DAORol>(() => new DAORol());
         }
     }
 }
