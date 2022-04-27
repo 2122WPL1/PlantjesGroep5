@@ -21,7 +21,7 @@ namespace Plantjes.Dao.DAOdb
 
             //var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
 
-            var gebruiker = context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Emailadres == userEmail);
+            var gebruiker = Context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Emailadres == userEmail);
 
             return gebruiker;
         }
