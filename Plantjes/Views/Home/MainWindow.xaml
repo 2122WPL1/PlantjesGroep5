@@ -8,10 +8,10 @@
         xmlns:viewModels="clr-namespace:Plantjes.ViewModels"
 
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1250">
+        Title="MainWindow" Height="800" Width="1250" WindowState="Maximized">
 
     <Window.Resources>
-        <!--deze zijn nodig voor de navigatie van de app-->
+        <!-- templates die nodig zijn voor de navigatie van de app-->
         <DataTemplate DataType = "{x:Type viewModels:ViewModelNameResult}">
             <pages:UserControlName/>
         </DataTemplate>
@@ -36,8 +36,8 @@
         <DataTemplate DataType = "{x:Type viewModels:ViewModelAppearance}">
             <pages:UserControlAppearance/>
         </DataTemplate>
-
     </Window.Resources>
+
     <Window.Background>
         <SolidColorBrush Color="#FFC6DCBF"/>
     </Window.Background>
@@ -52,101 +52,8 @@
                 <RowDefinition Height="884.04"></RowDefinition>
             </Grid.RowDefinitions>
 
-
-
-
-            <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWBLOOM">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWGROOMING">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWGROW">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWAPPEARANCE">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWHABITAT">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="948,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1078,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnExporteergeselecteerd" 
-                Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            <!-- verschillende buttons -->
+            <Button x:Name="btnNaam" Content="naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
                 Command="{Binding mainNavigationCommand}"
                 CommandParameter="VIEWNAME" >
                 <Button.Resources>
@@ -157,21 +64,117 @@
             </Button>
 
 
+            <Button x:Name="btnBloei" Content="bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWBLOOM">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnGroei" Content="groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWGROW">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnHabitat" Content="habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWHABITAT">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnUiterlijk" Content="uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWAPPEARANCE">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnVerzorging" Content="verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWGROOMING">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnFotos" Content="foto's toevoegen" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="166" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+            <Button x:Name="btnLopendVerzoek" Content="lopend verzoek" HorizontalAlignment="Left" Margin="989,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnSorteer" Content="sorteer bij:" HorizontalAlignment="Left" Margin="1162,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+            <Button x:Name="btnExporteergeselecteerd" 
+                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnExporteeralle" Content="exporteer alle" HorizontalAlignment="Left" Margin="1119,51,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+
             <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,176,47,700" Background="#99FFFFFF"/>
 
 
-
-
-            <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
-
             <!-- hier doe je de binding van het currentViewModel !Clue van het systeem -->
-            <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="773" VerticalAlignment="Top">
+            <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="727" VerticalAlignment="Top">
                 <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Left" Width="1210" Height="754" VerticalAlignment="Center" Margin="10,0,0,0"/>
             </Grid>
-            <Canvas Margin="42,51,437,796" Background="#99FFFFFF">
-                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="724"/>
+
+            <!-- log in boodschap-->
+            <Canvas Margin="42,51,603,796" Background="#99FFFFFF">
+                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="647"/>
             </Canvas>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="1183,854,0,0" VerticalAlignment="Top"/>
+
+
         </Grid>
     </Viewbox>
-    
+
 </Window>
