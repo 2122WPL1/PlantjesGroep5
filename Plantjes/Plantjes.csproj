@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="Image\waterval.jpeg" />
-    <None Remove="Views\Home\waterval.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,15 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\waterval.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Home\waterval.jpeg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Image\LogoVives.ZonderAchtergrondJPG.JPG" />
-    <Resource Include="Views\Home\vivesNew-removebg-preview.png" />
+    <Resource Include="Image\Vives_Logo_NeoGreen.png" />
   </ItemGroup>
 
 </Project>
