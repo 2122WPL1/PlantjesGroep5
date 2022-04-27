@@ -15,6 +15,7 @@
 
 # Mono auto generated files
 mono_crash.*
+Plantjes/Dao/SQLConnection.cs
 
 <<<<<<< HEAD
 #Plantjes connectie
@@ -24,7 +25,7 @@ Plantjes\Dao\SQLConnection.cs
 Plantjes/Dao/SQLConnection.cs
 
 #Connectionstring ignore
-SQLConnection.cs
+
 
 >>>>>>> origin/DEV
 

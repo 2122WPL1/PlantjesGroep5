@@ -27,10 +27,10 @@ namespace Plantjes.Dao.DAOdb
             return instance;
         }
 
-        public List<Rol> GetAllRol()
+        public IQueryable<Rol> fillRol()
         {
-            var updateRol = context.Rols.ToList();
-            return updateRol;
+            var selection = context.Rols.Distinct();
+            return selection;
         }
     }
 }
