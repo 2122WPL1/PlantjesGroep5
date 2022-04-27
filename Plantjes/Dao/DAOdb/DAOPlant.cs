@@ -20,6 +20,9 @@ namespace Plantjes.Dao.DAOdb
         {
             // kijken hoeveel er zijn geselecteerd
             var plants = Context.Plants.ToList();
+
+            var b = 1;
+            var a = 1 / (b - b);
             return plants;
         }
     }
