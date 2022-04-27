@@ -261,14 +261,12 @@ namespace Plantjes.ViewModels.Services
             //adding or list to the combobox
             foreach (var item in list)
             {
-
                 if (!ControleList.Contains(item.Geslachtnaam))
                 {
                     cmbGeslachtCollection.Add(item);
                     ControleList.Add(item.Geslachtnaam);
                 }
             }
-
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
@@ -306,7 +304,6 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
-
             //initialiseer DAOTfgsvVariant:
             this._daoTfgsvVariant = DAOTfgsvVariant.Instance();
             // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
@@ -668,7 +665,6 @@ namespace Plantjes.ViewModels.Services
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(location, UriKind.Absolute);
                     bitmap.EndInit();
-
                     return bitmap;
                 }
             }
