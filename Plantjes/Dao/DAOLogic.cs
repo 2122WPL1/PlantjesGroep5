@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using Plantjes.Models;
 using Plantjes.Models.Db;
+using Plantjes.Dao.DAOdb;
 /*comments kenny*/
 //using System.Windows.Controls;
 
@@ -36,6 +37,12 @@ namespace Plantjes.Dao
         }
         /* 4.gebruik: var example = DAOLogic.Instance();
 }
+
+
+
+
+
+
 
 
 
@@ -188,197 +195,281 @@ namespace Plantjes.Dao
         #endregion
         /* HELP FUNCTIONS */
 
-        //get a list of all the plants.
-        ///Kenny
-        public List<Plant> getAllPlants()
-        {
-            // kijken hoeveel er zijn geselecteerd
 
-            var plants = context.Plants.ToList();
-            return plants;
-        }
-        ///Owen
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOBeheerMaand
+        /// and applied changes in SearchService.cs
+        /// </summary>
+        ////get a list of all the plants.
+        /////Kenny
+        //public List<Plant> getAllPlants()
+        //{
+        //    // kijken hoeveel er zijn geselecteerd
+
         public string GetImages(long id , string ImageCategorie)
         {
             var foto = context.Fotos.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.PlantId == id);
             
+        {
+            var foto = context.Fotos.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            
+        {
+            var foto = context.Fotos.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            
 
-            if (foto != null)
-            {
-                var location = foto;
-                return location.UrlLocatie;
-            }
+        //    if (foto != null)
+        //    {
+        //        var location = foto;
+        //        return location.UrlLocatie;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
         ///Robin
         #region Lists of all the plant properties with multiple values, used to display plant details
 
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOAbiotiek
+        /// and applied changes in SearchService.cs******
+        /// </summary>
         //Get a list of all the Abiotiek types
-        public List<Abiotiek> GetAllAbiotieks()
-        {
-            var abiotiek = context.Abiotieks.ToList();
-            return abiotiek;
-        }
+        //public List<Abiotiek> GetAllAbiotieks()
+        //{
+        //    var abiotiek = context.Abiotieks.ToList();
+        //    return abiotiek;
+        //}
 
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOAbiotiekMulti
+        /// and applied changes in SearchService.cs******
+        /// </summary>
         //Get a list of all the AbiotiekMulti types
-        public List<AbiotiekMulti> GetAllAbiotieksMulti()
-        {
-            //List is unfiltered, a plantId can be present multiple times
-            //The aditional filteren will take place in the ViewModel
+        //public List<AbiotiekMulti> GetAllAbiotieksMulti()
+        //{
+        //    //List is unfiltered, a plantId can be present multiple times
+        //    //The aditional filteren will take place in the ViewModel
 
-            var abioMultiList = context.AbiotiekMultis.ToList();
+        //    var abioMultiList = context.AbiotiekMultis.ToList();
 
-            return abioMultiList;
-        }
+        //    return abioMultiList;
+        //}
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOBeheerMaand 
+        /// </summary>
         //Get a list of all the Beheermaand types
-        public List<BeheerMaand> GetBeheerMaanden()
-        {
-            var beheerMaanden = context.BeheerMaands.ToList();
-            return beheerMaanden;
-        }
+        //public List<BeheerMaand> GetBeheerMaanden()
+        //{
+        //    var beheerMaanden = context.BeheerMaands.ToList();
+        //    return beheerMaanden;
+        //}
 
-        public List<Commensalisme> GetAllCommensalisme()
-        {
-            var commensalisme = context.Commensalismes.ToList();
-            return commensalisme;
-        }
-        public List<CommensalismeMulti> GetAllCommensalismeMulti()
-        {
-            //List is unfiltered, a plantId can be present multiple times
-            //The aditional filtering will take place in the ViewModel
 
-            var commensalismeMulti = context.CommensalismeMultis.ToList();
-            return commensalismeMulti;
-        }
-        public List<ExtraEigenschap> GetAllExtraEigenschap()
-        {
-            var extraEigenschap = context.ExtraEigenschaps.ToList();
-            return extraEigenschap;
-        }
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOCommensalisme
+        /// and applied changes in SearchService.cs
+        /// </summary>
+        //public List<Commensalisme> GetAllCommensalisme()
+        //{
+        //    var commensalisme = context.Commensalismes.ToList();
+        //    return commensalisme;
+        //}
 
-        public List<Fenotype> GetAllFenoTypes()
-        {
-            var fenoTypes = context.Fenotypes
-                .ToList();
-            return fenoTypes;
-        }
-        public List<Foto> GetAllFoto()
-        {
-            var foto = context.Fotos.ToList();
-            return foto;
-        }
-        public List<UpdatePlant> GetAllUpdatePlant()
-        {
-            var updatePlant = context.UpdatePlants.ToList();
-            return updatePlant;
-        }
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOCommensalismeMulti
+        /// and applied changes in SearchService.cs
+        /// </summary>
+        //public List<CommensalismeMulti> GetAllCommensalismeMulti()
+        //{
+        //    //List is unfiltered, a plantId can be present multiple times
+        //    //The aditional filtering will take place in the ViewModel
+
+        //    var commensalismeMulti = context.CommensalismeMultis.ToList();
+        //    return commensalismeMulti;
+        //}
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOExtraEigenschap
+        /// and applied changes in SearchService
+        /// </summary>
+        //public List<ExtraEigenschap> GetAllExtraEigenschap()
+        //{
+        //    var extraEigenschap = context.ExtraEigenschaps.ToList();
+        //    return extraEigenschap;
+        //}
+
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOFenotype
+        /// and applied changes in SearchService
+        /// </summary>
+        //public List<Fenotype> GetAllFenoTypes()
+        //{
+        //    var fenoTypes = context.Fenotypes
+        //        .ToList();
+        //    return fenoTypes;
+        //}
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOFoto
+        /// and applied changes in SearchService.cs
+        /// </summary>
+        //public List<Foto> GetAllFoto()
+        //{
+        //    var foto = context.Fotos.ToList();
+        //    return foto;
+        //}
+
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOUpdatePlant
+        /// and applied changes in SearchService.cs
+        /// </summary>
+        //public List<UpdatePlant> GetAllUpdatePlant()
+        //{
+        //    var updatePlant = context.UpdatePlants.ToList();
+        //    return updatePlant;
+        //}
+
         #endregion
 
         ///Owen, Robin, Christophe
         #region Fill Tfgsv
-        public IQueryable<TfgsvType> fillTfgsvType()
-        {
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
-            var selection = context.TfgsvTypes.Distinct();
-            return selection;
-        }
 
-        public IQueryable<TfgsvFamilie> fillTfgsvFamilie(int selectedItem)
-        {
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOTfgsvType
+        /// </summary>
+        //public IQueryable<TfgsvType> fillTfgsvType()
+        //{
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
+        //    var selection = context.TfgsvTypes.Distinct();
+        //    return selection;
+        //}
 
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
-                return selection;
 
-            }
-            else
-            {
-                var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
-                return selection;
-            }
 
-        }
-        public IQueryable<TfgsvGeslacht> fillTfgsvGeslacht(int selectedItem)
-        {
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam)
-                    .Where(s => s.FamilieFamileId == selectedItem);
-                return selection;
-            }
-            else
-            {
-                var selection = context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam);
-                return selection;
-            }
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOTfgsvFamilie
+        /// </summary>
+        //public IQueryable<TfgsvFamilie> fillTfgsvFamilie(int selectedItem)
+        //{
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
 
-        }
-        public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
-        {
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvSoorts.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
-                return selection;
-            }
-            else
-            {
-                var selection = context.TfgsvSoorts.Distinct().OrderBy(s => s.Soortnaam);
-                return selection;
-            }
+        //    if (selectedItem > 0)
+        //    {
+        //        var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
+        //        return selection;
 
-        }
+        //    }
+        //    else
+        //    {
+        //        var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
+        //        return selection;
+        //    }
 
-        public IQueryable<TfgsvVariant> fillTfgsvVariant()
-        {
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
+        //}
 
-            var selection = context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
-            return selection;
 
-        }
-        public IQueryable<Fenotype> fillFenoTypeRatioBloeiBlad()
-        {
-            // this is NOT part of the cascade function and wil not be added as it is not needed 
-            // request List of wanted type
-            // distinct to prevrent more than one of each type
-            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter.
-            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
-            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
-            // Good way to interact with our datacontext
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOTfgsvGeslacht
+        /// </summary>
+        //public IQueryable<TfgsvGeslacht> fillTfgsvGeslacht(int selectedItem)
+        //{
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
+        //    if (selectedItem > 0)
+        //    {
+        //        var selection = context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam)
+        //            .Where(s => s.FamilieFamileId == selectedItem);
+        //        return selection;
+        //    }
+        //    else
+        //    {
+        //        var selection = context.TfgsvGeslachts.Distinct().OrderBy(s => s.Geslachtnaam);
+        //        return selection;
+        //    }
 
-            var selection = context.Fenotypes.Distinct().OrderBy(s => s.RatioBloeiBlad);
-            return selection;
+        //}
 
-        }
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOTfgsvSoort
+        /// </summary>
+        //public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
+        //{
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
+        //    if (selectedItem > 0)
+        //    {
+        //        var selection = context.TfgsvSoorts.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
+        //        return selection;
+        //    }
+        //    else
+        //    {
+        //        var selection = context.TfgsvSoorts.Distinct().OrderBy(s => s.Soortnaam);
+        //        return selection;
+        //    }
+
+        //}
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOTfgsvVariant
+        /// </summary>
+        //public IQueryable<TfgsvVariant> fillTfgsvVariant()
+        //{
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
+
+        //    var selection = context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
+        //    return selection;
+
+        //}
+
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOFenotype
+        /// </summary>
+        //public IQueryable<Fenotype> fillFenoTypeRatioBloeiBlad()
+        //{
+        //    // this is NOT part of the cascade function and wil not be added as it is not needed 
+        //    // request List of wanted type
+        //    // distinct to prevrent more than one of each type
+        //    // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter.
+        //    // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+        //    // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+        //    // Good way to interact with our datacontext
+
+        //    var selection = context.Fenotypes.Distinct().OrderBy(s => s.RatioBloeiBlad);
+        //    return selection;
+
+        //}
 
 
         #endregion
@@ -463,72 +554,83 @@ namespace Plantjes.Dao
         #endregion
         //Christophe: Op basis van basiscode Owen
         #region Fill Combobox Pollenwaarde en Nectarwaarde
-        
-        public List<ExtraPollenwaarde> FillExtraPollenwaardes()
-        {
-            var selection = context.ExtraPollenwaardes.ToList();
-            return selection;
-        }
 
-        public List<ExtraNectarwaarde> FillExtraNectarwaardes()
-        {
-            var selection = context.ExtraNectarwaardes.ToList();
-            return selection;
-        }
+
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOExtraPollenWaarde
+        /// </summary>
+        //public List<ExtraPollenwaarde> FillExtraPollenwaardes()
+        //{
+        //    var selection = context.ExtraPollenwaardes.ToList();
+        //    return selection;
+        //}
+
+        //public List<ExtraNectarwaarde> FillExtraNectarwaardes()
+        //{
+        //    var selection = context.ExtraNectarwaardes.ToList();
+        //    return selection;
+        //}
 
         #endregion
 
-        public List<BeheerMaand> FillBeheerdaad()
-        {
-            var selection = context.BeheerMaands.ToList();
-            return selection;
-        }
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOBeheerMaand 
+        /// and applied changes in ViewModelGrooming
+        /// </summary>
+        //public List<BeheerMaand> FillBeheerdaad()
+        //{
+        //    var selection = context.BeheerMaands.ToList();
+        //    return selection;
+        //}
 
 
+        /// <summary>
+        /// Trúc put these codes in comments after wrote an apart file: DAOGebruiker 
+        /// and applied changes in LoginUserService.cs
+        /// </summary>
         //written by kenny
-        public Gebruiker GetGebruikerWithEmail(string userEmail)
-        {
-            var gebruiker = context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
-            return gebruiker;
+        //public Gebruiker GetGebruikerWithEmail(string userEmail)
+        //{
+        //    var gebruiker = context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+        //    return gebruiker;
 
-        }
-
+        //}
         //written by kenny
-        public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
-        {
-            var passwordBytes = Encoding.ASCII.GetBytes(password);
-            var md5Hasher = new MD5CryptoServiceProvider();
-            var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+        //public void RegisterUser(string vivesNr, string firstName, string lastName, Rol rol, string emailadres, string password)
+        //{
+        //    var passwordBytes = Encoding.ASCII.GetBytes(password);
+        //    var md5Hasher = new MD5CryptoServiceProvider();
+        //    var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
 
-            var gebruiker = new Gebruiker()
-            {
-                Vivesnr = vivesNr,
-                Voornaam = firstName,
-                Achternaam = lastName,
-                Rol = rol,
-                Emailadres = emailadres,
-                HashPaswoord = passwordHashed
-            };
-            context.Gebruikers.Add(gebruiker);
-            _ = context.SaveChanges();
-        }
+        //    var gebruiker = new Gebruiker()
+        //    {
+        //        Vivesnr = vivesNr,
+        //        Voornaam = firstName,
+        //        Achternaam = lastName,
+        //        Rol = rol,
+        //        Emailadres = emailadres,
+        //        HashPaswoord = passwordHashed
+        //    };
+        //    context.Gebruikers.Add(gebruiker);
+        //    _ = context.SaveChanges();
+        //}
+        ////written by kenny
+        //public List<Gebruiker> getAllGebruikers()
+        //{
+        //    var gebruiker = context.Gebruikers.ToList();
+        //    return gebruiker;
+        //}
         //written by kenny
-        public List<Gebruiker> getAllGebruikers()
-        {
-            var gebruiker = context.Gebruikers.ToList();
-            return gebruiker;
-        }
-        //written by kenny
-        public bool CheckIfEmailAlreadyExists(string email)
-        {
-            bool result = false;
-            if (GetGebruikerWithEmail(email) == null)
-            {
-                result = true;
-            }
+        //public bool CheckIfEmailAlreadyExists(string email)
+        //{
+        //    bool result = false;
+        //    if (_dao.GetGebruikerWithEmail(email) == null)
+        //    {
+        //        result = true;
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
     }
 

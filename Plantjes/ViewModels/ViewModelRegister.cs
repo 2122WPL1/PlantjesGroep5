@@ -1,22 +1,31 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Plantjes.Models.Db;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Views.Home;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace Plantjes.ViewModels
 {
-    //written by kenny
+    //written by kenny test
     public class ViewModelRegister : ViewModelBase
     {
-        private IloginUserService _loginService { get; }
-
+        private IloginUserService _loginService { get; set; }
         public RelayCommand registerCommand { get; set; }
         public RelayCommand backCommand { get; set; }
+        public ObservableCollection<Rol> cmbRols { get; set; }
         public ViewModelRegister(IloginUserService loginUserService)
         {
             this._loginService = loginUserService;
+            cmbRols = new ObservableCollection<Rol>();
             registerCommand = new RelayCommand(RegisterButtonClick);
             backCommand = new RelayCommand(BackButtonClick);
+            fillComboboxe();
+        }
+
+        public void fillComboboxe()
+        {
+            _loginService.fillComboBoxRol(cmbRols);
         }
 
         public void BackButtonClick()
@@ -26,12 +35,28 @@ namespace Plantjes.ViewModels
             Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
-        {
-            errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
-                 firstNameInput, emailAdresInput,
-                 passwordInput, passwordRepeatInput, rolInput);
+        {   //checken dat er iets is in gevult zo dat het programma niet crached.
+            if (firstNameInput != null &&
+                lastNameInput != null &&
+                cmbRols != null &&
+                emailAdresInput != null &&
+                passwordInput != null &&
+                passwordRepeatInput != null)
+            {
+                errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
+                firstNameInput, emailAdresInput,
+                passwordInput, passwordRepeatInput, _SelectedRol);
+                
+
+            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
+            else
+            {
+                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
+            }
             
+            //Application.Current.Windows[0]?.Close();
         }
+        
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
         private string _firstNameInput;
@@ -39,7 +64,7 @@ namespace Plantjes.ViewModels
         private string _emailAdresInput;
         private string _passwordInput;
         private string _passwordRepeatInput;
-        private string _rolInput;
+        private int _SelectedRol;
         private string _errorMessage;
 
         public string errorMessage
@@ -128,15 +153,15 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string rolInput
+        public int SelectedRol
         {
             get
             {
-                return _rolInput;
+                return _SelectedRol;
             }
             set
             {
-                _rolInput = value;
+                _SelectedRol = value;
                 OnPropertyChanged();
             }
         }

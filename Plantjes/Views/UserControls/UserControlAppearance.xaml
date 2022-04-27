@@ -2,474 +2,408 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Plantjes.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ViewModelAppearance}"
              mc:Ignorable="d" 
-             d:DesignHeight="790" d:DesignWidth="1160">
+             d:DesignHeight="790" d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
-        <Canvas x:Name="cvsUiterlijk" Margin="0,13,0,62" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center"  Width="1150">
-            <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
-            <Label Content="Zwart" Foreground="Black" Canvas.Left="148" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
-            <Label Content="  Wit" Foreground="Black" Canvas.Left="212" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
-            <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="282" Canvas.Top="32" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
-            <Label Content=" Rood" Foreground="Red" Canvas.Left="352" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
-            <Label Content="Oranje" Foreground="Orange" Canvas.Left="419" Canvas.Top="30" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
-            <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="484" Canvas.Top="29" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
-            <Label Content="  Grijs" Foreground="Gray" Canvas.Left="550" Canvas.Top="29" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
-            <Label Content=" Groen" Foreground="Green" Canvas.Left="615" Canvas.Top="30" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
-            <Label Content=" Geel" Foreground="Yellow" Canvas.Left="680" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
-            <Label Content=" Blauw" Foreground="Blue" Canvas.Left="742" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
-            <Label Content=" Violet" Foreground="Violet" Canvas.Left="802" Canvas.Top="30" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
-            <Label Content=" Paars" Foreground="Purple" Canvas.Left="866" Canvas.Top="30" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
-            <Label Content=" Bruin" Foreground="Brown" Canvas.Left="928" Canvas.Top="30" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+        <Canvas x:Name="cvsUiterlijk" Margin="0,13,0,62" Visibility="Visible"  HorizontalAlignment="Center"  Width="1150">
+            <Grid Height="117" Width="1082" Canvas.Left="33" Background="#FFE8E5BF">
+                <Label Content="kleuren"  Height="34" Width="61"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824" Margin="0,17,1021,66"/>
+                <Label Content="zwart" Foreground="Black"   Height="28" Width="50" BorderBrush="Black" BorderThickness="1" Margin="60,18,930,71"/>
+                <Label Content="  wit" Foreground="Black"   Height="28" Width="50" BorderBrush="White" BorderThickness="1" Margin="140,18,873,71"/>
+                <Label Content=" rosé" Foreground="Black"   Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1" Margin="220,18,810,71"/>
+                <Label Content=" rood" Foreground="Black"   Height="28" Width="50" BorderBrush="Red" BorderThickness="1" Margin="300,18,730,71"/>
+                <Label Content="oranje" Foreground="Black"  Height="28" Width="50" BorderBrush="Orange" BorderThickness="1" Margin="380,18,650,71"/>
+                <Label Content="  lila" Foreground="Black"  Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1" Margin="460,18,570,71"/>
+                <Label Content="  grijs" Foreground="Black" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1" Margin="540,18,490,71"/>
+                <Label Content=" groen" Foreground="Black"  Height="28" Width="50" BorderBrush="Green" BorderThickness="1" Margin="620,18,410,71"/>
+                <Label Content=" geel" Foreground="Black"   Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1" Margin="700,18,330,71"/>
+                <Label Content=" blauw" Foreground="Black"  Height="28" Width="50" BorderBrush="Blue" BorderThickness="1" Margin="780,18,250,71"/>
+                <Label Content=" violet" Foreground="Black" Height="28" BorderBrush="Violet" BorderThickness="1" Margin="860,18,170,71" HorizontalAlignment="Stretch"/>
+                <Label Content=" paars" Foreground="Black"  Height="28" Width="50" BorderBrush="Purple" BorderThickness="1" Margin="940,18,88,71" Padding="6,5,5,5"/>
+                <Label Content=" bruin" Foreground="Black"  Height="28" Width="50" BorderBrush="Brown" BorderThickness="1" Margin="1020,18,10,71"/>
 
-            <TextBox Canvas.Left="155" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
-            <CheckBox x:Name="CbxBloeikleurZwart" 
+                <TextBox   Height="35" Width="36" Background="Black" Margin="88,72,958,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurZwart" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="166" Canvas.Top="83" Height="15" Width="16"/>
+                      Height="15" Width="16" Margin="98,82,968,20"/>
 
-            <TextBox Canvas.Left="215" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
-            <CheckBox x:Name="CbxBloeikleurWit"
+                <TextBox Height="35" Width="34" Background="White" Margin="158,72,890,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurWit"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurWit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="226" Canvas.Top="83" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="168,82,900,20"/>
 
-            <TextBox Canvas.Left="288" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
-            <CheckBox x:Name="CbxBloeikleurRosé"
+                <TextBox Height="35" Width="34" Background="RosyBrown" Margin="229,70,819,12" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurRosé"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurRosé, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="298" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="239,82,829,20"/>
 
-            <TextBox Canvas.Left="360" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
-            <CheckBox x:Name="CbxBloeikleurRood" 
+                <TextBox Height="35" Width="34" Background="Red" Margin="309,70,739,12" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurRood" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurRood, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="370" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="319,82,749,20"/>
 
-            <TextBox Canvas.Left="424" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
-            <CheckBox x:Name="CbxBloeikleurOranje" 
+                <TextBox Height="35" Width="34" Background="Orange" Margin="389,72,659,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurOranje" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurOranje, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="434" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="399,82,669,20"/>
 
-            <TextBox Canvas.Left="492" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
-            <CheckBox x:Name="CbxBloeikleurLila"
+                <TextBox Height="35" Width="34" Background="#c8a2c8" Margin="469,72,579,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurLila"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurLila, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="502" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="479,82,589,20"/>
 
-            <TextBox Canvas.Left="558" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
-            <CheckBox x:Name="CbxBloeikleurGrijs" 
+                <TextBox Height="35" Width="34" Background="Gray" Margin="549,72,499,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurGrijs" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurGrijs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="568" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="559,82,509,20"/>
 
-            <TextBox Canvas.Left="618" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
-            <CheckBox x:Name="CbxBloeikleurGroen"
+                <TextBox Height="35" Width="34" Background="Green" Margin="629,72,419,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurGroen"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurGroen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="628" Canvas.Top="80" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="639,82,429,20"/>
 
-            <TextBox Canvas.Left="688" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
-            <CheckBox x:Name="CbxBloeikleurGeel" 
+                <TextBox Height="35" Width="34" Background="Yellow" Margin="709,72,339,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurGeel" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurGeel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="697" Canvas.Top="80" Height="15" Width="16"/>
+                      Height="15" Width="16" Margin="718,82,348,20"/>
 
-            <TextBox Canvas.Left="748" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
-            <CheckBox x:Name="CbxBloeikleurBlauw"
+                <TextBox Height="35" Width="34" Background="Blue" Margin="789,72,259,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurBlauw"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurBlauw, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="758" Canvas.Top="81" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="799,82,269,20"/>
 
-            <TextBox Canvas.Left="810" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
-            <CheckBox x:Name="CbxBloeikleurViolet" 
+                <TextBox Height="35" Width="34" Background="Violet" Margin="869,72,179,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurViolet" 
                        IsChecked="{Binding Path=SelectedCheckBoxBladkleurPaars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="820" Canvas.Top="80" Height="15" Width="14"/>
+                       Height="15" Width="14" Margin="879,82,189,20"/>
 
-            <TextBox Canvas.Left="874" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
-            <CheckBox x:Name="CbxBloeikleurPaars" 
+                <TextBox Height="35" Width="34" Background="Purple" Margin="950,72,98,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurPaars" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurPaars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="884" Canvas.Top="81" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="960,82,108,20"/>
 
-            <TextBox Canvas.Left="936" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
-            <CheckBox x:Name="CbxBloeikleurBruin" 
+                <TextBox Height="35" Width="34" Background="Brown" Margin="1029,72,19,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBloeikleurBruin" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurBruin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="946" Canvas.Top="81" Height="15" Width="14"/>
+                      Height="15" Width="14" Margin="1039,82,29,20"/>
 
-            <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+                <Label Content="bladkleur" Height="28" Width="79" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571" Margin="1,72,1002,17"/>
+            </Grid>
 
-            <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content=" Min" Canvas.Left="822" Canvas.Top="290" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
-            <Label Content=" Max" Canvas.Left="900" Canvas.Top="290" Height="26" Width="52" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Grid Height="94" Width="1082" Canvas.Left="33" Background="#FFE8E5BF" Canvas.Top="143">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Label Content="maanden"   Height="40" Width="100" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="   jan"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="  feb"     Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="  maa"     Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   apr"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="  mei"     Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   jun"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   jul"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   aug"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   sep"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   okt"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   nov"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content="   dec"    Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+                        <Label Content=" min"      Height="26" Width="40"  FontWeight="Bold" FontSize="14" Margin="100,0,0,0"/>
+                        <Label Content=" max"      Height="26" Width="52"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                  </StackPanel>
 
-            <CheckBox x:Name="CbxBladhoogteJan" 
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="bladhoogte"  Height="28" Width="100"  FontWeight="Bold" FontSize="14"/>
+                        <CheckBox x:Name="CbxBladhoogteJan" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteFeb" 
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15" Margin="30,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteFeb" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteMar" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteMar" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteApr" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteApr" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteMei"
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteMei"
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteJun" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteJun" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteJul" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteJul" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteAug"
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteAug"
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteSep"
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteSep"
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteOct" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteOct" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteNov" 
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteNov" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladhoogteDec"
+                      Content="CheckBox"  Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladhoogteDec"
                       IsChecked="{Binding Path=SelectedCheckBoxBladHoogteDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <ComboBox x:Name="CmbBladhoogteMin" 
+                      Content="CheckBox" Height="15" Width="15" Margin="45,0,0,0">
+                        </CheckBox>
+                        <ComboBox x:Name="CmbBladhoogteMin" 
                       ItemsSource="{Binding cmbBladHoogteMin}" 
                       SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
-                      Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
-                <ComboBox.Effect>
-                    <DropShadowEffect/>
-                </ComboBox.Effect>
-                <ComboBoxItem Content="240/250"/>
-                <ComboBoxItem Content="230/239"/>
-                <ComboBoxItem Content="220/229"/>
-                <ComboBoxItem Content="210/219"/>
-                <ComboBoxItem Content="200/209"/>
-                <ComboBoxItem Content="190/199"/>
-                <ComboBoxItem Content="180/189"/>
-                <ComboBoxItem Content="170/179"/>
-                <ComboBoxItem Content="160/169"/>
-                <ComboBoxItem Content="150/159"/>
-                <ComboBoxItem Content="140/149"/>
-                <ComboBoxItem Content="130/139"/>
-                <ComboBoxItem Content="120/129"/>
-                <ComboBoxItem Content="110/119"/>
-                <ComboBoxItem Content="100/109"/>
-                <ComboBoxItem Content="90/99"/>
-                <ComboBoxItem Content="80/89"/>
-                <ComboBoxItem Content="70/79"/>
-                <ComboBoxItem Content="60/69"/>
-                <ComboBoxItem Content="50/59"/>
-                <ComboBoxItem Content="40/49"/>
-                <ComboBoxItem Content="30/39"/>
-                <ComboBoxItem Content="20/29"/>
-                <ComboBoxItem Content="10/19"/>
-                <ComboBoxItem Content="0/9"/>
-            </ComboBox>
-            <ComboBox x:Name="CmbBladhoogteMax" 
+                      Height="26" Width="40" Margin="120,0,0,0">
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
+                        </ComboBox>
+                        <ComboBox x:Name="CmbBladhoogteMax" 
                       ItemsSource="{Binding cmbBladHoogteMax}" 
                       SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
-                      Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
-                <ComboBox.Effect>
-                    <DropShadowEffect/>
-                </ComboBox.Effect>
-                <ComboBoxItem Content="240/250"/>
-                <ComboBoxItem Content="230/239"/>
-                <ComboBoxItem Content="220/229"/>
-                <ComboBoxItem Content="210/219"/>
-                <ComboBoxItem Content="200/209"/>
-                <ComboBoxItem Content="190/199"/>
-                <ComboBoxItem Content="180/189"/>
-                <ComboBoxItem Content="170/179"/>
-                <ComboBoxItem Content="160/169"/>
-                <ComboBoxItem Content="150/159"/>
-                <ComboBoxItem Content="140/149"/>
-                <ComboBoxItem Content="130/139"/>
-                <ComboBoxItem Content="120/129"/>
-                <ComboBoxItem Content="110/119"/>
-                <ComboBoxItem Content="100/109"/>
-                <ComboBoxItem Content="90/99"/>
-                <ComboBoxItem Content="80/89"/>
-                <ComboBoxItem Content="70/79"/>
-                <ComboBoxItem Content="60/69"/>
-                <ComboBoxItem Content="50/59"/>
-                <ComboBoxItem Content="40/49"/>
-                <ComboBoxItem Content="30/39"/>
-                <ComboBoxItem Content="20/29"/>
-                <ComboBoxItem Content="10/19"/>
-                <ComboBoxItem Content="0/9"/>
-            </ComboBox>
+                      Height="26" Width="40" Margin="25,0,0,0">
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
 
-            <CheckBox x:Name="CbxBladvormenVorm1" 
+            <Grid Height="77" Width="1082" Canvas.Left="34" Background="#FFE8E5BF" Canvas.Top="260">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                        <Label Content="bladvormen"             Height="28" Width="100"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="naald-en priemvormig"   Height="28" Width="167"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                        <Label Content="lancetvormig"           Height="28" Width="109"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                        <Label Content="rond"                   Height="28" Width="56"   FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                        <Label Content="samengesteld grof"      Height="28" Width="136"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                        <Label Content="samengesteld verfijnd"  Height="28" Width="161"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+              </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Height="31">
+                        <CheckBox x:Name="CbxBladvormenVorm1" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="168" Canvas.Top="303" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm2" 
+                      Height="14" Width="14" Margin="200,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladvormenVorm2" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="232" Canvas.Top="303" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox  x:Name="CbxBladvormenVorm3" 
+                      Height="15" Width="16" Margin="140,0,0,0">
+                        </CheckBox>
+                        <CheckBox  x:Name="CbxBladvormenVorm3" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="300" Canvas.Top="303" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm4" 
+                      Height="15" Width="14" Margin="80,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladvormenVorm4" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="364" Canvas.Top="303" Height="15" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm5" 
+                      Height="15" Width="16" Margin="100,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxBladvormenVorm5" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="434" Canvas.Top="303" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm6" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="502" Canvas.Top="302" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm7" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="570" Canvas.Top="302" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm8" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="635" Canvas.Top="303" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBladvormenVorm9" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBladvormenVorm9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="706" Canvas.Top="302" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="417" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="259" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="259" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="259" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="259" Height="28" Width="67" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="259" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="259" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="259" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="259" Height="28" Width="68" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="259" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 1"  Canvas.Left="150" Canvas.Top="417" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="417" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="417" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="417" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="417" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="417" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                      Height="15" Width="15" Margin="150,0,0,0">
+                        </CheckBox>
 
-            <CheckBox x:Name="CbxStengelvormenVorm1" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="170" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxStengelvormenVorm2" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="233" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
 
-            </CheckBox>
-            <CheckBox x:Name="CbxStengelvormenVorm3" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="300" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxStengelvormenVorm4" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="370" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxStengelvormenVorm5" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="437" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxStengelvormenVorm6" 
-                      IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="503" Canvas.Top="463" Height="14" Width="14">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Optimale plantdichtheid tussen"  Canvas.Left="38" Canvas.Top="537" Height="28" Width="227" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="en"  Canvas.Left="378" Canvas.Top="537" Height="28" Width="33" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <TextBox Canvas.Left="270" Canvas.Top="537" TextWrapping="Wrap" Width="105" Height="28"/>
-            <TextBox Canvas.Left="416" Canvas.Top="537" TextWrapping="Wrap" Width="105" Height="28"/>
-            <Label Content="stuks/m²"  Canvas.Left="528" Canvas.Top="537" Height="28" Width="74" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Levensvorm"  Canvas.Left="1011" Canvas.Top="35" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 1"  Canvas.Left="992" Canvas.Top="92" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="1070" Canvas.Top="92" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
 
-            <CheckBox x:Name="CbxLevensvormenVorm1" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="1012" Canvas.Top="138" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Vorm 3"  Canvas.Left="992" Canvas.Top="173" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="1070" Canvas.Top="173" Height="28" Width="70" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm2" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="1090" Canvas.Top="138" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxLevensvormenVorm3" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="1012" Canvas.Top="218" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxLevensvormenVorm4" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="1090" Canvas.Top="218" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Vorm 5"  Canvas.Left="992" Canvas.Top="254" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="1070" Canvas.Top="254" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm6" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1090" Canvas.Top="303" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxLevensvormenVorm5" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1012" Canvas.Top="305" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Vorm 7"  Canvas.Left="992" Canvas.Top="338" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 8"  Canvas.Left="1070" Canvas.Top="340" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm7" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1012" Canvas.Top="381" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxLevensvormenVorm8" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1090" Canvas.Top="378" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Vorm 9"  Canvas.Left="992" Canvas.Top="417" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm9" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1012" Canvas.Top="467" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Button x:Name="BtnOpslagZoekenAppearance" Content="Opslag Zoeken Appearance" Width="172" Height="50" Canvas.Left="916" Canvas.Top="600" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
+            <Grid Height="77" Width="1082" Canvas.Left="33" Background="#FFE8E5BF" Canvas.Top="365">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal"    Margin="0,0,0,20" Height="27">
+                        <Label Content="Stengelvormen"      Height="28" Width="115"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="tuffed"             Height="28" Width="56"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0"/>
+                        <Label Content="upright arching"    Height="28" Width="122"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
+                        <Label Content="arching"            Height="28" Width="68"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
+                        <Label Content="upright divergent"  Height="28" Width="130"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
+                        <Label Content="upright erect"      Height="28" Width="62"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
+                        <Label Content="mounted"            Height="28" Width="81"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="CbxStengelvormenVorm1" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="150,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxStengelvormenVorm2" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="100,0,0,0">
+
+                        </CheckBox>
+                        <CheckBox x:Name="CbxStengelvormenVorm3" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="120,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxStengelvormenVorm4" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="120,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxStengelvormenVorm5" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="110,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxStengelvormenVorm6" 
+                        IsChecked="{Binding Path=SelectedCheckBoxStengelvormenVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="14" Width="14" Margin="80,0,0,0">
+                        </CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+
+            <Grid Height="142" Width="1082" Canvas.Left="33" Background="#FFE8E5BF" Canvas.Top="365">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <Label Content="levensvorm"         Height="28" Width="100"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="kruipend, &#xD;&#xA;horizontaal groeiend"   Height="50" Width="150"  FontWeight="Bold" FontSize="14" Margin="40,0,0,0"/>
+                        <Label Content="rond/waaiervormig"  Height="28" Width="148"  FontWeight="Bold" FontSize="14" Margin="40,0,0,0"/>
+                        <Label Content="kussenvormig"       Height="28" Width="104"  FontWeight="Bold" FontSize="14" Margin="40,0,0,0"/>
+                        <Label Content="uitbuigend"         Height="28" Width="90"  FontWeight="Bold" FontSize="14" Margin="39,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <CheckBox x:Name="CbxLevensvormenVorm1" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="200,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm2" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="180,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm3" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="150,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm4" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="120,0,0,0">
+                        </CheckBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="wortelrozetplant"  Height="28" Width="132"  FontWeight="Bold" FontSize="14" Margin="140,0,0,0"/>
+                        <Label Content="secculenten"        Height="28" Width="100"  FontWeight="Bold" FontSize="14" Margin="80,0,0,0"/>
+                        <Label Content="polvormers"         Height="28" Width="91"  FontWeight="Bold" FontSize="14" Margin="80,0,0,0"/>
+                        <Label Content="parasolvormig"      Height="28" Width="116"  FontWeight="Bold" FontSize="14" Margin="40,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="CbxLevensvormenVorm6" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="200,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm5" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="180,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm7" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="150,0,0,0">
+                        </CheckBox>
+                        <CheckBox x:Name="CbxLevensvormenVorm8" 
+                            IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Height="16" Width="16" Margin="120,0,0,0">
+                        </CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Height="125" Width="602" Canvas.Left="33" Background="#FFE8E5BF" Canvas.Top="537">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Optimale plantdichtheid tussen"   Height="28" Width="227" FontWeight="Bold" FontSize="14"/>
+                    <TextBox TextWrapping="Wrap" Width="105" Height="28"/>
+                    <Label Content="en"  Height="28" Width="33"  FontWeight="Bold" FontSize="14"/>
+                    <TextBox  TextWrapping="Wrap" Width="105" Height="28"/>
+                    <Label Content="stuks/m²"   Height="28" Width="74"  FontWeight="Bold" FontSize="14" Margin="10,0,0,0"/>
+
+
+                </StackPanel>
+            </Grid>
+
+
+            <Button x:Name="BtnOpslagZoekenAppearance" Content="opslaan uiterlijk" Width="286" Height="50" Canvas.Left="802" Canvas.Top="600" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- zuilvormig staat niet in tabel Habitus in database maar wel in Acces file, vandaar apart -->
+            <!--<Label Content="zuilvormig"  Canvas.Left="986" Canvas.Top="441" Height="28" Width="68" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxLevensvormenVorm9" 
+                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Canvas.Left="1012" Canvas.Top="467" Height="16" Width="16">
+            </CheckBox>-->
+ 
         </Canvas>
     </Grid>
 </UserControl>

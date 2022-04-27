@@ -9,6 +9,7 @@ using Plantjes.Dao;
 using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Models.Db;
+using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -16,13 +17,27 @@ namespace Plantjes.ViewModels.Services
     /*written by kenny and robin from an example of Roy and some help of Killian*/
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
-        private DAOLogic _dao;
+        private DAOPlant _daoPlant;
+        private DAOFoto _daoFoto;
+        private DAOAbiotiek _daoAbiotiek;
+        private DAOAbiotiekMulti _daoAbiotiekMulti;
+        private DAOBeheerMaand _daoBeheerMaand;
+        private DAOCommensalisme _daoCommensalisme;
+        private DAOCommensalismeMulti _daoCommensalismeMulti;
+        private DAOFenotype _daoFenotype;
+        private DAOExtraEigenschap _daoExtraEigenschap;
+        private DAOTfgsvFamilie _daoTfgsvFamilie;
+        private DAOTfgsvGeslacht _daoTfgsvGeslacht;
+        private DAOTfgsvType _daoTfgsvType;
+        private DAOTfgsvSoort _daoTfgsvSoort;
+        private DAOTfgsvVariant _daoTfgsvVariant;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SearchService()
         {
-            this._dao = DAOLogic.Instance();
+            this._daoPlant = DAOPlant.Instance();
+            //this._daoAbiotiek = DAOAbiotiek.Instance();
 
         }
 
@@ -33,7 +48,7 @@ namespace Plantjes.ViewModels.Services
         //Omgezet naar service door kenny
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
-            var listPlants = _dao.getAllPlants();
+            var listPlants = _daoPlant.getAllPlants();
 
             if (SelectedtType != null)
             {
@@ -178,7 +193,8 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin voor mvvm en later services
         public void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection)
         {
-            var list = _dao.fillTfgsvType();
+            this._daoTfgsvType = DAOTfgsvType.Instance();
+            var list = _daoTfgsvType.fillTfgsvType();
 
             foreach (var item in list)
             {
@@ -188,7 +204,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection)
         {
-
+            this._daoTfgsvFamilie = DAOTfgsvFamilie.Instance();
             var list = new List<TfgsvFamilie>(); /*Enumerable.Empty<TfgsvFamilie>().AsQueryable();*/
 
             //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
@@ -196,13 +212,13 @@ namespace Plantjes.ViewModels.Services
             if (selectedType != null)
             {
                 // Requesting te list of families 
-                list = _dao.fillTfgsvFamilie(Convert.ToInt32(selectedType.Planttypeid)).ToList();
+                list = _daoTfgsvFamilie.fillTfgsvFamilie(Convert.ToInt32(selectedType.Planttypeid)).ToList();
 
             }
             else
             {
                 // Requesting te list of families  with 0 because there is noting selected in the combobox of type.
-                list = _dao.fillTfgsvFamilie(0).ToList();
+                list = _daoTfgsvFamilie.fillTfgsvFamilie(0).ToList();
             }
 
             // clearing te content of te combobox of familie
@@ -222,6 +238,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection)
         {
+            this._daoTfgsvGeslacht = DAOTfgsvGeslacht.Instance();
             var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
 
             //use the FamilieId, selected in the combobox to filter the list and load the remaining plant geslacht in the geslacht combobox
@@ -229,12 +246,12 @@ namespace Plantjes.ViewModels.Services
             if (selectedFamilie != null)
             {
                 // Requesting te list of geslacht 
-                list = _dao.fillTfgsvGeslacht(Convert.ToInt32(selectedFamilie.FamileId));
+                list = _daoTfgsvGeslacht.fillTfgsvGeslacht(Convert.ToInt32(selectedFamilie.FamileId));
             }
             else
             {
                 // Requesting te list of Geslacht  with 0 because there is noting selected in the combobox of type.
-                list = _dao.fillTfgsvGeslacht(0);
+                list = _daoTfgsvGeslacht.fillTfgsvGeslacht(0);
             }
 
             // clearing te content of te combobox of geslacht
@@ -244,18 +261,17 @@ namespace Plantjes.ViewModels.Services
             //adding or list to the combobox
             foreach (var item in list)
             {
-
                 if (!ControleList.Contains(item.Geslachtnaam))
                 {
                     cmbGeslachtCollection.Add(item);
                     ControleList.Add(item.Geslachtnaam);
                 }
             }
-
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
         {
+            this._daoTfgsvSoort = DAOTfgsvSoort.Instance();
             var list = Enumerable.Empty<TfgsvSoort>().AsQueryable();
 
             //use the GeslachtId, selected in the combobox to filter the list and load the remaining plant Soort in the Soort combobox
@@ -263,12 +279,12 @@ namespace Plantjes.ViewModels.Services
             if (selectedGeslacht != null)
             {
                 // Requesting te list of Soort 
-                list = _dao.fillTfgsvSoort(Convert.ToInt32(selectedGeslacht.GeslachtId));
+                list = _daoTfgsvSoort.fillTfgsvSoort(Convert.ToInt32(selectedGeslacht.GeslachtId));
             }
             else
             {
                 // Requesting te list of Soort  with 0 because there is noting selected in the combobox of type.
-                list = _dao.fillTfgsvSoort(0);
+                list = _daoTfgsvSoort.fillTfgsvSoort(0);
             }
 
             // clearing te content of te combobox of Soort
@@ -288,9 +304,10 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
-
-                // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
-                var list = _dao.fillTfgsvVariant();
+            //initialiseer DAOTfgsvVariant:
+            this._daoTfgsvVariant = DAOTfgsvVariant.Instance();
+            // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
+            var list = _daoTfgsvVariant.fillTfgsvVariant();
                 // clearing te content of te combobox of Variant
                 cmbVariantCollection.Clear();
                 // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
@@ -309,9 +326,10 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
             {
-                //not currently used in the cascade search
-                //will be adjusted later (dao)
-                var list = _dao.fillFenoTypeRatioBloeiBlad();
+            this._daoFenotype = DAOFenotype.Instance();
+            //not currently used in the cascade search
+            //will be adjusted later (dao)
+            var list = _daoFenotype.fillFenoTypeRatioBloeiBlad();
                 // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
                 var ControleList = new List<string>();
                 //adding or list to the combobox
@@ -385,7 +403,8 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek list, then we'll need to filter that list
             ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
-            var abioList = _dao.GetAllAbiotieks();
+            this._daoAbiotiek = DAOAbiotiek.Instance();
+            var abioList = _daoAbiotiek.GetAllAbiotieks();
 
             foreach (var itemAbio in abioList)
             {
@@ -408,7 +427,8 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek_Multi list, then we'll need to filter that list
             ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
-            var abioMultiList = _dao.GetAllAbiotieksMulti();
+            this._daoAbiotiekMulti = DAOAbiotiekMulti.Instance();
+            var abioMultiList = _daoAbiotiekMulti.GetAllAbiotieksMulti();
             bool hasCheckedPlant;
 
             //bool gebruiken
@@ -438,8 +458,10 @@ namespace Plantjes.ViewModels.Services
             ////by checking if the Beheermaand.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Beheermaand types in the detailSelectedPlant Observable Collection
 
+            //initialiseer DAOBeheerMaand
+            this._daoBeheerMaand = DAOBeheerMaand.Instance();
             ////There is currently no data in this table, but the app is prepared for when it's added.
-            var beheerMaandList = _dao.GetBeheerMaanden();
+            var beheerMaandList = _daoBeheerMaand.GetBeheerMaanden();
 
             foreach (var itemBeheerMaand in beheerMaandList)
             {
@@ -474,9 +496,9 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Commensalisme list consisting of every possible property, then we'll need to filter that list
             ////by checking if the Commensalisme.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Commensalisme types in the detailSelectedPlant Observable Collection
-
+            this._daoCommensalisme = DAOCommensalisme.Instance();
             ////There is currently no data in this table, but the app is prepared for when it's added.
-            var commensalismeList = _dao.GetAllCommensalisme();
+            var commensalismeList = _daoCommensalisme.GetAllCommensalisme();
 
             foreach (var itemCommensalisme in commensalismeList)
             {
@@ -497,9 +519,9 @@ namespace Plantjes.ViewModels.Services
             ////First we need an CommensalismeMulti list consisting of every possible property, then we'll need to filter that list
             ////by checking if the CommensalismeMulti.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining CommensalismeMulti types in the detailSelectedPlant Observable Collection
-
+            this._daoCommensalismeMulti = DAOCommensalismeMulti.Instance();
             ////There is currently no data in this table, but the app is prepared for when it's added.
-            var commensalismeMultiList = _dao.GetAllCommensalismeMulti();
+            var commensalismeMultiList = _daoCommensalismeMulti.GetAllCommensalismeMulti();
             bool hasCheckedPlant;
 
             foreach (var itemCommensalismeMulti in commensalismeMultiList)
@@ -524,7 +546,8 @@ namespace Plantjes.ViewModels.Services
             ////First we need an ExtraEigenschap list, then we'll need to filter that list
             ////by checking if the ExtraEigenschap.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining ExtraEigenschap types in the detailSelectedPlant Observable Collection
-            var extraEigenschapList = _dao.GetAllExtraEigenschap();
+            this._daoExtraEigenschap = DAOExtraEigenschap.Instance();
+            var extraEigenschapList = _daoExtraEigenschap.GetAllExtraEigenschap();
 
             foreach (var itemExtraEigenschap in extraEigenschapList)
             {
@@ -596,7 +619,8 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Fenotype list, then we'll need to filter that list
             ////by checking if the Fenotype.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Fenotype types in the detailSelectedPlant Observable Collection
-            var fenoTypeList = _dao.GetAllFenoTypes();
+            this._daoFenotype = DAOFenotype.Instance();
+            var fenoTypeList = _daoFenotype.GetAllFenoTypes();
 
             foreach (var itemFenotype in fenoTypeList)
             {
@@ -623,11 +647,13 @@ namespace Plantjes.ViewModels.Services
         //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {
+            //initialise DAOFoto
+            this._daoFoto = DAOFoto.Instance();
             // Request location of the image
             string location = "";
             if (SelectedPlantInResult != null)
             {
-                location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
+                location = _daoFoto.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
             }
 
             if (location != null)
@@ -639,7 +665,6 @@ namespace Plantjes.ViewModels.Services
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(location, UriKind.Absolute);
                     bitmap.EndInit();
-
                     return bitmap;
                 }
             }
