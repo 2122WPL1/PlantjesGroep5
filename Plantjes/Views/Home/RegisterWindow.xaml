@@ -46,7 +46,7 @@
                 <ComboBoxItem Content="docent"/>
                 <ComboBoxItem Content="student"/>
                 <ComboBoxItem Content="oud-student"/>
-            </ComboBox>
+            </ComboBox>-->
 
             <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120" 
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
@@ -57,16 +57,16 @@
             <TextBox x:Name="txtWachtwoord"
             Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
             <TextBox x:Name="txtWachtwoordHerhaal"
-            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
             
             
 
-
+            <!--
             <TextBox x:Name="txtWachtwoord"
             Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
             <TextBox x:Name="txtWachtwoordHerhaal"
             Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-
+            -->
       
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
