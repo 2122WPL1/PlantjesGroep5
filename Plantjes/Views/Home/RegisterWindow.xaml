@@ -52,7 +52,7 @@
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
                       DisplayMemberPath="Omschrijving"
                       SelectedValuePath="Id"
-                      SelectedItem="{Binding Path=SelectedRol, Mode=OneWay}" IsEditable="False">
+					  SelectedItem="{Binding Path=SelectedRol, Mode=OneWay}" IsEditable="False">
             </ComboBox>
             <TextBox x:Name="txtWachtwoord"
             Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
