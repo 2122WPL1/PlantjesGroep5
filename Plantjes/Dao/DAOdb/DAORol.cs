@@ -7,29 +7,25 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAORol
+    public class DAORol : DAOGeneric
     {
-        private static readonly DAORol instance = new DAORol();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAORol()
+        public DAORol() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
+            //ctor
         }
 
 
-        public static DAORol Instance()
+
+        public Rol GetRol(string Rol)
         {
-            return instance;
+            var getRol = Context.Rols.SingleOrDefault(g => g == g.Gebruikers);
+            return getRol;
+
         }
 
         public IQueryable<Rol> fillRol()
         {
-            var selection = context.Rols.Distinct();
+            var selection = Context.Rols.Distinct();
             return selection;
         }
     }

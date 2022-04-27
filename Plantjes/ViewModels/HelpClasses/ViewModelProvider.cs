@@ -22,6 +22,8 @@ namespace Plantjes.ViewModels.HelpClasses
             var iocc = SimpleIoc.Default;
 
             // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services(service locator)
+            //ILoginUserService is leeg (interface), en hun methode is gemaakt in var loginService
+            
             var loginService = iocc.GetInstance<IloginUserService>();
             var searchService = iocc.GetInstance<ISearchService>();
             var detailService = iocc.GetInstance<IDetailService>();
@@ -30,7 +32,7 @@ namespace Plantjes.ViewModels.HelpClasses
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
-
+            
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 

@@ -7,28 +7,16 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOExtraNectarWaarde
+    public class DAOExtraNectarWaarde : DAOGeneric
     {
-        private static readonly DAOExtraNectarWaarde instance = new DAOExtraNectarWaarde();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOExtraNectarWaarde()
+        public DAOExtraNectarWaarde() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOExtraNectarWaarde Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public List<ExtraNectarwaarde> FillExtraNectarwaardes()
         {
-            var selection = context.ExtraNectarwaardes.ToList();
+            var selection = Context.ExtraNectarwaardes.ToList();
             return selection;
         }
     }

@@ -5,6 +5,7 @@ using Plantjes.Models.Db;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels
 {
@@ -15,8 +16,8 @@ namespace Plantjes.ViewModels
 
         public ViewModelHabitat(IDetailService detailservice)
         {
-            this._daoPollen = DAOExtraPollenWaarde.Instance();
-            this._daoNectar = DAOExtraNectarWaarde.Instance();
+            this._daoPollen = SimpleIoc.Default.GetInstance<DAOExtraPollenWaarde>();
+            this._daoNectar = SimpleIoc.Default.GetInstance<DAOExtraNectarWaarde>();
 
 
 

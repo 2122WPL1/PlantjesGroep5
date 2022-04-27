@@ -1,4 +1,5 @@
-﻿using Plantjes.Models.Db;
+﻿using Plantjes.Dao.DAOdb;
+using Plantjes.Models.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,28 +8,17 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao
 {
-    public class DAOAbiotiek
+    public class DAOAbiotiek : DAOGeneric
     {
-        private static readonly DAOAbiotiek instance = new DAOAbiotiek();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOAbiotiek()
+        public DAOAbiotiek() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
+            //ctor
         }
 
-        public static DAOAbiotiek Instance()
-        {
-            return instance;
-        }
         //Get a list of all the Abiotiek types
         public List<Abiotiek> GetAllAbiotieks()
         {
-            var abiotiek = context.Abiotieks.ToList();
+            var abiotiek = Context.Abiotieks.ToList();
             return abiotiek;
         }
     }

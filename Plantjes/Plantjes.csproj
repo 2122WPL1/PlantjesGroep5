@@ -31,7 +31,11 @@
     <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
+
+
   <ItemGroup>
+    <Resource Include="Image\LogoVives.ZonderAchtergrondJPG.JPG" />
+    <Resource Include="Views\Home\vivesNew-removebg-preview.png" />
     <Resource Include="Image\Vives_Logo_NeoGreen.png" />
   </ItemGroup>
 

@@ -14,22 +14,26 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Plantjes.Dao.DAOdb;
 using System.Collections.ObjectModel;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels.Services
 {
-    public class LoginUserService : IloginUserService, INotifyPropertyChanged
+    public class LoginUserService : IloginUserService
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
         private DAORol _daoRol;
         //dao verklaren om data op te vragen en te setten in de databank
         private DAOGebruiker _dao;
+
+
         public LoginUserService()
         {
-            this._dao = DAOGebruiker.Instance();
+            this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
         }
         public void fillComboBoxRol(ObservableCollection<Rol> cmbRolCollection)
         {
-            this._daoRol = DAORol.Instance();
+            //this._daoRol = DAORol.Instance();
+            this._daoRol = SimpleIoc.Default.GetInstance<DAORol>();
             var list = _daoRol.fillRol();
 
             foreach (var item in list)
@@ -221,6 +225,13 @@ namespace Plantjes.ViewModels.Services
             }//Message terugsturen om te binden aan een label in de viewModel.
             return Message;
         }
+
+        public void SaveChanges()
+        {
+            //throw new NotImplementedException();
+        }
+
+
 
         #endregion
     }

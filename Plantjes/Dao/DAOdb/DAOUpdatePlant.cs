@@ -7,29 +7,16 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOUpdatePlant
+    public class DAOUpdatePlant : DAOGeneric
     {
-        private static readonly DAOUpdatePlant instance = new DAOUpdatePlant();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOUpdatePlant()
+        public DAOUpdatePlant() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-        
-
-        public static DAOUpdatePlant Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public List<UpdatePlant> GetAllUpdatePlant()
         {
-            var updatePlant = context.UpdatePlants.ToList();
+            var updatePlant = Context.UpdatePlants.ToList();
             return updatePlant;
         }
     }

@@ -8,6 +8,7 @@ using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.ViewModels;
 using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels
 {
@@ -17,7 +18,7 @@ namespace Plantjes.ViewModels
 
         public ViewModelGrooming(IDetailService detailservice)
         {
-            this._dao = DAOBeheerMaand.Instance();
+            this._dao = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
 
             cmbBeheerdaad = new ObservableCollection<string>();
 

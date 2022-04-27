@@ -9,30 +9,28 @@ using XSystem.Security.Cryptography;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOGebruiker
+    public class DAOGebruiker : DAOGeneric
     {
-        private static readonly DAOGebruiker instance = new DAOGebruiker();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOGebruiker()
+        public DAOGebruiker() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-        
-        public static DAOGebruiker Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public Gebruiker GetGebruikerWithEmail(string userEmail)
         {
-            var gebruiker = context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Emailadres == userEmail);
-            return gebruiker;
 
+            //var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+
+            var gebruiker = context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Emailadres == userEmail);
+
+            return gebruiker;
+        }
+
+
+        public List<Gebruiker> getAllGebruikers()
+        {
+            var gebruiker = Context.Gebruikers.ToList();
+            return gebruiker;
         }
 
         public void RegisterUser(string vivesNr, string firstName, string lastName, int rolid, string emailadres, string password)
@@ -50,20 +48,15 @@ namespace Plantjes.Dao.DAOdb
                 Emailadres = emailadres,
                 HashPaswoord = passwordHashed
             };
-            context.Gebruikers.Add(gebruiker);
-            _ = context.SaveChanges();
+            Context.Gebruikers.Add(gebruiker);
+            Context.SaveChanges();
         }
 
-        //written by kenny
-        public List<Gebruiker> getAllGebruikers()
-        {
-            var gebruiker = context.Gebruikers.ToList();
-            return gebruiker;
-        }
+        
         public bool CheckIfEmailAlreadyExists(string email)
         {
             bool result = false;
-            if (instance.GetGebruikerWithEmail(email) == null)
+            if (GetGebruikerWithEmail(email) == null)
             {
                 result = true;
             }
