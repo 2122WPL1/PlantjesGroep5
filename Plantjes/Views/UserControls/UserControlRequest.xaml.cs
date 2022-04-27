@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,18 +16,13 @@ using System.Windows.Shapes;
 namespace Plantjes.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for UserControlGrooming.xaml
+    /// Interaction logic for UserControlRequest.xaml
     /// </summary>
-    public partial class UserControlGrooming : UserControl
+    public partial class UserControlRequest : UserControl
     {
-        public UserControlGrooming()
+        public UserControlRequest()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

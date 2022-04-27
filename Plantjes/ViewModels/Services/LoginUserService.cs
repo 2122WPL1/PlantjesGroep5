@@ -33,6 +33,7 @@ namespace Plantjes.ViewModels.Services
         }
         public void fillComboBoxRol(ObservableCollection<Rol> cmbRolCollection)
         {
+            //this._daoRol = DAORol.Instance();
             this._daoRol = SimpleIoc.Default.GetInstance<DAORol>();
             var list = _daoRol.fillRol();
 
@@ -115,7 +116,7 @@ namespace Plantjes.ViewModels.Services
             //checken of alle velden ingevuld zijn
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                //cmbRols != null &&
+                cmbRols != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -149,7 +150,7 @@ namespace Plantjes.ViewModels.Services
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist";
+                       Message = "Het vives nummer is niet juist \r\nvoor een docent";
                    }
                }//checken welke rol je hebt gekozen.
                else if (cmbRols.Equals(1))
@@ -181,7 +182,7 @@ namespace Plantjes.ViewModels.Services
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist";
+                       Message = "Het vives nummer is niet juist \r\nvoor een student";
                    }
                }//checken welke rol je hebt gekozen.
                else if (cmbRols.Equals(2))
@@ -216,7 +217,7 @@ namespace Plantjes.ViewModels.Services
                }//foutafhandeling rol
                else
                {
-                   Message = "Het in gegeven rol bestaat niet, kies uit:\r\n docent, student, oudstudent.";
+                   Message = "Het in gegeven rol bestaat niet, kies uit:\r\n Docent, Student, Oud-student.";
                }
             }//foutafhandeling velden
             else

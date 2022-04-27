@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:Plantjes.ViewModels"
         xmlns:uc="clr-namespace:Plantjes.Views.UserControls" d:DataContext="{d:DesignInstance Type=vm:ViewModelLogin}"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="499" Width="564" WindowState="Normal" ResizeMode="CanResize" MinHeight="499" MinWidth="564">
+        Title="LoginWindow" Height="499" Width="564" WindowState="Maximized" ResizeMode="CanResize" MinHeight="499" MinWidth="564">
 
 
     <Window.Resources>
@@ -14,17 +14,23 @@
             <uc:UserControlName/>
         </DataTemplate>
     </Window.Resources>
+    
+    <!-- achtergrond-->
     <Window.Background>
         <SolidColorBrush Color="#FFC6DCBF"/>
     </Window.Background>
     <Viewbox MaxHeight="499" MaxWidth="564">
-        <Grid RenderTransformOrigin="-0.043,0.578" Margin="0,0,-61,-16">
+        <Grid RenderTransformOrigin="-0.043,0.578" Margin="0,0,-61,-16" Height="474">
 
-            <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="39,169,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Normal" FontSize="14"/>
-            <Label x:Name="lblPassword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="62,198,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <!-- logo + Titel + lbl voor foutmelding -->
+            <Image Margin="20,8,445,363" Source="/Image/Vives_Logo_NeoGreen.png"  />
+            <TextBox Margin="230,36,119,365" TextWrapping="Wrap" Text="Plantendatabase" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" IsReadOnly="True"/>
+            <Label x:Name="lblError" Content="{Binding errorMessage}" Margin="142,89,199,329" Foreground="WhiteSmoke" Height="56" FontWeight="Bold"/>
 
 
-
+            <!-- lbl + txtb om naam en ww in te vullen -->
+            <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="39,169,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="20"/>
+            <Label x:Name="lblPassword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="74,198,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontSize="20" FontWeight="Bold"/>
             <TextBox Name="txtGebruikersnaam"
                  Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,169,72,169"  TextWrapping="Wrap" Height="26" Width="236"/>
             <!--<TextBox x:Name="txtWachtwoord"
@@ -39,8 +45,17 @@
                 </Button.Resources>
             </Button>
 
+            <Button x:Name="btnRegister" Content="registreer" Margin="200,344,199,95" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                Command="{Binding registerCommand}" Width="236">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
-            <Button x:Name="btnCancel" Content="Cancel" Margin="261,243,116,96" Height="25"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+              
+            <!--<Button x:Name="btnCancel" Content="Cancel" Margin="261,243,116,96" Height="25"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
                 Command="{Binding Path=cancelCommand}" Width="87" BorderBrush="#FF595757">
 
                 <Button.Resources>
@@ -48,21 +63,7 @@
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
-            </Button>
-
-            <Button x:Name="btnRegister" Content="Registreer" Margin="112,289,116,50" Height="25" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
-            Command="{Binding registerCommand}" Width="236">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
-            <Label x:Name="lblError" Content="{Binding errorMessage}" Margin="41,93,90,215" Foreground="WhiteSmoke" Height="56" FontWeight="Bold"/>
-            <Image Height="75" Margin="26,14,368,282" Width="95" Source="/Views/Home/vivesNew-removebg-preview.png"  />
-            <TextBox Margin="156,30,90,286" TextWrapping="Wrap" Text="Plantendatabase" Width="218" Height="48" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="24"/>
-
+            </Button>-->
 
         </Grid>
     </Viewbox>
