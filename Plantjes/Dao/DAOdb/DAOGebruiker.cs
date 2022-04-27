@@ -28,7 +28,7 @@ namespace Plantjes.Dao.DAOdb
             return gebruiker;
         }
 
-        public void RegisterUser(string vivesNr, string firstName, string lastName, int rolId, string emailadres, string password)
+        public void RegisterUser(string vivesNr, string firstName, string lastName, int rolid, string emailadres, string password)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();
@@ -39,7 +39,7 @@ namespace Plantjes.Dao.DAOdb
                 Vivesnr = vivesNr,
                 Voornaam = firstName,
                 Achternaam = lastName,
-                RolId = rolId,
+                RolId = rolid,
                 Emailadres = emailadres,
                 HashPaswoord = passwordHashed
             };

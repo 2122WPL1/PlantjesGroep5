@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="Image\waterval.jpeg" />
-    <None Remove="Views\Home\waterval.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +33,12 @@
 
   <ItemGroup>
     <Resource Include="Views\Home\waterval.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
   </ItemGroup>
 
   <ItemGroup>
