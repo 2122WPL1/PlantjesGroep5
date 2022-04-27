@@ -6,10 +6,9 @@
         xmlns:viewmodel="clr-namespace:Plantjes.ViewModels"
         xmlns:userControls="clr-namespace:Plantjes.Views.UserControls"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="427" Width="505" WindowState="Normal" ResizeMode="CanResize" MinHeight="427" MinWidth="550">
+        Title="RegisterWindow" Height="427" Width="505" WindowState="Maximized" ResizeMode="CanResize" MinHeight="427" MinWidth="550">
 
     <Window.Resources>
-
         <DataTemplate DataType = "{x:Type viewmodel:ViewModelRegister}">
             <userControls:UserControlName/>
         </DataTemplate>
@@ -20,19 +19,17 @@
     </Window.Background>
 
     <Viewbox>
-
         <Grid  Margin="0,0,0,-6">
 
-            <Image Height="75" Margin="13,10,467,339" Width="95" Source="/Views/Home/vivesNew-removebg-preview.png" />
+            <Image Height="80" Margin="13,10,467,339" Width="110" Source="/Image/Vives_Logo_NeoGreen.png" />
 
-
-            <Label x:Name="lblVivesNr" Content="VivesNr:" HorizontalAlignment="Left" Margin="117,-240,0,0" VerticalAlignment="Center" Foreground="White"/>
-            <Label x:Name="lblVoornaam" Content="Voornaam:" HorizontalAlignment="Left" Margin="103,111,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label x:Name="lblAchternaam" Content="Achternaam:" HorizontalAlignment="Left" Margin="93,142,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label x:Name="lblEmailadres" Content="emailadres:" HorizontalAlignment="Left" Margin="100,173,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label x:Name="lblWachtwoord" Content="wachtwoord:" HorizontalAlignment="Left" Margin="92,243,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label x:Name="lblWachtwoordHerhaal" Content="herhaal wachtwoord:" HorizontalAlignment="Left" Margin="50,279,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.574,0.559"/>
-            <Label x:Name="lblRol" Content="Rol:" HorizontalAlignment="Left" Margin="140,204,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label x:Name="lblVivesNr"      Content="vivesNr:" HorizontalAlignment="Left" Margin="117,-240,0,0" VerticalAlignment="Center" Foreground="#FF10380A"/>
+            <Label x:Name="lblVoornaam"     Content="voornaam:" HorizontalAlignment="Left" Margin="103,111,0,0" VerticalAlignment="Top" Foreground="#FF10380A"/>
+            <Label x:Name="lblAchternaam"   Content="achternaam:" HorizontalAlignment="Left" Margin="93,142,0,0" VerticalAlignment="Top" Foreground="#FF10380A"/>
+            <Label x:Name="lblEmailadres"   Content="emailadres:" HorizontalAlignment="Left" Margin="100,173,0,0" VerticalAlignment="Top" Foreground="#FF10380A"/>
+            <Label x:Name="lblWachtwoord"   Content="wachtwoord:" HorizontalAlignment="Left" Margin="92,243,0,0" VerticalAlignment="Top" Foreground="#FF10380A"/>
+            <Label x:Name="lblWachtwoordHerhaal" Content="herhaal wachtwoord:" HorizontalAlignment="Left" Margin="50,279,0,0" VerticalAlignment="Top" Foreground="#FF10380A" RenderTransformOrigin="0.574,0.559"/>
+            <Label x:Name="lblRol"          Content="rol:" HorizontalAlignment="Left" Margin="140,204,0,0" VerticalAlignment="Top" Foreground="#FF10380A"/>
 
             <TextBox Name="txtVivesNr"
                  Text="{Binding Path=vivesNrInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,80,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
@@ -42,6 +39,15 @@
             Text="{Binding lastNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,142,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
             <TextBox x:Name="txtEmailAdres"
             Text="{Binding emailAdresInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,173,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+
+            
+          
+             <!-- <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem Content="docent"/>
+                <ComboBoxItem Content="student"/>
+                <ComboBoxItem Content="oud-student"/>
+            </ComboBox>
+
             <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120" 
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
                       DisplayMemberPath="Omschrijving"
@@ -51,30 +57,39 @@
             <TextBox x:Name="txtWachtwoord"
             Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
             <TextBox x:Name="txtWachtwoordHerhaal"
-            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-
+            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            
             
 
+
+            <TextBox x:Name="txtWachtwoord"
+            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+            <TextBox x:Name="txtWachtwoordHerhaal"
+            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+
+      
+
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
-            <!--TextBox x:Name="txtRol"
-                 Text="{Binding rolInput, UpdateSourceTrigger=PropertyChanged}" Margin="50,381,0,0"  TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="265"/-->
+            <!--<TextBox x:Name="txtRol"
+                 Text="{Binding rolInput, UpdateSourceTrigger=PropertyChanged}" Margin="50,381,0,0"  TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="265"/>-->
 
-            <Button x:Name="btnRegister" Content="Registreer" Margin="175,315,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
-                Command="{Binding registerCommand}" HorizontalAlignment="Left" Width="265">
+            <Button x:Name="btnRegister" Content="registreer" Margin="175,323,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
+                   Command="{Binding registerCommand}" HorizontalAlignment="Left" Width="265">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
+            
             </Button>
-            <Button x:Name="btnBack" Content="Back" Margin="175,344,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
-            Command="{Binding backCommand}" HorizontalAlignment="Left" Width="265">
+           
+            <Button x:Name="btnBack" Content="terug naar login" Margin="175,352,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
+                    Command="{Binding backCommand}" HorizontalAlignment="Left" Width="265">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
-
             </Button>
             <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="58" Width="265" FontWeight="Bold"/>
 
