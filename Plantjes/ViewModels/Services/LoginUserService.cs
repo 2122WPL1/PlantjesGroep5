@@ -10,6 +10,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -17,10 +19,10 @@ namespace Plantjes.ViewModels.Services
     {   //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
         //dao verklaren om data op te vragen en te setten in de databank
-        private DAOLogic _dao;
+        private DAOGebruiker _dao;
         public LoginUserService()
         {
-            this._dao = DAOLogic.Instance();
+            this._dao = DAOGebruiker.Instance();
         }
         #region Login Region
         //globale gebruiker om te gebruiken in de service
@@ -45,16 +47,19 @@ namespace Plantjes.ViewModels.Services
             }
 
             //omzetten van het ingegeven passwoord naar een gehashed passwoord
-            var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
-            var md5Hasher = new MD5CryptoServiceProvider();
-            var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+            //var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
+            //var md5Hasher = new MD5CryptoServiceProvider();
+            //var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+
+
+
 
             if (gebruiker != null)
             {
                 _gebruiker = gebruiker;
                 loginResult.gebruiker = gebruiker;
                 //passwoord controle
-                if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
+                if (gebruiker.HashPaswoord != null /*&& passwordInput.SequenceEqual(gebruiker.HashPaswoord)*/)
                 {   //indien true status naar LoggedIn zetten
                     loginResult.loginStatus = LoginStatus.LoggedIn;
                 }

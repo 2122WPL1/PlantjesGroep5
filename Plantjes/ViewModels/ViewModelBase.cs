@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Plantjes.ViewModels
 {
+
+    //erover van inotify... 
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

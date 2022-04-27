@@ -16,8 +16,17 @@
 # Mono auto generated files
 mono_crash.*
 
+<<<<<<< HEAD
 #Plantjes connectie
 Plantjes\Dao\SQLConnection.cs
+=======
+#GitIgnore toevoegen
+Plantjes/Dao/SQLConnection.cs
+
+#Connectionstring ignore
+SQLConnection.cs
+
+>>>>>>> origin/DEV
 
 # Build results
 [Dd]ebug/

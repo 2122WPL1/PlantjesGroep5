@@ -4,73 +4,67 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Plantjes.ViewModels"
-        xmlns:uc="clr-namespace:Plantjes.Views.UserControls"
+        xmlns:uc="clr-namespace:Plantjes.Views.UserControls" d:DataContext="{d:DesignInstance Type=vm:ViewModelLogin}"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="464">
-    <!--Written by Kenny-->
+        Title="LoginWindow" Height="499" Width="564" WindowState="Normal" ResizeMode="CanResize" MinHeight="499" MinWidth="564">
+
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:ViewModelLogin}">
             <uc:UserControlName/>
         </DataTemplate>
-
     </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Color="#FFC6DCBF"/>
+    </Window.Background>
+    <Viewbox MaxHeight="499" MaxWidth="564">
+        <Grid RenderTransformOrigin="-0.043,0.578" Margin="0,0,-61,-16">
+
+            <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="39,169,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Normal" FontSize="14"/>
+            <Label x:Name="lblPassword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="62,198,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
 
 
 
-    <Grid>
+            <TextBox Name="txtGebruikersnaam"
+                 Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,169,72,169"  TextWrapping="Wrap" Height="26" Width="236"/>
+            <TextBox x:Name="txtWachtwoord"
+                 Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,199,72,139"  TextWrapping="Wrap" Height="26" Width="236"/>
 
-        <Grid.Background>
-            <!--add background image-->
-            <ImageBrush  Stretch="Fill" ImageSource="../../../Image/waterval.jpeg"/>
-        </Grid.Background>
-
-        <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="41,61,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label x:Name="lblPasword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="61,92,0,0" VerticalAlignment="Top" Foreground="White"/>
-
-        <TextBox Name="txtGebruikersnaam"
-                 Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="155,61,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="236"/>
-        <TextBox x:Name="txtWachtwoord"
-                 Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="155,92,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="236"/>
-
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="155,130,0,0" VerticalAlignment="Top" Height="25" Width="87" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" 
+            <Button x:Name="btnLogin" Content="Login" Margin="112,244,265,96" Height="24" Width="87" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
                 Command="{Binding Path= loginCommand}">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
 
-        <Button x:Name="btnCancel" Content="Cancel" Margin="304,130,0,0" VerticalAlignment="Top" Height="25" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" 
-                Command="{Binding Path=cancelCommand}" HorizontalAlignment="Left" Width="87">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+            <Button x:Name="btnCancel" Content="Cancel" Margin="261,243,116,96" Height="25"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+                Command="{Binding Path=cancelCommand}" Width="87" BorderBrush="#FF595757">
 
-        <Button x:Name="btnRegister" Content="Registreer" Margin="155,174,0,0" VerticalAlignment="Top" Height="25" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" 
-            Command="{Binding registerCommand}" HorizontalAlignment="Left" Width="236">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-        </Button>
-        <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="56" Width="396" FontWeight="Bold"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnRegister" Content="Registreer" Margin="112,289,116,50" Height="25" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            Command="{Binding registerCommand}" Width="236">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+
+            </Button>
+            <Label x:Name="lblError" Content="{Binding errorMessage}" Margin="41,93,90,215" Foreground="WhiteSmoke" Height="56" FontWeight="Bold"/>
+            <Image Height="75" Margin="26,14,368,282" Width="95" Source="/Views/Home/vivesNew-removebg-preview.png"  />
+            <TextBox Margin="156,30,90,286" TextWrapping="Wrap" Text="Plantendatabase" Width="218" Height="48" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="24"/>
 
 
-    </Grid>
+        </Grid>
+    </Viewbox>
+
 </Window>
