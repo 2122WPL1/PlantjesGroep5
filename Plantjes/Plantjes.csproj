@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -27,16 +28,11 @@
     <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\waterval.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Db\" />
+    <Resource Include="Image\Vives_Logo_NeoGreen.png" />
   </ItemGroup>
 
 </Project>
