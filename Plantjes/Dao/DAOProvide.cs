@@ -9,12 +9,7 @@ namespace Plantjes.Dao.DAOdb
 {
     public class DAOProvide
     {
-        public DAOProvide()
-        {
-            this.RegisterViewModels();
-        }
-
-        private void RegisterViewModels()
+        public static void RegisterViewModels()
         {
             //basisstructuur kenny, mede gebruikt door Robin
             // gebruik de default instantie (singleton van de SimpleIoc class)
@@ -33,6 +28,7 @@ namespace Plantjes.Dao.DAOdb
             iocc.Register<DAOCommensalismeMulti>(() => new DAOCommensalismeMulti());
             iocc.Register<DAOExtra>(() => new DAOExtra());
             iocc.Register<DAOExtraEigenschap>(() => new DAOExtraEigenschap());
+            iocc.Register<DAORol>(()=>new DAORol());
 
             iocc.Register<DAOExtraNectarWaarde>(() => new DAOExtraNectarWaarde());
             iocc.Register<DAOExtraPollenWaarde>(() => new DAOExtraPollenWaarde());
