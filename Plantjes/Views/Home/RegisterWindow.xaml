@@ -48,12 +48,17 @@
                       SelectedValuePath="Id"
                       SelectedItem="{Binding Path=SelectedRol, Mode=TwoWay}" IsEditable="True">
             </ComboBox>
-            <TextBox x:Name="txtWachtwoord"
-            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-            <TextBox x:Name="txtWachtwoordHerhaal"
-            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-
             
+            <!--<TextBox x:Name="txtWachtwoord"
+            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            <userControls:UserControlPassword x:Name="txtPassword" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+
+
+            <!--<TextBox x:Name="txtWachtwoordHerhaal"
+            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            <userControls:UserControlPassword x:Name="txtWachtwoordHerhaal" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+
+
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
             <!--TextBox x:Name="txtRol"

@@ -33,7 +33,7 @@ namespace Plantjes.ViewModels.Services
         }
         public void fillComboBoxRol(ObservableCollection<Rol> cmbRolCollection)
         {
-            this._daoRol = DAORol.Instance();
+            this._daoRol = SimpleIoc.Default.GetInstance<DAORol>();
             var list = _daoRol.fillRol();
 
             foreach (var item in list)
