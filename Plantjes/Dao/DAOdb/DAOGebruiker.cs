@@ -1,4 +1,5 @@
-﻿using Plantjes.Models.Db;
+﻿using Microsoft.EntityFrameworkCore;
+using Plantjes.Models.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace Plantjes.Dao.DAOdb
 
         public Gebruiker GetGebruikerWithEmail(string userEmail)
         {
-            var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+
+            //var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+
+            var gebruiker = context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Emailadres == userEmail);
+
             return gebruiker;
         }
 

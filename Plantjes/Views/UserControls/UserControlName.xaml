@@ -9,10 +9,10 @@
     
     
     <Grid Margin="10,10,10,0" Height="700" VerticalAlignment="Top">
-
-
         <Canvas x:Name="CvsZoeken" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Left" Width="214" Margin="10,0,0,10" Height="663" VerticalAlignment="Bottom" >
-            <Label Content="Type" Canvas.Top="12" Width="200" Height="28" Canvas.Left="8" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C">
+            
+            <!-- alles voor linker kolom -->
+            <Label Content="type" Canvas.Top="12" Width="200" Height="28" Canvas.Left="8" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C">
             </Label>
             <ComboBox x:Name="cmbType" Canvas.Left="7" Canvas.Top="45" Width="200" Height="28"
                       ItemsSource="{Binding cmbTypes}" 
@@ -20,13 +20,13 @@
                       SelectedValuePath="Planttypeid"
                       SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}" IsEditable="True">
             </ComboBox>
-            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="4" Canvas.Top="278" Width="200">
+            <Label Content="ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="4" Canvas.Top="278" Width="200">
             </Label>
-            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867" Height="28" Canvas.Left="6" Canvas.Top="344" Width="200">
+            <Label Content="variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867" Height="28" Canvas.Left="6" Canvas.Top="344" Width="200">
             </Label>
-            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867" Height="28" Canvas.Left="7" Canvas.Top="78" Width="200">
+            <Label Content="familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867" Height="28" Canvas.Left="7" Canvas.Top="78" Width="200">
             </Label>
-            <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="7" Canvas.Top="410" Width="200" RenderTransformOrigin="0.487,0.673">
+            <Label Content="naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="7" Canvas.Top="410" Width="200" RenderTransformOrigin="0.487,0.673">
             </Label>
             <TextBox x:Name="txtNaam" Text="{Binding Path=SelectedNederlandseNaam}"  TextWrapping="Wrap" Height="28" Canvas.Left="7" Canvas.Top="443" Width="200">
             </TextBox>
@@ -36,9 +36,9 @@
                       DisplayMemberPath="Familienaam"
                       SelectedValuePath="FamileId" IsEditable="True">
             </ComboBox>
-            <Label Content="Geslacht" Canvas.Left="7" Canvas.Top="144" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28">
+            <Label Content="geslacht" Canvas.Left="7" Canvas.Top="144" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28">
             </Label>
-            <Label Content="Soort" Canvas.Left="6" Canvas.Top="212" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28">
+            <Label Content="soort" Canvas.Left="6" Canvas.Top="212" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28">
             </Label>
             <ComboBox x:Name="cmbGeslacht" Canvas.Left="6" Canvas.Top="177" Width="200" Height="30"
                       ItemsSource="{Binding cmbGeslacht}" 
@@ -66,8 +66,9 @@
                       DisplayMemberPath="RatioBloeiBlad" IsEditable="True">
    
             </ComboBox>
-            <!-- Button voor het zoeken -->
-            <Button x:Name="btnZoeken" Content="Zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+            
+            <!-- Buttons voor het zoeken, toevoegen en resetten -->
+            <Button x:Name="btnZoeken" Content="zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding SearchCommand}"
                     Height="35" Canvas.Left="20" Canvas.Top="488" Width="176">
                 <Button.Resources>
@@ -76,9 +77,9 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <!-- Button voor het resetten -->
+            
             <Button x:Name="btnNameReset"
-                    Content="Reset" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Content="reset" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="618" Width="176">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -86,8 +87,8 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <!-- Button voor het toevoegen -->
-            <Button x:Name="btnToevoegen" Content="Toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
+            
+            <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
                 Command="{Binding SearchCommand}"
                 Height="35" Canvas.Left="20" Canvas.Top="553" Width="176">
                 <Button.Resources>
@@ -97,7 +98,8 @@
                 </Button.Resources>
             </Button>
         </Canvas>
-
+        
+        <!-- 2 listboxen -->
         <ListBox x:Name="lstResultSearch" 
                      ItemsSource="{Binding filteredPlantResults}"
                      SelectedItem="{Binding Path= SelectedPlantInResult, Mode=TwoWay}"
@@ -150,11 +152,14 @@
                  ItemsSource="{Binding detailsSelectedPlant}"
 
                  Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom"/>
-        <Label Content="Resultaat planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C"  FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
+        
+        <!-- labels boven listboxen -->
+        <Label Content="resultaat planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C"  FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
         </Label>
-        <Label Content="Details planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" Grid.RowSpan="2" >
+        <Label Content="details planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" Grid.RowSpan="2" >
         </Label>
-
+        
+        <!-- fotos die bovenaan gaan komen-->
         <Image Source="{Binding ImageHabitus}" Margin="479,0,575,575" Height="122" VerticalAlignment="Bottom" />
         <Image Source="{Binding ImageBlad}" Margin="638,0,418,581" Height="113" VerticalAlignment="Bottom" />
         <Image Source="{Binding ImageBloei}" Margin="809,0,242,582" Height="112" VerticalAlignment="Bottom"/>
