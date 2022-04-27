@@ -25,7 +25,7 @@ namespace Plantjes.Dao.DAOdb
 
         public IQueryable<Rol> fillRol()
         {
-            var selection = context.Rols.Distinct();
+            var selection = Context.Rols.Distinct();
             return selection;
         }
     }

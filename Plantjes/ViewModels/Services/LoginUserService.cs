@@ -14,11 +14,13 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Plantjes.Dao.DAOdb;
 using System.Collections.ObjectModel;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels.Services
 {
     public class LoginUserService : IloginUserService
-    {   //gebruiker verklaren  om te gebruiken in de logica
+    {   
+        //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
         private DAORol _daoRol;
         //dao verklaren om data op te vragen en te setten in de databank
