@@ -24,6 +24,9 @@ namespace Plantjes.ViewModels
         private ViewModelGrow viewModelGrow = iocc.GetInstance<ViewModelGrow>();
         private ViewModelAppearance viewModelAppearance = iocc.GetInstance<ViewModelAppearance>();
         private ViewModelGrooming viewModelGrooming = iocc.GetInstance<ViewModelGrooming>();
+        private ViewModelImages viewModelImages = iocc.GetInstance<ViewModelImages>();
+        private ViewModelRequest viewModelRequest = iocc.GetInstance<ViewModelRequest>();
+        
         
 
         public ViewModelRepo()
@@ -36,6 +39,8 @@ namespace Plantjes.ViewModels
             _viewModels.Add("VIEWAPPEARANCE", viewModelAppearance);
             _viewModels.Add("VIEWGROOMING",viewModelGrooming);
             _viewModels.Add("VIEWREGISTER", viewModelRegister);
+            _viewModels.Add("VIEWIMAGES", viewModelImages);
+            _viewModels.Add("VIEWREQUEST", viewModelRequest);
            
         }
         //
