@@ -36,7 +36,7 @@
             <!--<TextBox x:Name="txtWachtwoord"
                  Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,199,72,139"  TextWrapping="Wrap" Height="26" Width="236"/>-->
             <uc:UserControlPassword x:Name="txtPassword" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="263,209,179,239" Height="26" Width="236"/>
-            <Button x:Name="btnLogin" Content="Login" Margin="112,244,265,96" Height="24" Width="87" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White" 
+            <Button x:Name="btnLogin" Content="login" Margin="221,295,221,144" Width="236" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
                 Command="{Binding Path= loginCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">

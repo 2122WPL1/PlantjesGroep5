@@ -40,6 +40,8 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
             iocc.Register<ViewModelGrow>(() => new ViewModelGrow(detailService));
             iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat(detailService));
+            iocc.Register<ViewModelImages>(() => new ViewModelImages(detailService));
+            iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
             iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));

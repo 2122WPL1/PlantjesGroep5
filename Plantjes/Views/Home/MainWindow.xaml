@@ -36,6 +36,14 @@
         <DataTemplate DataType = "{x:Type viewModels:ViewModelAppearance}">
             <pages:UserControlAppearance/>
         </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelImages}">
+            <pages:UserControlImages/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelRequest}">
+            <pages:UserControlRequest/>
+        </DataTemplate>
     </Window.Resources>
 
     <Window.Background>
@@ -114,7 +122,10 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnFotos" Content="foto's toevoegen" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="166" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnFotos" Content="foto's toevoegen" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="166" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWIMAGES">
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -123,7 +134,10 @@
             </Button>
 
 
-            <Button x:Name="btnLopendVerzoek" Content="lopend verzoek" HorizontalAlignment="Left" Margin="989,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnLopendVerzoek" Content="lopend verzoek" HorizontalAlignment="Left" Margin="989,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWREQUEST">
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
