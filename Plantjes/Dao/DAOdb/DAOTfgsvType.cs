@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOTfgsvType
+    public class DAOTfgsvType : DAOGeneric
     {
-        private static readonly DAOTfgsvType instance = new DAOTfgsvType();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOTfgsvType()
+        public DAOTfgsvType() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOTfgsvType Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public IQueryable<TfgsvType> fillTfgsvType()
@@ -33,7 +21,7 @@ namespace Plantjes.Dao.DAOdb
             // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
             // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
             // Good way to interact with our datacontext
-            var selection = context.TfgsvTypes.Distinct();
+            var selection = Context.TfgsvTypes.Distinct();
             return selection;
         }
 

@@ -7,7 +7,7 @@ namespace Plantjes.Models.Db
     {
         public long Id { get; set; }
         public long PlantId { get; set; }
-        public int? Bladgrootte { get; set; }
+        public int? Bladgrootte { get; set; } //appeareance
         public string Bladvorm { get; set; }
         public string RatioBloeiBlad { get; set; }
         public string Spruitfenologie { get; set; }

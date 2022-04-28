@@ -7,28 +7,17 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOExtraEigenschap
+    public class DAOExtraEigenschap : DAOGeneric
     {
-        private static readonly DAOExtraEigenschap instance = new DAOExtraEigenschap();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOExtraEigenschap()
+        public DAOExtraEigenschap() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
+            //ctor
         }
 
-        public static DAOExtraEigenschap Instance()
-        {
-            return instance;
-        }
 
         public List<ExtraEigenschap> GetAllExtraEigenschap()
         {
-            var extraEigenschap = context.ExtraEigenschaps.ToList();
+            var extraEigenschap = Context.ExtraEigenschaps.ToList();
             return extraEigenschap;
         }
     }

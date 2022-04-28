@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    class DAOExtra
+    class DAOExtra : DAOGeneric
     {
+        public DAOExtra() : base()
+        {
+            //ctor
+        }
     }
 }
