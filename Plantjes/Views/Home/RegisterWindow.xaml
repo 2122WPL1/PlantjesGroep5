@@ -49,11 +49,14 @@
 					  SelectedValue="{Binding Path=SelectedRol, Mode=TwoWay}" IsEditable="False">
             </ComboBox>
 
+            <TextBox x:Name="txtPassword" FontFamily="{StaticResource Password}"
+                     Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="175,243,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-                    
-           <userControls:UserControlPassword x:Name="txtPassword" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+            <TextBox x:Name="txtRepeatPassword" FontFamily="{StaticResource Password}"
+                     Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="175,282,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-           <userControls:UserControlPassword x:Name="txtWachtwoordHerhaal" Password="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
