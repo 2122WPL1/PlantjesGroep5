@@ -52,6 +52,7 @@
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
                       DisplayMemberPath="Omschrijving"
                       SelectedValuePath="Id"
+                      SelectedIndex="1"
 					  SelectedValue="{Binding Path=SelectedRol, Mode=TwoWay}" IsEditable="False">
             </ComboBox>
             <TextBox x:Name="txtWachtwoord"
