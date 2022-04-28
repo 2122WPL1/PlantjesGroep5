@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using GalaSoft.MvvmLight.Ioc;
+//using Plantjes.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,9 @@ namespace Plantjes.Views.UserControls
     {
         public UserControlUserManagement()
         {
+
+            //DataContext = SimpleIoc.Default.GetInstance<ViewModelMain>();
+
             InitializeComponent();
         }
     }

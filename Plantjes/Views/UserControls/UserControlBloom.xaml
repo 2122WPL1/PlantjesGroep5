@@ -95,7 +95,7 @@
             </Grid>
 
             <!-- grid maanden, bloeihoogte en bloeit in -->
-            <Grid Height="127" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" Canvas.Top="198">
+            <Grid Height="127" Width="1087" Canvas.Left="28" Canvas.Top="198">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="30,10,50,10">
                         <Label Content="maanden"  Height="28" Width="93"  FontWeight="Bold" FontSize="14"/>

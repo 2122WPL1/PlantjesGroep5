@@ -5,8 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Plantjes.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="790"
+             d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
-            
+        <Canvas x:Name="cvsUserManagement" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
+            <Grid>
+                <!--DataGrid-->
+                <Grid Height="500" Width="1088" Canvas.Left="26" Canvas.Top="45" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,10,0,0">
+                    <StackPanel>
+                        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" FontSize="18" Background="#FF52734D" FontWeight="Bold" >
+                            <DataGrid.Columns >
+                                <DataGridTextColumn Header="id" Width="50"  />
+                                <DataGridTextColumn Header="vives nummer" Width="150" />
+                                <DataGridHyperlinkColumn Header="voornaam" Width="200"  />
+                                <DataGridCheckBoxColumn Header="achternaam" Width="300"  />
+                                <DataGridComboBoxColumn Header="rol id" Width="100" />
+                                <DataGridComboBoxColumn Header="emailadres" Width="300" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
+                
+                <!--Buttons-->
+                <!--Button Load-->
+                <Button x:Name="btnLoad" Content="kies een bestand" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="58,550,820,-155">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <!--Button Opslaan-->
+                <Button x:Name="btnStudentAanmaken" Content="student aanmaken" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="823,550,55,-155">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Canvas>
     </Grid>
 </UserControl>
+
+
