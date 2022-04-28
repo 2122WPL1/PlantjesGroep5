@@ -38,14 +38,14 @@ namespace Plantjes.ViewModels
         {   //checken dat er iets is in gevult zo dat het programma niet crached.
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                cmbRols != null &&
+                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
             {
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
-                passwordInput, passwordRepeatInput, _rolInput);
+                passwordInput, passwordRepeatInput, SelectedRol);
                 
 
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
@@ -64,7 +64,7 @@ namespace Plantjes.ViewModels
         private string _emailAdresInput;
         private string _passwordInput;
         private string _passwordRepeatInput;
-        private int _rolInput;
+        private int _SelectedRol;
         private string _errorMessage;
 
         public string errorMessage
@@ -153,15 +153,15 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
-        public int rolInput
+        public int SelectedRol
         {
             get
             {
-                return  _rolInput;
+                return _SelectedRol;
             }
             set
             {
-                _rolInput = value;
+                _SelectedRol = value;
                 OnPropertyChanged();
             }
         }

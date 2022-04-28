@@ -40,30 +40,22 @@
             <TextBox x:Name="txtEmailAdres"
             Text="{Binding emailAdresInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,173,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-            
-          
-              <!--<ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120">
-                <ComboBoxItem Content="docent"/>
-                <ComboBoxItem Content="student"/>
-                <ComboBoxItem Content="oud-student"/>
-            </ComboBox>-->
 
             <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120" 
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
                       DisplayMemberPath="Omschrijving"
                       SelectedValuePath="Id"
-                      SelectedItem="{Binding Path=SelectedRol, Mode=OneWay}" IsEditable="False">
+                      SelectedIndex="1"
+					  SelectedValue="{Binding Path=SelectedRol, Mode=TwoWay}" IsEditable="False">
             </ComboBox>
             
             <!--<TextBox x:Name="txtWachtwoord"
             Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
             <userControls:UserControlPassword x:Name="txtPassword" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-
             <!--<TextBox x:Name="txtWachtwoordHerhaal"
             Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
             <userControls:UserControlPassword x:Name="txtWachtwoordHerhaal" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-
 
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->

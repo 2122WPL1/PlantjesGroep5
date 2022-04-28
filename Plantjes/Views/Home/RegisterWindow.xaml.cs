@@ -13,5 +13,6 @@ namespace Plantjes.Views.Home
             this.DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModelRegister>();
             InitializeComponent();
         }
+
     }
 }
