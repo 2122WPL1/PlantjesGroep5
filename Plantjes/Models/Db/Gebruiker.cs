@@ -20,5 +20,22 @@ namespace Plantjes.Models.Db
         public byte[] HashPaswoord { get; set; }
         public virtual Rol Rol { get; set; }
         public virtual ICollection<UpdatePlant> UpdatePlants { get; set; }
+
+
+        //methode om student terug te retourneren
+        public static Gebruiker FromLine(string line)
+        {
+            string[] vals = line.Split(";");
+            Gebruiker student =  new Gebruiker()
+            {
+                Id = int.Parse(vals[0]),
+                Vivesnr = vals[1],
+                Voornaam = vals[2],
+                Achternaam = vals[3],
+                RolId = int.Parse(vals[4]),
+                Emailadres = vals[5]
+            };
+            return student;
+        }
     }
 }

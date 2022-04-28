@@ -2,17 +2,19 @@
 using Plantjes.Dao;
 using System.Windows;
 using Plantjes.Models.Db;
+using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelAppearance : ViewModelBase
     {
-        private DAOLogic _dao;
+        private DAOProvide _dao;
 
         public ViewModelAppearance(IDetailService detailservice)
         {
-            this._dao = DAOLogic.Instance();
-            
+            this._dao = SimpleIoc.Default.GetInstance<DAOProvide>();
+
         }
 
         private string _selectedBladHoogte;

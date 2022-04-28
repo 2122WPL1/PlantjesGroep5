@@ -2,18 +2,20 @@
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Dao;
 using System.Windows;
+using Plantjes.Dao.DAOdb;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelGrow : ViewModelBase
     {
-        private DAOLogic _dao;
+        private DAOProvide _dao;
+
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         public ViewModelGrow(IDetailService detailservice)
         {
             _detailService = detailservice;
-            this._dao = DAOLogic.Instance();
+            this._dao = SimpleIoc.Default.GetInstance<DAOProvide>();
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
         #region CheckboxGrondsoort
