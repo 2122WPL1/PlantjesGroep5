@@ -42,38 +42,35 @@
 
             
           
-              <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120">
+              <!--<ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem Content="docent"/>
                 <ComboBoxItem Content="student"/>
                 <ComboBoxItem Content="oud-student"/>
-            </ComboBox>
+            </ComboBox>-->
 
             <!--<ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Margin="175,206,0,0" VerticalAlignment="Top" Width="120" 
                       ItemsSource="{Binding cmbRols, UpdateSourceTrigger=PropertyChanged}"
                       DisplayMemberPath="Omschrijving"
                       SelectedValuePath="Id"
                       SelectedItem="{Binding Path=SelectedRol, Mode=OneWay}" IsEditable="False">
-            </ComboBox>-->
-            <TextBox x:Name="txtWachtwoord"
-            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-            <TextBox x:Name="txtWachtwoordHerhaal"
-            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+            </ComboBox>
             
-            
-
-
             <!--<TextBox x:Name="txtWachtwoord"
-            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
-            <TextBox x:Name="txtWachtwoordHerhaal"
-            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            <userControls:UserControlPassword x:Name="txtPassword" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,243,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
 
-      
+
+            <!--<TextBox x:Name="txtWachtwoordHerhaal"
+            Text="{Binding passwordRepeatInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>-->
+            <userControls:UserControlPassword x:Name="txtWachtwoordHerhaal" Password="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="175,282,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="265"/>
+
+
 
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
             <!--<TextBox x:Name="txtRol"
                  Text="{Binding rolInput, UpdateSourceTrigger=PropertyChanged}" Margin="50,381,0,0"  TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="265"/>-->
 
-            <Button x:Name="btnRegister" Content="registreer" Margin="175,323,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
+            <!--<Button x:Name="btnRegister" Content="registreer" Margin="175,323,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
                    Command="{Binding registerCommand}" HorizontalAlignment="Left" Width="265">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -81,7 +78,7 @@
                     </Style>
                 </Button.Resources>
             
-            </Button>
+            </Button>-->
            
             <Button x:Name="btnBack" Content="terug naar login" Margin="175,352,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
                     Command="{Binding backCommand}" HorizontalAlignment="Left" Width="265">

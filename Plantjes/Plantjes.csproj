@@ -31,6 +31,8 @@
     <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
+
+
   <ItemGroup>
     <Resource Include="Image\Vives_Logo_NeoGreen.png" />
   </ItemGroup>

@@ -8,6 +8,7 @@ namespace Plantjes.Dao
 {
     public partial class plantenContext : DbContext
     {
+        //alles is te linken nr db
         public plantenContext()
         {
         }

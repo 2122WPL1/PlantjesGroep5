@@ -1,4 +1,5 @@
-﻿using Plantjes.ViewModels.HelpClasses;
+﻿using Plantjes.Dao.DAOdb;
+using Plantjes.ViewModels.HelpClasses;
 using System.Windows;
 
 namespace Plantjes
@@ -14,6 +15,7 @@ namespace Plantjes
             // services registeren
 
             ServiceProvider.RegisterServices();
+            DAOProvide.RegisterViewModels();
 
             // VMprovider toevoegen als "static resource" in MvvM zodat die kan worden gebruikt in de Views om
             // de ViewModels te koppelen aan de DataContext
@@ -34,6 +36,7 @@ namespace Plantjes
             // datacontext van de view met GetInstance methode van de IoC Container
             // in de code behind van de view (yyy.xaml.cs)
             //vb. DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<MainWindowViewModel>
+
         }
 
 

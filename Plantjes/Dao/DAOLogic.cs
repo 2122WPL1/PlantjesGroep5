@@ -39,6 +39,8 @@ namespace Plantjes.Dao
          */
 
 
+        #region Codes studenten 1ste jaar
+
         //search functions
 
         /* NARROW DOWN FUNCTIONS */
@@ -619,7 +621,8 @@ namespace Plantjes.Dao
         //    }
 
         //    return result;
-        //}
+        //} 
+        #endregion
 
     }
 

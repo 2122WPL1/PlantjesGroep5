@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOTfgsvFamilie
+    public class DAOTfgsvFamilie : DAOGeneric
     {
-        private static readonly DAOTfgsvFamilie instance = new DAOTfgsvFamilie();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOTfgsvFamilie()
+        public DAOTfgsvFamilie() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOTfgsvFamilie Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public IQueryable<TfgsvFamilie> fillTfgsvFamilie(int selectedItem)
@@ -37,13 +25,13 @@ namespace Plantjes.Dao.DAOdb
 
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
+                var selection = Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
                 return selection;
 
             }
             else
             {
-                var selection = context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
+                var selection = Context.TfgsvFamilies.Distinct().OrderBy(s => s.Familienaam);
                 return selection;
             }
 

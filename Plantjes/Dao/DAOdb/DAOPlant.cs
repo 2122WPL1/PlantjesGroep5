@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    class DAOPlant
+    class DAOPlant : DAOGeneric
     {
-        private static readonly DAOPlant instance = new DAOPlant();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOPlant()
+        public DAOPlant() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOPlant Instance()
-        {
-            return instance;
+            //ctor
         }
 
         //get a list of all the plants
@@ -31,7 +19,10 @@ namespace Plantjes.Dao.DAOdb
         public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd
-            var plants = context.Plants.ToList();
+            var plants = Context.Plants.ToList();
+
+            var b = 1;
+            var a = 1 / (b - b);
             return plants;
         }
     }

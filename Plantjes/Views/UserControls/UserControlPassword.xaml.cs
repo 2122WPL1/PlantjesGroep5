@@ -26,8 +26,14 @@ namespace Plantjes.Views.UserControls
             DependencyProperty.Register("Password", typeof(string), typeof(UserControlPassword),
                 new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                     PasswordPropertyChanged, null, false, UpdateSourceTrigger.PropertyChanged));
-        private static void PasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) { }
-
+        private static void PasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
+        {
+            if (d is UserControlPassword passwordBox)
+            {
+                passwordBox.UpdatePassword();
+            }
+        }
+        
         public string Password
         {
             get { return (string)GetValue(PasswordProperty); }
@@ -39,5 +45,12 @@ namespace Plantjes.Views.UserControls
             InitializeComponent();
         }
 
+        private void UpdatePassword()
+        {
+            //if (!_isPasswordChanging)
+            //{
+            // passwordBox.Password = Password;
+            //}
+        }
     }
 }
