@@ -19,7 +19,8 @@ namespace Plantjes.ViewModels.Services
     /*written by kenny and robin from an example of Roy and some help of Killian*/
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
-        private DAOPlant _daoPlant;
+        private DAOPlant _dao;
+        //private DAOPlant _daoPlant;
         private DAOFoto _daoFoto;
         private DAOAbiotiek _daoAbiotiek;
         private DAOAbiotiekMulti _daoAbiotiekMulti;
@@ -36,7 +37,7 @@ namespace Plantjes.ViewModels.Services
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private DAOPlant _dao;
+        
         public SearchService()
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOPlant>();
@@ -51,7 +52,7 @@ namespace Plantjes.ViewModels.Services
         //Omgezet naar service door kenny
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
-            var listPlants = _daoPlant.getAllPlants();
+            var listPlants = _dao.getAllPlants();
 
             if (SelectedtType != null)
             {

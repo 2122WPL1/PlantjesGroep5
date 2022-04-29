@@ -9,12 +9,11 @@ namespace Plantjes.Dao.DAOdb
 {
     class DAOPlant : DAOGeneric
     {
-        private readonly plantenContext context;
+        
 
         public DAOPlant() : base()
         {
             //ctor
-            this.context = new plantenContext();
         }
 
         //get a list of all the plants
@@ -23,9 +22,6 @@ namespace Plantjes.Dao.DAOdb
         {
             // kijken hoeveel er zijn geselecteerd
             var plants = Context.Plants.ToList();
-
-            var b = 1;
-            var a = 1 / (b - b);
             return plants;
         }
     }
