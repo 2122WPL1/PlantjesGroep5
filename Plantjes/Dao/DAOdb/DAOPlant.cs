@@ -9,9 +9,12 @@ namespace Plantjes.Dao.DAOdb
 {
     class DAOPlant : DAOGeneric
     {
+        private readonly plantenContext context;
+
         public DAOPlant() : base()
         {
             //ctor
+            this.context = new plantenContext();
         }
 
         //get a list of all the plants
