@@ -11,21 +11,17 @@
         <Canvas x:Name="cvsUserManagement" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
             <Grid>
                 <!--DataGrid-->
-                <Grid Height="500" Width="1120" Canvas.Left="26" Canvas.Top="45" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,10,0,0">
-                    <StackPanel>
-                        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" FontSize="18" Background="#FF52734D" FontWeight="Bold" >
+                <Grid Height="500" Width="1000" Canvas.Left="26" Canvas.Top="45" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="64,0,0,0">
+                        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto" FontSize="18" Background="#FFFEFFDE" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Margin="4,0,-4,0" >
                             <DataGrid.Columns >
-                                <DataGridTextColumn Header="id" Width="50" Binding="{Binding Id}" />
-                                <DataGridTextColumn Header="vives nummer" Width="150" Binding="{Binding Vivesnr}" />
-                                <DataGridTextColumn Header="voornaam" Width="200" Binding="{Binding Voornaam}" />
-                                <DataGridTextColumn Header="achternaam" Width="300" Binding="{Binding Achternaam}" />
-                                <DataGridTextColumn Header="rol id" Width="100" Binding="{Binding RolId}" />
-                                <DataGridTextColumn Header="emailadres" Width="300" Binding="{Binding Emailadres}" />
+                                <DataGridTextColumn Header="vives nummer"  Binding="{Binding Vivesnr}" />
+                                <DataGridTextColumn Header="voornaam" Binding="{Binding Voornaam}" />
+                                <DataGridTextColumn Header="achternaam"  Binding="{Binding Achternaam}" />
+                                <DataGridTextColumn Header="emailadres" Binding="{Binding Emailadres}" />
                             </DataGrid.Columns>
                         </DataGrid>
-                    </StackPanel>
                 </Grid>
-                
+
                 <!--Buttons-->
                 <!--Button Load-->
                 <Button x:Name="btnLoad" Content="kies een bestand" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="58,550,820,-155" Click="btnLoad_Click">
@@ -37,7 +33,7 @@
                 </Button>
 
                 <!--Button Opslaan-->
-                <Button x:Name="btnStudentAanmaken" Content="student aanmaken" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="823,550,55,-155">
+                <Button x:Name="btnStudentAanmaken" Content="student aanmaken" Command="{Binding Path=addStudentCommand}" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="823,550,55,-155">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>

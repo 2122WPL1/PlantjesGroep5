@@ -35,7 +35,7 @@ namespace Plantjes.ViewModels
             Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
-        {   //checken dat er iets is in gevult zo dat het programma niet crached.
+        {   //checken dat er iets is in gevult zo dat het programma niet crashed.
             if (firstNameInput != null &&
                 lastNameInput != null &&
                 cmbRols != null &&

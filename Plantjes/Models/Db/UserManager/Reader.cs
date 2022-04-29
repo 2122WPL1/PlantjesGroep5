@@ -15,5 +15,11 @@ namespace Plantjes.Models.Db.UserManager
             string[] content = System.IO.File.ReadAllLines(path);
             return content;
         }
+
+        //public string[] Save(string path)
+        //{
+        //    string[] content = System.IO.File.GetAttributes(path);
+        //    return content;
+        //}
     }
 }

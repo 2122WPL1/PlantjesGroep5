@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using XSystem.Security.Cryptography;
 
 namespace Plantjes.Dao.DAOdb
@@ -62,6 +63,27 @@ namespace Plantjes.Dao.DAOdb
             }
 
             return result;
+        }
+
+        public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password)
+        {
+            rolid = 1;
+
+            //foreach (var item in collection)
+            //{
+            var student = new Gebruiker()
+            {
+                    Vivesnr = vivesNr,
+                    Voornaam = firstName,
+                    Achternaam = lastName,
+                    RolId = rolid,
+                    Emailadres = emailadres,
+                    HashPaswoord = password
+                };
+            //Context.Gebruikers.Add(student);
+            //Context.SaveChanges(); 
+            //}
+            MessageBox.Show("gh");
         }
     }
 }

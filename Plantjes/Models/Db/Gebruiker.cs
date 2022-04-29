@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Plantjes.Models.Db
 {
+   
     public partial class Gebruiker
     {
         public Gebruiker()
@@ -28,11 +29,9 @@ namespace Plantjes.Models.Db
             string[] vals = line.Split(";");
             Gebruiker student =  new Gebruiker()
             {
-                Id = int.Parse(vals[0]),
-                Vivesnr = vals[1],
-                Voornaam = vals[2],
-                Achternaam = vals[3],
-                RolId = int.Parse(vals[4]),
+                Vivesnr = vals[0],
+                Voornaam = vals[1],
+                Achternaam = vals[2],
                 Emailadres = vals[5]
             };
             return student;

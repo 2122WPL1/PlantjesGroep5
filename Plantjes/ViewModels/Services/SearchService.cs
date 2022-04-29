@@ -51,7 +51,7 @@ namespace Plantjes.ViewModels.Services
         //Omgezet naar service door kenny
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
-            var listPlants = _daoPlant.getAllPlants();
+            var listPlants = _dao.getAllPlants();
 
             if (SelectedtType != null)
             {
