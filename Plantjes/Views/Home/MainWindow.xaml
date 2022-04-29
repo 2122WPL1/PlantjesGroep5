@@ -185,7 +185,7 @@
             <Canvas Margin="42,51,603,796" Background="#99FFFFFF">
                 <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="647"/>
             </Canvas>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="1183,854,0,0" VerticalAlignment="Top"/>
+          
 
 
         </Grid>
