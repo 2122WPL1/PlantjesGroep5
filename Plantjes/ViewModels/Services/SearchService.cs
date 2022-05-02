@@ -306,7 +306,7 @@ namespace Plantjes.ViewModels.Services
             }
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
-        public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
+        public void fillComboBoxVariant(TfgsvVariant SelectedVariant, ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
             //initialiseer DAOTfgsvVariant:
             this._daoTfgsvVariant = SimpleIoc.Default.GetInstance<DAOTfgsvVariant>();
