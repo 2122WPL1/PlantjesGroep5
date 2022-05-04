@@ -47,9 +47,7 @@ namespace Plantjes.ViewModels.Services
 
         #region RelayCommandMethods
        
-        //Geschreven door Owen op basis van de eerste Search van Kenny.
-        //Christophe & Owen: gedeeltelijke omzetting naar mvvm
-        //Omgezet naar service door kenny
+        
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
             var listPlants = _dao.getAllPlants();
