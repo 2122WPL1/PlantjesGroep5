@@ -65,25 +65,24 @@ namespace Plantjes.Dao.DAOdb
             return result;
         }
 
+        //List<Gebruiker> students = new List<Gebruiker>();
+
         public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password)
         {
-            rolid = 1;
-
-            //foreach (var item in collection)
-            //{
+            
             var student = new Gebruiker()
             {
-                    Vivesnr = vivesNr,
-                    Voornaam = firstName,
-                    Achternaam = lastName,
-                    RolId = rolid,
-                    Emailadres = emailadres,
-                    HashPaswoord = password
-                };
-            //Context.Gebruikers.Add(student);
-            //Context.SaveChanges(); 
-            //}
-            MessageBox.Show("gh");
+                Vivesnr = vivesNr,
+                Voornaam = firstName,
+                Achternaam = lastName,
+                RolId = 1,
+                Emailadres = emailadres,
+                HashPaswoord = password
+            };
+            Context.Gebruikers.Add(student);
+            Context.SaveChanges();
+
+            //MessageBox.Show("gh");
         }
     }
 }

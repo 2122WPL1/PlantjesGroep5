@@ -31,6 +31,7 @@ namespace Plantjes.ViewModels
         //RelayCommands
         public RelayCommand addStudentCommand { get; set; }
 
+
         //AddStudent - variables:
         private string _selectedVivesnr;
         private string _selectedFirstname;
@@ -45,7 +46,7 @@ namespace Plantjes.ViewModels
             _loginUserService.InsertStudents(SelectedvivesNr, Selectedfirstname, Selectedlastname, Selectedrolid, Selectedemail, Selectedpassword);
         }
 
-        private string SelectedvivesNr
+        public string SelectedvivesNr
         {
             get { return _selectedVivesnr; }
             set
@@ -63,7 +64,7 @@ namespace Plantjes.ViewModels
             }
         }
 
-        private string Selectedfirstname
+        public string Selectedfirstname
         {
             get { return _selectedFirstname; }
             set
@@ -81,7 +82,7 @@ namespace Plantjes.ViewModels
             }
         }
 
-        private string Selectedlastname
+        public string Selectedlastname
         {
             get { return _selectedLastname; }
             set
@@ -117,7 +118,7 @@ namespace Plantjes.ViewModels
             }
         }
 
-        private string Selectedemail
+        public string Selectedemail
         {
             get { return _selectedEmail; }
             set
@@ -135,7 +136,7 @@ namespace Plantjes.ViewModels
             }
         }
 
-        private byte[] Selectedpassword
+        public byte[] Selectedpassword
         {
             get { return _selectedPassword; }
             set
@@ -152,6 +153,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
 
 
         

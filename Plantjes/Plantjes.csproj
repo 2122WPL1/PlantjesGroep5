@@ -29,6 +29,7 @@
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
+    <PackageReference Include="Z.EntityFramework.Extensions" Version="6.13.18" />
   </ItemGroup>
 
 
