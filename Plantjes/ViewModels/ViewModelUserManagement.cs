@@ -12,7 +12,7 @@ namespace Plantjes.ViewModels
 {
     public class ViewModelUserManagement : ViewModelBase
     {
-        private DAOProvide _dao;
+        private DAOGebruiker _dao;
 
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IloginUserService _loginUserService = iocc.GetInstance<IloginUserService>();
@@ -20,7 +20,7 @@ namespace Plantjes.ViewModels
         public ViewModelUserManagement(IloginUserService loginUserService)
         {
             this._loginUserService = loginUserService;
-            this._dao = SimpleIoc.Default.GetInstance<DAOProvide>();
+            this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality

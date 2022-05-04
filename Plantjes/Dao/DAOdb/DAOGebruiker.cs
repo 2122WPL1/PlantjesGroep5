@@ -67,22 +67,62 @@ namespace Plantjes.Dao.DAOdb
 
         //List<Gebruiker> students = new List<Gebruiker>();
 
-        public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password)
-        {
-            
-            var student = new Gebruiker()
-            {
-                Vivesnr = vivesNr,
-                Voornaam = firstName,
-                Achternaam = lastName,
-                RolId = 1,
-                Emailadres = emailadres,
-                HashPaswoord = password
-            };
-            Context.Gebruikers.Add(student);
-            Context.SaveChanges();
+        //public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password)
+        //{
 
-            //MessageBox.Show("gh");
+        //    var student = new Gebruiker()
+        //    {
+        //        Vivesnr = vivesNr,
+        //        Voornaam = firstName,
+        //        Achternaam = lastName,
+        //        RolId = 1,
+        //        Emailadres = emailadres,
+        //        HashPaswoord = password
+        //    };
+        //    Context.Gebruikers.Add(student);
+        //    Context.SaveChanges();
+
+        //    //MessageBox.Show("gh");
+        //}
+
+
+        public void AddStudents(List<Gebruiker> students)
+        {
+            // is vivesnr er al in?
+            // zo ja, negeer gebruiker,
+            // zo niet, voeg toe.
+
+
+            var student = new Gebruiker();
+
+            //if (string.IsNullOrWhiteSpace(student.Vivesnr))
+            //{
+                if (student.Vivesnr != null && student.Vivesnr.Length == 7)
+                {
+                    Context.Gebruikers.AddRange(students);
+                    Context.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Vives nummer is al in gebruik.");
+                }
+            //}
+
+            //For faults handling: 
+            //if (student.Vivesnr.Length == 7)
+            //{
+            //    student.Vivesnr += "r";
+
+            //}
+            //if (student.Vivesnr.Length < 7)
+            //{
+            //    while (student.Vivesnr.Length < 7)
+            //    {
+            //        student.Vivesnr += "0";
+            //        student.Vivesnr += "r";
+            //    }
+            //}
+
         }
     }
 }
