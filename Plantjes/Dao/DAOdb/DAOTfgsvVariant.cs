@@ -25,7 +25,7 @@ namespace Plantjes.Dao.DAOdb
 
             //var selection = Context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
             //return selection;
-
+            // aangepast door Mathias
             if (selectedItem > 0)
             {
                 var selection = Context.TfgsvVariants.Where(s => s.SoortSoortid == selectedItem).OrderBy(s => s.Variantnaam).Distinct();

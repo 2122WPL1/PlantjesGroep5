@@ -189,8 +189,8 @@ namespace Plantjes.ViewModels.Services
 
         //geschreven door kenny
         public string Simplify(string stringToSimplify)
-        {
-            string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
+        {                                              // sommige planten hebben geen soort maar wel een variant en dan kan je __ gebruiken om die variant te vinden
+            string answer = stringToSimplify.Replace(",", "").Replace("'", "")/*.Replace("__", "")*/;
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
@@ -306,6 +306,7 @@ namespace Plantjes.ViewModels.Services
             }
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
+        //aangepast door Mathias om de cmb variant te vullen na het selecteren van een soort
         public void fillComboBoxVariant(TfgsvSoort selectedSoort, ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
             //initialiseer DAOTfgsvVariant:

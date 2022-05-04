@@ -182,7 +182,7 @@ namespace Plantjes.ViewModels
                 _selectedSoort = value;
 
                 cmbVariant.Clear();
-
+                // vult de cmb van variant na dat er een soort is geselecteert
                 _searchService.fillComboBoxVariant(SelectedSoort, cmbVariant);
                 OnPropertyChanged();
             }

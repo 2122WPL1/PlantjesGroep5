@@ -35,7 +35,8 @@ namespace Plantjes.ViewModels
             Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
-        {   //checken dat er iets is in gevult zo dat het programma niet crached.
+        {   //gemaakt door Mathias
+            //checken dat er iets is in gevult zo dat het programma niet crached.
             if (firstNameInput != null &&
                 lastNameInput != null &&
                 //SelectedRol != null &&
@@ -47,7 +48,6 @@ namespace Plantjes.ViewModels
                 firstNameInput, emailAdresInput,
                 passwordInput, passwordRepeatInput, SelectedRol);
                 
-
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {

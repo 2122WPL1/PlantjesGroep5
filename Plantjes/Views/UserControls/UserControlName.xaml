@@ -40,11 +40,11 @@
             </Label>
             <Label Content="soort" Canvas.Left="6" Canvas.Top="212" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28">
             </Label>
-            <ComboBox x:Name="cmbGeslacht" Canvas.Left="6" Canvas.Top="177" Width="200" Height="30"
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="7" Canvas.Top="177" Width="199" Height="30"
                       ItemsSource="{Binding cmbGeslacht}" 
                       DisplayMemberPath="Geslachtnaam"
                       SelectedValuePath="GeslachtId"
-                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}" IsEditable="True">
+                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}" IsEditable="True" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             </ComboBox>
             <ComboBox x:Name="cmbSoort" Canvas.Left="6" Canvas.Top="245" Width="198" Height="28"
@@ -79,7 +79,7 @@
             </Button>
 
             <Button x:Name="btnNameReset"
-                    Content="reset" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Content="reset all" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="618" Width="176">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
