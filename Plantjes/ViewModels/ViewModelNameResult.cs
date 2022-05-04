@@ -52,7 +52,7 @@ namespace Plantjes.ViewModels
             _searchService.fillComboBoxFamilie(SelectedType, cmbFamilies);
             _searchService.fillComboBoxGeslacht(SelectedFamilie, cmbGeslacht);
             _searchService.fillComboBoxSoort(SelectedGeslacht, cmbSoort);
-            _searchService.fillComboBoxVariant(SelectedVariant,cmbVariant);
+            _searchService.fillComboBoxVariant(SelectedSoort, cmbVariant);
             _searchService.fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
         }
 
@@ -183,6 +183,7 @@ namespace Plantjes.ViewModels
 
                 cmbVariant.Clear();
 
+                _searchService.fillComboBoxVariant(SelectedSoort, cmbVariant);
                 OnPropertyChanged();
             }
         }

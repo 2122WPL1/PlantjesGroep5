@@ -116,7 +116,7 @@ namespace Plantjes.ViewModels.Services
             //checken of alle velden ingevuld zijn
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                SelectedRol != null &&
+                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -155,7 +155,7 @@ namespace Plantjes.ViewModels.Services
                }//checken welke rol je hebt gekozen.
                else if (SelectedRol.Equals(1))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
-                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") || vivesNrInput.Contains("s"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
                        if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("student.vives.be") 
                            //checken als het email adres al bestaat of niet.

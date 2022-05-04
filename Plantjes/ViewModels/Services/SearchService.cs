@@ -306,14 +306,26 @@ namespace Plantjes.ViewModels.Services
             }
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
-        public void fillComboBoxVariant(TfgsvVariant SelectedVariant, ObservableCollection<TfgsvVariant> cmbVariantCollection)
+        public void fillComboBoxVariant(TfgsvSoort selectedSoort, ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
             //initialiseer DAOTfgsvVariant:
             this._daoTfgsvVariant = SimpleIoc.Default.GetInstance<DAOTfgsvVariant>();
+            var list = Enumerable.Empty<TfgsvVariant>().AsQueryable(); ;
+
             // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
-            var list = _daoTfgsvVariant.fillTfgsvVariant();
-                // clearing te content of te combobox of Variant
-                cmbVariantCollection.Clear();
+            if (selectedSoort != null)
+            {
+                // Requesting te list of Variant 
+                list = _daoTfgsvVariant.fillTfgsvVariant(Convert.ToInt32(selectedSoort.Soortid));
+            }
+            else
+            {
+                // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
+                list = _daoTfgsvVariant.fillTfgsvVariant(0);
+            }
+
+            // clearing te content of te combobox of Variant
+            cmbVariantCollection.Clear();
                 // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
                 var ControleList = new List<string>();
                 //adding or list to the combobox
