@@ -106,7 +106,7 @@ namespace Plantjes.ViewModels.Services
         #endregion
 
         #region Register Region
-
+        // fout handeling gemaakt door Mathias
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
                                    string passwordInput, string passwordRepeatInput, int SelectedRol)
@@ -116,7 +116,7 @@ namespace Plantjes.ViewModels.Services
             //checken of alle velden ingevuld zijn
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                SelectedRol != null &&
+                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -155,7 +155,7 @@ namespace Plantjes.ViewModels.Services
                }//checken welke rol je hebt gekozen.
                else if (SelectedRol.Equals(1))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
-                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r"))
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") /*|| vivesNrInput.Contains("s")*/)
                    {   //checken als het emailadres een geldig vives email is voor een student.
                        if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("student.vives.be") 
                            //checken als het email adres al bestaat of niet.
@@ -182,7 +182,7 @@ namespace Plantjes.ViewModels.Services
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist \r\nvoor een student";
+                       Message = "Het vives nummer is niet juist \r\nvoor een student moet het beginnen met \r\neen r of s en een lengte van 8 characters zijn";
                    }
                }//checken welke rol je hebt gekozen.
                else if (SelectedRol.Equals(2))

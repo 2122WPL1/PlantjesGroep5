@@ -9,6 +9,8 @@ namespace Plantjes.Dao.DAOdb
 {
     class DAOPlant : DAOGeneric
     {
+        
+
         public DAOPlant() : base()
         {
             //ctor
@@ -20,8 +22,6 @@ namespace Plantjes.Dao.DAOdb
         {
             // kijken hoeveel er zijn geselecteerd
             var plants = Context.Plants.ToList();
-
-            
             return plants;
         }
     }

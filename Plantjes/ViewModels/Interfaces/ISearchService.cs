@@ -12,7 +12,7 @@ namespace Plantjes.ViewModels.Interfaces
         void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection);
         void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection);
         void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection);
-        void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection);
+        void fillComboBoxVariant(TfgsvSoort selectedSoort ,ObservableCollection<TfgsvVariant> cmbVariantCollection);
         void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection);
 
         void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult);
