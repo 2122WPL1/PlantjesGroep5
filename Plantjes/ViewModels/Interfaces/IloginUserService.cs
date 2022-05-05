@@ -3,7 +3,7 @@ using Plantjes.Models.Db;
 using System.Collections.ObjectModel;
 
 namespace Plantjes.ViewModels.Interfaces
-{/*written by kenny*/
+{
     public interface IloginUserService
     {
         void fillComboBoxRol(ObservableCollection<Rol> cmbRolCollection);
@@ -13,5 +13,7 @@ namespace Plantjes.ViewModels.Interfaces
             string passwordInput, string passwordRepeatInput, int cmbRolCollection);
         string LoggedInMessage();
 
+
+        public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password) { }
     }
 }

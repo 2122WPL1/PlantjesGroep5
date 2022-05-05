@@ -33,12 +33,14 @@
             <Label x:Name="lblPassword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="74,198,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontSize="20" FontWeight="Bold"/>
             <TextBox Name="txtGebruikersnaam"
                  Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="263,169,179,279"  TextWrapping="Wrap" Height="26" Width="236"/>
-            <!--<TextBox x:Name="txtWachtwoord"
+           
+          <!--<TextBox x:Name="txtWachtwoord"
                  Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}" Margin="156,199,72,139"  TextWrapping="Wrap" Height="26" Width="236"/>-->
             <TextBox x:Name="txtPassword" FontFamily="{StaticResource Password}"
                      Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}"
                      Margin="263,209,179,239" Height="26" Width="236"/>
             <Button x:Name="btnLogin" Content="login" Margin="221,295,221,144" Width="236" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
+
                 Command="{Binding Path= loginCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -47,8 +49,8 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnRegister" Content="registreer" Margin="200,344,199,95" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
-                Command="{Binding registerCommand}" Width="236">
+            <Button x:Name="btnRegister" Content="registreer" Margin="169,345,273,94" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                Command="{Binding registerCommand}"  Width="236">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

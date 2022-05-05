@@ -59,6 +59,7 @@
 
 
 
+
             <!-- txtRol zal verdwijnen omdat er gewerkt wordt met een combobox, voorlopig laten staan voor binding -->
             <!--<TextBox x:Name="txtRol"
                  Text="{Binding rolInput, UpdateSourceTrigger=PropertyChanged}" Margin="50,381,0,0"  TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="265"/>-->

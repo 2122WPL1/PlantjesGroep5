@@ -9,7 +9,12 @@ namespace Plantjes.Dao.DAOdb
 {
     public class DAOProvide
     {
-        public static void RegisterViewModels()
+        public DAOProvide()
+        {
+            RegisterDaos();
+        }
+
+        public static void RegisterDaos()
         {
             //basisstructuur kenny, mede gebruikt door Robin
             // gebruik de default instantie (singleton van de SimpleIoc class)
