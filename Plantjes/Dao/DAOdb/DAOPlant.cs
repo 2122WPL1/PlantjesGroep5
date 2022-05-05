@@ -9,6 +9,8 @@ namespace Plantjes.Dao.DAOdb
 {
     class DAOPlant : DAOGeneric
     {
+        
+
         public DAOPlant() : base()
         {
             //ctor

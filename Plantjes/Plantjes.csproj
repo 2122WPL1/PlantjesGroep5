@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Font\password.ttf" />
     <None Remove="Image\waterval.jpeg" />
   </ItemGroup>
 
@@ -35,6 +36,9 @@
 
 
   <ItemGroup>
+    <Resource Include="Font\password.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Image\Vives_Logo_NeoGreen.png" />
   </ItemGroup>
 
