@@ -65,25 +65,8 @@ namespace Plantjes.Dao.DAOdb
             return result;
         }
 
-        //List<Gebruiker> students = new List<Gebruiker>();
+     
 
-        //public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password)
-        //{
-
-        //    var student = new Gebruiker()
-        //    {
-        //        Vivesnr = vivesNr,
-        //        Voornaam = firstName,
-        //        Achternaam = lastName,
-        //        RolId = 1,
-        //        Emailadres = emailadres,
-        //        HashPaswoord = password
-        //    };
-        //    Context.Gebruikers.Add(student);
-        //    Context.SaveChanges();
-
-        //    //MessageBox.Show("gh");
-        //}
 
 
         public void AddStudents(List<Gebruiker> students)
@@ -93,19 +76,41 @@ namespace Plantjes.Dao.DAOdb
             // zo niet, voeg toe.
 
 
-            var student = new Gebruiker();
-
-            //if (string.IsNullOrWhiteSpace(student.Vivesnr))
-            //{
-                if (student.Vivesnr != null && student.Vivesnr.Length == 7)
+            foreach (var student in students)
+            {
+                if (student.Vivesnr != null && student.Vivesnr.Length <= 7 && !Context.Gebruikers.Any(s => s.Emailadres == student.Emailadres))
                 {
-                    Context.Gebruikers.AddRange(students);
-                    Context.SaveChanges();
+                    student.Vivesnr = student.Vivesnr.PadLeft(7, '0');
+                    student.Vivesnr = student.Vivesnr.PadLeft(8, 'r');
+
+                    var password = student.Vivesnr;
+                    var passwordBytes = Encoding.ASCII.GetBytes(password);
+                    var md5Hasher = new MD5CryptoServiceProvider();
+                    var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+                    student.HashPaswoord = passwordHashed;
+
+                    student.RolId = 1;
+                    if (student.Vivesnr.Length == 8 && student.Vivesnr.Contains("r"))
+                    {
+                        Context.Gebruikers.Add(student);
+                        Context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vives nummer is ongeldig.");
+                    }
+                    
                 }
                 else
                 {
                     MessageBox.Show("Vives nummer is al in gebruik.");
                 }
+            }
+
+            
+            //if (string.IsNullOrWhiteSpace(student.Vivesnr))
+            //{
+                
             //}
 
             //For faults handling: 
@@ -114,7 +119,7 @@ namespace Plantjes.Dao.DAOdb
             //    student.Vivesnr += "r";
 
             //}
-            //if (student.Vivesnr.Length < 7)
+            //if (
             //{
             //    while (student.Vivesnr.Length < 7)
             //    {
