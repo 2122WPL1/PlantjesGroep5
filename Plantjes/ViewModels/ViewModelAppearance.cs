@@ -9,11 +9,11 @@ namespace Plantjes.ViewModels
 {
     public class ViewModelAppearance : ViewModelBase
     {
-        private DAOProvide _dao;
+        private DAOFenotype _dao;
 
         public ViewModelAppearance(IDetailService detailservice)
         {
-            this._dao = SimpleIoc.Default.GetInstance<DAOProvide>();
+            this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
 
         }
 
