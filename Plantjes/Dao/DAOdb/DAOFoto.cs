@@ -16,7 +16,7 @@ namespace Plantjes.Dao.DAOdb
 
         public string GetImages(long id, string ImageCategorie)
         {
-            var foto = Context.Fotos.Where(s => s.Eigenschap == ImageCategorie).SingleOrDefault(s => s.PlantId == id);
+            var foto = Context.Fotos.Where(s => s.Eigenschap == ImageCategorie).FirstOrDefault(f => f.Plant == id);
 
 
             if (foto != null)

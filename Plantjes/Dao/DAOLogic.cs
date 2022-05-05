@@ -465,81 +465,92 @@ namespace Plantjes.Dao
 
         #endregion
 
+
+
         #region FilterFromPlant
         ///Owen: op basis van basiscode Kenny, Christophe
         #region FilterFenoTypeFromPlant 
+        #region J copied this code to DAOFenotype
+        //public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
-        {
+        //    var selection = context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
+        #region J copied this code to DAOFenotypeMulti
+        //public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
+        //{
 
-            var selection = context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-        public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
-        {
-
-            var selection = context.FenotypeMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.FenotypeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #region FilterAbiotiekFromPlant
-        public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
-        {
+        #region J: copied this code to DAOAbiotiek
+        //public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
+        //{
 
-            var selection = context.Abiotieks.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.Abiotieks.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
+        #region J: copied this code to DAOAbiotiekMulti
+        //public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
-        {
-
-            var selection = context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
 
 
         #endregion
 
         #region FilterBeheerMaandFromPlant
-        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
-        {
+        //J copied this code to DAOBeheerMaand
+        //public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        //{
 
-            var selection = context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-
+        //    var selection = context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //}
         #endregion
 
+
         #region FilterCommensalismeFromPlant
-        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
-        {
+        #region J copied this code to DAOCommensalisme
 
-            var selection = context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
-        {
+        //    var selection = context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //}
 
-            var selection = context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        #endregion
+        #region J copied this code to DAOCommensalismeMulti
 
+        //public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        //{
 
+        //    var selection = context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #region FilterExtraEigenschapFromPlant
-        public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
-        {
+        #region J copied the code to DAOExtraEigenschap
+        //public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
+        //{
 
-            var selection = context.ExtraEigenschaps.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-
+        //    var selection = context.ExtraEigenschaps.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #endregion
@@ -623,6 +634,102 @@ namespace Plantjes.Dao
         //    return result;
         //} 
         #endregion
+
+        //J: lists to get all types from db tables ABIOIEK
+        public List<AbioBezonning> getAllTypes()
+        {
+            var soorten = context.AbioBezonnings.ToList();
+            return soorten;
+        }
+        public List<AbioVochtbehoefte> getAllTypesVochtbehoefte()
+        {
+            var soorten = context.AbioVochtbehoeftes.ToList();
+            return soorten;
+        }
+        public List<AbioVoedingsbehoefte> getAllTypesVoedingsbehoefte()
+        {
+            var soorten = context.AbioVoedingsbehoeftes.ToList();
+            return soorten;
+        }
+        public List<AbioGrondsoort> getAllTypesGrondsoort()
+        {
+            var soorten = context.AbioGrondsoorts.ToList();
+            return soorten;
+        }
+        public List<AbioReactieAntagonischeOmg> getAllTypesOmgeving()
+        {
+            var soorten = context.AbioReactieAntagonischeOmgs.ToList();
+            return soorten;
+        }
+        public List<AbioHabitat> getAllTypesHabitat()
+        {
+            var soorten = context.AbioHabitats.ToList();
+            return soorten;
+        }
+
+
+        //J: lists to get all types from db tables COMMENSALISME
+        public List<CommOntwikkelsnelheid> getAllTypesOntwSnelheid()
+        {
+            var soorten = context.CommOntwikkelsnelheids.ToList();
+            return soorten;
+        }
+        public List<CommStrategie> getAllTypesStrategie()
+        {
+            var soorten = context.CommStrategies.ToList();
+            return soorten;
+        }
+        public List<CommSocialbiliteit> getAllTypesSociabiliteit()
+        {
+            var soorten = context.CommSocialbiliteits.ToList();
+            return soorten;
+        }
+        public List<CommLevensvorm> getAllTypesLevensvorm()
+        {
+            var soorten = context.CommLevensvorms.ToList();
+            return soorten;
+        }
+
+
+        //J: lists to get all types from db tables Fenotype
+        public List<FenoBladgrootte> getAllTypesBladgrootte()
+        {
+            var soorten = context.FenoBladgroottes.ToList();
+            return soorten;
+        }
+        public List<FenoBladvorm> getAllTypesBladvorm()
+        {
+            var soorten = context.FenoBladvorms.ToList();
+            return soorten;
+        }
+        public List<FenoRatioBloeiBlad> getAllTypesRatioBloei()
+        {
+            var soorten = context.FenoRatioBloeiBlads.ToList();
+            return soorten;
+        }
+        public List<FenoSpruitfenologie> getAllTypesFeno()
+        {
+            var soorten = context.FenoSpruitfenologies.ToList();
+            return soorten;
+        }
+        public List<FenoBloeiwijze> getAllTypesBloeiwijze()
+        {
+            var soorten = context.FenoBloeiwijzes.ToList();
+            return soorten;
+        }
+        public List<FenoHabitu> getAllTypesFenoHabitus()
+        {
+            var soorten = context.FenoHabitus.ToList();
+            return soorten;
+        }
+        public List<FenoLevensvorm> getAllTypesFenoLevensvorm()
+        {
+            var soorten = context.FenoLevensvorms.ToList();
+            return soorten;
+        }
+        
+
+
 
     }
 

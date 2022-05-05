@@ -150,8 +150,8 @@
         </ListBox>
         <ListBox x:Name="lstDetails"
                  ItemsSource="{Binding detailsSelectedPlant}"
-
-                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom"/>
+                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" 
+                 VerticalAlignment="Bottom" SelectionChanged="lstDetails_SelectionChanged"/>
         
         <!-- labels boven listboxen -->
         <Label Content="resultaat planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C"  FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">

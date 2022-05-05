@@ -2,19 +2,150 @@
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Dao;
 using System.Windows;
+using Plantjes.Dao.DAOdb;
+using Plantjes.Models.Db;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelGrow : ViewModelBase
     {
+        private DAOPlant _plantId;
         private DAOLogic _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
+        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
+
+        private ObservableCollection<UIElement> _Controls;
+
+        public ObservableCollection<UIElement> Controls
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+
         public ViewModelGrow(IDetailService detailservice)
         {
             _detailService = detailservice;
             this._dao = DAOLogic.Instance();
+            CreateControls();
         }
+        public override void Load()
+        {
+            FillBasedOnPlant(_searchService.getSelectedPlant());
+        }
+
+        
+        #region J: Function to create contols(checkboxes) from what we know in the tables from database 
+        private void CreateControls()
+        {
+            Controls = new ObservableCollection<UIElement>();
+            foreach (AbioBezonning ab in _dao.getAllTypes())
+            {
+                //content and name are propertys from AbioBezonning
+                CheckBox cb = new CheckBox { Content = ab.Naam, Uid = $"{ab.Id}" };
+                Controls.Add(cb);
+            }
+
+            foreach (AbioVochtbehoefte av in _dao.getAllTypesVochtbehoefte())
+            {
+                CheckBox cbv = new CheckBox { Content = av.Vochtbehoefte, Uid = $"{av.Id}" };
+                Controls.Add(cbv);
+            }
+
+            foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
+            {
+                CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
+                Controls.Add(cbvb);
+            }
+
+            foreach (AbioGrondsoort ag in _dao.getAllTypesGrondsoort())
+            {
+                CheckBox cbg = new CheckBox { Content = ag.Grondsoort, Uid = $"{ag.Id}" };
+                Controls.Add(cbg);
+            }
+
+            foreach (AbioReactieAntagonischeOmg aa in _dao.getAllTypesOmgeving())
+            {
+                CheckBox cba = new CheckBox { Content = aa.Antagonie, Uid = $"{aa.Id}" };
+                Controls.Add(cba);
+            }
+
+            foreach (AbioHabitat ah in _dao.getAllTypesHabitat())
+            {
+                CheckBox cbh = new CheckBox { Content = ah.Afkorting, Uid = $"{ah.Id}" };
+                Controls.Add(cbh);
+            }
+
+
+        }
+        #endregion
+
+
+        #region J: function to fill checkboxes based on the details from search result
+        private void FillBasedOnPlant(Plant? plant)
+        {
+            if (plant == null) return;
+
+
+            foreach (Abiotiek abio in plant.Abiotieks)
+            {
+                //for each checkbox
+                foreach (Control c in Controls)
+                {
+
+                    if (abio.Bezonning != null && (c as CheckBox).Content.ToString().ToLower() == abio.Bezonning.ToLower())
+                    {
+                        c.Background = Brushes.LightBlue;
+                    }
+
+
+                    if (abio.Vochtbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Vochtbehoefte.ToLower())
+                    {
+                        c.Background = Brushes.LightBlue;
+                    }
+
+
+                    if (abio.Voedingsbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Voedingsbehoefte.ToLower())
+                    {
+                        c.Background = Brushes.LightBlue;
+                    }
+
+
+                    if (abio.Grondsoort != null && (c as CheckBox).Content.ToString().ToLower() == abio.Grondsoort.ToLower())
+                    {
+                        c.Background = Brushes.LightBlue;
+                    }
+
+
+                    if (abio.AntagonischeOmgeving != null && (c as CheckBox).Content.ToString().ToLower() == abio.AntagonischeOmgeving.ToLower())
+                    {
+                        c.Background = Brushes.LightBlue;
+                    }
+
+                }
+
+                foreach (AbiotiekMulti abioMulti in plant.AbiotiekMultis)
+                {
+                    foreach (Control c in Controls)
+                    {
+                        if (abioMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
+                        {
+                            c.Background = Brushes.LightBlue;
+
+                        }
+                    }
+                }
+            }
+        } 
+        #endregion
+
+
+
+
         //geschreven door christophe, op basis van een voorbeeld van owen
         #region CheckboxGrondsoort
 
@@ -30,6 +161,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private bool _selectedCheckBoxGrondsoortGB2;
         public bool SelectedCheckBoxGrondsoortGB2
         {
@@ -138,6 +270,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private bool _selectedCheckBoxGrondsoortSH2;
         public bool SelectedCheckBoxGrondsoortSH2
         {
@@ -161,6 +294,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private bool _selectedCheckBoxGrondsoortB2;
         public bool SelectedCheckBoxGrondsoortB2
         {
@@ -304,6 +438,7 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private bool _selectedCheckBoxGrondsoortOB2;
         public bool SelectedCheckBoxGrondsoortOB2
         {
@@ -583,5 +718,7 @@ namespace Plantjes.ViewModels
         }
 
         #endregion
+
+        
     }
 }

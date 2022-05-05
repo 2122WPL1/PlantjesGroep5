@@ -22,6 +22,10 @@ namespace Plantjes.Views.UserControls
         {
             InitializeComponent();
         }
-        
+
+        private void lstDetails_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

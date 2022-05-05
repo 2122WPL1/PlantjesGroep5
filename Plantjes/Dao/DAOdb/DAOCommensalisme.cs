@@ -20,5 +20,12 @@ namespace Plantjes.Dao.DAOdb
             var commensalisme = Context.Commensalismes.ToList();
             return commensalisme;
         }
+
+        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

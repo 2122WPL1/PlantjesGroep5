@@ -18,6 +18,7 @@ namespace Plantjes.Models.Db
         public string Emailadres { get; set; }
         public DateTime? LastLogin { get; set; }
         public byte[] HashPaswoord { get; set; }
+
         public virtual Rol Rol { get; set; }
         public virtual ICollection<UpdatePlant> UpdatePlants { get; set; }
     }

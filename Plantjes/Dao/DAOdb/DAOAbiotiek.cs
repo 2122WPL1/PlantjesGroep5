@@ -21,5 +21,12 @@ namespace Plantjes.Dao
             var abiotiek = Context.Abiotieks.ToList();
             return abiotiek;
         }
+
+        public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Abiotieks.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

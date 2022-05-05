@@ -20,5 +20,11 @@ namespace Plantjes.Dao.DAOdb
             var extraEigenschap = Context.ExtraEigenschaps.ToList();
             return extraEigenschap;
         }
+        public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
+        {
+
+            var selection = Context.ExtraEigenschaps.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

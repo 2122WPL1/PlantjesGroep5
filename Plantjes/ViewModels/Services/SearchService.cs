@@ -33,6 +33,8 @@ namespace Plantjes.ViewModels.Services
         private DAOTfgsvType _daoTfgsvType;
         private DAOTfgsvSoort _daoTfgsvSoort;
         private DAOTfgsvVariant _daoTfgsvVariant;
+        private Plant _SelectedPlant;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -344,7 +346,7 @@ namespace Plantjes.ViewModels.Services
                 }
             }
         #endregion
-        #region Fill plant details in detain screen
+        #region Fill plant details in detail screen
         /// <summary>
         /// Plant detail listbox methods, geschreven door Robin, omgezet voor de service door kenny
         /// </summary>
@@ -683,5 +685,11 @@ namespace Plantjes.ViewModels.Services
             throw new NotImplementedException();
         }
 
+        public void setSelectedPlant(Plant p)
+        {
+            _SelectedPlant = p;
+        }
+
+        public Plant getSelectedPlant() { return _SelectedPlant; }
     }
 }

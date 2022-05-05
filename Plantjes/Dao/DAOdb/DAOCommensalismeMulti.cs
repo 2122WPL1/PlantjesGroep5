@@ -23,5 +23,12 @@ namespace Plantjes.Dao.DAOdb
             return commensalismeMulti;
         }
 
+        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        {
+
+            var selection = Context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
     }
 }

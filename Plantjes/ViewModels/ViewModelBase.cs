@@ -35,6 +35,8 @@ namespace Plantjes.ViewModels
                 Task.Run(() => PropertyChanged(this, new PropertyChangedEventArgs(propName)));
             }
         }
+
+        public virtual void Load() { }
         
     }
 }

@@ -34,5 +34,12 @@ namespace Plantjes.Dao.DAOdb
             return selection;
 
         }
+
+        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

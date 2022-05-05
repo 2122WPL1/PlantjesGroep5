@@ -51,6 +51,7 @@ namespace Plantjes.ViewModels
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelRepo.GetViewModel(userControlName);
+            this.currentViewModel.Load();
         }
     }
 }

@@ -8,7 +8,19 @@
     <Grid>
         <Canvas x:Name="cvsGroei" Margin="0,30,0,79" Visibility="Visible"  HorizontalAlignment="Center" Width="1143">
             <Grid Height="173" Width="1088" Canvas.Left="28" Canvas.Top="12" Background="#FFE8E5BF" >
-                <StackPanel>
+                <ItemsControl ItemsSource="{Binding Path=Controls}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <!--<ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding ItemName}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>-->
+                </ItemsControl>
+                <!--<StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Grondsoort" Height="35" Width="130" FontWeight="Bold" FontSize="14"/>
                     </StackPanel>
@@ -170,7 +182,7 @@
                           Height="15" Width="15" BorderBrush="Gray">
                         </CheckBox>
                     </StackPanel>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
 
             <Grid Height="79" Width="1088" Canvas.Left="28" Canvas.Top="201" Background="#FFE8E5BF" >
