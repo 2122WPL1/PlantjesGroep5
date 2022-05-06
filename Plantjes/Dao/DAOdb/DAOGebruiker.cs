@@ -133,7 +133,7 @@ namespace Plantjes.Dao.DAOdb
 
                 {
 
-                    MessageBox.Show("Vives nummer is al in gebruik.");
+                    MessageBox.Show($"Vives nummer: {student.Vivesnr} is al in gebruik.");
 
                 }
 

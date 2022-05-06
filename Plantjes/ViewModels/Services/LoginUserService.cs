@@ -120,7 +120,7 @@ namespace Plantjes.ViewModels.Services
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
-            { //checken welke rol je hebt gekozen.
+            { //checken welke rol je hebt gekozen rolId 0 = docent.
                if (SelectedRol.Equals(0))
                {   //checken of het de juiste kenmerken geeft voor een docent nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
@@ -132,11 +132,12 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}" +
-                                              "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               //LoginWindow loginWindow = new LoginWindow();
-                               //loginWindow.Show();
-                               // Application.Current.Windows[0]?.Close();
+                                Message = $"Je hebt succevol een nieuwe docent geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
+                                               "\r\n" + "je kan nu naar andere tabs gaan of nog users toevoegen.";
+                                
+                                //LoginWindow loginWindow = new LoginWindow();
+                                //loginWindow.Show();
+                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                            else
                            {
@@ -145,14 +146,14 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                        else
                        {
-                           Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een docent, " + "\r\n" + " of het eamiladres is al in gebruik.";
+                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een docent bv: docentnaam@vives.be, " + "\r\n" + "of het eamiladres is al in gebruik.";
                        }
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist \r\nvoor een docent";
+                       Message = "Het vives nummer is niet juist \r\nvoor een docent het moet een u bevaten \r\nen een lengte hebben van 8 characters";
                    }
-               }//checken welke rol je hebt gekozen.
+                }//checken welke rol je hebt gekozen rolId 1 = student.
                else if (SelectedRol.Equals(1))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") | vivesNrInput.Contains("s"))
@@ -164,11 +165,11 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}" +
-                                              "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               //LoginWindow loginWindow = new LoginWindow();
-                               //loginWindow.Show();
-                               // Application.Current.Windows[0]?.Close();
+                                Message = $"Je hebt succevol een nieuwe student geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
+                                               "\r\n" + "je kan nu naar andere tabs gaan of nog users toevoegen.";
+                                //LoginWindow loginWindow = new LoginWindow();
+                                //loginWindow.Show();
+                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                            else
                            {
@@ -177,14 +178,14 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                        else
                        {
-                           Message = $"{emailAdresInput} is geen geldig \r\n emailadres voor een student, " + "\r\n" + " of het eamiladres is al in gebruik.";
+                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een student bv: studentnaam@student.vives.be, " + "\r\n" + "of het eamiladres is al in gebruik.";
                        }
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist \r\nvoor een student moet het beginnen met \r\neen r of s en een lengte van 8 characters zijn";
+                       Message = "Het vives nummer is niet juist \r\nvoor een student het moet een r of s bevaten \r\nen een lengte hebben van 8 characters";
                    }
-               }//checken welke rol je hebt gekozen.
+               }//checken welke rol je hebt gekozen rolId 2 = oudstudent.
                else if (SelectedRol.Equals(2))
                {   //checken of het leeg is voor een oudstudent.
                    if (string.IsNullOrWhiteSpace(vivesNrInput))
@@ -194,11 +195,11 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" de gebruikersnaam is {emailAdresInput}" +
-                                              "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               //LoginWindow loginWindow = new LoginWindow();
-                               //loginWindow.Show();
-                               // Application.Current.Windows[0]?.Close();
+                                Message = $"Je hebt succevol een nieuwe oudstudent geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
+                                                "\r\n" + "je kan nu naar andere tabs gaan of nog users toevoegen.";
+                                //LoginWindow loginWindow = new LoginWindow();
+                                //loginWindow.Show();
+                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                             else
                            {
@@ -207,7 +208,7 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                         else
                         {
-                            Message = $"{emailAdresInput} is geen geldig emailadres.";
+                            Message = $"{emailAdresInput} is geen geldig emailadres \r\nbv: oudstudent@gmail.com.";
                         }
                    }//foutafhandeling vives nummer
                    else

@@ -82,7 +82,7 @@
                     </Style>
                 </Button.Resources>
             </Button>-->
-            <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="58" Width="265" FontWeight="Bold"/>
+            <Label x:Name="lblError" Content="{Binding errorMessage}" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Foreground="WhiteSmoke" Height="58" Width="377" FontWeight="Bold"/>
 
 
         </Grid>

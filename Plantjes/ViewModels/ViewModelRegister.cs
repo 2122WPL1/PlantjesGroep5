@@ -51,7 +51,7 @@ namespace Plantjes.ViewModels
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {
-                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
+                errorMessage = "al de velden moeten worden in gevuld \r\nom te registeren, maar voor \r\noudstudenten is een VivesNr niet nodig";
             }
             
             //Application.Current.Windows[0]?.Close();
