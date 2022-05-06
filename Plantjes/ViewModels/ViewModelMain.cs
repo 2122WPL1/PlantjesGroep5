@@ -37,16 +37,16 @@ namespace Plantjes.ViewModels
             //om te testen of er een rol word mee gegevenmag later mag dit weg worden gedaan
             if (loggedInMessage.Contains("Docent"))
             {
-                MessageBox.Show("Docent");
+                MessageBox.Show("ingelogd als Docent");
 
             }
             else if (loggedInMessage.Contains("Student"))
             {
-                MessageBox.Show("Student");
+                MessageBox.Show("ingelogd als Student");
             }
             else
             {
-                MessageBox.Show("Student");
+                MessageBox.Show("ingelogd als Oudstudent");
             }
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
