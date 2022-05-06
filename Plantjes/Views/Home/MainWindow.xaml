@@ -26,7 +26,7 @@
         </DataTemplate>-->
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelAbiotiek}">
-            <pages:UserControlGrow/>
+            <pages:UserControlAbiotiek/>
         </DataTemplate>
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelGrooming}">
