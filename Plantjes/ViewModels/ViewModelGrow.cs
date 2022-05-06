@@ -21,7 +21,7 @@ namespace Plantjes.ViewModels
 
         private ObservableCollection<UIElement> _Controls;
 
-        public ObservableCollection<UIElement> Controls
+        public ObservableCollection<UIElement> AbioControls
         {
             get { return _Controls; }
             set { _Controls = value; }
@@ -42,42 +42,42 @@ namespace Plantjes.ViewModels
         #region J: Function to create contols(checkboxes) from what we know in the tables from database 
         private void CreateControls()
         {
-            Controls = new ObservableCollection<UIElement>();
+            AbioControls = new ObservableCollection<UIElement>();
             foreach (AbioBezonning ab in _dao.getAllTypes())
             {
                 //content and name are propertys from AbioBezonning
                 CheckBox cb = new CheckBox { Content = ab.Naam, Uid = $"{ab.Id}" };
-                Controls.Add(cb);
+                AbioControls.Add(cb);
             }
 
             foreach (AbioVochtbehoefte av in _dao.getAllTypesVochtbehoefte())
             {
                 CheckBox cbv = new CheckBox { Content = av.Vochtbehoefte, Uid = $"{av.Id}" };
-                Controls.Add(cbv);
+                AbioControls.Add(cbv);
             }
 
             foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
             {
                 CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
-                Controls.Add(cbvb);
+                AbioControls.Add(cbvb);
             }
 
             foreach (AbioGrondsoort ag in _dao.getAllTypesGrondsoort())
             {
                 CheckBox cbg = new CheckBox { Content = ag.Grondsoort, Uid = $"{ag.Id}" };
-                Controls.Add(cbg);
+                AbioControls.Add(cbg);
             }
 
             foreach (AbioReactieAntagonischeOmg aa in _dao.getAllTypesOmgeving())
             {
                 CheckBox cba = new CheckBox { Content = aa.Antagonie, Uid = $"{aa.Id}" };
-                Controls.Add(cba);
+                AbioControls.Add(cba);
             }
 
             foreach (AbioHabitat ah in _dao.getAllTypesHabitat())
             {
                 CheckBox cbh = new CheckBox { Content = ah.Afkorting, Uid = $"{ah.Id}" };
-                Controls.Add(cbh);
+                AbioControls.Add(cbh);
             }
 
 
@@ -94,7 +94,7 @@ namespace Plantjes.ViewModels
             foreach (Abiotiek abio in plant.Abiotieks)
             {
                 //for each checkbox
-                foreach (Control c in Controls)
+                foreach (Control c in AbioControls)
                 {
 
                     if (abio.Bezonning != null && (c as CheckBox).Content.ToString().ToLower() == abio.Bezonning.ToLower())
@@ -130,7 +130,7 @@ namespace Plantjes.ViewModels
 
                 foreach (AbiotiekMulti abioMulti in plant.AbiotiekMultis)
                 {
-                    foreach (Control c in Controls)
+                    foreach (Control c in AbioControls)
                     {
                         if (abioMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
                         {

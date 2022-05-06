@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using Plantjes.Dao.DAOdb;
 using GalaSoft.MvvmLight.Ioc;
+using System.Windows.Controls;
 
 namespace Plantjes.ViewModels
 {
@@ -13,6 +14,23 @@ namespace Plantjes.ViewModels
     {
         private DAOExtraPollenWaarde _daoPollen;
         private DAOExtraNectarWaarde _daoNectar;
+
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+
+
+        private ObservableCollection<UIElement> _Controls;
+
+        public ObservableCollection<UIElement> CommControls
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+
+        public override void Load()
+        {
+            FillBasedOnPlant(_SearchService.getSelectedPlant());
+        }
 
         public ViewModelHabitat(IDetailService detailservice)
         {
@@ -29,6 +47,62 @@ namespace Plantjes.ViewModels
             fillComboBoxNectarwaarde();
 
         }
+
+        //private void FillBasedOnPlant(Plant? plant)
+        //{
+        //    if (plant == null) return;
+
+
+        //    foreach (Commensalisme comm in plant.Commensalismes)
+        //    {
+        //        //for each checkbox
+        //        foreach (Control c in CommControls)
+        //        {
+
+        //            if (comm.Ontwikkelsnelheid != null && (c as CheckBox).Content.ToString().ToLower() == comm.Ontwikkelsnelheid.ToLower())
+        //            {
+        //                c.Background = Brushes.Blue;
+        //            }
+
+
+        //            if (comm.Strategie != null && (c as CheckBox).Content.ToString().ToLower() == comm.Vochtbehoefte.ToLower())
+        //            {
+        //                c.Background = Brushes.Blue;
+        //            }
+
+
+        //            if (comm.Social != null && (c as CheckBox).Content.ToString().ToLower() == comm.Voedingsbehoefte.ToLower())
+        //            {
+        //                c.Background = Brushes.LightBlue;
+        //            }
+
+
+        //            if (comm.Grondsoort != null && (c as CheckBox).Content.ToString().ToLower() == comm.Grondsoort.ToLower())
+        //            {
+        //                c.Background = Brushes.LightBlue;
+        //            }
+
+
+        //            if (abio.AntagonischeOmgeving != null && (c as CheckBox).Content.ToString().ToLower() == abio.AntagonischeOmgeving.ToLower())
+        //            {
+        //                c.Background = Brushes.LightBlue;
+        //            }
+
+        //        }
+
+        //        foreach (AbiotiekMulti abioMulti in plant.AbiotiekMultis)
+        //        {
+        //            foreach (Control c in AbioControls)
+        //            {
+        //                if (abioMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
+        //                {
+        //                    c.Background = Brushes.LightBlue;
+
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         public ObservableCollection<ExtraPollenwaarde> cmbPollenWaarde { get; set; }
         public ObservableCollection<ExtraNectarwaarde> cmbNectarWaarde { get; set; }

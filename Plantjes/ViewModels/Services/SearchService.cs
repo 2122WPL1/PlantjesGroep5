@@ -33,6 +33,7 @@ namespace Plantjes.ViewModels.Services
         private DAOTfgsvType _daoTfgsvType;
         private DAOTfgsvSoort _daoTfgsvSoort;
         private DAOTfgsvVariant _daoTfgsvVariant;
+
         private Plant _SelectedPlant;
 
 
