@@ -13,7 +13,6 @@ namespace Plantjes
         {
             //SearchService.CreateInstance();
             // services registeren
-            this.Resources.Add("VMProvider", new ViewModelProvider());
 
             ServiceProvider.RegisterServices();
             DAOProvide.RegisterViewModels();
@@ -25,6 +24,7 @@ namespace Plantjes
             // DataContext="{Binding Source={ StaticResource VMProvider }, Path=MainWindowViewModel }" 
             // ... 
             // >
+            this.Resources.Add("VMProvider", new ViewModelProvider());
 
             //var iocc = SimpleIoc.Default;
 

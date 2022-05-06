@@ -20,7 +20,7 @@ namespace Plantjes.ViewModels
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
 
-        private ObservableCollection<UIElement> _ControlsOntwikkelsnelheid, ;
+        private ObservableCollection<UIElement> _Controls;
 
         public ObservableCollection<UIElement> CommControls
         {
