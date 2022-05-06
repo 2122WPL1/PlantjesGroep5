@@ -21,7 +21,7 @@ namespace Plantjes.ViewModels
 
         private ObservableCollection<UIElement> _Controls;
 
-        //J: property's to bind in the Abiotiek xaml
+        //J: property's to bind in the Abiotiek xaml 
         public ObservableCollection<UIElement> AbioControlsBezonning
         {
             get { return _Controls; }
