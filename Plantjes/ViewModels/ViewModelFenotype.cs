@@ -11,6 +11,7 @@ using Plantjes.ViewModels.Interfaces;
 using Plantjes.Dao.DAOdb;
 using Plantjes.Models.Db;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Plantjes.ViewModels
 {
@@ -19,55 +20,64 @@ namespace Plantjes.ViewModels
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
-        private DAOGeneric _dao;
+        private DAOFenotype _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        private ObservableCollection<UIElement> _Controls;
+        private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
+            _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm;
 
         //J: property's to bind in the Fenotype xaml
         public ObservableCollection<UIElement> FenoControlsBladgrootte
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBladgrootte; }
+            set { _FenoControlsBladgrootte = value; }
         }
         public ObservableCollection<UIElement> FenoControlsBladvorm
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBladvorm; }
+            set { _FenoControlsBladvorm = value; }
         }
         public ObservableCollection<UIElement> FenoControlsRatiobloeiblad
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsRatiobloeiblad; }
+            set { _FenoControlsRatiobloeiblad = value; }
         }
         public ObservableCollection<UIElement> FenoControlsSpruitfenologie
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsSpruitfenologie; }
+            set { _FenoControlsSpruitfenologie = value; }
         }
         public ObservableCollection<UIElement> FenoControlsBloeiwijze
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBloeiwijze; }
+            set { _FenoControlsBloeiwijze = value; }
         }
         public ObservableCollection<UIElement> FenoControlsHabitus
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsHabitus; }
+            set { _FenoControlsHabitus = value; }
         }
         public ObservableCollection<UIElement> FenoControlsLevensvorm
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsLevensvorm; }
+            set { _FenoControlsLevensvorm = value; }
         }
 
         //constr
         public ViewModelFenotype(IDetailService detailservice)
         {
-            this._dao = SimpleIoc.Default.GetInstance<DAOGeneric>();
+            _detailService = detailservice;
+            this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
             CreateControlsBladgrootte();
+            CreateControlsBladvorm();
+            CreateControlsRatiobloeiblad();
+            CreateControlsSpruitfenologie();
+            CreateControlsBloeiwijze();
+            CreateControlsHabitus();
+            CreateControlsLevensvorm();
+
 
         }
 
@@ -99,14 +109,87 @@ namespace Plantjes.ViewModels
             foreach (FenoBladvorm fbv in _dao.getAllTypesBladvorm())
             {
                 CheckBox cbbv = new CheckBox { Content = fbv.Vorm, Uid = $"{fbv.Id}" };
-                FenoControlsBladgrootte.Add(cbbv);
+                FenoControlsBladvorm.Add(cbbv);
+            }
+        }
+
+        private void CreateControlsRatiobloeiblad()
+        {
+            FenoControlsRatiobloeiblad = new ObservableCollection<UIElement>();
+
+            foreach (FenoRatioBloeiBlad frbb in _dao.getAllTypesRatioBloei())
+            {
+                CheckBox cbbv = new CheckBox { Content = frbb.RatioBloeiBlad, Uid = $"{frbb.Id}" };
+                FenoControlsRatiobloeiblad.Add(cbbv);
+            }
+        }
+
+        private void CreateControlsSpruitfenologie()
+        {
+            FenoControlsSpruitfenologie = new ObservableCollection<UIElement>();
+
+            foreach (FenoSpruitfenologie fsf in _dao.getAllTypesSpruitFeno())
+            {
+                CheckBox cbsf = new CheckBox { Content = fsf.Fenologie, Uid = $"{fsf.Id}" };
+                FenoControlsSpruitfenologie.Add(cbsf);
+            }
+        }
+
+        private void CreateControlsBloeiwijze()
+        {
+            FenoControlsBloeiwijze = new ObservableCollection<UIElement>();
+
+            foreach (FenoBloeiwijze fbw in _dao.getAllTypesBloeiwijze())
+            {
+                CheckBox cbbw = new CheckBox { Content = fbw.Naam, Uid = $"{fbw.Id}" };
+                FenoControlsBloeiwijze.Add(cbbw);
+            }
+        }
+
+        private void CreateControlsHabitus()
+        {
+            FenoControlsHabitus = new ObservableCollection<UIElement>();
+
+            foreach (FenoHabitu fh in _dao.getAllTypesFenoHabitus())
+            {
+                CheckBox cbh = new CheckBox { Content = fh.Naam, Uid = $"{fh.Id}" };
+                FenoControlsHabitus.Add(cbh);
+            }
+        }
+
+        private void CreateControlsLevensvorm()
+        {
+            FenoControlsLevensvorm = new ObservableCollection<UIElement>();
+
+            foreach (FenoLevensvorm fl in _dao.getAllTypesFenoLevensvorm())
+            {
+                CheckBox cbl = new CheckBox { Content = fl.Levensvorm, Uid = $"{fl.Id}" };
+                FenoControlsLevensvorm.Add(cbl);
             }
         }
         #endregion
 
+
+
+
+
+
+
         private void FillBasedOnPlant(Plant? plant)
         {
-            throw new NotImplementedException();
+            if (plant == null) return;
+
+            foreach (Fenotype feno in plant.Fenotypes)
+            {
+                foreach (Control c in FenoControlsBladgrootte)
+                {
+                    if (feno.Bladgrootte != null && (c as CheckBox).Content.ToString() == feno.Bladgrootte.ToString())
+                    {
+                        c.Background = Brushes.LightBlue;
+                        
+                    }
+                }
+            }
         }
 
 
