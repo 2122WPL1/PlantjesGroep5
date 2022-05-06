@@ -65,10 +65,6 @@ namespace Plantjes.Dao.DAOdb
             return result;
         }
 
-
-
-
-
         public void AddStudents(List<Gebruiker> students)
 
         {

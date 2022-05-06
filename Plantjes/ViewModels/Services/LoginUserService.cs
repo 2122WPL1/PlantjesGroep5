@@ -132,11 +132,11 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}" +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               LoginWindow loginWindow = new LoginWindow();
-                               loginWindow.Show();
-                                Application.Current.Windows[0]?.Close();
+                               //LoginWindow loginWindow = new LoginWindow();
+                               //loginWindow.Show();
+                               // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                            else
                            {
@@ -155,7 +155,7 @@ namespace Plantjes.ViewModels.Services
                }//checken welke rol je hebt gekozen.
                else if (SelectedRol.Equals(1))
                {   //checken of het de juiste kenmerken geeft voor een student nummer.
-                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") /*|| vivesNrInput.Contains("s")*/)
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") | vivesNrInput.Contains("s"))
                    {   //checken als het emailadres een geldig vives email is voor een student.
                        if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("student.vives.be") 
                            //checken als het email adres al bestaat of niet.
@@ -164,11 +164,11 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}" +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               LoginWindow loginWindow = new LoginWindow();
-                               loginWindow.Show();
-                                Application.Current.Windows[0]?.Close();
+                               //LoginWindow loginWindow = new LoginWindow();
+                               //loginWindow.Show();
+                               // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                            else
                            {
@@ -194,11 +194,11 @@ namespace Plantjes.ViewModels.Services
                            if (passwordInput == passwordRepeatInput)
                            {   //gebruiker registreren.
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
-                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                               Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" de gebruikersnaam is {emailAdresInput}" +
                                               "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
-                               LoginWindow loginWindow = new LoginWindow();
-                               loginWindow.Show();
-                                Application.Current.Windows[0]?.Close();
+                               //LoginWindow loginWindow = new LoginWindow();
+                               //loginWindow.Show();
+                               // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                             else
                            {

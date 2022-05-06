@@ -5,8 +5,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pages="clr-namespace:Plantjes.Views.UserControls"
-        xmlns:viewModels="clr-namespace:Plantjes.ViewModels"
-
+        xmlns:viewModels="clr-namespace:Plantjes.ViewModels" xmlns:pages1="clr-namespace:Plantjes.Views.Home"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1250" WindowState="Maximized">
 
@@ -43,6 +42,12 @@
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelRequest}">
             <pages:UserControlRequest/>
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelUserManagement}">
+            <pages:UserControlUserManagement/>
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelRegister}">
+            <pages1:RegisterWindow/>
         </DataTemplate>
     </Window.Resources>
 
@@ -154,8 +159,10 @@
             </Button>
 
 
-            <Button x:Name="btnExporteergeselecteerd" 
-                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnInporteerStudenten" 
+                Content="inporteren studenten" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                    Command="{Binding mainNavigationCommand}"
+                    CommandParameter="VIEWUSERMANAGEMENT">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -163,9 +170,11 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnExporteeralle" Content="exporteer alle" HorizontalAlignment="Left" Margin="1119,51,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnRegister" Content="registreer" HorizontalAlignment="Left" Margin="1119,51,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                    Command="{Binding mainNavigationCommand}"
+                    CommandParameter="VIEWREGISTER">
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
