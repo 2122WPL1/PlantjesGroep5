@@ -71,7 +71,7 @@ namespace Plantjes.ViewModels
             CreateControlsReactieAntagonischeOmg();
             CreateControlsReactieAbioHabitat();
 
-            //CreateControls();
+            
         }
         public override void Load()
         {
@@ -261,61 +261,7 @@ namespace Plantjes.ViewModels
 
                     }
                 }
-            }
-
-
-
-
-
-
-
-
-            //for each checkbox
-            //foreach (Control c in AbioControls)
-            //{
-
-            //if (abio.Bezonning != null && (c as CheckBox).Content.ToString().ToLower() == abio.Bezonning.ToLower())
-            //{
-            //    c.Background = Brushes.LightBlue;
-            //}
-
-
-            //if (abio.Vochtbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Vochtbehoefte.ToLower())
-            //{
-            //    c.Background = Brushes.LightBlue;
-            //}
-
-
-            //if (abio.Voedingsbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Voedingsbehoefte.ToLower())
-            //{
-            //    c.Background = Brushes.LightBlue;
-            //}
-
-
-            //if (abio.Grondsoort != null && (c as CheckBox).Content.ToString().ToLower() == abio.Grondsoort.ToLower())
-            //{
-            //    c.Background = Brushes.LightBlue;
-            //}
-
-
-            //if (abio.AntagonischeOmgeving != null && (c as CheckBox).Content.ToString().ToLower() == abio.AntagonischeOmgeving.ToLower())
-            //{
-            //    c.Background = Brushes.LightBlue;
-            //}
-
-            //}
-
-            //foreach (AbiotiekMulti abioMulti in plant.AbiotiekMultis)
-            //{
-            //    foreach (Control c in AbioControls)
-            //    {
-            //        if (abioMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
-            //        {
-            //            c.Background = Brushes.LightBlue;
-
-            //        }
-            //    }
-            //}
+            }           
         }
     }
     #endregion

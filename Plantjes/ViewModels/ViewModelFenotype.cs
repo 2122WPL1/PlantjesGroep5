@@ -25,43 +25,44 @@ namespace Plantjes.ViewModels
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        private ObservableCollection<UIElement> _Controls;
+        private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
+            _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm;
 
         //J: property's to bind in the Fenotype xaml
         public ObservableCollection<UIElement> FenoControlsBladgrootte
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBladgrootte; }
+            set { _FenoControlsBladgrootte = value; }
         }
         public ObservableCollection<UIElement> FenoControlsBladvorm
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBladvorm; }
+            set { _FenoControlsBladvorm = value; }
         }
         public ObservableCollection<UIElement> FenoControlsRatiobloeiblad
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsRatiobloeiblad; }
+            set { _FenoControlsRatiobloeiblad = value; }
         }
         public ObservableCollection<UIElement> FenoControlsSpruitfenologie
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsSpruitfenologie; }
+            set { _FenoControlsSpruitfenologie = value; }
         }
         public ObservableCollection<UIElement> FenoControlsBloeiwijze
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsBloeiwijze; }
+            set { _FenoControlsBloeiwijze = value; }
         }
         public ObservableCollection<UIElement> FenoControlsHabitus
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsHabitus; }
+            set { _FenoControlsHabitus = value; }
         }
         public ObservableCollection<UIElement> FenoControlsLevensvorm
         {
-            get { return _Controls; }
-            set { _Controls = value; }
+            get { return _FenoControlsLevensvorm; }
+            set { _FenoControlsLevensvorm = value; }
         }
 
         //constr
