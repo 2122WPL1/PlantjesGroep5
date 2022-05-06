@@ -8,27 +8,115 @@ using GalaSoft.MvvmLight.Ioc;
 using Plantjes.Dao;
 using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
+using Plantjes.Dao.DAOdb;
+using Plantjes.Models.Db;
+using System.Windows.Controls;
 
 namespace Plantjes.ViewModels
 {
-    public class ViewModelBloom : ViewModelBase
+    public class ViewModelFenotype : ViewModelBase
     {
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
-        private DAOLogic _dao;
+        private DAOGeneric _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        public ViewModelBloom(IDetailService detailservice)
+        private ObservableCollection<UIElement> _Controls;
+
+        //J: property's to bind in the Fenotype xaml
+        public ObservableCollection<UIElement> FenoControlsBladgrootte
         {
-            this._dao = DAOLogic.Instance();
-            
+            get { return _Controls; }
+            set { _Controls = value; }
         }
+        public ObservableCollection<UIElement> FenoControlsBladvorm
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsRatiobloeiblad
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsSpruitfenologie
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsBloeiwijze
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsHabitus
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsLevensvorm
+        {
+            get { return _Controls; }
+            set { _Controls = value; }
+        }
+
+        //constr
+        public ViewModelFenotype(IDetailService detailservice)
+        {
+            this._dao = SimpleIoc.Default.GetInstance<DAOGeneric>();
+            CreateControlsBladgrootte();
+
+        }
+
+        public override void Load()
+        {
+            FillBasedOnPlant(_SearchService.getSelectedPlant());
+        }
+
+     
+
+
+        #region J: function to create the checkboxes with the info from fenotype
+        private void CreateControlsBladgrootte()
+        {
+            FenoControlsBladgrootte = new ObservableCollection<UIElement>();
+
+            foreach (FenoBladgrootte fbg in _dao.getAllTypesBladgrootte())
+            {
+                //content and name are propertys from AbioBezonning
+                CheckBox cbbg = new CheckBox { Content = fbg.Bladgrootte, Uid = $"{fbg.Id}" };
+                FenoControlsBladgrootte.Add(cbbg);
+            }
+        }
+
+        private void CreateControlsBladvorm()
+        {
+            FenoControlsBladvorm = new ObservableCollection<UIElement>();
+
+            foreach (FenoBladvorm fbv in _dao.getAllTypesBladvorm())
+            {
+                CheckBox cbbv = new CheckBox { Content = fbv.Vorm, Uid = $"{fbv.Id}" };
+                FenoControlsBladgrootte.Add(cbbv);
+            }
+        }
+        #endregion
+
+        private void FillBasedOnPlant(Plant? plant)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
+        #region code vorig jaar
         //geschreven door christophe, op basis van een voorbeeld van owen
         private string _selectedBloeiHoogte;
-       
+
         public string SelectedBloeiHoogte
         {
             get { return _selectedBloeiHoogte; }
@@ -39,7 +127,8 @@ namespace Plantjes.ViewModels
 
 
             }
-        }
+        } 
+        #endregion
 
         #region Checkbox Bloeikleur
 
