@@ -8,7 +8,7 @@
     <Grid>
         <Canvas x:Name="cvsGroei" Margin="0,30,0,79" Visibility="Visible"  HorizontalAlignment="Center" Width="1143">
             <Grid Height="173" Width="1088" Canvas.Left="28" Canvas.Top="12" Background="#FFE8E5BF" >
-                <ItemsControl ItemsSource="{Binding Path=Controls}">
+                <ItemsControl ItemsSource="{Binding Path=AbioControls}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
