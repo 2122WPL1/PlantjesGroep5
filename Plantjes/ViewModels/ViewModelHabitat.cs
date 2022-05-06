@@ -10,6 +10,7 @@ using System.Windows.Controls;
 
 namespace Plantjes.ViewModels
 {
+    //This has to be renamed as ViewModelCommensalisme
     public class ViewModelHabitat : ViewModelBase
     {
         private DAOExtraPollenWaarde _daoPollen;
@@ -19,7 +20,7 @@ namespace Plantjes.ViewModels
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
 
-        private ObservableCollection<UIElement> _Controls;
+        private ObservableCollection<UIElement> _ControlsOntwikkelsnelheid, ;
 
         public ObservableCollection<UIElement> CommControls
         {
@@ -29,7 +30,7 @@ namespace Plantjes.ViewModels
 
         public override void Load()
         {
-            FillBasedOnPlant(_SearchService.getSelectedPlant());
+            //FillBasedOnPlant(_SearchService.getSelectedPlant());
         }
 
         public ViewModelHabitat(IDetailService detailservice)
