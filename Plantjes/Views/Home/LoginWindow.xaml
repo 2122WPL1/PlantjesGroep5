@@ -40,7 +40,6 @@
                      Text="{Binding passwordInput, UpdateSourceTrigger=PropertyChanged}"
                      Margin="263,209,179,239" Height="26" Width="236"/>
             <Button x:Name="btnLogin" Content="login" Margin="263,253,179,186" Width="236" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
-
                 Command="{Binding Path= loginCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">

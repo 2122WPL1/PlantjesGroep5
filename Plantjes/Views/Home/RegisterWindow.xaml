@@ -73,7 +73,8 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
+            
+            <!--mag worden verwijdered we gebruiken geen back button meer omdat we al in de mainwindow zitten-->
             <!--<Button x:Name="btnBack" Content="terug naar login" Margin="175,352,0,0" VerticalAlignment="Top" Height="24" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="15" Foreground="White"  
                     Command="{Binding backCommand}" HorizontalAlignment="Left" Width="265"  >
                 <Button.Resources>

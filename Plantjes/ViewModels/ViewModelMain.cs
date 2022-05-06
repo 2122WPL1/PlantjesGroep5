@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight.Ioc;
 using Plantjes.ViewModels.HelpClasses;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Views.Home;
+using System.Windows;
+using System.Windows.Controls;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Plantjes.ViewModels
@@ -15,7 +17,7 @@ namespace Plantjes.ViewModels
         private ViewModelRepo _viewModelRepo;
 
         private ViewModelBase _currentViewModel;
-        public RelayCommand registerCommand { get; set; }
+        //public RelayCommand registerCommand { get; set; }
         public MyICommand<string> mainNavigationCommand { get; set; }
         public ViewModelBase currentViewModel
         {
@@ -31,22 +33,26 @@ namespace Plantjes.ViewModels
             this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
             this._searchService = searchService;
             this.loginUserService = loginUserService;
-            registerCommand = new RelayCommand(RegisterButtonView);
+
+            //om te testen of er een rol word mee gegevenmag later mag dit weg worden gedaan
+            if (loggedInMessage.Contains("Docent"))
+            {
+                MessageBox.Show("Docent");
+
+            }
+            else if (loggedInMessage.Contains("Student"))
+            {
+                MessageBox.Show("Student");
+            }
+            else
+            {
+                MessageBox.Show("Student");
+            }
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
         }
-
-        public void RegisterButtonView()
-        {
-            //RegisterWindow registerWindow = new RegisterWindow();
-            //registerWindow.Show();
-            //Application.Current.Windows[0]?.Close();
-        }
-        //public void CancelButton()
-        //{
-        //    Application.Current.Shutdown();
-        //}
+        
 
         private string _loggedInMessage { get; set; }
         public string loggedInMessage
