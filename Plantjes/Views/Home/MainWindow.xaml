@@ -157,8 +157,11 @@
             </Button>
 
 
-            <Button x:Name="btnExporteergeselecteerd" 
-                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnImporteerStudenten" 
+                Content="importeren studenten" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                    Command="{Binding mainNavigationCommand}"
+                    CommandParameter="VIEWUSERMANAGEMENT"
+                    Visibility="{Binding btnVisible, Mode=TwoWay}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
