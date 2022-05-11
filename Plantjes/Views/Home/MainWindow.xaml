@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:pages="clr-namespace:Plantjes.Views.UserControls"
+        xmlns:pages="clr-namespace:Plantjes.Views.UserControls" xmlns:pages1="clr-namespace:Plantjes.Views.Home"
         xmlns:viewModels="clr-namespace:Plantjes.ViewModels"
 
         mc:Ignorable="d"
@@ -43,6 +43,15 @@
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelRequest}">
             <pages:UserControlRequest/>
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelUserManagement}">
+            <pages:UserControlUserManagement/>
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelRegister}">
+            <pages1:RegisterWindow/>
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelChangePassword}">
+            <pages1:WachtwoordVeranderen/>
         </DataTemplate>
     </Window.Resources>
 
