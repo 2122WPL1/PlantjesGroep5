@@ -19,7 +19,7 @@ namespace Plantjes.ViewModels
        
         private ViewModelNameResult viewModelNameResult = iocc.GetInstance<ViewModelNameResult>();
         private ViewModelRegister viewModelRegister = iocc.GetInstance<ViewModelRegister>();
-        private ViewModelHabitat viewModelHabitat = iocc.GetInstance<ViewModelHabitat>();
+        private ViewModelCommensalisme viewModelHabitat = iocc.GetInstance<ViewModelCommensalisme>();
         private ViewModelFenotype viewModelBloom = iocc.GetInstance<ViewModelFenotype>();
         private ViewModelAbiotiek viewModelGrow = iocc.GetInstance<ViewModelAbiotiek>();
         private ViewModelAppearance viewModelAppearance = iocc.GetInstance<ViewModelAppearance>();

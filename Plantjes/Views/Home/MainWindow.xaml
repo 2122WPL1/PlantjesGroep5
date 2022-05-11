@@ -16,8 +16,8 @@
             <pages:UserControlName/>
         </DataTemplate>
 
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelHabitat}">
-            <pages:UserControlHabitat/>
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelCommensalisme}">
+            <pages:UserControlCommensalisme/>
         </DataTemplate>
 
 

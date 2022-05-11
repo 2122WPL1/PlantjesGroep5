@@ -39,7 +39,7 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
             iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService));
-            iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat(detailService));
+            iocc.Register<ViewModelCommensalisme>(() => new ViewModelCommensalisme(detailService));
             iocc.Register<ViewModelImages>(() => new ViewModelImages(detailService));
             iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 
