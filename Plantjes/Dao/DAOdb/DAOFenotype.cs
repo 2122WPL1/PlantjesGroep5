@@ -79,5 +79,13 @@ namespace Plantjes.Dao.DAOdb
             return soorten;
         }
 
+        public List<FenoKleur> getAllTypesKleur()
+        {
+            var soorten = Context.FenoKleurs.ToList();
+            return soorten;
+        }
+
+
+
     }
 }

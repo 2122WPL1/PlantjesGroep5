@@ -16,9 +16,9 @@ namespace Plantjes.Views.UserControls
     /// <summary>
     /// Interaction logic for UserControlBloom.xaml
     /// </summary>
-    public partial class UserControlBloom : UserControl
+    public partial class UserControlFenotype : UserControl
     {
-        public UserControlBloom()
+        public UserControlFenotype()
         {
             InitializeComponent();
         }
