@@ -16,9 +16,9 @@ namespace Plantjes.Views.UserControls
     /// <summary>
     /// Interaction logic for UserControlHabitat.xaml
     /// </summary>
-    public partial class UserControlHabitat : UserControl
+    public partial class UserControlCommensalisme : UserControl
     {
-        public UserControlHabitat()
+        public UserControlCommensalisme()
         {
             InitializeComponent();
         }

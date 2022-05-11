@@ -465,81 +465,92 @@ namespace Plantjes.Dao
 
         #endregion
 
+
+
         #region FilterFromPlant
         ///Owen: op basis van basiscode Kenny, Christophe
         #region FilterFenoTypeFromPlant 
+        #region J copied this code to DAOFenotype
+        //public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
-        {
+        //    var selection = context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
+        #region J copied this code to DAOFenotypeMulti
+        //public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
+        //{
 
-            var selection = context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-        public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
-        {
-
-            var selection = context.FenotypeMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.FenotypeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #region FilterAbiotiekFromPlant
-        public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
-        {
+        #region J: copied this code to DAOAbiotiek
+        //public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
+        //{
 
-            var selection = context.Abiotieks.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.Abiotieks.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
+        #region J: copied this code to DAOAbiotiekMulti
+        //public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
-        {
-
-            var selection = context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //    var selection = context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
 
 
         #endregion
 
         #region FilterBeheerMaandFromPlant
-        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
-        {
+        //J copied this code to DAOBeheerMaand
+        //public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        //{
 
-            var selection = context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-
+        //    var selection = context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //}
         #endregion
 
+
         #region FilterCommensalismeFromPlant
-        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
-        {
+        #region J copied this code to DAOCommensalisme
 
-            var selection = context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        //public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        //{
 
-        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
-        {
+        //    var selection = context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //}
 
-            var selection = context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
+        #endregion
+        #region J copied this code to DAOCommensalismeMulti
 
+        //public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        //{
 
+        //    var selection = context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #region FilterExtraEigenschapFromPlant
-        public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
-        {
+        #region J copied the code to DAOExtraEigenschap
+        //public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
+        //{
 
-            var selection = context.ExtraEigenschaps.Distinct().Where(s => s.PlantId == selectedItem);
-            return selection;
-        }
-
-
+        //    var selection = context.ExtraEigenschaps.Distinct().Where(s => s.PlantId == selectedItem);
+        //    return selection;
+        //} 
+        #endregion
         #endregion
 
         #endregion
@@ -623,6 +634,9 @@ namespace Plantjes.Dao
         //    return result;
         //} 
         #endregion
+
+
+
 
     }
 

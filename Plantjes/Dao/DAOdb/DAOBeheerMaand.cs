@@ -29,5 +29,12 @@ namespace Plantjes.Dao.DAOdb
             var beheerMaanden = Context.BeheerMaands.ToList();
             return beheerMaanden;
         }
+
+        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        {
+
+            var selection = Context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

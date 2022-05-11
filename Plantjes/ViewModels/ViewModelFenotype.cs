@@ -8,27 +8,311 @@ using GalaSoft.MvvmLight.Ioc;
 using Plantjes.Dao;
 using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
+using Plantjes.Dao.DAOdb;
+using Plantjes.Models.Db;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Plantjes.ViewModels
 {
-    public class ViewModelBloom : ViewModelBase
+    public class ViewModelFenotype : ViewModelBase
     {
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
-        private DAOLogic _dao;
+        private DAOFenotype _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        public ViewModelBloom(IDetailService detailservice)
+        private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
+            _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm, _FenoControlsBladKleur,
+            _FenoControlsBloeiKleur;
+
+        //J: property's to bind in the Fenotype xaml
+        public ObservableCollection<UIElement> FenoControlsBladgrootte
         {
-            this._dao = DAOLogic.Instance();
-            
+            get { return _FenoControlsBladgrootte; }
+            set { _FenoControlsBladgrootte = value; }
         }
+        public ObservableCollection<UIElement> FenoControlsBladvorm
+        {
+            get { return _FenoControlsBladvorm; }
+            set { _FenoControlsBladvorm = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsRatiobloeiblad
+        {
+            get { return _FenoControlsRatiobloeiblad; }
+            set { _FenoControlsRatiobloeiblad = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsSpruitfenologie
+        {
+            get { return _FenoControlsSpruitfenologie; }
+            set { _FenoControlsSpruitfenologie = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsBloeiwijze
+        {
+            get { return _FenoControlsBloeiwijze; }
+            set { _FenoControlsBloeiwijze = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsHabitus
+        {
+            get { return _FenoControlsHabitus; }
+            set { _FenoControlsHabitus = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsLevensvorm
+        {
+            get { return _FenoControlsLevensvorm; }
+            set { _FenoControlsLevensvorm = value; }
+        }
+        public ObservableCollection<UIElement> FenoControlsBladKleur
+        {
+            get { return _FenoControlsBladKleur; }
+            set { _FenoControlsBladKleur = value; }
+
+        }
+
+        public ObservableCollection<UIElement> FenoControlsBloeiKleur
+        {
+            get { return _FenoControlsBloeiKleur; }
+            set { _FenoControlsBloeiKleur = value; }
+        }        
+        
+        //constr
+        public ViewModelFenotype(IDetailService detailservice)
+        {
+            _detailService = detailservice;
+            this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
+            CreateControlsBladgrootte();
+            CreateControlsBladvorm();
+            CreateControlsRatiobloeiblad();
+            CreateControlsSpruitfenologie();
+            CreateControlsBloeiwijze();
+            CreateControlsHabitus();
+            CreateControlsLevensvorm();
+            CreateControlsBladkleur();
+            CreateControlsBloeikleur();
+
+
+        }
+
+        public override void Load()
+        {
+            FillBasedOnPlant(_SearchService.getSelectedPlant());
+        }
+
+     
+
+
+        #region J: function to create the checkboxes with the info from fenotype
+        private void CreateControlsBladgrootte()
+        {
+            FenoControlsBladgrootte = new ObservableCollection<UIElement>();
+
+            foreach (FenoBladgrootte fbg in _dao.getAllTypesBladgrootte())
+            {
+                //content and name are propertys from AbioBezonning
+                RadioButton cbbg = new RadioButton { Content = fbg.Bladgrootte, Uid = $"{fbg.Id}", GroupName = fbg.GetType().ToString() };
+                FenoControlsBladgrootte.Add(cbbg);
+            }
+        }
+
+        private void CreateControlsBladvorm()
+        {
+            FenoControlsBladvorm = new ObservableCollection<UIElement>();
+
+            foreach (FenoBladvorm fbv in _dao.getAllTypesBladvorm())
+            {
+                RadioButton cbbv = new RadioButton { Content = fbv.Vorm, Uid = $"{fbv.Id}", GroupName = fbv.GetType().ToString() };
+                FenoControlsBladvorm.Add(cbbv);
+            }
+        }
+
+        private void CreateControlsRatiobloeiblad()
+        {
+            FenoControlsRatiobloeiblad = new ObservableCollection<UIElement>();
+
+            foreach (FenoRatioBloeiBlad frbb in _dao.getAllTypesRatioBloei())
+            {
+                RadioButton cbbv = new RadioButton { Content = frbb.RatioBloeiBlad, Uid = $"{frbb.Id}", GroupName = frbb.GetType().ToString() };
+                FenoControlsRatiobloeiblad.Add(cbbv);
+            }
+        }
+
+        private void CreateControlsSpruitfenologie()
+        {
+            FenoControlsSpruitfenologie = new ObservableCollection<UIElement>();
+
+            foreach (FenoSpruitfenologie fsf in _dao.getAllTypesSpruitFeno())
+            {
+                RadioButton cbsf = new RadioButton { Content = fsf.Fenologie, Uid = $"{fsf.Id}", GroupName = fsf.GetType().ToString() };
+                FenoControlsSpruitfenologie.Add(cbsf);
+            }
+        }
+
+        private void CreateControlsBloeiwijze()
+        {
+            FenoControlsBloeiwijze = new ObservableCollection<UIElement>();
+
+            foreach (FenoBloeiwijze fbw in _dao.getAllTypesBloeiwijze())
+            {
+                RadioButton cbbw = new RadioButton { Content = fbw.Naam, Uid = $"{fbw.Id}", GroupName = fbw.GetType().ToString() };
+                FenoControlsBloeiwijze.Add(cbbw);
+            }
+        }
+
+        private void CreateControlsHabitus()
+        {
+            FenoControlsHabitus = new ObservableCollection<UIElement>();
+
+            foreach (FenoHabitu fh in _dao.getAllTypesFenoHabitus())
+            {
+                RadioButton cbh = new RadioButton { Content = fh.Naam, Uid = $"{fh.Id}", GroupName = fh.GetType().ToString() };
+                FenoControlsHabitus.Add(cbh);
+            }
+        }
+
+        private void CreateControlsLevensvorm()
+        {
+            FenoControlsLevensvorm = new ObservableCollection<UIElement>();
+
+            foreach (FenoLevensvorm fl in _dao.getAllTypesFenoLevensvorm())
+            {
+                RadioButton cbl = new RadioButton { Content = fl.Levensvorm, Uid = $"{fl.Id}", GroupName = fl.GetType().ToString() };
+                FenoControlsLevensvorm.Add(cbl);
+            }
+        }
+
+        private void CreateControlsBladkleur()
+        {
+            FenoControlsBladKleur = new ObservableCollection<UIElement>();
+
+            foreach (FenoKleur fk in _dao.getAllTypesKleur())
+            {
+                CheckBox cbl = new CheckBox { Content = fk.NaamKleur, Uid = $"{fk.Id}" };
+                FenoControlsBladKleur.Add(cbl);
+            }
+        }
+
+        private void CreateControlsBloeikleur()
+        {
+            FenoControlsBloeiKleur = new ObservableCollection<UIElement>();
+
+            foreach (FenoKleur fk in _dao.getAllTypesKleur())
+            {
+                CheckBox cbbkl = new CheckBox { Content = fk.NaamKleur, Uid = $"{fk.Id}" };
+                FenoControlsBloeiKleur.Add(cbbkl);
+            }
+        }
+        #endregion
+
+
+
+
+
+
+
+        private void FillBasedOnPlant(Plant? plant)
+        {
+            if (plant == null) return;
+
+            foreach (Fenotype feno in plant.Fenotypes)
+            {
+                foreach (RadioButton rbFe in FenoControlsBladgrootte)
+                {
+                    if (feno.Bladgrootte != null && (rbFe as RadioButton).Content.ToString() == feno.Bladgrootte.ToString())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsBladvorm)
+                {
+                    if (feno.Bladvorm != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.Bladvorm.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsRatiobloeiblad)
+                {
+                    if (feno.RatioBloeiBlad != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.RatioBloeiBlad.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsSpruitfenologie)
+                {
+                    if (feno.Spruitfenologie != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.Spruitfenologie.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsBloeiwijze)
+                {
+                    if (feno.Bloeiwijze != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.Bloeiwijze.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsHabitus)
+                {
+                    if (feno.Habitus != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.Habitus.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+                foreach (RadioButton rbFe in FenoControlsLevensvorm)
+                {
+                    if (feno.Levensvorm != null && (rbFe as RadioButton).Content.ToString().ToLower() == feno.Levensvorm.ToLower())
+                    {
+                        rbFe.IsChecked = true;
+
+                    }
+                }
+
+            }
+
+            foreach (FenotypeMulti fenoMulti in plant.FenotypeMultis)
+            {
+                foreach (CheckBox cbbladk in FenoControlsBladKleur)
+                {
+                    if (fenoMulti.Waarde != null && (cbbladk as CheckBox).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
+                    {
+                        cbbladk.IsChecked = true;
+
+                    }
+                }
+
+                foreach (CheckBox cbbloeik in FenoControlsBloeiKleur)
+                {
+                    if (fenoMulti.Waarde != null && (cbbloeik as CheckBox).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
+                    {
+                        cbbloeik.IsChecked = true;
+
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        #region code vorig jaar
         //geschreven door christophe, op basis van een voorbeeld van owen
         private string _selectedBloeiHoogte;
-       
+
         public string SelectedBloeiHoogte
         {
             get { return _selectedBloeiHoogte; }
@@ -39,7 +323,8 @@ namespace Plantjes.ViewModels
 
 
             }
-        }
+        } 
+        #endregion
 
         #region Checkbox Bloeikleur
 

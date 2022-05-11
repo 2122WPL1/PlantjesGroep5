@@ -20,5 +20,35 @@ namespace Plantjes.Dao.DAOdb
             var commensalisme = Context.Commensalismes.ToList();
             return commensalisme;
         }
+
+        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        //J: lists to get all types from db tables COMMENSALISME
+        public List<CommOntwikkelsnelheid> getAllTypesOntwSnelheid()
+        {
+            var soorten = Context.CommOntwikkelsnelheids.ToList();
+            return soorten;
+        }
+        public List<CommStrategie> getAllTypesStrategie()
+        {
+            var soorten = Context.CommStrategies.ToList();
+            return soorten;
+        }
+        public List<CommSocialbiliteit> getAllTypesSociabiliteit()
+        {
+            var soorten = Context.CommSocialbiliteits.ToList();
+            return soorten;
+        }
+        public List<CommLevensvorm> getAllTypesLevensvorm()
+        {
+            var soorten = Context.CommLevensvorms.ToList();
+            return soorten;
+        }
+
     }
 }

@@ -22,7 +22,7 @@ namespace Plantjes.ViewModels
             //_searchService = new SearchService();
 
             //Observable Collections 
-            ////Obserbable collections to fill with the necessary objects to show in the comboboxes
+            //Observable collections to fill with the necessary objects to show in the comboboxes
             cmbTypes = new ObservableCollection<TfgsvType>();
             cmbFamilies = new ObservableCollection<TfgsvFamilie>();
             cmbGeslacht = new ObservableCollection<TfgsvGeslacht>();
@@ -30,12 +30,12 @@ namespace Plantjes.ViewModels
             cmbVariant = new ObservableCollection<TfgsvVariant>();
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
 
-            ////Observable Collections to bind to listboxes
+            //Observable Collections to bind to listboxes
             filteredPlantResults = new ObservableCollection<Plant>();
             detailsSelectedPlant = new ObservableCollection<string>();
 
             //ICommands
-            ////These will be used to bind our buttons in the xaml and to give them functionality
+            //These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new RelayCommand(ApplyFilterClick);
             ResetCommand = new RelayCommand(ResetClick);
 
@@ -44,7 +44,7 @@ namespace Plantjes.ViewModels
         }
 
         //written by kenny (region)
-        #region tussenFunctie voor knoppen met parameters
+        #region tussenFunctie om de comboboxen te vullen voor knoppen met parameters
 
         public void fillComboboxes()
         {
@@ -102,7 +102,7 @@ namespace Plantjes.ViewModels
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
 
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
-        ////
+        
 
         #region RelayCommands
 
@@ -112,7 +112,7 @@ namespace Plantjes.ViewModels
 
         #endregion
 
-        //geschreven door owen en robin
+        //Selected Item variables for each combobox
         #region Selected Item variables for each combobox
 
         private TfgsvType _selectedType;
@@ -244,6 +244,7 @@ namespace Plantjes.ViewModels
                 _selectedPlantInResult = value;
                 FillAllImages();
                 OnPropertyChanged();
+                _searchService.setSelectedPlant(_selectedPlantInResult);
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
                
                 //Make the currently selected plant in the Result list available in the SearchService

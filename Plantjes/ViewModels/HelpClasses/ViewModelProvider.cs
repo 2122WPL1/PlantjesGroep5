@@ -36,10 +36,10 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
-            iocc.Register<ViewModelBloom>(() => new ViewModelBloom(detailService));
+            iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
-            iocc.Register<ViewModelGrow>(() => new ViewModelGrow(detailService));
-            iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat(detailService));
+            iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService));
+            iocc.Register<ViewModelCommensalisme>(() => new ViewModelCommensalisme(detailService));
             iocc.Register<ViewModelImages>(() => new ViewModelImages(detailService));
             iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 

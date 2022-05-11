@@ -24,5 +24,12 @@ namespace Plantjes.Dao.DAOdb
 
             return abioMultiList;
         }
+
+        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        {
+
+            var selection = Context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
     }
 }

@@ -24,13 +24,13 @@ namespace Plantjes
             // DataContext="{Binding Source={ StaticResource VMProvider }, Path=MainWindowViewModel }" 
             // ... 
             // >
+            this.Resources.Add("VMProvider", new ViewModelProvider());
 
             //var iocc = SimpleIoc.Default;
 
             //ViewModelRepo.CreateInstance();
 
 
-            this.Resources.Add("VMProvider", new ViewModelProvider());
 
 
             // de viewmodellen kunnen ook worden toegekend aan de 

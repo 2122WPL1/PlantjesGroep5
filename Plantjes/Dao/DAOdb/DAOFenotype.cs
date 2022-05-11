@@ -34,5 +34,58 @@ namespace Plantjes.Dao.DAOdb
             return selection;
 
         }
+
+        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Fenotypes.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        //J: lists to get all types from db tables Fenotype
+        public List<FenoBladgrootte> getAllTypesBladgrootte()
+        {
+            var soorten = Context.FenoBladgroottes.ToList();
+            return soorten;
+        }
+        public List<FenoBladvorm> getAllTypesBladvorm()
+        {
+            var soorten = Context.FenoBladvorms.ToList();
+            return soorten;
+        }
+        public List<FenoRatioBloeiBlad> getAllTypesRatioBloei()
+        {
+            var soorten = Context.FenoRatioBloeiBlads.ToList();
+            return soorten;
+        }
+        public List<FenoSpruitfenologie> getAllTypesSpruitFeno()
+        {
+            var soorten = Context.FenoSpruitfenologies.ToList();
+            return soorten;
+        }
+        public List<FenoBloeiwijze> getAllTypesBloeiwijze()
+        {
+            var soorten = Context.FenoBloeiwijzes.ToList();
+            return soorten;
+        }
+        public List<FenoHabitu> getAllTypesFenoHabitus()
+        {
+            var soorten = Context.FenoHabitus.ToList();
+            return soorten;
+        }
+        public List<FenoLevensvorm> getAllTypesFenoLevensvorm()
+        {
+            var soorten = Context.FenoLevensvorms.ToList();
+            return soorten;
+        }
+
+        public List<FenoKleur> getAllTypesKleur()
+        {
+            var soorten = Context.FenoKleurs.ToList();
+            return soorten;
+        }
+
+
+
     }
 }
