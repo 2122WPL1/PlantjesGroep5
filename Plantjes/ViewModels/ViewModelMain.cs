@@ -33,7 +33,7 @@ namespace Plantjes.ViewModels
             this._searchService = searchService;
             this.loginUserService = loginUserService;
 
-            //om te testen of er een rol word mee gegevenmag later mag dit weg worden gedaan
+            //als de ingelogd user een docent is dan worden de buttons getoont
             if (loggedInMessage.Contains("Docent"))
             {
                 btnVisible = "Visible";

@@ -67,8 +67,8 @@ namespace Plantjes.ViewModels
             {
                 errorMessage = "gebruikersnaam invullen";
             }
-
         }
+
         public string errorMessage
         {
             get
