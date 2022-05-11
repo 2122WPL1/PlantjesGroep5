@@ -86,8 +86,8 @@ namespace Plantjes.ViewModels
 
             foreach (AbioBezonning ab in _dao.getAllTypes())
             {
-                CheckBox cb = new CheckBox { Content = ab.Naam, Uid = $"{ab.Id}" };
-                AbioControlsBezonning.Add(cb);
+                RadioButton rbb = new RadioButton { Content = ab.Naam, Uid = $"{ab.Id}", GroupName=ab.GetType().ToString() };
+                AbioControlsBezonning.Add(rbb);
             }
         }
 
@@ -97,8 +97,8 @@ namespace Plantjes.ViewModels
 
             foreach (AbioVochtbehoefte av in _dao.getAllTypesVochtbehoefte())
             {
-                CheckBox cbv = new CheckBox { Content = av.Vochtbehoefte, Uid = $"{av.Id}" };
-                AbioControlsVochtbehoefte.Add(cbv);
+                RadioButton rbv = new RadioButton { Content = av.Vochtbehoefte, Uid = $"{av.Id}", GroupName=av.GetType().ToString() };
+                AbioControlsVochtbehoefte.Add(rbv);
             }
         }
 
@@ -108,8 +108,8 @@ namespace Plantjes.ViewModels
 
             foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
             {
-                CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
-                AbioControlsVoedingsbehoefte.Add(cbvb);
+                RadioButton rbvb = new RadioButton { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}", GroupName = avb.GetType().ToString() };
+                AbioControlsVoedingsbehoefte.Add(rbvb);
             }
 
         }
@@ -118,10 +118,10 @@ namespace Plantjes.ViewModels
         {
             AbioControlsGrondsoort = new ObservableCollection<UIElement>();
 
-            foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
+            foreach (AbioGrondsoort avb in _dao.getAllTypesGrondsoort())
             {
-                CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
-                AbioControlsGrondsoort.Add(cbvb);
+                RadioButton rbgs = new RadioButton { Content = avb.Grondsoort, Uid = $"{avb.Id}", GroupName = avb.GetType().ToString() };
+                AbioControlsGrondsoort.Add(rbgs);
             }
 
         }
@@ -132,8 +132,8 @@ namespace Plantjes.ViewModels
 
             foreach (AbioReactieAntagonischeOmg aa in _dao.getAllTypesOmgeving())
             {
-                CheckBox cba = new CheckBox { Content = aa.Antagonie, Uid = $"{aa.Id}" };
-                AbioControlsReactieAntagonischeOmg.Add(cba);
+                RadioButton rba = new RadioButton { Content = aa.Antagonie, Uid = $"{aa.Id}", GroupName = aa.GetType().ToString() };
+                AbioControlsReactieAntagonischeOmg.Add(rba);
             }
 
         }
@@ -153,55 +153,6 @@ namespace Plantjes.ViewModels
 
 
 
-
-
-
-        //J: i took the code and split it into different functions for binding 
-        //private void CreateControls()
-        //{
-        //AbioControls = new ObservableCollection<UIElement>();
-        //foreach (AbioBezonning ab in _dao.getAllTypes())
-        //{
-        //    //content and name are propertys from AbioBezonning
-        //    CheckBox cb = new CheckBox { Content = ab.Naam, Uid = $"{ab.Id}" };
-        //    AbioControls.Add(cb);
-        //}
-
-        //foreach (AbioVochtbehoefte av in _dao.getAllTypesVochtbehoefte())
-        //{
-        //    CheckBox cbv = new CheckBox { Content = av.Vochtbehoefte, Uid = $"{av.Id}" };
-        //    AbioControls.Add(cbv);
-        //}
-
-        //foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
-        //{
-        //    CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
-        //    AbioControls.Add(cbvb);
-        //}
-
-        //foreach (AbioGrondsoort ag in _dao.getAllTypesGrondsoort())
-        //{
-        //    CheckBox cbg = new CheckBox { Content = ag.Grondsoort, Uid = $"{ag.Id}" };
-        //    AbioControls.Add(cbg);
-        //}
-
-        //foreach (AbioReactieAntagonischeOmg aa in _dao.getAllTypesOmgeving())
-        //{
-        //    CheckBox cba = new CheckBox { Content = aa.Antagonie, Uid = $"{aa.Id}" };
-        //    AbioControls.Add(cba);
-        //}
-
-        //foreach (AbioHabitat ah in _dao.getAllTypesHabitat())
-        //{
-        //    CheckBox cbh = new CheckBox { Content = ah.Afkorting, Uid = $"{ah.Id}" };
-        //    AbioControls.Add(cbh);
-        //}
-
-
-        //}
-        #endregion
-
-
         #region J: function to fill checkboxes based on the details from search result
         private void FillBasedOnPlant(Plant? plant)
         {
@@ -210,54 +161,54 @@ namespace Plantjes.ViewModels
 
             foreach (Abiotiek abio in plant.Abiotieks)
             {
-                foreach (CheckBox c in AbioControlsBezonning)
+                foreach (RadioButton rbAb in AbioControlsBezonning)
                 {
-                    if (abio.Bezonning != null && (c as CheckBox).Content.ToString().ToLower() == abio.Bezonning.ToLower())
+                    if (abio.Bezonning != null && (rbAb as RadioButton).Content.ToString().ToLower() == abio.Bezonning.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
                     }
                 }
 
-                foreach (CheckBox c in AbioControlsVochtbehoefte)
+                foreach (RadioButton rbAb in AbioControlsVochtbehoefte)
                 {
-                    if (abio.Vochtbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Vochtbehoefte.ToLower())
+                    if (abio.Vochtbehoefte != null && (rbAb as RadioButton).Content.ToString().ToLower() == abio.Vochtbehoefte.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
                     }
                 }
 
-                foreach (CheckBox c in AbioControlsVoedingsbehoefte)
+                foreach (RadioButton rbAb in AbioControlsVoedingsbehoefte)
                 {
-                    if (abio.Voedingsbehoefte != null && (c as CheckBox).Content.ToString().ToLower() == abio.Voedingsbehoefte.ToLower())
+                    if (abio.Voedingsbehoefte != null && (rbAb as RadioButton).Content.ToString().ToLower() == abio.Voedingsbehoefte.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
                     }
                 }
 
-                foreach (CheckBox c in AbioControlsGrondsoort)
+                foreach (RadioButton rbAb in AbioControlsGrondsoort)
                 {
-                    if (abio.Grondsoort != null && (c as CheckBox).Content.ToString().ToLower() == abio.Grondsoort.ToLower())
+                    if (abio.Grondsoort != null && (rbAb as RadioButton).Content.ToString().ToLower() == abio.Grondsoort.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
                     }
                 }
 
-                foreach (CheckBox c in AbioControlsReactieAntagonischeOmg)
+                foreach (RadioButton rbAb in AbioControlsReactieAntagonischeOmg)
                 {
-                    if (abio.AntagonischeOmgeving != null && (c as CheckBox).Content.ToString().ToLower() == abio.AntagonischeOmgeving.ToLower())
+                    if (abio.AntagonischeOmgeving != null && (rbAb as RadioButton).Content.ToString().ToLower() == abio.AntagonischeOmgeving.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
                     }
                 }
             }
 
             foreach (AbiotiekMulti abioMulti in plant.AbiotiekMultis)
             {
-                foreach (CheckBox c in AbioControlsHabitat)
+                foreach (CheckBox rbAb in AbioControlsHabitat)
                 {
-                    if (abioMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
+                    if (abioMulti.Waarde != null && (rbAb as CheckBox).Content.ToString().ToLower() == abioMulti.Waarde.ToLower())
                     {
-                        c.IsChecked = true;
+                        rbAb.IsChecked = true;
 
                     }
                 }
@@ -266,7 +217,50 @@ namespace Plantjes.ViewModels
     }
     #endregion
 
+    //J: i took the code and split it into different functions for binding 
+    //private void CreateControls()
+    //{
+    //AbioControls = new ObservableCollection<UIElement>();
+    //foreach (AbioBezonning ab in _dao.getAllTypes())
+    //{
+    //    //content and name are propertys from AbioBezonning
+    //    CheckBox cb = new CheckBox { Content = ab.Naam, Uid = $"{ab.Id}" };
+    //    AbioControls.Add(cb);
+    //}
 
+    //foreach (AbioVochtbehoefte av in _dao.getAllTypesVochtbehoefte())
+    //{
+    //    CheckBox cbv = new CheckBox { Content = av.Vochtbehoefte, Uid = $"{av.Id}" };
+    //    AbioControls.Add(cbv);
+    //}
+
+    //foreach (AbioVoedingsbehoefte avb in _dao.getAllTypesVoedingsbehoefte())
+    //{
+    //    CheckBox cbvb = new CheckBox { Content = avb.Voedingsbehoefte, Uid = $"{avb.Id}" };
+    //    AbioControls.Add(cbvb);
+    //}
+
+    //foreach (AbioGrondsoort ag in _dao.getAllTypesGrondsoort())
+    //{
+    //    CheckBox cbg = new CheckBox { Content = ag.Grondsoort, Uid = $"{ag.Id}" };
+    //    AbioControls.Add(cbg);
+    //}
+
+    //foreach (AbioReactieAntagonischeOmg aa in _dao.getAllTypesOmgeving())
+    //{
+    //    CheckBox cba = new CheckBox { Content = aa.Antagonie, Uid = $"{aa.Id}" };
+    //    AbioControls.Add(cba);
+    //}
+
+    //foreach (AbioHabitat ah in _dao.getAllTypesHabitat())
+    //{
+    //    CheckBox cbh = new CheckBox { Content = ah.Afkorting, Uid = $"{ah.Id}" };
+    //    AbioControls.Add(cbh);
+    //}
+
+
+    //}
+    #endregion
 
 
     //geschreven door christophe, op basis van een voorbeeld van owen

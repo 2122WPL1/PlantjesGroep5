@@ -21,9 +21,9 @@
         </DataTemplate>
 
 
-        <!--<DataTemplate DataType = "{x:Type viewModels:ViewModelFenotype}">
-            <pages:UserControlBloom/>
-        </DataTemplate>-->
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelFenotype}">
+            <pages:UserControlFenotype/>
+        </DataTemplate>
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelAbiotiek}">
             <pages:UserControlAbiotiek/>
