@@ -5,7 +5,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pages="clr-namespace:Plantjes.Views.UserControls"
-        xmlns:viewModels="clr-namespace:Plantjes.ViewModels" xmlns:pages1="clr-namespace:Plantjes.Views.Home"
+        xmlns:viewModels="clr-namespace:Plantjes.ViewModels"
+
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1250" WindowState="Maximized">
 
@@ -43,17 +44,6 @@
         <DataTemplate DataType = "{x:Type viewModels:ViewModelRequest}">
             <pages:UserControlRequest/>
         </DataTemplate>
-
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelChangePassword}">
-            <pages1:WachtwoordVeranderen/>
-        </DataTemplate>
-
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelUserManagement}">
-            <pages:UserControlUserManagement/>
-        </DataTemplate>
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelRegister}">
-            <pages1:RegisterWindow/>
-        </DataTemplate>
     </Window.Resources>
 
     <Window.Background>
@@ -63,15 +53,7 @@
     <Viewbox>
         <Grid Opacity="0.9">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="423*"/>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="399*"/>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="105*"/>
-                <ColumnDefinition Width="271*"/>
-                <ColumnDefinition Width="110*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -79,9 +61,9 @@
             </Grid.RowDefinitions>
 
             <!-- verschillende buttons -->
-            <Button x:Name="btnNaam" Content="naam" HorizontalAlignment="Left" Margin="10,-24,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
+            <Button x:Name="btnNaam" Content="naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWNAME" Grid.ColumnSpan="2" >
+                CommandParameter="VIEWNAME" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -90,9 +72,9 @@
             </Button>
 
 
-            <Button x:Name="btnBloei" Content="fenotype" HorizontalAlignment="Left" Margin="85,-24,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnBloei" Content="fenotype" HorizontalAlignment="Left" Margin="175,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWBLOOM" Grid.Column="1">
+                CommandParameter="VIEWBLOOM">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -100,9 +82,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnGroei" Content="abiotiek" HorizontalAlignment="Left" Margin="216,-24,0,0" VerticalAlignment="Top" Height="32" Width="126" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnGroei" Content="abiotiek" HorizontalAlignment="Left" Margin="306,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWGROW" Grid.Column="1">
+                CommandParameter="VIEWGROW">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -110,9 +92,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnHabitat" Content="commensalisme" HorizontalAlignment="Left" Margin="347,-24,0,0" VerticalAlignment="Top" Height="32" Width="126" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnHabitat" Content="commensalisme" HorizontalAlignment="Left" Margin="444,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWHABITAT" Grid.Column="1" Grid.ColumnSpan="2">
+                CommandParameter="VIEWHABITAT">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -120,9 +102,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnUiterlijk" Content="uiterlijk" HorizontalAlignment="Left" Margin="58,-24,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnUiterlijk" Content="uiterlijk" HorizontalAlignment="Left" Margin="626,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWAPPEARANCE" Grid.Column="2" Grid.ColumnSpan="2">
+                CommandParameter="VIEWAPPEARANCE">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -130,9 +112,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnVerzorging" Content="verzorging" HorizontalAlignment="Left" Margin="92,0,0,876" VerticalAlignment="Bottom" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnVerzorging" Content="verzorging" HorizontalAlignment="Left" Margin="764,14,0,0" VerticalAlignment="Top" Height="32" Width="136" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWGROOMING" Grid.Column="3">
+                CommandParameter="VIEWGROOMING">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -140,9 +122,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnFotos" Content="foto's toevoegen" HorizontalAlignment="Left" Margin="245,-24,0,0" VerticalAlignment="Top" Height="32" Width="166" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnFotos" Content="foto's toevoegen" HorizontalAlignment="Left" Margin="914,14,0,0" VerticalAlignment="Top" Height="32" Width="187" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWIMAGES" Grid.Column="3" Grid.ColumnSpan="2">
+                CommandParameter="VIEWIMAGES">
 
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -152,11 +134,9 @@
             </Button>
 
 
-
-
-            <Button x:Name="btnLopendVerzoek" Content="lopend verzoek" HorizontalAlignment="Left" Margin="7,-24,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnLopendVerzoek" Content="lopend verzoek" HorizontalAlignment="Left" Margin="1119,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWREQUEST" Grid.Column="7">
+                CommandParameter="VIEWREQUEST">
 
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -165,12 +145,9 @@
                 </Button.Resources>
             </Button>
 
-
-
-
-            <Button x:Name="btnChangePassword" Content="Pas wachtwoord aan" HorizontalAlignment="Left" Margin="74,-24,0,0" VerticalAlignment="Top" Height="32" Width="166" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnChangePassword" Content="nieuw wachtword" HorizontalAlignment="Left" Margin="679,51,0,0" VerticalAlignment="Top" Height="32" Width="175" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="CHANGEPASSWORD" Grid.Column="4" Grid.ColumnSpan="3">
+                CommandParameter="CHANGEPASSWORD" Click="btnChangePassword_Click">
 
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -180,8 +157,16 @@
             </Button>
 
 
+            <Button x:Name="btnExporteergeselecteerd" 
+                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
-            <Button x:Name="btnSorteer" Content="sorteer bij:" HorizontalAlignment="Left" Margin="182,13,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" Grid.Column="7" RenderTransformOrigin="4.085,0.654" Grid.ColumnSpan="2">
+            <Button x:Name="btnExporteeralle" Content="exporteer alle" HorizontalAlignment="Left" Margin="1119,51,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -190,42 +175,18 @@
             </Button>
 
 
-            <Button x:Name="btnImporteerStudenten" 
-                Content="importeren studenten" HorizontalAlignment="Left" Margin="84,13,0,0" VerticalAlignment="Top" Height="32" Width="254" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
-                    Command="{Binding mainNavigationCommand}"
-                    CommandParameter="VIEWUSERMANAGEMENT"
-                    Visibility="{Binding btnVisible, Mode=TwoWay}" Grid.Column="7" Grid.ColumnSpan="2">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
 
-            <Button x:Name="btnRegister" Content="registreer" HorizontalAlignment="Left" Margin="180,-24,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
-                    Command="{Binding mainNavigationCommand}"
-                    CommandParameter="VIEWREGISTER"
-                    Visibility="{Binding btnVisible, Mode=TwoWay}" Grid.Column="7" Grid.ColumnSpan="2">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-
-
-            <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="30,176,47,700" Background="#99FFFFFF" Grid.ColumnSpan="6" Grid.Column="3"/>
+            <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,176,47,700" Background="#99FFFFFF"/>
 
 
             <!-- hier doe je de binding van het currentViewModel !Clue van het systeem -->
-            <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="727" VerticalAlignment="Top" Grid.ColumnSpan="7">
-                <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Left" Width="1210" Height="754" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="727" VerticalAlignment="Top">
+                <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Left" Width="1210" Height="754" VerticalAlignment="Center" Margin="10,0,0,0"/>
             </Grid>
 
             <!-- log in boodschap-->
-            <Canvas Margin="0,91,15,756" Background="#99FFFFFF" Grid.ColumnSpan="6">
-                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="647"/>
+            <Canvas Margin="42,51,613,796" Background="#99FFFFFF">
+                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="632" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
 
 
