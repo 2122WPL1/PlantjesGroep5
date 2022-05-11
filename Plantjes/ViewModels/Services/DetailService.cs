@@ -1,6 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using Plantjes.ViewModels.Interfaces;
-using Plantjes.Dao;
 using System.ComponentModel;
 using Plantjes.Dao.DAOdb;
 

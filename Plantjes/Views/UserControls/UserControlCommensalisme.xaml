@@ -1,4 +1,4 @@
-<UserControl x:Class="Plantjes.Views.UserControls.UserControlHabitat"
+﻿<UserControl x:Class="Plantjes.Views.UserControls.UserControlCommensalisme"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -83,7 +83,7 @@
         </Grid>
 
         <!--Button-->
-        <Button Content="opslaan commensalisme"  Canvas.Left="933" Canvas.Top="15" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="15" Foreground="White" Margin="913,141,70,140" Grid.Row="1">
+        <Button Content="opslaan habitat" Width="172"  Canvas.Left="933" Canvas.Top="15" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="15" Foreground="White" Margin="946,157,92,153" Grid.Row="1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

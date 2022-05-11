@@ -11,7 +11,7 @@ using System.Windows.Controls;
 namespace Plantjes.ViewModels
 {
     //This has to be renamed as ViewModelCommensalisme
-    public class ViewModelHabitat : ViewModelBase
+    public class ViewModelCommensalisme : ViewModelBase
     {
         private DAOPlant _plantId;
         private DAOCommensalisme _dao;
@@ -50,7 +50,7 @@ namespace Plantjes.ViewModels
         
 
         //property's to bind in the Abiotiek xaml
-        public ViewModelHabitat(IDetailService detailservice)
+        public ViewModelCommensalisme(IDetailService detailservice)
         {
             _detailService = detailservice;
             this._dao = SimpleIoc.Default.GetInstance<DAOCommensalisme>();
@@ -72,8 +72,8 @@ namespace Plantjes.ViewModels
 
             foreach (CommOntwikkelsnelheid co in _dao.getAllTypesOntwSnelheid())
             {
-                CheckBox cb = new CheckBox { Content = co.Snelheid, Uid = $"{co.Id}" };
-                CommControlsOntwikkelsnelheid.Add(cb);
+                RadioButton rbos = new RadioButton { Content = co.Snelheid, Uid = $"{co.Id}", GroupName= co.GetType().ToString() };
+                CommControlsOntwikkelsnelheid.Add(rbos);
             }
         }
 
@@ -83,8 +83,8 @@ namespace Plantjes.ViewModels
 
             foreach (CommStrategie cs in _dao.getAllTypesStrategie())
             {
-                CheckBox cbv = new CheckBox { Content = cs.Strategie, Uid = $"{cs.Id}" };
-                CommControlsStrategie.Add(cbv);
+                RadioButton rbs = new RadioButton { Content = cs.Strategie, Uid = $"{cs.Id}", GroupName= cs.GetType().ToString() };
+                CommControlsStrategie.Add(rbs);
             }
         }
 
@@ -100,6 +100,7 @@ namespace Plantjes.ViewModels
 
         }
 
+        //checkboxes stay because there are multiple possibilities
         private void CreateControlsLevensvorm()
         {
             CommControlsLevensvorm = new ObservableCollection<UIElement>();
@@ -124,17 +125,28 @@ namespace Plantjes.ViewModels
 
             foreach (Commensalisme comm in plant.Commensalismes)
             {
-                foreach (CheckBox c in CommControlsOntwikkelsnelheid)
+                foreach (RadioButton c in CommControlsOntwikkelsnelheid)
                 {
-                    if (comm.Ontwikkelsnelheid != null && (c as CheckBox).Content.ToString().ToLower() == comm.Ontwikkelsnelheid.ToLower())
+                    if (comm.Ontwikkelsnelheid != null && (c as RadioButton).Content.ToString().ToLower() == comm.Ontwikkelsnelheid.ToLower())
                     {
                         c.IsChecked = true;
                     }
                 }
 
-                foreach (CheckBox c in CommControlsStrategie)
+                foreach (RadioButton c in CommControlsStrategie)
                 {
-                    if (comm.Strategie != null && (c as CheckBox).Content.ToString().ToLower() == comm.Strategie.ToLower())
+                    if (comm.Strategie != null && (c as RadioButton).Content.ToString().ToLower() == comm.Strategie.ToLower())
+                    {
+                        c.IsChecked = true;
+                    }
+                }                
+            }
+
+            foreach (CommensalismeMulti commMulti  in plant.CommensalismeMultis)
+            {
+                foreach (CheckBox c in CommControlsSociabiliteit)
+                {
+                    if (commMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == commMulti.Waarde.ToLower())
                     {
                         c.IsChecked = true;
                     }

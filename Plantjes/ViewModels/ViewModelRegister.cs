@@ -12,14 +12,14 @@ namespace Plantjes.ViewModels
     {
         private IloginUserService _loginService { get; set; }
         public RelayCommand registerCommand { get; set; }
-        public RelayCommand backCommand { get; set; }
+        //public RelayCommand backCommand { get; set; }
         public ObservableCollection<Rol> cmbRols { get; set; }
         public ViewModelRegister(IloginUserService loginUserService)
         {
             this._loginService = loginUserService;
             cmbRols = new ObservableCollection<Rol>();
             registerCommand = new RelayCommand(RegisterButtonClick);
-            backCommand = new RelayCommand(BackButtonClick);
+            //backCommand = new RelayCommand(BackButtonClick);
             fillComboboxe();
         }
 
@@ -28,14 +28,15 @@ namespace Plantjes.ViewModels
             _loginService.fillComboBoxRol(cmbRols);
         }
 
-        public void BackButtonClick()
-        {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-            Application.Current.Windows[0]?.Close();
-        }
+        //public void BackButtonClick()
+        //{
+        //    LoginWindow loginWindow = new LoginWindow();
+        //    loginWindow.Show();
+        //    Application.Current.Windows[0]?.Close();
+        //}
         public void RegisterButtonClick()
-        {   //checken dat er iets is in gevult zo dat het programma niet crached.
+        {   //gemaakt door Mathias
+            //checken dat er iets is in gevult zo dat het programma niet crached.
             if (firstNameInput != null &&
                 lastNameInput != null &&
                 //SelectedRol != null &&
@@ -47,11 +48,10 @@ namespace Plantjes.ViewModels
                 firstNameInput, emailAdresInput,
                 passwordInput, passwordRepeatInput, SelectedRol);
                 
-
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
             else
             {
-                errorMessage = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
+                errorMessage = "al de velden moeten worden in gevuld \r\nom te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
             }
             
             //Application.Current.Windows[0]?.Close();

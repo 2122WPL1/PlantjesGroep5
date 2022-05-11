@@ -12,7 +12,7 @@ namespace Plantjes.ViewModels.Interfaces
 {
     public interface IDAOGeneric : INotifyPropertyChanged
     {
-        public static DAOGeneric instance = new DAOGeneric();
+        //public static DAOGeneric instance = new DAOGeneric();
 
         protected static plantenContext Context;
         //static over alles gaat bestaand en geen instance/ object

@@ -20,6 +20,7 @@ namespace Plantjes.ViewModels.Services
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
         private DAOPlant _dao;
+        //private DAOPlant _daoPlant;
         private DAOFoto _daoFoto;
         private DAOAbiotiek _daoAbiotiek;
         private DAOAbiotiekMulti _daoAbiotiekMulti;
@@ -189,8 +190,8 @@ namespace Plantjes.ViewModels.Services
 
         //geschreven door kenny
         public string Simplify(string stringToSimplify)
-        {
-            string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
+        {                                              // sommige planten hebben geen soort maar wel een variant en dan kan je __ gebruiken om die variant te vinden
+            string answer = stringToSimplify.Replace(",", "").Replace("'", "")/*.Replace("__", "")*/;
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
@@ -306,14 +307,27 @@ namespace Plantjes.ViewModels.Services
             }
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
-        public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
+        //aangepast door Mathias om de cmb variant te vullen na het selecteren van een soort
+        public void fillComboBoxVariant(TfgsvSoort selectedSoort, ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
             //initialiseer DAOTfgsvVariant:
             this._daoTfgsvVariant = SimpleIoc.Default.GetInstance<DAOTfgsvVariant>();
+            var list = Enumerable.Empty<TfgsvVariant>().AsQueryable(); ;
+
             // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
-            var list = _daoTfgsvVariant.fillTfgsvVariant();
-                // clearing te content of te combobox of Variant
-                cmbVariantCollection.Clear();
+            if (selectedSoort != null)
+            {
+                // Requesting te list of Variant 
+                list = _daoTfgsvVariant.fillTfgsvVariant(Convert.ToInt32(selectedSoort.Soortid));
+            }
+            else
+            {
+                // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
+                list = _daoTfgsvVariant.fillTfgsvVariant(0);
+            }
+
+            // clearing te content of te combobox of Variant
+            cmbVariantCollection.Clear();
                 // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
                 var ControleList = new List<string>();
                 //adding or list to the combobox

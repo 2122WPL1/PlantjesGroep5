@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao
 {
-    public class DAOGeneric : plantenContext
+    public abstract class DAOGeneric : plantenContext
     {
 
         //private static readonly DAOGeneric instance = new DAOGeneric();

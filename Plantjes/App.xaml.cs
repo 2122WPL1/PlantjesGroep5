@@ -14,8 +14,8 @@ namespace Plantjes
             //SearchService.CreateInstance();
             // services registeren
 
+            this.Resources.Add("DAOProvider", new DAOProvide());
             ServiceProvider.RegisterServices();
-            DAOProvide.RegisterViewModels();
 
             // VMprovider toevoegen als "static resource" in MvvM zodat die kan worden gebruikt in de Views om
             // de ViewModels te koppelen aan de DataContext
@@ -29,6 +29,7 @@ namespace Plantjes
             //var iocc = SimpleIoc.Default;
 
             //ViewModelRepo.CreateInstance();
+
 
 
 
