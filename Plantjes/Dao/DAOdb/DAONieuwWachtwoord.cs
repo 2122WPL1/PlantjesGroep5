@@ -22,7 +22,7 @@ namespace Plantjes.Dao.DAOdb
 
         
 
-
+        //Geeft de gebruiker terug aan de hand Id 
         public Gebruiker GetGebruikerWithId(int gebruikerId)
         {
 
@@ -42,7 +42,7 @@ namespace Plantjes.Dao.DAOdb
 
         
 
-
+        //past een nieuw wachtwoord toe van de huidige gebruiker (en encrypteert het)
         public void RegisterNewPassword(string password, int id)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);

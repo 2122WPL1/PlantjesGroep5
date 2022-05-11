@@ -22,7 +22,11 @@ namespace Plantjes.ViewModels.Services
        // private DAONieuwWachtwoord _nieuwWachtwoord;
 
 
+        //declaratie van propertychanged (om data het model te laten weten wanneer er iets verandert is)
+
         public event PropertyChangedEventHandler PropertyChanged;
+        //declaratie DAta access object voor gebruiker (waarbij het wachtwoord opgehaald wordt) en de passwordchange
+
         private DAOGebruiker _dao;
 
 
@@ -30,19 +34,24 @@ namespace Plantjes.ViewModels.Services
         private DAONieuwWachtwoord _daoNieuwWachtwoord = new DAONieuwWachtwoord();
 
 
+        //zet de dao object gelijk aan de instantie van DAoGebruiker = je krijgt de huidige gebruiker in een object met al zijn info
         public ChangePasswordService()
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
         }
 
+
+
         public string ChangePasswordButton(string passwordInput, string passwordRepeatInput ,int id)
         {
+            //Message voor de lblError om te laten zien of passwoord is changed of niet (of error)
             string message = String.Empty;
 
 
-            //
+            //Als het gelijk is aan elkaar, niet leeg en als het gewoon geen lege spatie is
             if (passwordInput.Equals( passwordRepeatInput) && passwordInput != null  && !passwordInput.Trim().Equals(""))
             {
+                //oproep functie register passwoord (met inpassering van het id van de gebruiker)
                 _daoNieuwWachtwoord.RegisterNewPassword(passwordInput, id);
 
                 message = "Paswoord is verandert";

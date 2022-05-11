@@ -10,6 +10,8 @@ namespace Plantjes.ViewModels.Interfaces
     public  interface IChangePassword
     {
 
+
+
         string ChangePasswordButton(
             string passwordInput, string passwordRepeatInput, int id);
 
