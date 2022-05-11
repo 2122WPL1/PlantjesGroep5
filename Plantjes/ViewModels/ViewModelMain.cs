@@ -17,7 +17,6 @@ namespace Plantjes.ViewModels
         private ViewModelRepo _viewModelRepo;
 
         private ViewModelBase _currentViewModel;
-        //public RelayCommand registerCommand { get; set; }
         public MyICommand<string> mainNavigationCommand { get; set; }
         public ViewModelBase currentViewModel
         {
@@ -38,15 +37,17 @@ namespace Plantjes.ViewModels
             if (loggedInMessage.Contains("Docent"))
             {
                 MessageBox.Show("ingelogd als Docent");
-
+                btnVisible = "Visible";
             }
             else if (loggedInMessage.Contains("Student"))
             {
                 MessageBox.Show("ingelogd als Student");
+                btnVisible = "Hidden";
             }
             else
             {
                 MessageBox.Show("ingelogd als Oudstudent");
+                btnVisible = "Hidden";
             }
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
@@ -66,6 +67,20 @@ namespace Plantjes.ViewModels
                 _loggedInMessage = value;
 
                 RaisePropertyChanged("loggedInMessage");
+            }
+        }
+
+        private string _btnVisible { get; set; }
+        public string btnVisible
+        {
+            get
+            {
+                return _btnVisible;
+            }
+            set
+            {
+                _btnVisible = value;
+                RaisePropertyChanged("btnVisible");
             }
         }
 
