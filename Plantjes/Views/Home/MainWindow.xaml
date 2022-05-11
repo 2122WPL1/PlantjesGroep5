@@ -21,9 +21,9 @@
         </DataTemplate>
 
 
-        <!--<DataTemplate DataType = "{x:Type viewModels:ViewModelFenotype}">
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelFenotype}">
             <pages:UserControlBloom/>
-        </DataTemplate>-->
+        </DataTemplate>
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelAbiotiek}">
             <pages:UserControlAbiotiek/>
@@ -72,7 +72,7 @@
             </Button>
 
 
-            <Button x:Name="btnBloei" Content="Fenotype" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnBloei" Content="fenotype" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
                 CommandParameter="VIEWBLOOM">
                 <Button.Resources>
@@ -82,7 +82,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnGroei" Content="Abiotiek" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnGroei" Content="abiotiek" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
                 CommandParameter="VIEWGROW">
                 <Button.Resources>
@@ -92,7 +92,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnHabitat" Content="Commensalisme" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnHabitat" Content="commensalisme" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
                 CommandParameter="VIEWHABITAT">
                 <Button.Resources>
