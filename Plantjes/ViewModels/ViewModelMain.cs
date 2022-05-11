@@ -36,17 +36,14 @@ namespace Plantjes.ViewModels
             //om te testen of er een rol word mee gegevenmag later mag dit weg worden gedaan
             if (loggedInMessage.Contains("Docent"))
             {
-                MessageBox.Show("ingelogd als Docent");
                 btnVisible = "Visible";
             }
             else if (loggedInMessage.Contains("Student"))
             {
-                MessageBox.Show("ingelogd als Student");
                 btnVisible = "Hidden";
             }
             else
             {
-                MessageBox.Show("ingelogd als Oudstudent");
                 btnVisible = "Hidden";
             }
 
