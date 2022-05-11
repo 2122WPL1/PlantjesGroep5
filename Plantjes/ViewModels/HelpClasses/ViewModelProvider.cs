@@ -29,6 +29,15 @@ namespace Plantjes.ViewModels.HelpClasses
             var detailService = iocc.GetInstance<IDetailService>();
 
 
+            //deze werkt nog niet, er is een overflow exception, opzoeken hoe dat komt
+
+            var changePasswordService = iocc.GetInstance<IChangePassword>();
+
+
+
+
+
+
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
@@ -48,8 +57,16 @@ namespace Plantjes.ViewModels.HelpClasses
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
             iocc.Register<ViewModelBase>(() => new ViewModelBase());
-            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService));
+            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService, changePasswordService));
+
+
+            
+            
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
+            //changepassword
+            iocc.Register<ViewModelChangePassword>(() => new ViewModelChangePassword(changePasswordService));
+
+
         }
     }
 }

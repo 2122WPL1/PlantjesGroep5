@@ -26,7 +26,9 @@ namespace Plantjes.ViewModels
         private ViewModelGrooming viewModelGrooming = iocc.GetInstance<ViewModelGrooming>();
         private ViewModelImages viewModelImages = iocc.GetInstance<ViewModelImages>();
         private ViewModelRequest viewModelRequest = iocc.GetInstance<ViewModelRequest>();
-        
+
+        //werkt niet, vast iets met de IOC container
+        private ViewModelChangePassword viewModelChangePassword = iocc.GetInstance<ViewModelChangePassword>();
         
 
         public ViewModelRepo()
@@ -41,6 +43,8 @@ namespace Plantjes.ViewModels
             _viewModels.Add("VIEWREGISTER", viewModelRegister);
             _viewModels.Add("VIEWIMAGES", viewModelImages);
             _viewModels.Add("VIEWREQUEST", viewModelRequest);
+            _viewModels.Add("CHANGEPASSWORD", viewModelChangePassword);
+
            
         }
         //

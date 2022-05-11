@@ -17,18 +17,13 @@ namespace Plantjes.Views.Home
     /// <summary>
     /// Interaction logic for WachtwoordVeranderen.xaml
     /// </summary>
-    public partial class WachtwoordVeranderen : Window
+    public partial class WachtwoordVeranderen : UserControl
     {
         public WachtwoordVeranderen()
         {
             InitializeComponent();
         }
 
-        private void btnRegisterNewPassword_Click(object sender, RoutedEventArgs e)
-        {
-
-
-
-        }
+        
     }
 }

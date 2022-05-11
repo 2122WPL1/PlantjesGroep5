@@ -42,6 +42,7 @@ namespace Plantjes.Dao.DAOdb
             iocc.Register<DAOTfgsvVariant>(() => new DAOTfgsvVariant());
             iocc.Register<DAOUpdatePlant>(() => new DAOUpdatePlant());
 
+            iocc.Register<DAONieuwWachtwoord>(()=> new DAONieuwWachtwoord());
 
             //Voor Rol later:
             //iocc.Register<DAORol>(() => new DAORol());

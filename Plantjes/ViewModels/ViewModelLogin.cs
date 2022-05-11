@@ -107,6 +107,11 @@ namespace Plantjes.ViewModels
                 _passwordInput = value;
                 OnPropertyChanged();
             }
+
+
         }
+
+        
+
     }
 }

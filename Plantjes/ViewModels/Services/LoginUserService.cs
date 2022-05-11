@@ -27,6 +27,8 @@ namespace Plantjes.ViewModels.Services
         private DAOGebruiker _dao;
 
 
+
+
         public LoginUserService()
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
@@ -230,6 +232,11 @@ namespace Plantjes.ViewModels.Services
         public void SaveChanges()
         {
             //throw new NotImplementedException();
+        }
+
+        public Gebruiker getCurrentUser()
+        {
+            return _gebruiker;
         }
 
 

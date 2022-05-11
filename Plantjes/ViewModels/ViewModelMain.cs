@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Ioc;
+﻿ using GalaSoft.MvvmLight.Ioc;
 using Plantjes.ViewModels.HelpClasses;
 using Plantjes.ViewModels.Interfaces;
 
@@ -22,12 +22,20 @@ namespace Plantjes.ViewModels
 
         public IloginUserService loginUserService;
         private ISearchService _searchService;
-        public ViewModelMain(IloginUserService loginUserService, ISearchService searchService)
+        private IChangePassword _changePassword;
+
+
+        //ZIjn deze delen wel belangrijk genoeg?
+        public ViewModelMain(IloginUserService loginUserService, ISearchService searchService, IChangePassword changePasswordService)
         {
             loggedInMessage = loginUserService.LoggedInMessage();
             this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
             this._searchService = searchService;
             this.loginUserService = loginUserService;
+
+            //changepassword
+            this._changePassword = changePasswordService;
+
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");

@@ -13,5 +13,7 @@ namespace Plantjes.ViewModels.Interfaces
             string passwordInput, string passwordRepeatInput, int cmbRolCollection);
         string LoggedInMessage();
 
+        Gebruiker getCurrentUser();
+
     }
 }

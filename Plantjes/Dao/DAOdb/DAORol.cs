@@ -12,10 +12,11 @@ namespace Plantjes.Dao.DAOdb
         public DAORol() : base()
         {
             //ctor
+            
         }
-
-
-
+        
+        
+        
         public Rol GetRol(string Rol)
         {
             var getRol = Context.Rols.SingleOrDefault(g => g == g.Gebruikers);
