@@ -111,7 +111,7 @@
                 </StackPanel>
             </Grid>
 
-            <Button Content="opslaan groei" Canvas.Left="890" Canvas.Top="254" Height="50" Width="226" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button Content="opslaan abiotiek" Canvas.Left="890" Canvas.Top="254" Height="50" Width="226" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
