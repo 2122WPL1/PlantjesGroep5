@@ -15,5 +15,7 @@ namespace Plantjes.ViewModels.Interfaces
 
 
         public void InsertStudents(string vivesNr, string firstName, string lastName, int rolid, string emailadres, byte[] password) { }
+        Gebruiker getCurrentUser();
+
     }
 }
