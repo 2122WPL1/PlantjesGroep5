@@ -147,11 +147,7 @@
 
             <Button x:Name="btnChangePassword" Content="nieuw wachtword" HorizontalAlignment="Left" Margin="679,51,0,0" VerticalAlignment="Top" Height="32" Width="175" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
-<<<<<<< HEAD
                 CommandParameter="CHANGEPASSWORD" >
-=======
-                CommandParameter="CHANGEPASSWORD" Click="btnChangePassword_Click">
->>>>>>> 3b29d9861fecc6f36be0c069eff348bb6cf69652
 
                 <Button.Resources>
                     <Style TargetType="Border">
