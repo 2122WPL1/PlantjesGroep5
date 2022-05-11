@@ -27,12 +27,6 @@ namespace Plantjes.ViewModels
             //addStudentCommand = new RelayCommand(InsertStudentsClick);
         }
 
-
-        
-
-
-
-        
     }
         
 }

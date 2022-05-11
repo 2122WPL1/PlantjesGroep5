@@ -65,10 +65,6 @@ namespace Plantjes.Dao.DAOdb
             return result;
         }
 
-
-
-
-
         public void AddStudents(List<Gebruiker> students)
 
         {
@@ -137,7 +133,7 @@ namespace Plantjes.Dao.DAOdb
 
                 {
 
-                    MessageBox.Show("Vives nummer is al in gebruik.");
+                    MessageBox.Show($"Vives nummer: {student.Vivesnr} is al in gebruik.");
 
                 }
 

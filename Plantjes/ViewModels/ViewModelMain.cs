@@ -1,6 +1,11 @@
-﻿using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Plantjes.ViewModels.HelpClasses;
 using Plantjes.ViewModels.Interfaces;
+using Plantjes.Views.Home;
+using System.Windows;
+using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Plantjes.ViewModels
 {
@@ -12,7 +17,6 @@ namespace Plantjes.ViewModels
         private ViewModelRepo _viewModelRepo;
 
         private ViewModelBase _currentViewModel;
-
         public MyICommand<string> mainNavigationCommand { get; set; }
         public ViewModelBase currentViewModel
         {
@@ -29,9 +33,24 @@ namespace Plantjes.ViewModels
             this._searchService = searchService;
             this.loginUserService = loginUserService;
 
+            //als de ingelogd user een docent is dan worden de buttons getoont
+            if (loggedInMessage.Contains("Docent"))
+            {
+                btnVisible = "Visible";
+            }
+            else if (loggedInMessage.Contains("Student"))
+            {
+                btnVisible = "Hidden";
+            }
+            else
+            {
+                btnVisible = "Hidden";
+            }
+
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
         }
+        
 
         private string _loggedInMessage { get; set; }
         public string loggedInMessage
@@ -45,6 +64,20 @@ namespace Plantjes.ViewModels
                 _loggedInMessage = value;
 
                 RaisePropertyChanged("loggedInMessage");
+            }
+        }
+
+        private string _btnVisible { get; set; }
+        public string btnVisible
+        {
+            get
+            {
+                return _btnVisible;
+            }
+            set
+            {
+                _btnVisible = value;
+                RaisePropertyChanged("btnVisible");
             }
         }
 
