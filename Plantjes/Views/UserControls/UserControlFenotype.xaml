@@ -97,7 +97,8 @@
             </Canvas>
         </Grid>
         <!--Habitus-->
-        <Grid Grid.Row="1">
+
+        <!--<Grid Grid.Row="1">
             <Canvas x:Name="cvsHabitus">
                 <Grid Height="173" Width="1088" Canvas.Left="28" Canvas.Top="42" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
                     <StackPanel Orientation="Vertical">
@@ -112,7 +113,7 @@
                     </StackPanel>
                 </Grid>
             </Canvas>
-        </Grid>
+        </Grid>-->
 
         <!--Levensvorm-->
         <Grid Grid.Row="2">
@@ -138,6 +139,15 @@
                     </Style>
                 </Button.Resources>
             </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid/>
         </Grid>
     </Grid>
 </UserControl>
