@@ -27,7 +27,7 @@
                         <ItemsControl ItemsSource="{Binding Path=CommControlsOntwikkelsnelheid}" Width="250" Height="300" Canvas.Left="52" Canvas.Top="44">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -42,7 +42,7 @@
                         <ItemsControl ItemsSource="{Binding Path=CommControlsStrategie}" Height="300" Width="250">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -57,7 +57,7 @@
                         <ItemsControl ItemsSource="{Binding Path=CommControlsSociabiliteit}" Height="300" Width="250">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -73,7 +73,7 @@
                         <ItemsControl ItemsSource="{Binding Path=CommControlsLevensvorm}" Height="210" Width="820" Canvas.Left="34" Canvas.Top="462">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -82,8 +82,10 @@
             </Canvas>
         </Grid>
 
+        <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="14" Height="52" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="311" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="878,278,0,0" Grid.Row="1"/>
+
         <!--Button-->
-        <Button Content="opslaan commensalisme" Width="200"  Canvas.Left="933" Canvas.Top="15" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="15" Foreground="White" Margin="912,189,98,122" Grid.Row="1">
+        <Button Content="opslaan commensalisme"  Canvas.Left="933" Canvas.Top="15" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="911,152,48,141" Grid.Row="1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
