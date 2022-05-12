@@ -6,10 +6,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="790" d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="cvsVerzorging" Margin="0,30,0,177" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
+        <Canvas x:Name="cvsVerzorging" Margin="0,30,0,342" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
             <Grid Height="90" Width="1088" Canvas.Left="26" Canvas.Top="36" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Label Content="maanden" Foreground="Black"   Height="40"     BorderThickness="1" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.469,0.475" Margin="0,26,905,24" />
                 <ItemsControl ItemsSource="{Binding Path=BeheermaandCollection}" Width="900" Canvas.Left="19" Canvas.Top="27" Margin="188,24,0,20" >
@@ -114,14 +118,15 @@
 
 
 
-        <Button Content="opslaan verzorging" Canvas.Left="904" Canvas.Top="459" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Click" Margin="829,499,104,205">
+        <Button Content="opslaan verzorging" Canvas.Left="904" Canvas.Top="459" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="24" Foreground="White" Click="Button_Click" Margin="759,132,150,181" Grid.Row="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="10" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="354" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="702,618,0,0"/>
+        <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="11" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="430" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="580,250,0,0" Grid.Row="1"/>
+        <Grid Grid.Row="1"/>
 
 
 
