@@ -12,6 +12,7 @@ using Plantjes.Dao.DAOdb;
 using Plantjes.Models.Db;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Linq;
 
 namespace Plantjes.ViewModels
 {
@@ -25,9 +26,13 @@ namespace Plantjes.ViewModels
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
+        //J
+        BeheerMaand beheermaandObject = new BeheerMaand();
+        List<string> subListForMonths = new List<string>();
+
         private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
             _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm, _FenoControlsBladKleur,
-            _FenoControlsBloeiKleur;
+            _FenoControlsBloeiKleur, _fenoBeheermaandCollection;
 
         //J: property's to bind in the Fenotype xaml
         public ObservableCollection<UIElement> FenoControlsBladgrootte
@@ -71,18 +76,23 @@ namespace Plantjes.ViewModels
             set { _FenoControlsBladKleur = value; }
 
         }
-
         public ObservableCollection<UIElement> FenoControlsBloeiKleur
         {
             get { return _FenoControlsBloeiKleur; }
             set { _FenoControlsBloeiKleur = value; }
-        }        
-        
+        }
+        public ObservableCollection<UIElement> FenoBeheermaandCollection
+        {
+            get { return _fenoBeheermaandCollection; }
+            set { _fenoBeheermaandCollection = value; }
+        }
+
         //constr
         public ViewModelFenotype(IDetailService detailservice)
         {
             _detailService = detailservice;
             this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
+            GetMonthsFromBeheerMaand();
             CreateControlsBladgrootte();
             CreateControlsBladvorm();
             CreateControlsRatiobloeiblad();
@@ -92,6 +102,7 @@ namespace Plantjes.ViewModels
             CreateControlsLevensvorm();
             CreateControlsBladkleur();
             CreateControlsBloeikleur();
+            CreateControlsMaanden();
 
 
         }
@@ -101,7 +112,33 @@ namespace Plantjes.ViewModels
             FillBasedOnPlant(_SearchService.getSelectedPlant());
         }
 
-     
+        public List<string> GetMonthsFromBeheerMaand()
+        {
+            List<string> propertyList = new List<string>();
+
+
+            foreach (var prop in beheermaandObject.GetType().GetProperties())
+            {
+                propertyList.Add(prop.Name);
+            }
+
+            subListForMonths = propertyList.Skip(4).Take(12).ToList();
+
+            return subListForMonths;
+
+        }
+
+        private void CreateControlsMaanden()
+        {
+            FenoBeheermaandCollection = new ObservableCollection<UIElement>();
+
+            foreach (var prop in subListForMonths)
+            {
+                CheckBox cbm = new CheckBox { Content = prop.ToString() };
+                FenoBeheermaandCollection.Add(cbm);
+            }
+
+        }
 
 
         #region J: function to create the checkboxes with the info from fenotype
@@ -123,8 +160,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoBladvorm fbv in _dao.getAllTypesBladvorm())
             {
-                RadioButton cbbv = new RadioButton { Content = fbv.Vorm, Uid = $"{fbv.Id}", GroupName = fbv.GetType().ToString() };
-                FenoControlsBladvorm.Add(cbbv);
+                RadioButton rbbv = new RadioButton { Content = fbv.Vorm, Uid = $"{fbv.Id}", GroupName = fbv.GetType().ToString() };
+                FenoControlsBladvorm.Add(rbbv);
             }
         }
 
@@ -134,8 +171,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoRatioBloeiBlad frbb in _dao.getAllTypesRatioBloei())
             {
-                RadioButton cbbv = new RadioButton { Content = frbb.RatioBloeiBlad, Uid = $"{frbb.Id}", GroupName = frbb.GetType().ToString() };
-                FenoControlsRatiobloeiblad.Add(cbbv);
+                RadioButton rbrb = new RadioButton { Content = frbb.RatioBloeiBlad, Uid = $"{frbb.Id}", GroupName = frbb.GetType().ToString() };
+                FenoControlsRatiobloeiblad.Add(rbrb);
             }
         }
 
@@ -145,8 +182,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoSpruitfenologie fsf in _dao.getAllTypesSpruitFeno())
             {
-                RadioButton cbsf = new RadioButton { Content = fsf.Fenologie, Uid = $"{fsf.Id}", GroupName = fsf.GetType().ToString() };
-                FenoControlsSpruitfenologie.Add(cbsf);
+                RadioButton rbsf = new RadioButton { Content = fsf.Fenologie, Uid = $"{fsf.Id}", GroupName = fsf.GetType().ToString() };
+                FenoControlsSpruitfenologie.Add(rbsf);
             }
         }
 
@@ -156,8 +193,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoBloeiwijze fbw in _dao.getAllTypesBloeiwijze())
             {
-                RadioButton cbbw = new RadioButton { Content = fbw.Naam, Uid = $"{fbw.Id}", GroupName = fbw.GetType().ToString() };
-                FenoControlsBloeiwijze.Add(cbbw);
+                RadioButton rbbw = new RadioButton { Content = fbw.Naam, Uid = $"{fbw.Id}", GroupName = fbw.GetType().ToString() };
+                FenoControlsBloeiwijze.Add(rbbw);
             }
         }
 
@@ -167,8 +204,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoHabitu fh in _dao.getAllTypesFenoHabitus())
             {
-                RadioButton cbh = new RadioButton { Content = fh.Naam, Uid = $"{fh.Id}", GroupName = fh.GetType().ToString() };
-                FenoControlsHabitus.Add(cbh);
+                RadioButton rbfh = new RadioButton { Content = fh.Naam, Uid = $"{fh.Id}", GroupName = fh.GetType().ToString() };
+                FenoControlsHabitus.Add(rbfh);
             }
         }
 
@@ -178,8 +215,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoLevensvorm fl in _dao.getAllTypesFenoLevensvorm())
             {
-                RadioButton cbl = new RadioButton { Content = fl.Levensvorm, Uid = $"{fl.Id}", GroupName = fl.GetType().ToString() };
-                FenoControlsLevensvorm.Add(cbl);
+                RadioButton rblv = new RadioButton { Content = fl.Levensvorm, Uid = $"{fl.Id}", GroupName = fl.GetType().ToString() };
+                FenoControlsLevensvorm.Add(rblv);
             }
         }
 
@@ -189,8 +226,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoKleur fk in _dao.getAllTypesKleur())
             {
-                CheckBox cbl = new CheckBox { Content = fk.NaamKleur, Uid = $"{fk.Id}" };
-                FenoControlsBladKleur.Add(cbl);
+                RadioButton rbbladk = new RadioButton { Content = fk.NaamKleur, Uid = $"{fk.Id}", GroupName = fk.GetType().ToString() };
+                FenoControlsBladKleur.Add(rbbladk);
             }
         }
 
@@ -200,8 +237,8 @@ namespace Plantjes.ViewModels
 
             foreach (FenoKleur fk in _dao.getAllTypesKleur())
             {
-                CheckBox cbbkl = new CheckBox { Content = fk.NaamKleur, Uid = $"{fk.Id}" };
-                FenoControlsBloeiKleur.Add(cbbkl);
+                RadioButton rbbloeik = new RadioButton { Content = fk.NaamKleur, Uid = $"{fk.Id}", GroupName = fk.GetType().ToString() };
+                FenoControlsBloeiKleur.Add(rbbloeik);
             }
         }
         #endregion
@@ -212,6 +249,7 @@ namespace Plantjes.ViewModels
 
 
 
+        #region J: function to fill the correct radiobuttons/checkboxes with details from plant
         private void FillBasedOnPlant(Plant? plant)
         {
             if (plant == null) return;
@@ -303,7 +341,8 @@ namespace Plantjes.ViewModels
                     }
                 }
             }
-        }
+        } 
+        #endregion
 
 
 

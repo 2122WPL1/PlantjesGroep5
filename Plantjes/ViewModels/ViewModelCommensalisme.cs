@@ -49,7 +49,7 @@ namespace Plantjes.ViewModels
 
         
 
-        //property's to bind in the Abiotiek xaml
+        //constr
         public ViewModelCommensalisme(IDetailService detailservice)
         {
             _detailService = detailservice;

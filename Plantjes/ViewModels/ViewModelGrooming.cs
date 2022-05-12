@@ -9,22 +9,71 @@ using Plantjes.ViewModels.Interfaces;
 using Plantjes.ViewModels;
 using Plantjes.Dao.DAOdb;
 using GalaSoft.MvvmLight.Ioc;
+using System.Windows;
+using Plantjes.Models.Db;
+using System.Windows.Controls;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelGrooming : ViewModelBase
     {
         private DAOBeheerMaand _dao;
+        private ObservableCollection<UIElement> _beheermaandCollection;
+        BeheerMaand beheermaandObject = new BeheerMaand();
+        List<string> subListForMonths = new List<string>();
+
+        public ObservableCollection<UIElement> BeheermaandCollection
+        {
+            get { return _beheermaandCollection; }
+            set { _beheermaandCollection = value; }
+        }
 
         public ViewModelGrooming(IDetailService detailservice)
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
+            GetMonthsFromBeheerMaand();
+            CreateControlsMaanden();
 
-            cmbBeheerdaad = new ObservableCollection<string>();
-
-            fillComboBoxBeheerdaad();
+            //cmbBeheerdaad = new ObservableCollection<string>();
+            //fillComboBoxBeheerdaad();
         }
-        //geschreven door christophe, op basis van een voorbeeld van owen
+
+        
+        #region J: function to get only the months and not all the properties from beheermaand  
+        public List<string> GetMonthsFromBeheerMaand()
+        {
+            List<string> propertyList = new List<string>();
+
+
+            foreach (var prop in beheermaandObject.GetType().GetProperties())
+            {
+                propertyList.Add(prop.Name);
+            }
+
+            subListForMonths = propertyList.Skip(4).Take(12).ToList();
+
+            return subListForMonths;
+
+        } 
+        #endregion
+
+        private void CreateControlsMaanden()
+        {
+            BeheermaandCollection = new ObservableCollection<UIElement>();
+
+            foreach (var prop in subListForMonths)
+            {
+                CheckBox cbm = new CheckBox { Content = prop.ToString() };
+                BeheermaandCollection.Add(cbm);
+            }
+
+        }
+
+
+
+
+
+
         public ObservableCollection<string> cmbBeheerdaad { get; set; }
 
         public void fillComboBoxBeheerdaad()
