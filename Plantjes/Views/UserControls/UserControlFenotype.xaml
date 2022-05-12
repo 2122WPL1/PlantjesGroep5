@@ -43,7 +43,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBladvorm}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Vertical" /> 
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -59,7 +59,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsRatiobloeiblad}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -74,7 +74,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsSpruitfenologie}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -89,7 +89,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiwijze}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -111,13 +111,13 @@
                     <!--Habitus-->
                     <Grid>
                         <Canvas x:Name="cvsHabitus">
-                            <Grid Grid.Column="0" Height="230" Width="330" Canvas.Left="22" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="18" >
+                            <Grid Grid.Column="0" Height="260" Width="330" Canvas.Left="22" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-4" >
                                 <StackPanel Orientation="Vertical">
-                                    <Label Content="habitus" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                                    <ItemsControl ItemsSource="{Binding Path=FenoControlsHabitus}" Height="190" Width="330" Canvas.Left="28" Canvas.Top="42">
+                                    <Label Content="habitus" Foreground="Black"   Height="31" Width="200"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                                    <ItemsControl ItemsSource="{Binding Path=FenoControlsHabitus}" Height="230" Width="330" Canvas.Left="28" Canvas.Top="42">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <WrapPanel />
+                                                <WrapPanel Orientation="Vertical"  />
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                     </ItemsControl>
@@ -128,14 +128,14 @@
                 </Grid>
                 <!--Levensvorm-->
                 <Grid Grid.Column="1">
-                    <Canvas x:Name="cvsLevensvorm" Height="173" Width="360" Canvas.Left="28" Canvas.Top="42" Margin="33,16,227,74">
-                        <Grid Height="230" Width="360" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Canvas x:Name="cvsLevensvorm" Width="360" Canvas.Left="28" Canvas.Top="42" Margin="33,-2,-6,9">
+                        <Grid Height="256" Width="360" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <StackPanel Orientation="Vertical">
-                                <Label Content="levensvorm" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                                <ItemsControl ItemsSource="{Binding Path=FenoControlsLevensvorm}" Height="190" Canvas.Left="28" Canvas.Top="42" Width="360" FontSize="10">
+                                <Label Content="levensvorm" Foreground="Black"   Height="40" Width="210"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                                <ItemsControl ItemsSource="{Binding Path=FenoControlsLevensvorm}" Height="210" Canvas.Left="28" Canvas.Top="42" Width="360" FontSize="10">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <WrapPanel />
+                                            <StackPanel Orientation="Vertical" />
                                         </ItemsPanelTemplate>
                                     </ItemsControl.ItemsPanel>
                                 </ItemsControl>
@@ -146,6 +146,8 @@
                 <!--Button-->
                 <Grid Grid.Column="2">
                     <Canvas>
+                        <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="14" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="354" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+
                         <Button x:Name="BtnOpslagZoekenFenotype" Content="opslaan fenotype" Width="222" Height="50"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="111" Canvas.Top="106">
                             <Button.Resources>
                                 <Style TargetType="Border">
@@ -154,6 +156,7 @@
                             </Button.Resources>
                         </Button>
                     </Canvas>
+
                 </Grid>
             </Grid>
         </Grid>
@@ -261,11 +264,19 @@
             <Canvas x:Name="cvsBladkleur" Grid.Column="1">
                 <Grid Background="#FFE8E5BF" Width="220" Height="230" Canvas.Left="26" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="bladkleur" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBladKleur}" Width="220" Height="190" Canvas.Left="26" Canvas.Top="7" >
+                        <Label Content="bladkleur" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding FenoControlsBladKleur}" Width="220" Height="78" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -363,11 +374,19 @@
             <Canvas x:Name="cvsBloeiKleur" Grid.Column="3">
                 <Grid Background="#FFE8E5BF" Width="220" Height="230" Canvas.Left="26" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="bloeikleur" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiKleur}" Width="220" Height="190" Canvas.Left="26" Canvas.Top="7" >
+                        <Label Content="bloeikleur" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiKleur}" Width="220" Height="78" Canvas.Left="26" Canvas.Top="7" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
