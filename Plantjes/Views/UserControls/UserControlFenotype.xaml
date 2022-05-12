@@ -264,8 +264,16 @@
             <Canvas x:Name="cvsBladkleur" Grid.Column="1">
                 <Grid Background="#FFE8E5BF" Width="220" Height="230" Canvas.Left="26" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="bladkleur" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBladKleur}" Width="220" Height="190" Canvas.Left="26" Canvas.Top="7" >
+                        <Label Content="bladkleur" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding FenoControlsBladKleur}" Width="220" Height="78" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical" />
@@ -366,8 +374,16 @@
             <Canvas x:Name="cvsBloeiKleur" Grid.Column="3">
                 <Grid Background="#FFE8E5BF" Width="220" Height="230" Canvas.Left="26" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="bloeikleur" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiKleur}" Width="220" Height="190" Canvas.Left="26" Canvas.Top="7" >
+                        <Label Content="bloeikleur" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiKleur}" Width="220" Height="78" Canvas.Left="26" Canvas.Top="7" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical" />
