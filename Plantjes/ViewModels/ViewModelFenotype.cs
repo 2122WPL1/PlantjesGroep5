@@ -32,7 +32,7 @@ namespace Plantjes.ViewModels
 
         private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
             _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm, _FenoControlsBladKleur,
-            _FenoControlsBloeiKleur, _fenoBeheermaandCollection;
+            _FenoControlsBloeiKleur, _fenoBeheermaandBlad, _fenoBeheermaandBloei;
 
         //J: property's to bind in the Fenotype xaml
         public ObservableCollection<UIElement> FenoControlsBladgrootte
@@ -81,10 +81,15 @@ namespace Plantjes.ViewModels
             get { return _FenoControlsBloeiKleur; }
             set { _FenoControlsBloeiKleur = value; }
         }
-        public ObservableCollection<UIElement> FenoBeheermaandCollection
+        public ObservableCollection<UIElement> FenoBeheermaandBlad
         {
-            get { return _fenoBeheermaandCollection; }
-            set { _fenoBeheermaandCollection = value; }
+            get { return _fenoBeheermaandBlad; }
+            set { _fenoBeheermaandBlad = value; }
+        }
+        public ObservableCollection<UIElement> FenoBeheermaandBloei
+        {
+            get { return _fenoBeheermaandBloei; }
+            set { _fenoBeheermaandBloei = value; }
         }
 
         //constr
@@ -102,7 +107,8 @@ namespace Plantjes.ViewModels
             CreateControlsLevensvorm();
             CreateControlsBladkleur();
             CreateControlsBloeikleur();
-            CreateControlsMaanden();
+            CreateControlsMaandenBlad();
+            CreateControlsMaandenBloei();
 
 
         }
@@ -128,17 +134,31 @@ namespace Plantjes.ViewModels
 
         }
 
-        private void CreateControlsMaanden()
+        private void CreateControlsMaandenBlad()
         {
-            FenoBeheermaandCollection = new ObservableCollection<UIElement>();
+            FenoBeheermaandBlad = new ObservableCollection<UIElement>();
 
             foreach (var prop in subListForMonths)
             {
                 CheckBox cbm = new CheckBox { Content = prop.ToString() };
-                FenoBeheermaandCollection.Add(cbm);
+                FenoBeheermaandBlad.Add(cbm);
             }
 
         }
+
+        private void CreateControlsMaandenBloei()
+        {
+            FenoBeheermaandBloei = new ObservableCollection<UIElement>();
+
+            foreach (var prop in subListForMonths)
+            {
+                CheckBox cbm = new CheckBox { Content = prop.ToString() };
+                FenoBeheermaandBloei.Add(cbm);
+            }
+
+        }
+
+
 
 
         #region J: function to create the checkboxes with the info from fenotype

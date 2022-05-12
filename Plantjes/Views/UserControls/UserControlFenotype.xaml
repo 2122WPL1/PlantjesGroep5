@@ -273,7 +273,7 @@
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
                         <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
+                        <ItemsControl ItemsSource="{Binding FenoBeheermaandBlad}" Width="220" Height="93" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical" />
@@ -383,7 +383,7 @@
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
                         <Label Content="maanden" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding}" Width="220" Height="93" >
+                        <ItemsControl ItemsSource="{Binding FenoBeheermaandBloei}" Width="220" Height="93" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical" />
