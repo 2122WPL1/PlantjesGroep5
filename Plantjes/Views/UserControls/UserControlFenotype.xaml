@@ -146,9 +146,10 @@
                 <!--Button-->
                 <Grid Grid.Column="2">
                     <Canvas>
+
                         <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="14" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="354" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
-                        <Button x:Name="BtnOpslagZoekenFenotype" Content="opslaan fenotype" Width="222" Height="50"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="111" Canvas.Top="106">
+                        <Button x:Name="BtnOpslagZoekenFenotype" Content="opslaan fenotype" Width="222" Height="76"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="137" Canvas.Top="80">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
