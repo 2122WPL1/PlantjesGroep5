@@ -35,8 +35,8 @@ namespace Plantjes.ViewModels
         //    Application.Current.Windows[0]?.Close();
         //}
         public void RegisterButtonClick()
-        {   //gemaakt door Mathias
-            //checken dat er iets is in gevult zo dat het programma niet crached.
+        {   //written by Mathias
+            //checks if the fields are filled
             if (firstNameInput != null &&
                 lastNameInput != null &&
                 //SelectedRol != null &&
@@ -47,8 +47,8 @@ namespace Plantjes.ViewModels
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
                 passwordInput, passwordRepeatInput, SelectedRol);
-                
-            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
+
+            }//error handeling fields if everything is empty.
             else
             {
                 errorMessage = "al de velden moeten worden in gevuld \r\nom te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
