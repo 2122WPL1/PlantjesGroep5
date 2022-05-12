@@ -119,7 +119,7 @@ namespace Plantjes.ViewModels.Services
         #endregion
 
         #region Register Region
-        // fout handeling gemaakt door Mathias
+        //  error handeling written by Mathias
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
                                    string passwordInput, string passwordRepeatInput, int SelectedRol)
@@ -134,8 +134,9 @@ namespace Plantjes.ViewModels.Services
                 passwordRepeatInput != null)
             { //checken welke rol je hebt gekozen rolId 0 = docent.
                if (SelectedRol.Equals(0))
-               {   //checken of het de juiste kenmerken geeft voor een docent nummer.
-                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u"))
+                {   //checken of het de juiste kenmerken geeft voor een docent nummer en of het al wordt gebruikt.
+                    if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("u")
+                        && _dao.CheckIVivesnrAlreadyExists(vivesNrInput))
                    {   //checken als het emailadres een geldig vives email is voor een docent.
                        if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("vives.be") 
                        //checken als het email adres al bestaat of niet.
@@ -159,12 +160,13 @@ namespace Plantjes.ViewModels.Services
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist \r\nvoor een docent het moet een u bevaten \r\nen een lengte hebben van 8 characters";
+                       Message = "Het vives nummer is niet juist of het nummer is al in gebruik \r\nvoor een docent moet het een u bevaten \r\nen een lengte hebben van 8 characters bv: u1234567";
                    }
                 }//checken welke rol je hebt gekozen rolId 1 = student.
                else if (SelectedRol.Equals(1))
-               {   //checken of het de juiste kenmerken geeft voor een student nummer.
-                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") | vivesNrInput.Contains("s"))
+               {   //checken of het de juiste kenmerken geeft voor een student nummer en of het al wordt gebruikt.
+                   if (vivesNrInput != null && vivesNrInput.Length.Equals(8) && vivesNrInput.Contains("r") | vivesNrInput.Contains("s")
+                        && _dao.CheckIVivesnrAlreadyExists(vivesNrInput))
                    {   //checken als het emailadres een geldig vives email is voor een student.
                        if (emailAdresInput != null && emailAdresInput.Contains("@") && emailAdresInput.Contains("student.vives.be") 
                            //checken als het email adres al bestaat of niet.
@@ -188,7 +190,7 @@ namespace Plantjes.ViewModels.Services
                    }//foutafhandeling vives nummer
                    else
                    {
-                       Message = "Het vives nummer is niet juist \r\nvoor een student het moet een r of s bevaten \r\nen een lengte hebben van 8 characters";
+                       Message = "Het vives nummer is niet juist of het nummer is al in gebruik \r\nvoor een student moet het een r of s bevaten \r\nen een lengte hebben van 8 characters bv: r1234567";
                    }
                }//checken welke rol je hebt gekozen rolId 2 = oudstudent.
                else if (SelectedRol.Equals(2))

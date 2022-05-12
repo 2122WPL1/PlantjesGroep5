@@ -48,7 +48,12 @@ namespace Plantjes.ViewModels
             //fillComboBoxBeheerdaad();
         }
 
-        
+        public override void Load()
+        {
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
+        }
+
+
         #region J: function to get only the months and not all the properties from beheermaand  
         public List<string> GetMonthsFromBeheerMaand()
         {
