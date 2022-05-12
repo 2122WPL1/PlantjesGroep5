@@ -28,7 +28,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBladgrootte}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
@@ -43,7 +43,7 @@
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBladvorm}" Width="180" Height="190" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel />
+                                    <StackPanel Orientation="Vertical" /> 
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>

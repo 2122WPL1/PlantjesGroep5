@@ -19,6 +19,8 @@ namespace Plantjes.ViewModels
     {
         private DAOBeheerMaand _dao;
         private ObservableCollection<UIElement> _beheermaandCollection;
+        BeheerMaand beheermaandObject = new BeheerMaand();
+        List<string> subListForMonths = new List<string>();
 
         public ObservableCollection<UIElement> BeheermaandCollection
         {
@@ -29,33 +31,31 @@ namespace Plantjes.ViewModels
         public ViewModelGrooming(IDetailService detailservice)
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
-            TryToGetMonths();
+            GetMonthsFromBeheerMaand();
             CreateControlsMaanden();
 
             //cmbBeheerdaad = new ObservableCollection<string>();
-
             //fillComboBoxBeheerdaad();
         }
 
-        //J: function to get only the months and not all the properties from beheermaand
-        BeheerMaand beheermaandObject = new BeheerMaand();
-        List<string> subListForMonths = new List<string>();
-
-        public List<string> TryToGetMonths()
+        
+        #region J: function to get only the months and not all the properties from beheermaand  
+        public List<string> GetMonthsFromBeheerMaand()
         {
             List<string> propertyList = new List<string>();
-            
+
 
             foreach (var prop in beheermaandObject.GetType().GetProperties())
             {
                 propertyList.Add(prop.Name);
             }
-            
-            subListForMonths = propertyList.Skip(4).Take(12).ToList(); 
+
+            subListForMonths = propertyList.Skip(4).Take(12).ToList();
 
             return subListForMonths;
 
-        }
+        } 
+        #endregion
 
         private void CreateControlsMaanden()
         {
