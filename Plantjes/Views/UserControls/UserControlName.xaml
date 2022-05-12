@@ -58,7 +58,7 @@
                       ItemsSource="{Binding cmbVariant}"
                       DisplayMemberPath="Variantnaam"
                       SelectedValuePath="VariantId"
-                      SelectedItem="{Binding Path= SelectedVariant}" IsEditable="True" HorizontalAlignment="Left" VerticalAlignment="Center">
+                      SelectedItem="{Binding Path= SelectedVariant , Mode=TwoWay}" IsEditable="True" HorizontalAlignment="Left" VerticalAlignment="Center">
 
             </ComboBox>
             <!--<ComboBox  Canvas.Left="5" Canvas.Top="377" Width="200" Height="28" 
@@ -70,7 +70,7 @@
             <!-- Buttons voor het zoeken, toevoegen en resetten -->
             <Button x:Name="btnZoeken" Content="zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding SearchCommand}"
-                    Height="35" Canvas.Left="20" Canvas.Top="488" Width="176">
+                    Height="35" Canvas.Left="20" Canvas.Top="408" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -80,7 +80,7 @@
 
             <Button x:Name="btnNameReset"
                     Content="reset all" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
-                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="618" Width="176">
+                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="481" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -89,8 +89,9 @@
             </Button>
 
             <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
-                Command="{Binding SearchCommand}"
-                Height="35" Canvas.Left="20" Canvas.Top="553" Width="176" >
+                Visibility="{Binding btnVisible, Mode=TwoWay}"
+                Height="35" Canvas.Left="20" Canvas.Top="553" Width="176">
+                <!--Command="{Binding SearchCommand}">-->
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

@@ -86,6 +86,7 @@
 
         <!--Button-->
         <Button Content="opslaan commensalisme"  Canvas.Left="933" Canvas.Top="15" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="911,152,48,141" Grid.Row="1">
+
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
