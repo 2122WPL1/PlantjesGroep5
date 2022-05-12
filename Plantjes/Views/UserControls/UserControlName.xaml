@@ -97,6 +97,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Content="Exporteer details" Canvas.Left="65" Canvas.Top="423" Click="Button_Click"/>
         </Canvas>
 
         <!-- 2 listboxen -->

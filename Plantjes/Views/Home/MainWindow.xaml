@@ -158,7 +158,7 @@
 
 
             <Button x:Name="btnExporteergeselecteerd" 
-                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White">
+                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" Click="btnExporteergeselecteerd_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -186,7 +186,7 @@
 
             <!-- log in boodschap-->
             <Canvas Margin="42,51,613,796" Background="#99FFFFFF">
-                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="632" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label x:Name="lblLogin" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="632" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
 
 
