@@ -33,7 +33,8 @@ namespace Plantjes.ViewModels.HelpClasses
 
             var changePasswordService = iocc.GetInstance<IChangePassword>();
 
-
+            //
+            var addPlantService = iocc.GetInstance<IAddPlantService>();
 
 
 
@@ -53,7 +54,8 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
-            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService));
+            //om aan de name result te komen
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService));
             iocc.Register<ViewModelUserManagement>(() => new ViewModelUserManagement(loginService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
@@ -66,6 +68,8 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
             //changepassword
             iocc.Register<ViewModelChangePassword>(() => new ViewModelChangePassword(changePasswordService));
+
+           
 
 
         }
