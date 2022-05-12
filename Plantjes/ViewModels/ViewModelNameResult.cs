@@ -16,12 +16,20 @@ namespace Plantjes.ViewModels
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
         public IloginUserService loginUserService;
 
-        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService)
+        public IAddPlantService addPlantService;
+
+
+
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService)
         {
             //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
             loggedInMessage = loginUserService.LoggedInMessage();
             this._searchService = searchService;
             //_searchService = new SearchService();
+
+            //add the addplantservice
+            this.addPlantService = addPlantService;
+
 
             //writen by Mathias
             // hids the button if a oldstudent is logt in
@@ -51,7 +59,7 @@ namespace Plantjes.ViewModels
             //These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new RelayCommand(ApplyFilterClick);
             ResetCommand = new RelayCommand(ResetClick);
-
+            AddPlantCommand = new RelayCommand(AddPlantClick);
             //These comboboxes will already be filled with data on startup
             fillComboboxes();
         }
@@ -99,6 +107,36 @@ namespace Plantjes.ViewModels
             }
         }
 
+
+        public void AddPlantClick()
+        {
+
+            
+
+            //variant kan alleen bestaan als hij opkomt in bepaalde gevallen maar niet bij alles
+            //het probleem is dat er verwacht wordt dat er een bestaande object is, ook al is er niets in
+            //dus in geval dat het niet bestaat, voeg het toe maar niets anders
+            if (_selectedVariant == null)
+            {
+                TfgsvVariant incaseOfNull = new TfgsvVariant();
+                //incaseOfNull.Variantnaam = null;
+
+                SelectedVariant = incaseOfNull;
+
+            }
+
+
+            
+
+            addPlantService.AddPlantButton(SelectedNederlandseNaam , SelectedType, SelectedFamilie, SelectedGeslacht,
+                    SelectedSoort, SelectedVariant);
+
+            
+           
+
+        }
+
+
         #endregion
 
 
@@ -122,7 +160,7 @@ namespace Plantjes.ViewModels
         //RelayCommands
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
-
+        public RelayCommand AddPlantCommand { get; set; }
         #endregion
 
         //Selected Item variables for each combobox
@@ -205,9 +243,20 @@ namespace Plantjes.ViewModels
 
         public TfgsvVariant SelectedVariant
         {
-            get { return _selectedVariant; }
+            get {
+                
+               
+               
+                    return _selectedVariant;
+                
+                
+            
+            
+            }
             set
             {
+
+
                 _selectedVariant = value;
                 OnPropertyChanged();
             }
@@ -220,6 +269,8 @@ namespace Plantjes.ViewModels
             get { return _selectedRatioBloeiBlad; }
             set
             {
+               
+
                 _selectedRatioBloeiBlad = value;
                 OnPropertyChanged();
             }

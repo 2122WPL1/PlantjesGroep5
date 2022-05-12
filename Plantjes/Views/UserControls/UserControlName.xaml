@@ -26,10 +26,10 @@
             </Label>
             <Label Content="familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867" Height="28" Canvas.Left="7" Canvas.Top="78" Width="200">
             </Label>
-            <!--<Label Content="naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="7" Canvas.Top="410" Width="200" RenderTransformOrigin="0.487,0.673">
+            <Label Content="naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FF7AC867"  Height="28" Canvas.Left="7" Canvas.Top="344" Width="200" RenderTransformOrigin="0.487,0.673" HorizontalAlignment="Center" VerticalAlignment="Top">
             </Label>
-            <TextBox x:Name="txtNaam" Text="{Binding Path=SelectedNederlandseNaam}"  TextWrapping="Wrap" Height="28" Canvas.Left="7" Canvas.Top="443" Width="200">
-            </TextBox>-->
+            <TextBox x:Name="txtNaam" Text="{Binding Path=SelectedNederlandseNaam}"  TextWrapping="Wrap" Height="28" Canvas.Left="7" Canvas.Top="377" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top">
+            </TextBox>
             <ComboBox x:Name="cmbFamilie" Canvas.Left="7" Canvas.Top="111" Width="200" Height="28" 
                       ItemsSource="{Binding cmbFamilies}"   
                       SelectedItem="{Binding Path=SelectedFamilie}"
@@ -89,10 +89,12 @@
             </Button>
 
             <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
-                Visibility="{Binding btnVisible, Mode=TwoWay}"
-                Height="35" Canvas.Left="20" Canvas.Top="553" Width="176">
-                <!--Command="{Binding SearchCommand}">-->
-                <Button.Resources>
+              
+                Height="35" Canvas.Left="20" Canvas.Top="553" Width="176"
+                     Command="{Binding AddPlantCommand}"
+                    >
+               
+                <Button.Resources >
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>

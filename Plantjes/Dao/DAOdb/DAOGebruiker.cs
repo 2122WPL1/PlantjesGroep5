@@ -50,6 +50,8 @@ namespace Plantjes.Dao.DAOdb
                 HashPaswoord = passwordHashed
             };
             Context.Gebruikers.Add(gebruiker);
+
+         
             Context.SaveChanges();
         }
 
