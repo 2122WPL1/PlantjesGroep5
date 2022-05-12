@@ -11,7 +11,17 @@
         </Grid.ColumnDefinitions>
         <Canvas x:Name="cvsVerzorging" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
             <Grid Height="90" Width="1088" Canvas.Left="26" Canvas.Top="90" Background="#FFE8E5BF" >
-                <StackPanel>
+                <ItemsControl ItemsSource="{Binding Path=BeheermaandCollection}" Width="194" Height="341" Canvas.Left="19" Canvas.Top="27" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+            
+
+            <!--<StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="1060">
                         <Label Content="maand" Height="29" Width="130"  FontWeight="Bold" FontSize="14"/>
                         <Label Content="jan"  Height="29" Width="59"   FontWeight="Bold" FontSize="14"/>
@@ -77,9 +87,9 @@
                           Height="15" Width="20" BorderBrush="Gray" Margin="60,0,0,0">
                         </CheckBox>
                     </StackPanel>
-                </StackPanel>
+                </StackPanel>-->
 
-                <Grid Width="1088" Canvas.Left="26" Canvas.Top="90" Background="#FFE8E5BF" Margin="0,140,0,-215" >
+                <!--<Grid Width="1088" Canvas.Left="26" Canvas.Top="90" Background="#FFE8E5BF" Margin="0,140,0,-215" >
                     <StackPanel >
                         <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                             <Label Content="beheersdaad" Height="36" Width="130"   FontWeight="Bold" FontSize="14" Margin="50,0,0,0"/>
@@ -97,7 +107,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-            </Grid>
+            </Grid>-->
 
 
             <Button Content="opslaan verzorging" Canvas.Left="904" Canvas.Top="459" Height="50" Width="227" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Click">
