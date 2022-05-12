@@ -111,10 +111,10 @@
                     <!--Habitus-->
                     <Grid>
                         <Canvas x:Name="cvsHabitus">
-                            <Grid Grid.Column="0" Height="230" Width="340" Canvas.Left="22" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="18" >
+                            <Grid Grid.Column="0" Height="230" Width="330" Canvas.Left="22" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="18" >
                                 <StackPanel Orientation="Vertical">
                                     <Label Content="habitus" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                                    <ItemsControl ItemsSource="{Binding Path=FenoControlsHabitus}" Height="190" Width="340" Canvas.Left="28" Canvas.Top="42">
+                                    <ItemsControl ItemsSource="{Binding Path=FenoControlsHabitus}" Height="190" Width="330" Canvas.Left="28" Canvas.Top="42">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <WrapPanel />
@@ -128,11 +128,11 @@
                 </Grid>
                 <!--Levensvorm-->
                 <Grid Grid.Column="1">
-                    <Canvas x:Name="cvsLevensvorm" Height="173" Width="340" Canvas.Left="28" Canvas.Top="42" Margin="33,16,227,74">
-                        <Grid Height="230" Width="340" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Canvas x:Name="cvsLevensvorm" Height="173" Width="360" Canvas.Left="28" Canvas.Top="42" Margin="33,16,227,74">
+                        <Grid Height="230" Width="360" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <StackPanel Orientation="Vertical">
                                 <Label Content="levensvorm" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                                <ItemsControl ItemsSource="{Binding Path=FenoControlsLevensvorm}" Height="190" Canvas.Left="28" Canvas.Top="42" Width="340">
+                                <ItemsControl ItemsSource="{Binding Path=FenoControlsLevensvorm}" Height="190" Canvas.Left="28" Canvas.Top="42" Width="360" FontSize="10">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel />
