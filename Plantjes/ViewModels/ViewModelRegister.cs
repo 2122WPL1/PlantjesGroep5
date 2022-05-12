@@ -19,7 +19,6 @@ namespace Plantjes.ViewModels
             this._loginService = loginUserService;
             cmbRols = new ObservableCollection<Rol>();
             registerCommand = new RelayCommand(RegisterButtonClick);
-            //backCommand = new RelayCommand(BackButtonClick);
             fillComboboxe();
         }
 
@@ -27,19 +26,12 @@ namespace Plantjes.ViewModels
         {
             _loginService.fillComboBoxRol(cmbRols);
         }
-
-        //public void BackButtonClick()
-        //{
-        //    LoginWindow loginWindow = new LoginWindow();
-        //    loginWindow.Show();
-        //    Application.Current.Windows[0]?.Close();
-        //}
+       
         public void RegisterButtonClick()
         {   //written by Mathias
             //checks if the fields are filled
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)

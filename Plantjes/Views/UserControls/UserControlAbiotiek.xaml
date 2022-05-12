@@ -121,6 +121,7 @@
                 <Canvas>
                     <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="24" Height="44" VerticalAlignment="Top" Canvas.Left="736" Canvas.Top="269" Width="362" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center"/>
                     <Button Content="opslaan abiotiek" Canvas.Left="842" Canvas.Top="143" Height="74" Width="256" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="10" Foreground="White" RenderTransformOrigin="0.43,0.878" HorizontalAlignment="Left" VerticalAlignment="Top">
+
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="10"/>

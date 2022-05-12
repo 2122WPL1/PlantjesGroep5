@@ -26,9 +26,6 @@ namespace Plantjes.ViewModels.Services
         //dao verklaren om data op te vragen en te setten in de databank
         private DAOGebruiker _dao;
 
-
-
-
         public LoginUserService()
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
@@ -96,6 +93,7 @@ namespace Plantjes.ViewModels.Services
         //functie om naam weer te geven in loginWindow
         public string LoggedInMessage()
         {
+            //written by Mathias
             string message= String.Empty;
             if (_gebruiker != null)
             {
@@ -131,7 +129,6 @@ namespace Plantjes.ViewModels.Services
             //checken of alle velden ingevuld zijn
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -149,10 +146,6 @@ namespace Plantjes.ViewModels.Services
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
                                 Message = $"Je hebt succevol een nieuwe docent geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
                                                "\r\n" + "je kan nu naar andere tabs gaan of nog gebruikers toevoegen.";
-                                // werd gebruikt om de registatie window te sluiten en de login window te tonen maar is nu niet meer nodig
-                                //LoginWindow loginWindow = new LoginWindow();
-                                //loginWindow.Show();
-                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                            else
                            {
@@ -161,7 +154,7 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                        else
                        {
-                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een docent bv: docentnaam@vives.be, " + "\r\n" + "of het eamiladres is al in gebruik.";
+                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een docent bv: docentnaam@vives.be, " + "\r\n" + "of het emailadres is al in gebruik.";
                        }
                    }//foutafhandeling vives nummer
                    else
@@ -182,10 +175,6 @@ namespace Plantjes.ViewModels.Services
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
                                 Message = $"Je hebt succevol een nieuwe student geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
                                                "\r\n" + "je kan nu naar andere tabs gaan of nog gebruikers toevoegen.";
-                                // werd gebruikt om de registatie window te sluiten en de login window te tonen maar is nu niet meer nodig
-                                //LoginWindow loginWindow = new LoginWindow();
-                                //loginWindow.Show();
-                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                             else
                            {
@@ -194,7 +183,7 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                        else
                        {
-                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een student bv: studentnaam@student.vives.be, " + "\r\n" + "of het eamiladres is al in gebruik.";
+                           Message = $"{emailAdresInput} is geen geldig \r\nemailadres voor een student bv: studentnaam@student.vives.be, " + "\r\n" + "of het emailadres is al in gebruik.";
                        }
                    }//foutafhandeling vives nummer
                    else
@@ -213,10 +202,6 @@ namespace Plantjes.ViewModels.Services
                                _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, SelectedRol, emailAdresInput, passwordInput);
                                 Message = $"Je hebt succevol een nieuwe oudstudent geregistreerd," + "\r\n" + $"de gebruikersnaam is {emailAdresInput}" +
                                                 "\r\n" + "je kan nu naar andere tabs gaan of nog gebruikers toevoegen.";
-                                // werd gebruikt om de registatie window te sluiten en de login window te tonen maar is nu niet meer nodig
-                                //LoginWindow loginWindow = new LoginWindow();
-                                //loginWindow.Show();
-                                // Application.Current.Windows[0]?.Close();
                             }//foutafhandeling wachtwoord
                             else
                            {
@@ -225,7 +210,7 @@ namespace Plantjes.ViewModels.Services
                        }//foutafhandeling emailadres
                         else
                         {
-                            Message = $"{emailAdresInput} is geen geldig emailadres \r\nbv: oudstudent@gmail.com"+ "\r\n" + "of het eamiladres is al in gebruik.";
+                            Message = $"{emailAdresInput} is geen geldig emailadres \r\nbv: oudstudent@gmail.com"+ "\r\n" + "of het emailadres is al in gebruik.";
                         }
                    }//foutafhandeling vives nummer
                    else
