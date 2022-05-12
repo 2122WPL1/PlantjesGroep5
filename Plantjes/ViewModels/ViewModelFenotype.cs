@@ -24,11 +24,12 @@ namespace Plantjes.ViewModels
         private DAOFenotype _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
-        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
         //J
         BeheerMaand beheermaandObject = new BeheerMaand();
         List<string> subListForMonths = new List<string>();
+        private string _plantName;
 
         private ObservableCollection<UIElement> _FenoControlsBladgrootte, _FenoControlsBladvorm, _FenoControlsRatiobloeiblad,
             _FenoControlsSpruitfenologie, _FenoControlsBloeiwijze, _FenoControlsHabitus, _FenoControlsLevensvorm, _FenoControlsBladKleur,
@@ -91,6 +92,11 @@ namespace Plantjes.ViewModels
             get { return _fenoBeheermaandBloei; }
             set { _fenoBeheermaandBloei = value; }
         }
+        public string plantName
+        {
+            get { return _plantName; }
+            set { _plantName = value; }
+        }
 
         //constr
         public ViewModelFenotype(IDetailService detailservice)
@@ -109,13 +115,15 @@ namespace Plantjes.ViewModels
             CreateControlsBloeikleur();
             CreateControlsMaandenBlad();
             CreateControlsMaandenBloei();
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
 
         }
 
         public override void Load()
         {
-            FillBasedOnPlant(_SearchService.getSelectedPlant());
+            FillBasedOnPlant(_searchService.getSelectedPlant());
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
         public List<string> GetMonthsFromBeheerMaand()

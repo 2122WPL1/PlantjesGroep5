@@ -19,13 +19,22 @@ namespace Plantjes.ViewModels
     {
         private DAOBeheerMaand _dao;
         private ObservableCollection<UIElement> _beheermaandCollection;
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
         BeheerMaand beheermaandObject = new BeheerMaand();
         List<string> subListForMonths = new List<string>();
+        
+        private string _plantName;
 
         public ObservableCollection<UIElement> BeheermaandCollection
         {
             get { return _beheermaandCollection; }
             set { _beheermaandCollection = value; }
+        }
+        public string plantName
+        {
+            get { return _plantName; }
+            set { _plantName = value; }
         }
 
         public ViewModelGrooming(IDetailService detailservice)
@@ -33,6 +42,7 @@ namespace Plantjes.ViewModels
             this._dao = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
             GetMonthsFromBeheerMaand();
             CreateControlsMaanden();
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
             //cmbBeheerdaad = new ObservableCollection<string>();
             //fillComboBoxBeheerdaad();

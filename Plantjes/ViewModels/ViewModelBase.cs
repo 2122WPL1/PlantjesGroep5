@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plantjes.Models.Db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
@@ -37,6 +38,20 @@ namespace Plantjes.ViewModels
         }
 
         public virtual void Load() { }
-        
+
+        public string FillLabelWithNamePlant(Plant? plant)
+        {
+            string message = String.Empty;
+
+            if (plant != null)
+            {
+                message = $"plant: {plant.Fgsv}";
+            }
+
+            return message;
+
+
+        }
+
     }
 }
