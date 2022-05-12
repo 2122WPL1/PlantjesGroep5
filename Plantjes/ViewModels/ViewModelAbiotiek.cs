@@ -22,6 +22,9 @@ namespace Plantjes.ViewModels
         private ObservableCollection<UIElement> _AbioControlsBezonning, _AbioControlsVochtbehoefte, _AbioControlsVoedingsbehoefte, 
                 _AbioControlsGrondsoort, _AbioControlsReactieAntagonischeOmg, _AbioControlsHabitat;
 
+        //J: property to bind in xaml to get the name of the plant
+        private string _plantName;
+
         //J: property's to bind in the Abiotiek xaml
         public ObservableCollection<UIElement> AbioControlsBezonning
         {
@@ -59,6 +62,11 @@ namespace Plantjes.ViewModels
             set { _AbioControlsHabitat = value; }
         }
 
+        public string plantName
+        {
+            get { return _plantName; }
+            set { _plantName = value; }
+        }
         //J: const
         public ViewModelAbiotiek(IDetailService detailservice)
         {
@@ -70,12 +78,14 @@ namespace Plantjes.ViewModels
             CreateControlsGrondsoort();
             CreateControlsReactieAntagonischeOmg();
             CreateControlsReactieAbioHabitat();
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
             
         }
         public override void Load()
         {
             FillBasedOnPlant(_searchService.getSelectedPlant());
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
 
@@ -212,10 +222,27 @@ namespace Plantjes.ViewModels
 
                     }
                 }
-            }           
+            }
         }
+
+        //public string FillLabelWithNamePlant(Plant? plant)
+        //{
+        //    string message = String.Empty;
+
+        //    if (plant != null)
+        //    {
+        //        message = $"Deze details zijn voor de plant: {plant.Fgsv}";
+        //    }
+
+        //    return message;
+
+
+        //}
     }
     #endregion
+
+
+
 
     //J: i took the code and split it into different functions for binding 
     //private void CreateControls()
