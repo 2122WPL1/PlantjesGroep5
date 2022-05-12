@@ -101,7 +101,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnHabitat" Content="commensalisme" HorizontalAlignment="Left" Margin="448,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnHabitat" Content="commensalisme" HorizontalAlignment="Left" Margin="450,14,0,0" VerticalAlignment="Top" Height="32" Width="168" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                 Command="{Binding mainNavigationCommand}"
                 CommandParameter="VIEWHABITAT">
                 <Button.Resources>
