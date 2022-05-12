@@ -121,7 +121,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="{Binding Path=detailsSelectedPlant}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="10" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="354" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="702,618,0,0"/>
+        <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="10" Height="40" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="192" Width="354" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="702,618,0,0"/>
 
 
 
