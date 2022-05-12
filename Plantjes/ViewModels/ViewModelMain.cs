@@ -38,23 +38,19 @@ namespace Plantjes.ViewModels
             this._searchService = searchService;
             this.loginUserService = loginUserService;
 
-            //als de ingelogd user een docent is dan worden de buttons getoont
+            // written by Mathias
+            //if the user is a docent then it wil make the button visible
             if (loggedInMessage.Contains("Docent"))
             {
                 btnVisible = "Visible";
             }
-            else if (loggedInMessage.Contains("Student"))
+            else 
             {
                 btnVisible = "Hidden";
             }
-            else
-            {
-                btnVisible = "Hidden";
-            }
-
+            
             //changepassword
             this._changePassword = changePasswordService;
-
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
@@ -76,6 +72,7 @@ namespace Plantjes.ViewModels
             }
         }
 
+        // writen by Mathias
         private string _btnVisible { get; set; }
         public string btnVisible
         {
