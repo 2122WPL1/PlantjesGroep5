@@ -16,7 +16,6 @@ namespace Plantjes.Dao.DAOdb
 
         public static void RegisterDaos()
         {
-            //basisstructuur kenny, mede gebruikt door Robin
             // gebruik de default instantie (singleton van de SimpleIoc class)
             var iocc = SimpleIoc.Default;
 
@@ -33,6 +32,7 @@ namespace Plantjes.Dao.DAOdb
             iocc.Register<DAOCommensalismeMulti>(() => new DAOCommensalismeMulti());
             iocc.Register<DAOExtra>(() => new DAOExtra());
             iocc.Register<DAOExtraEigenschap>(() => new DAOExtraEigenschap());
+
             iocc.Register<DAORol>(()=>new DAORol());
 
             iocc.Register<DAOExtraNectarWaarde>(() => new DAOExtraNectarWaarde());
@@ -49,8 +49,6 @@ namespace Plantjes.Dao.DAOdb
 
             iocc.Register<DAONieuwWachtwoord>(()=> new DAONieuwWachtwoord());
 
-            //Voor Rol later:
-            //iocc.Register<DAORol>(() => new DAORol());
         }
     }
 }
