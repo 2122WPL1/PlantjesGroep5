@@ -21,7 +21,6 @@ namespace Plantjes.Dao.DAOdb
             return selection;
         }
 
-        
 
         //Get a list of all the Beheermaand types
         public List<BeheerMaand> GetBeheerMaanden()
