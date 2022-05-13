@@ -13,26 +13,22 @@ namespace Plantjes.Dao.DAOdb
 {
     public class DAONieuwWachtwoord : DAOGeneric
     {
-
+        //Imran
         public DAONieuwWachtwoord() : base()
         {
             //ctor
         }
 
 
-        
+       
 
-        //Geeft de gebruiker terug aan de hand Id 
+        //Gives back a  User based on ID -Imran
         public Gebruiker GetGebruikerWithId(int gebruikerId)
         {
 
-            //var gebruiker = Context.Gebruikers.SingleOrDefault(g => g.Emailadres == userEmail);
+         
 
-            // var gebruiker = Context.Gebruikers.Include(g => g.Rol).SingleOrDefault(g => g.Id == userEmail);
-
-
-            //var gebruiker = Context.Gebruikers.SingleOrDefault(g=>g.Id.Equals(gebruikerId));
-            
+            //looks for the first user that matches the id or returns a default value-I
             var gebruiker = Context.Gebruikers.SingleOrDefault(g=>g.Id.Equals(gebruikerId));
 
 
@@ -42,51 +38,29 @@ namespace Plantjes.Dao.DAOdb
 
         
 
-        //past een nieuw wachtwoord toe van de huidige gebruiker (en encrypteert het)
+        //To register new Password which gets encrypted-I
         public void RegisterNewPassword(string password, int id)
         {
+            //necessary components to Hash the password
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();
             var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
 
 
 
-            // hier gebeurt de zogezegde database verandering maar ik moet nog het idee krijgen
-            //dat hetzelfde gebruiker is , er is hier nog niets
-            //--
-
-            //id wordt nu doorgegeven
+           //Call upon the function to get the user based on id-Imran
             var gebruiker = GetGebruikerWithId(id);
                 
           
 
 
-            //var gebruiker = GetGebruikerWithPasswordl();
-
-
-
-            //Hier moet de registratie gebeuren , maar ik moet de gebruiker bij me ophalen
-
-
-            //Context.Gebruikers.Update()
-
-            //Context.Gebruikers.Add(gebruiker);
-
-            //nu eerst met de Id de database updaten in de DAO
-
-           
-
-            //in de context contacteer ik de database en update het, maar hoe?
-
-
-
-
-            //Context.Gebruikers.EntityType;
 
           
-
+          
+            
+            //Update the database for the user-I
             Context.Gebruikers.Update(GetGebruikerWithId(id)).Entity.HashPaswoord = passwordHashed;
-
+            
             Context.SaveChanges();
         }
 

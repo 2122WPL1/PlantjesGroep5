@@ -157,13 +157,13 @@ namespace Plantjes.ViewModels
                     SelectedSoort, SelectedVariant);
 
 
-
+           
             ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
 
             
-            MessageBox.Show(abiotiek.AbioControlsBezonning.ToString());
+           // MessageBox.Show(abiotiek.AbioControlsBezonning.ToString());
 
-
+            
             string abioBezonning=null, abioGrondsoort =null;
 
             //functie toevoegen abiotiek ---------------------------
@@ -290,22 +290,21 @@ namespace Plantjes.ViewModels
                 _selectedSoort = value;
 
                 cmbVariant.Clear();
-                // vult de cmb van variant na dat er een soort is geselecteert
+                // fills the combobox in
                 _searchService.fillComboBoxVariant(SelectedSoort, cmbVariant);
                 OnPropertyChanged();
             }
         }
+
+        //Binding properties - Imran
 
         private TfgsvVariant _selectedVariant;
 
         public TfgsvVariant SelectedVariant
         {
             get {
-                
-               
-               
+
                     return _selectedVariant;
-                
                 
             
             
@@ -409,7 +408,7 @@ namespace Plantjes.ViewModels
 
 
 
-        //------------combobox
+        //Bindings combobox -Imran
 
         private string _cmbVariantText { get; set; }
    

@@ -22,49 +22,24 @@ namespace Plantjes.Dao.DAOdb
         ///Kenny-1st year wrote this
         public List<Plant> getAllPlants()
         {
-            // kijken hoeveel er zijn geselecteerd
+            // kijken hoeveel er zijn geselecteerd-Imran
             var plants = Context.Plants.ToList();
             return plants;
         }
 
 
-        //Functie om huidig plant te geven
-
-
-        public Plant getCurrentPlant()
-        {
-            
-
-            return plant;
-
-        }
 
 
 
 
-        private long testId;
-
-        public long TestId
-        {
-            get { return testId; }
-            set
-            {
-                testId = value;
-                //testId = Context.Abiotieks.
-
-            }
-        }
-
-
-
-
-        Plant plant;
         
-
+        
+        //Add new plant to database with certain qualities-Imran
         public void RegisterNewPlant(string naamPlant, TfgsvType typePlant, TfgsvFamilie familiePlant, TfgsvGeslacht geslachtPlant,
             TfgsvSoort soortPlant, TfgsvVariant variantPlant)
         {
-            //het object plant wordt hier in de database toegevoegd
+            
+            //Incase the object is nonexistant, declare a default one with none and assign it-Imran
 
             int? convertSoort = (int?)soortPlant.Soortid;
             if (convertSoort == 0)
@@ -83,9 +58,9 @@ namespace Plantjes.Dao.DAOdb
 
 
 
-
+            //Make an object Plant to add to DataBase-Imran
            
-            plant = new Plant()
+            Plant plant = new Plant()
             {
                 NederlandsNaam = naamPlant,
                 Type = typePlant.Planttypenaam,
@@ -105,27 +80,17 @@ namespace Plantjes.Dao.DAOdb
 
             };
 
-
-            
-            //voor de getters en setters
-            TestId = plant.PlantId;
-
+            //Add to the database and afterwards assign that same Plant object to the property-Imran
 
             Context.Plants.Add(plant);
-            
             Context.SaveChanges();
-
-
             GetPlant = plant;
-
-            MessageBox.Show(plant.PlantId.ToString());
-
         }
 
-        //Idee: wat als ik een retour maak voor de huidige plant object?
 
 
 
+        //Important property that enables to give the ID to Abiotiek as a reference key later on-Imran
         public Plant GetPlant { get; set; }
     
     }

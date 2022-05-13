@@ -29,11 +29,9 @@ namespace Plantjes.ViewModels.HelpClasses
             var detailService = iocc.GetInstance<IDetailService>();
 
 
-            //deze werkt nog niet, er is een overflow exception, opzoeken hoe dat komt
-
             var changePasswordService = iocc.GetInstance<IChangePassword>();
 
-            //
+         
             var addPlantService = iocc.GetInstance<IAddPlantService>();
 
 
@@ -57,7 +55,7 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
-            //om aan de name result te komen
+            
             iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService));
             iocc.Register<ViewModelUserManagement>(() => new ViewModelUserManagement(loginService));
 
@@ -69,7 +67,7 @@ namespace Plantjes.ViewModels.HelpClasses
             
             
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
-            //changepassword
+          
             iocc.Register<ViewModelChangePassword>(() => new ViewModelChangePassword(changePasswordService));
 
            

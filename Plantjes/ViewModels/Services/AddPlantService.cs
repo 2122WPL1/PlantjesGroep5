@@ -15,12 +15,12 @@ namespace Plantjes.ViewModels.Services
 {
     public class AddPlantService : IAddPlantService, INotifyPropertyChanged
     {
-
+        //Imran
 
         private Plant _plant { get; set; }
 
 
-        //dao verklaren om data op te vragen en te setten in de databank
+        //Declare DAO -I
 
         private DAOLogic _dao;
 
@@ -29,6 +29,7 @@ namespace Plantjes.ViewModels.Services
 
         private DAOAbiotiek _daoAbiotiek;
 
+        //constr assignement DAO - I
         public AddPlantService()
         {
             this._dao = DAOLogic.Instance();
@@ -36,69 +37,34 @@ namespace Plantjes.ViewModels.Services
             this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
         }
 
-        //globale plant om te gebruiken in de service
+        //Necessary for plant object (which shall be giving into database. -
         public Plant plant = new Plant();
-        //zorgen dat de INotifyPropertyChanged geimplementeerd wordt
+        //impl propchanged - I
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        //Voegt plant toe
-
-
-        
+        //Add Plant to database - I
 
         public void AddPlantButton(string naam, TfgsvType type, TfgsvFamilie familie, TfgsvGeslacht geslacht, TfgsvSoort soort, TfgsvVariant variant )
         {
-            //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
-            string Message = string.Empty;
-            //checken of alle velden ingevuld zijn en checkt of het plant al bestaat (de naam specifiek)
-
-
-
-
+           
             //if (naam != null && _dao.CheckIfPlantAlreadyExists(naam))
 
-
+            //Check if name property is empty or not (a must prop) - Imran
             if (naam != null)
             {
-                //plant registreren.
-
-
-
-                //method wordt opgeroepen op basis van de meegegeven waarden
-                //_dao.RegisterNewPlant(newPlant);
+             
+               //Data is giving into the new function for DAO class - I
 
                 _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
 
 
-                //MessageBox.Show(_plantDao.getCurrentPlant().NederlandsNaam);
-
-
-                //Hier abiotiek?
-
-
-                
-                
             }
 
-
-
-
-            //Idee, wat als ik nog een methode maakt met andere verwachtingen en daarna daarvan de data zal nemen?
-            //en daarna ze allemaal tesamen doen
-
-
-            
-
-
-
-
-            //
 
         }
 
 
-        
 
     }
 }
