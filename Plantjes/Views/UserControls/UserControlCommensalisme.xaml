@@ -21,10 +21,10 @@
 
             <!--Ontwikkelsnelheid-->
             <Canvas x:Name="cvsOntwikkelsnelheid" Grid.Column="0">
-                <Grid Background="#FFE8E5BF" Width="250" Height="340" HorizontalAlignment="Left" Canvas.Left="52" VerticalAlignment="Center" Canvas.Top="44">
+                <Grid Background="#FFE8E5BF" Width="250" Height="256" HorizontalAlignment="Center" Canvas.Left="52" VerticalAlignment="Top" Canvas.Top="44">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="ontwikkelsnelheid" Foreground="Black"   Height="40" Width="174"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=CommControlsOntwikkelsnelheid}" Width="181" Height="300" Canvas.Left="52" Canvas.Top="44">
+                        <Label Content="ontwikkelsnelheid" Foreground="Black"   Height="40" Width="157"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=CommControlsOntwikkelsnelheid}" Width="134" Height="204" Canvas.Left="52" Canvas.Top="44">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Vertical" />
@@ -36,10 +36,10 @@
             </Canvas>
             <!--Strategie-->
             <Canvas Grid.Column="1">
-                <Grid Background="#FFE8E5BF" Width="250" Height="340" HorizontalAlignment="Left" Canvas.Left="68" VerticalAlignment="Center" Canvas.Top="44">
+                <Grid Background="#FFE8E5BF" Width="250" Height="256" HorizontalAlignment="Center" Canvas.Left="68" VerticalAlignment="Top" Canvas.Top="44">
                     <StackPanel Orientation="Vertical">
                         <Label Content="strategie" Foreground="Black"   Height="40" Width="123"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=CommControlsStrategie}" Height="300" Width="171">
+                        <ItemsControl ItemsSource="{Binding Path=CommControlsStrategie}" Height="206" Width="129">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Vertical" />
@@ -51,10 +51,10 @@
             </Canvas>
             <!--Socialbiliteit-->
             <Canvas x:Name="cvs" Grid.Column="2">
-                <Grid Background="#FFE8E5BF" Width="250" Height="340" HorizontalAlignment="Left" Canvas.Top="44" VerticalAlignment="Center" Canvas.Left="92">
+                <Grid Background="#FFE8E5BF" Width="250" Height="256" HorizontalAlignment="Left" Canvas.Top="44" VerticalAlignment="Center" Canvas.Left="92">
                     <StackPanel Orientation="Vertical">
                         <Label Content="socialbiliteit" Foreground="Black"   Height="40" Width="146"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=CommControlsSociabiliteit}" Height="300" Width="166">
+                        <ItemsControl ItemsSource="{Binding Path=CommControlsSociabiliteit}" Height="204" Width="124">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Vertical" />
@@ -81,6 +81,12 @@
                 </Grid>
             </Canvas>
         </Grid>
-        <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="10" Height="52" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="450" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="685,262,0,0" Grid.Row="1" VerticalContentAlignment="Center"/>
+        <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="10" Height="45" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="450" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="685,272,0,0" Grid.Row="1" VerticalContentAlignment="Center">
+        <Label.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Label.Resources>
+        </Label>
     </Grid>
 </UserControl>
