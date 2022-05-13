@@ -193,7 +193,7 @@ namespace Plantjes.ViewModels
 
 
             int fenoBladgrootte = 0;
-            string fenoBladvorm = null,  fenoRatioBloeiBlad = null, fenoSpruitfenologie = null;
+            string fenoBladvorm = null, fenoRatioBloeiBlad = null, fenoSpruitfenologie = null, fenoBloeiwijze = null, fenoHabitus = null, fenoLevensvorm = null;
 
             //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
             foreach (RadioButton item in fenotype.FenoControlsBladgrootte)
@@ -231,7 +231,7 @@ namespace Plantjes.ViewModels
                 }
             }
 
-            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie);
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
 
             _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
 

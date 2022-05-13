@@ -51,7 +51,7 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
-            iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService));
+            iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService, addFenotypeService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
             iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService, addAbiotiekService));
             iocc.Register<ViewModelCommensalisme>(() => new ViewModelCommensalisme(detailService));
@@ -60,7 +60,7 @@ namespace Plantjes.ViewModels.HelpClasses
 
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
             //om aan de name result te komen
-            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService));
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService, addFenotypeService));
             iocc.Register<ViewModelUserManagement>(() => new ViewModelUserManagement(loginService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();

@@ -85,7 +85,7 @@ namespace Plantjes.Dao.DAOdb
             return soorten;
         }
 
-        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie)
+        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm)
         {
 
 
@@ -97,7 +97,9 @@ namespace Plantjes.Dao.DAOdb
                 Bladvorm = fenoBladvorm,
                 RatioBloeiBlad = fenoRatioBloeiBlad,
                 Spruitfenologie = fenoSpruitfenologie,
-
+                Bloeiwijze = fenoBloeiwijze,
+                Habitus = fenoHabitus,
+                Levensvorm = fenoLevensvorm
 
             };
 

@@ -321,7 +321,9 @@ namespace Plantjes.ViewModels
             string fenoBladvorm = null;
             string fenoRatioBloeiBlad = null;
             string fenoSpruitfenologie = null;
-
+            string fenoBloeiwijze = null;
+            string fenoHabitus = null;
+            string fenoLevensvorm = null;
 
 
             //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
@@ -334,7 +336,6 @@ namespace Plantjes.ViewModels
 
                 }
             }
-
 
             foreach (RadioButton item in FenoControlsBladvorm)
             {
@@ -360,10 +361,33 @@ namespace Plantjes.ViewModels
                 }
             }
 
-            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie);
+            foreach (RadioButton item in FenoControlsBloeiwijze)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBloeiwijze = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsHabitus)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoHabitus = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsLevensvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoLevensvorm = item.Content.ToString();
+                }
+            }
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
 
             //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
-            //object abiotiek te maken om dat alleen door te voeren
+            //object fenotype te maken om dat alleen door te voeren
 
             //probleem: wanneer je een plant maakt is die current plant id niet present want hij is maar voor een moment
             //gemaakt en is dan verdwenen
