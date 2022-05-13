@@ -34,6 +34,7 @@ namespace Plantjes.ViewModels.Services
         private DAOTfgsvType _daoTfgsvType;
         private DAOTfgsvSoort _daoTfgsvSoort;
         private DAOTfgsvVariant _daoTfgsvVariant;
+        private DAOFenotypeMulti _daoFenotypeMulti;
 
         private Plant _SelectedPlant;
 
@@ -393,6 +394,8 @@ namespace Plantjes.ViewModels.Services
                 FillExtraEigenschap(detailsSelectedPlant, SelectedPlantInResult);
                 ////FenoType
                 FillFenotype(detailsSelectedPlant, SelectedPlantInResult);
+                //J: Fenotype Multi
+                FillDetailsPlantFenotypeMulti(detailsSelectedPlant, SelectedPlantInResult);
 
                 ////Foto
                 ////UpdatePlant
@@ -656,6 +659,36 @@ namespace Plantjes.ViewModels.Services
                         detailsSelectedPlant.Add("Spruitfenologie: " + itemFenotype.Spruitfenologie);
                         detailsSelectedPlant.Add("Ratio blad/bloei: " + itemFenotype.RatioBloeiBlad);
                     }
+                }
+            }
+        }
+
+
+        public void FillDetailsPlantFenotypeMulti(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Abiotiek_Multi list, then we'll need to filter that list
+            ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
+            this._daoFenotypeMulti = SimpleIoc.Default.GetInstance<DAOFenotypeMulti>();
+            var fenoMultiList = _daoFenotypeMulti.GetAllFenotypesMulti();
+            bool hasCheckedPlant;
+
+            //bool gebruiken
+            foreach (var itemFenoMulti in fenoMultiList)
+            {
+                //A multi table contains the same PlantId multiple times because it can contain multiple properties
+                //To refrain the app from showing duplicate data, I use a bool to limit the foreach to 1 run per plantId
+                hasCheckedPlant = true;
+                foreach (var plantItem in SelectedPlantInResult.FenotypeMultis)
+                {
+                    if (hasCheckedPlant == true && itemFenoMulti.PlantId == plantItem.PlantId)
+                    {
+                        //EVENTUEEL 1 EIGENSCHAP-> VERSCHILLENDE WAARDES MEEGEVEN OP 1 LIJN OF ONDER ELKAAR
+                        detailsSelectedPlant.Add("Feno Eigenschap: " + itemFenoMulti.Eigenschap);
+                        detailsSelectedPlant.Add("Feno Waarde: " + itemFenoMulti.Waarde);
+                    }
+                    hasCheckedPlant = false;
                 }
             }
         }
