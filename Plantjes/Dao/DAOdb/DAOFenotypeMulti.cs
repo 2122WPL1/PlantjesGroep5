@@ -14,6 +14,17 @@ namespace Plantjes.Dao.DAOdb
             //ctor
         }
 
+        //Get a list of all the FenotypeMulti types
+        public List<FenotypeMulti> GetAllFenotypesMulti()
+        {
+            //List is unfiltered, a plantId can be present multiple times
+            //The aditional filteren will take place in the ViewModel
+
+            var fenoMultiList = Context.FenotypeMultis.ToList();
+
+            return fenoMultiList;
+        }
+
         public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
         {
 

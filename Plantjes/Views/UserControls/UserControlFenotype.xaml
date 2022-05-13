@@ -266,7 +266,7 @@
                 <Grid Background="#FFE8E5BF" Width="220" Height="230" Canvas.Left="26" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <Label Content="bladkleur" Foreground="Black"   Height="30" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding FenoControlsBladKleur}" Width="220" Height="78" >
+                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBladKleur}" Width="220" Height="78" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical" />
