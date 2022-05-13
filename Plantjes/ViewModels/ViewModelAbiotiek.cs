@@ -14,6 +14,7 @@ namespace Plantjes.ViewModels
 {
     public class ViewModelAbiotiek : ViewModelBase
     {
+        //decl necessary components like DAO and ioc container
         private DAOPlant _plantId;
         private DAOAbiotiek _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
@@ -22,7 +23,7 @@ namespace Plantjes.ViewModels
         private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
         
-
+        //decl user interface elements 
         private ObservableCollection<UIElement> _AbioControlsBezonning, _AbioControlsVochtbehoefte, _AbioControlsVoedingsbehoefte,
                 _AbioControlsGrondsoort, _AbioControlsReactieAntagonischeOmg, _AbioControlsHabitat;
 
@@ -82,7 +83,7 @@ namespace Plantjes.ViewModels
 
 
 
-            OpslaanAbiotiekCommand = new RelayCommand(AddAbiotiekClick);
+           // OpslaanAbiotiekCommand = new RelayCommand(AddAbiotiekClick);
 
         }
         public override void Load()
@@ -861,19 +862,14 @@ namespace Plantjes.ViewModels
 
 
 
-        //Imran  : de bedoeling is om de code van de checkboxes op te nemen en in de datamodel abiotiek te steken
-        //probleem: waar moet ik het toevoegen?
-        //het is duidelijk dat de plant wordt gebruikt die een collectie abiotieks bevat met object van abiotiek
-        //maar wat verder?
+        
         #endregion
 
 
 
         /// <summary>
-        /// Biggest issue atm: the moment you create a plant it doesn't have an id
-        /// yes it's the meaning to that when you create a plant you create a abiotiek with a reference to it
-        /// 
-        /// 
+        ///
+        /// Click event to add Abiotic
         /// </summary>
 
 
@@ -881,21 +877,15 @@ namespace Plantjes.ViewModels
         {
             
             
-            
-            Plant currentPlant = _plantId.getCurrentPlant();
-
-            long currentPlantId = currentPlant.PlantId;
-
-            //de bedoeling is om het eerst gecheckte item (die abiotiek type is) doorgeven
-
-
+    
+            //the element which will be given into the database  - Imran
             string abioBezonning=null;
 
             string abioGrondsoort=null;
 
 
 
-            //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
+            //go over each element in generated radiobutton listbox and give back the element that is checked - Imran
             foreach (RadioButton item in AbioControlsBezonning)
             {
                 if ((bool)item.IsChecked)
@@ -916,17 +906,8 @@ namespace Plantjes.ViewModels
             }
 
       
-
+            //the assigned variables shall be eventually addded to database - Imran
             _addAbiotiekService.AddAbiotiekButton(abioBezonning, abioGrondsoort);
-
-
-
-
-            //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
-            //object abiotiek te maken om dat alleen door te voeren
-
-            //probleem: wanneer je een plant maakt is die current plant id niet present want hij is maar voor een moment
-            //gemaakt en is dan verdwenen
 
 
 
@@ -936,11 +917,6 @@ namespace Plantjes.ViewModels
         }
 
 
-        public RelayCommand OpslaanAbiotiekCommand { get; set; }
-
-
-
-       
         
 
     }

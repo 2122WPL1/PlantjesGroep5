@@ -43,16 +43,5 @@ namespace Plantjes.ViewModels
 
 
 
-        public ObservableCollection<UIElement> testGrondSoort;
-
-
-
-
-        
-
-
-
-
-
     }
 }

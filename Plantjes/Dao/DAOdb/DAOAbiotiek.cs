@@ -10,7 +10,7 @@ namespace Plantjes.Dao
 {
     public class DAOAbiotiek : DAOGeneric
     {
-
+        //Imran
         
 
         public DAOAbiotiek() : base()
@@ -25,6 +25,7 @@ namespace Plantjes.Dao
             return abiotiek;
         }
 
+        //gives up a query based on id-I
         public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
         {
 
@@ -67,16 +68,11 @@ namespace Plantjes.Dao
 
         
 
-        //Een functie maken die de checkboxen van viewmodel abiotmeegeeft EN de huidige plant
-        //Hoe? wel eerst een functie maken die dat reflecteerd
-
-        
-
-        
+       
+       //Add Abiotiek properties to database   - Imran
         public void AddPlantAbiotiek(long PlantId, string abioBezonning, string abioGrondsoort)
         {
-
-
+            //Decl object Abiotiek to add to database- Imran
             Abiotiek abio = new Abiotiek()
             {
                 
@@ -90,7 +86,7 @@ namespace Plantjes.Dao
             };
 
 
-
+            //Update database Abiotieks -Imran
             Context.Abiotieks.Add(abio);
 
             Context.SaveChanges();
