@@ -51,16 +51,15 @@ namespace Plantjes.ViewModels.Services
             //if (naam != null && _dao.CheckIfPlantAlreadyExists(naam))
 
             //Check if name property is empty or not (a must prop) - Imran
-            if (naam != null)
-            {
+            
              
                //Data is giving into the new function for DAO class - I
 
-                _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
+            _plantDao.GetPlant = _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
 
 
-            }
-
+            
+            
 
         }
 
