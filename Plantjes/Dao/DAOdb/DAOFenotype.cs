@@ -86,7 +86,7 @@ namespace Plantjes.Dao.DAOdb
         }
         //written by Mathias
         //this is used to add the fenotypes when making a new plant
-        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm)
+        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie/*, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm*/)
         {
 
 
@@ -98,9 +98,9 @@ namespace Plantjes.Dao.DAOdb
                 Bladvorm = fenoBladvorm,
                 RatioBloeiBlad = fenoRatioBloeiBlad,
                 Spruitfenologie = fenoSpruitfenologie,
-                Bloeiwijze = fenoBloeiwijze,
-                Habitus = fenoHabitus,
-                Levensvorm = fenoLevensvorm
+                //Bloeiwijze = fenoBloeiwijze,
+                //Habitus = fenoHabitus,
+                //Levensvorm = fenoLevensvorm
 
             };
 

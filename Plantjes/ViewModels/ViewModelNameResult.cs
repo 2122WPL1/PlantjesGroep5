@@ -254,7 +254,7 @@ namespace Plantjes.ViewModels
                     fenoLevensvorm = item.Content.ToString();
                 }
             }
-            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie/*, fenoBloeiwijze, fenoHabitus, fenoLevensvorm*/);
 
             _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
 

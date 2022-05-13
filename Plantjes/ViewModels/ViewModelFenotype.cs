@@ -383,7 +383,7 @@ namespace Plantjes.ViewModels
                 }
             }
 
-            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie/*, fenoBloeiwijze, fenoHabitus, fenoLevensvorm*/);
 
             //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
             //object fenotype te maken om dat alleen door te voeren
