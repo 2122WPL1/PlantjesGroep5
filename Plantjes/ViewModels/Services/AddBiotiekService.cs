@@ -42,19 +42,21 @@ namespace Plantjes.ViewModels.Services
             this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
         }
 
+
+
     
 
-
-
         //Add function for ABiotik - Imran
-    public void AddAbiotiekButton(string abioBezonning, string abioGrondsoort, string )
+    public void AddAbiotiekButton(string abioBezonning, string abioGrondsoort, string AbioControlsVochtbehoefte, string AbioControlsVoedingsbehoefte, string AbioControlsReactieAntagonischeOmg)
     {
        
 
            
             
             //When you add a Abiotiek you need a plantId, this is where the calls works in - Imran
-            _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort);
+
+
+            _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort, AbioControlsVochtbehoefte, AbioControlsVoedingsbehoefte, AbioControlsReactieAntagonischeOmg);
             
 
         }
