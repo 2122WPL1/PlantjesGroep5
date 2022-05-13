@@ -187,8 +187,8 @@
 
 
 
-            <Button x:Name="btnExporteergeselecteerd" 
-                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" Click="btnExporteergeselecteerd_Click">
+            <!--<Button x:Name="btnExporteergeselecteerd" 
+                Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" Click="btnExporteergeselecteerd_Click">-->
 
             <Button x:Name="btnImporteerStudenten" 
                 Content="studenten importeren" HorizontalAlignment="Left" Margin="743,52,0,0" VerticalAlignment="Top" Height="32" Width="234" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"

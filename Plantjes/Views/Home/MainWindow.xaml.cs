@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Win32;
 using Plantjes.ViewModels;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -19,38 +20,36 @@ namespace Plantjes.Views.Home
 
         private void btnExporteergeselecteerd_Click(object sender, RoutedEventArgs e)
         {
-            //StreamWriter myOutputStream = new StreamWriter("Myfile.csv");
+            if (lstDetails.Items.Count != 0)
+            {
 
-            //foreach (var item in lstDetails.Items)
-            //{
-            //    myOutputStream.WriteLine(item.ToString());
-            //}
-
-            //myOutputStream.Close();
-
-            //using (TextWriter outputfile = new StreamWriter("StudentRecords.csv"))
-            //{
-            //foreach (var data in lstDetails.Items)
-            //{
-
-            //    //var dataArray = data.split(':');
-            //   // var line = string.Format("{0},{1}", data[0], data[1]);
-            //    //outputfile.WriteLine(line);
-            //    outputfile.Flush();
-            //}
-            //MessageBox.Show("Student Information inserted successfully");
+                //roept op een dialog box met een default file type csv
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = "unknown.csv";
+                savefile.Filter = "CSV Files|*.csv";
 
 
 
-            //}
+                if (savefile.ShowDialog() == true)
+                {
 
-            //MessageBox.Show(lstDetails.Items[0].ToString());
+                    //genereert de csv file die de list van details overloopt en toevoegd
+                    using (StreamWriter sw = new StreamWriter(savefile.FileName, false, System.Text.Encoding.Unicode))
+                    { // You are missing this one.. 
+                        foreach (var item in lstDetails.Items)
+                        {
+                            sw.WriteLine(item.ToString());
+                        }
+                    }
 
-            
+                    MessageBox.Show("Saved");
+                }
 
-
-
-
+            }
+            else
+            {
+                MessageBox.Show("Zoek en kies eerst een plant");
+            }
 
         }
 
