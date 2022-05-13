@@ -160,11 +160,9 @@ namespace Plantjes.ViewModels
            
             ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
 
-            
-           // MessageBox.Show(abiotiek.AbioControlsBezonning.ToString());
 
-            
-            string abioBezonning=null, abioGrondsoort =null;
+
+            string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, AbioReactieAntagonischeOmg=null;
 
             //functie toevoegen abiotiek ---------------------------
 
@@ -187,8 +185,35 @@ namespace Plantjes.ViewModels
                 }
             }
 
-          //conflict hier
-            _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
+            foreach (RadioButton item in abiotiek.AbioControlsVochtbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioVochtbehoefte = item.Content.ToString();
+                }
+            }
+            foreach (RadioButton item in abiotiek.AbioControlsVoedingsbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioVoedingsBehoefte = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in abiotiek.AbioControlsReactieAntagonischeOmg)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioReactieAntagonischeOmg = item.Content.ToString();
+                }
+            }
+
+
+            
+
+
+            
+            _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort, AbioVochtbehoefte, AbioVoedingsBehoefte, AbioReactieAntagonischeOmg);
 
 
         }

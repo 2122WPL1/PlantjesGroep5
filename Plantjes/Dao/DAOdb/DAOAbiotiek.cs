@@ -70,15 +70,18 @@ namespace Plantjes.Dao
 
        
        //Add Abiotiek properties to database   - Imran
-        public void AddPlantAbiotiek(long PlantId, string abioBezonning, string abioGrondsoort)
+        public void AddPlantAbiotiek(long PlantId, string abioBezonning, string abioGrondsoort , string AbioControlsVochtbehoefte, string AbioControlsVoedingsbehoefte, string AbioControlsReactieAntagonischeOmg)
         {
             //Decl object Abiotiek to add to database- Imran
             Abiotiek abio = new Abiotiek()
             {
-                
+
                 PlantId = PlantId,
                 Bezonning = abioBezonning,
                 Grondsoort = abioGrondsoort,
+                Vochtbehoefte = AbioControlsVochtbehoefte,
+                Voedingsbehoefte = AbioControlsVoedingsbehoefte,
+                AntagonischeOmgeving = AbioControlsReactieAntagonischeOmg
 
 
 
