@@ -159,7 +159,21 @@ namespace Plantjes.ViewModels
                         c.IsChecked = true;
                     }
                 }
+
+                foreach (CheckBox c in CommControlsLevensvorm)
+                {
+                    if (commMulti.Waarde != null && (c as CheckBox).Content.ToString().ToLower() == commMulti.Waarde.ToLower())
+                    {
+                        c.IsChecked = true;
+                    }
+                }
             }
+
+            
+            
+            
+
+
 
             //tijdelijk
             //foreach (CommensalismeMulti commSoc in plant.CommensalismeMultis)

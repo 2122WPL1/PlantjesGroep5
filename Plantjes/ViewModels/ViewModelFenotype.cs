@@ -142,29 +142,8 @@ namespace Plantjes.ViewModels
 
         }
 
-        private void CreateControlsMaandenBlad()
-        {
-            FenoBeheermaandBlad = new ObservableCollection<UIElement>();
+      
 
-            foreach (var prop in subListForMonths)
-            {
-                CheckBox cbm = new CheckBox { Content = prop.ToString() };
-                FenoBeheermaandBlad.Add(cbm);
-            }
-
-        }
-
-        private void CreateControlsMaandenBloei()
-        {
-            FenoBeheermaandBloei = new ObservableCollection<UIElement>();
-
-            foreach (var prop in subListForMonths)
-            {
-                CheckBox cbm = new CheckBox { Content = prop.ToString() };
-                FenoBeheermaandBloei.Add(cbm);
-            }
-
-        }
 
 
 
@@ -269,6 +248,31 @@ namespace Plantjes.ViewModels
                 FenoControlsBloeiKleur.Add(rbbloeik);
             }
         }
+
+        private void CreateControlsMaandenBloei()
+        {
+            FenoBeheermaandBloei = new ObservableCollection<UIElement>();
+
+            foreach (var prop in subListForMonths)
+            {
+                CheckBox cbm = new CheckBox { Content = prop.ToString() };
+                FenoBeheermaandBloei.Add(cbm);
+            }
+
+        }
+
+        private void CreateControlsMaandenBlad()
+        {
+            FenoBeheermaandBlad = new ObservableCollection<UIElement>();
+
+            foreach (var prop in subListForMonths)
+            {
+                CheckBox cbm = new CheckBox { Content = prop.ToString() };
+                FenoBeheermaandBlad.Add(cbm);
+            }
+
+        }
+
         #endregion
 
 
@@ -349,25 +353,29 @@ namespace Plantjes.ViewModels
 
             }
 
-            foreach (FenotypeMulti fenoMulti in plant.FenotypeMultis)
+            
+            foreach (FenotypeMulti fenoMulti in plant.FenotypeMultis.Where(fenoMulti => fenoMulti.Eigenschap.ToLower() == "bladkleur"))
             {
-                foreach (CheckBox cbbladk in FenoControlsBladKleur)
+                foreach (RadioButton rbbladk in FenoControlsBladKleur)
                 {
-                    if (fenoMulti.Waarde != null && (cbbladk as CheckBox).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
+                    if (fenoMulti.Waarde != null && (rbbladk as RadioButton).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
                     {
-                        cbbladk.IsChecked = true;
+                        rbbladk.IsChecked = true;
 
                     }
-                }
+                }           
+            }
 
-                foreach (CheckBox cbbloeik in FenoControlsBloeiKleur)
+            foreach (FenotypeMulti fenoMulti in plant.FenotypeMultis.Where(fenoMulti => fenoMulti.Eigenschap.ToLower() == "bloeikleur"))
+            {
+                foreach (RadioButton rbbloeik in FenoControlsBloeiKleur)
                 {
-                    if (fenoMulti.Waarde != null && (cbbloeik as CheckBox).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
+                    if (fenoMulti.Waarde != null && (rbbloeik as RadioButton).Content.ToString().ToLower() == fenoMulti.Waarde.ToLower())
                     {
-                        cbbloeik.IsChecked = true;
+                        rbbloeik.IsChecked = true;
 
                     }
-                }
+                } 
             }
         } 
         #endregion

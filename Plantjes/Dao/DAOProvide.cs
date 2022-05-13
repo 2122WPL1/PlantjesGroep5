@@ -38,6 +38,7 @@ namespace Plantjes.Dao.DAOdb
             iocc.Register<DAOExtraNectarWaarde>(() => new DAOExtraNectarWaarde());
             iocc.Register<DAOExtraPollenWaarde>(() => new DAOExtraPollenWaarde());
             iocc.Register<DAOFenotype>(() => new DAOFenotype());
+            iocc.Register<DAOFenotypeMulti>(() => new DAOFenotypeMulti());
             iocc.Register<DAOFoto>(() => new DAOFoto());
             iocc.Register<DAOPlant>(() => new DAOPlant());
             iocc.Register<DAOTfgsvFamilie>(() => new DAOTfgsvFamilie());
