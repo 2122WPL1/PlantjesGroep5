@@ -38,10 +38,10 @@ namespace Plantjes.ViewModels.Services
         }
 
 
-        public void AddFenotypeButton(int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie)
+        public void AddFenotypeButton(int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm)
         {
 
-            _daoFenotype.AddPlantFenotype(_plantDao.GetPlant.PlantId, fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie);
+            _daoFenotype.AddPlantFenotype(_plantDao.GetPlant.PlantId, fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
 
         }
     }
