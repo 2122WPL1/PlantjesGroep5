@@ -194,7 +194,7 @@ namespace Plantjes.ViewModels
 
             int fenoBladgrootte = 0;
             string fenoBladvorm = null, fenoRatioBloeiBlad = null, fenoSpruitfenologie = null, fenoBloeiwijze = null, fenoHabitus = null, fenoLevensvorm = null;
-
+            //functie toevoegen abiotiek
             //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
             foreach (RadioButton item in fenotype.FenoControlsBladgrootte)
             {
@@ -231,10 +231,32 @@ namespace Plantjes.ViewModels
                 }
             }
 
+            foreach (RadioButton item in fenotype.FenoControlsBloeiwijze)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBloeiwijze = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsHabitus)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoHabitus = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsLevensvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoLevensvorm = item.Content.ToString();
+                }
+            }
             _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
 
             _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
-
 
         }
 
