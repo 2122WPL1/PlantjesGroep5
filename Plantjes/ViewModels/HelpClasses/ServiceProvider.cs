@@ -24,6 +24,8 @@ namespace Plantjes.ViewModels.HelpClasses
 
             iocc.Register<IAddPlantService, AddPlantService>();
 
+            iocc.Register<IAddAbiotiekService, AddBiotiekService>();
+
 
         }
     }

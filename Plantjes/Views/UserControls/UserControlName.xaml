@@ -51,6 +51,7 @@
                       ItemsSource="{Binding cmbSoort}"
                       DisplayMemberPath="Soortnaam"
                       SelectedValuePath="Soortid"
+                      Text="{Binding cmbSoortText}"
                       SelectedItem="{Binding Path=SelectedSoort, Mode=TwoWay}" IsEditable="True">
 
             </ComboBox>
@@ -58,6 +59,7 @@
                       ItemsSource="{Binding cmbVariant}"
                       DisplayMemberPath="Variantnaam"
                       SelectedValuePath="VariantId"
+                      Text="{Binding cmbVariantText}"
                       SelectedItem="{Binding Path= SelectedVariant , Mode=TwoWay}" IsEditable="True" HorizontalAlignment="Left" VerticalAlignment="Center">
 
             </ComboBox>

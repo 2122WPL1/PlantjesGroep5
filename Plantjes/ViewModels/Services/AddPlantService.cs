@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -25,10 +26,14 @@ namespace Plantjes.ViewModels.Services
 
         private DAOPlant _plantDao;
 
+
+        private DAOAbiotiek _daoAbiotiek;
+
         public AddPlantService()
         {
             this._dao = DAOLogic.Instance();
             this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
+            this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
         }
 
         //globale plant om te gebruiken in de service
@@ -39,6 +44,8 @@ namespace Plantjes.ViewModels.Services
 
         //Voegt plant toe
 
+
+        
 
         public void AddPlantButton(string naam, TfgsvType type, TfgsvFamilie familie, TfgsvGeslacht geslacht, TfgsvSoort soort, TfgsvVariant variant )
         {
@@ -57,10 +64,6 @@ namespace Plantjes.ViewModels.Services
                 //plant registreren.
 
 
-                
-
-
-
 
                 //method wordt opgeroepen op basis van de meegegeven waarden
                 //_dao.RegisterNewPlant(newPlant);
@@ -68,8 +71,16 @@ namespace Plantjes.ViewModels.Services
                 _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
 
 
+                //MessageBox.Show(_plantDao.getCurrentPlant().NederlandsNaam);
 
+
+                //Hier abiotiek?
+
+
+                
+                
             }
+
 
 
 
@@ -77,10 +88,17 @@ namespace Plantjes.ViewModels.Services
             //en daarna ze allemaal tesamen doen
 
 
+            
+
+
 
 
             //
 
         }
+
+
+        
+
     }
 }
