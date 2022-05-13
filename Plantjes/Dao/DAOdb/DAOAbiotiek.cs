@@ -10,6 +10,9 @@ namespace Plantjes.Dao
 {
     public class DAOAbiotiek : DAOGeneric
     {
+
+        
+
         public DAOAbiotiek() : base()
         {
             //ctor
@@ -61,6 +64,42 @@ namespace Plantjes.Dao
             var soorten = Context.AbioHabitats.ToList();
             return soorten;
         }
+
+        
+
+        //Een functie maken die de checkboxen van viewmodel abiotmeegeeft EN de huidige plant
+        //Hoe? wel eerst een functie maken die dat reflecteerd
+
+        
+
+        
+        public void AddPlantAbiotiek(long PlantId, string abioBezonning, string abioGrondsoort)
+        {
+
+
+            Abiotiek abio = new Abiotiek()
+            {
+                
+                PlantId = PlantId,
+                Bezonning = abioBezonning,
+                Grondsoort = abioGrondsoort,
+
+
+
+
+            };
+
+
+
+            Context.Abiotieks.Add(abio);
+
+            Context.SaveChanges();
+
+
+        }
+
+
+        
 
     }
 }

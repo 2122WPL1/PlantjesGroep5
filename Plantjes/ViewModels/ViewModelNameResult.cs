@@ -6,6 +6,8 @@ using Plantjes.Models.Db;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Plantjes.ViewModels
 {
@@ -18,10 +20,18 @@ namespace Plantjes.ViewModels
 
         public IAddPlantService addPlantService;
 
+        //addbiotiek
+
+        private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
 
-        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService)
+
+
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService)
         {
+            _addAbiotiekService = addBiotiekService;
+
+
             //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
             loggedInMessage = loginUserService.LoggedInMessage();
             this._searchService = searchService;
@@ -111,28 +121,75 @@ namespace Plantjes.ViewModels
         public void AddPlantClick()
         {
 
-            
 
+            //MessageBox.Show(cmbVariantText);
             //variant kan alleen bestaan als hij opkomt in bepaalde gevallen maar niet bij alles
             //het probleem is dat er verwacht wordt dat er een bestaande object is, ook al is er niets in
             //dus in geval dat het niet bestaat, voeg het toe maar niets anders
+            //werkt -> 
+
+
             if (_selectedVariant == null)
             {
                 TfgsvVariant incaseOfNull = new TfgsvVariant();
-                //incaseOfNull.Variantnaam = null;
-
+                incaseOfNull.Variantnaam = cmbVariantText;
                 SelectedVariant = incaseOfNull;
+                
 
+            }
+            //Hierdoor kun je je eigen variant invullen , maar wordt niet weergegeven in de fillcomboxlist 
+            //Ook is er hier geen idee aan gekoppeld
+
+
+            if (_selectedSoort==null)
+            {
+                TfgsvSoort incaseOfNull = new TfgsvSoort();
+                incaseOfNull.Soortnaam = _cmbSoortText;
+                SelectedSoort = incaseOfNull;
             }
 
 
-            
 
-            addPlantService.AddPlantButton(SelectedNederlandseNaam , SelectedType, SelectedFamilie, SelectedGeslacht,
+
+
+            
+                addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
                     SelectedSoort, SelectedVariant);
 
+
+
+            ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
+
             
-           
+            MessageBox.Show(abiotiek.AbioControlsBezonning.ToString());
+
+
+            string abioBezonning=null, abioGrondsoort =null;
+
+            //functie toevoegen abiotiek ---------------------------
+
+            foreach (RadioButton item in abiotiek.AbioControlsBezonning)
+            {
+                if ((bool)item.IsChecked)
+                {
+
+                    abioBezonning = item.Content.ToString();
+
+                }
+            }
+
+
+            foreach (RadioButton item in abiotiek.AbioControlsGrondsoort)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioGrondsoort = item.Content.ToString();
+                }
+            }
+
+          
+            _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
+
 
         }
 
@@ -349,6 +406,66 @@ namespace Plantjes.ViewModels
                 RaisePropertyChanged("btnVisible");
             }
         }
+
+
+
+        //------------combobox
+
+        private string _cmbVariantText { get; set; }
+   
+
+    public string cmbVariantText
+        {
+        get
+        {
+            return this._cmbVariantText;
+        }
+        set
+        {
+
+                _cmbVariantText = value;
+
+                //if (value != this.cmbVariantText)
+                //{
+                //    this.cmbVariantText = value;
+                //    RaisePropertyChanged("cmbVariantText");
+                //}
+
+         
+
+
+
+            }
+    }
+
+
+        private string _cmbSoortText { get; set; }
+
+        public string cmbSoortText
+        {
+            get
+            {
+                return this._cmbSoortText;
+            }
+            set
+            {
+
+                _cmbSoortText = value;
+
+                //if (value != this.cmbVariantText)
+                //{
+                //    this.cmbVariantText = value;
+                //    RaisePropertyChanged("cmbVariantText");
+                //}
+
+
+
+
+
+            }
+        }
+
+
         #endregion
 
         //geschreven door owen

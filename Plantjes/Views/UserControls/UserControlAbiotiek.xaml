@@ -39,7 +39,7 @@
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="18" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <StackPanel>
                     <Label Content="grondsoort" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                    <ItemsControl ItemsSource="{Binding Path=AbioControlsVochtbehoefte}" Width="194" Height="341" Canvas.Left="18" Canvas.Top="27">
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsGrondsoort}" Width="194" Height="341" Canvas.Left="18" Canvas.Top="27">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
@@ -55,7 +55,7 @@
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Center" Canvas.Left="20" VerticalAlignment="Top" Canvas.Top="26">
                     <StackPanel>
                         <Label Content="vochtbehoefte" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVoedingsbehoefte}" Width="194" Height="341" Canvas.Left="20" Canvas.Top="26">
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVochtbehoefte}" Width="194" Height="341" Canvas.Left="20" Canvas.Top="26">
                         <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                         <WrapPanel />
@@ -70,7 +70,7 @@
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Center" Canvas.Left="18" VerticalAlignment="Top" Canvas.Top="24">
                 <StackPanel>
                         <Label Content="voedingsbehoefte" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsGrondsoort}" Width="194" Height="341"  Canvas.Left="18" Canvas.Top="24">
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVoedingsbehoefte}" Width="194" Height="341"  Canvas.Left="18" Canvas.Top="24">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
@@ -110,14 +110,16 @@
                     </ItemsControl>
                 </StackPanel>
             </Grid>
-
-            <Button Content="opslaan abiotiek" Canvas.Left="890" Canvas.Top="254" Height="50" Width="226" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="btnOpslaanAbiotiek"
+                    Content="Opslaan Abiotiek" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Command="{Binding OpslaanAbiotiekCommand}" Canvas.Left="890" Canvas.Top="254" Height="50" Width="226"  HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
+
 
         </Canvas>
     </Grid>

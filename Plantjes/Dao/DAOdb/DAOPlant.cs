@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using XAct.Messages;
 
 namespace Plantjes.Dao.DAOdb
 {
@@ -25,8 +27,42 @@ namespace Plantjes.Dao.DAOdb
             return plants;
         }
 
-      
-        public void RegisterNewPlant(string naamPlant, TfgsvType typePlant, TfgsvFamilie familiePlant, TfgsvGeslacht geslachtPlant, TfgsvSoort soortPlant, TfgsvVariant variantPlant)
+
+        //Functie om huidig plant te geven
+
+
+        public Plant getCurrentPlant()
+        {
+            
+
+            return plant;
+
+        }
+
+
+
+
+        private long testId;
+
+        public long TestId
+        {
+            get { return testId; }
+            set
+            {
+                testId = value;
+                //testId = Context.Abiotieks.
+
+            }
+        }
+
+
+
+
+        Plant plant;
+        
+
+        public void RegisterNewPlant(string naamPlant, TfgsvType typePlant, TfgsvFamilie familiePlant, TfgsvGeslacht geslachtPlant,
+            TfgsvSoort soortPlant, TfgsvVariant variantPlant)
         {
             //het object plant wordt hier in de database toegevoegd
 
@@ -44,7 +80,12 @@ namespace Plantjes.Dao.DAOdb
             }
 
 
-            var plant = new Plant()
+
+
+
+
+           
+            plant = new Plant()
             {
                 NederlandsNaam = naamPlant,
                 Type = typePlant.Planttypenaam,
@@ -57,23 +98,39 @@ namespace Plantjes.Dao.DAOdb
                 FamilieId = (int?)familiePlant.FamileId,
                 GeslachtId = (int?)geslachtPlant.GeslachtId,
                 SoortId = convertSoort,
-                VariantId = convertVariant
-                
-               
-                 
-
-
+                VariantId = convertVariant,
 
 
 
 
             };
 
+
+            
+            //voor de getters en setters
+            TestId = plant.PlantId;
+
+
             Context.Plants.Add(plant);
             
             Context.SaveChanges();
 
-            
+
+            GetPlant = plant;
+
+            MessageBox.Show(plant.PlantId.ToString());
+
         }
+
+        //Idee: wat als ik een retour maak voor de huidige plant object?
+
+
+
+        public Plant GetPlant { get; set; }
+    
     }
+
+
+    
+
 }
