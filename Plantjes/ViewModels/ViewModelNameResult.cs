@@ -345,20 +345,12 @@ namespace Plantjes.ViewModels
 
         public TfgsvVariant SelectedVariant
         {
-            get {
-                
-               
-               
+            get 
+            {
                     return _selectedVariant;
-                
-                
-            
-            
             }
             set
             {
-
-
                 _selectedVariant = value;
                 OnPropertyChanged();
             }
@@ -475,10 +467,6 @@ namespace Plantjes.ViewModels
                 //    this.cmbVariantText = value;
                 //    RaisePropertyChanged("cmbVariantText");
                 //}
-
-         
-
-
 
             }
     }

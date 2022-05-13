@@ -331,9 +331,7 @@ namespace Plantjes.ViewModels
             {
                 if ((bool)item.IsChecked)
                 {
-
                     fenoBladgrootte = item.Content.GetHashCode();
-
                 }
             }
 
@@ -384,6 +382,7 @@ namespace Plantjes.ViewModels
                     fenoLevensvorm = item.Content.ToString();
                 }
             }
+
             _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie, fenoBloeiwijze, fenoHabitus, fenoLevensvorm);
 
             //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
