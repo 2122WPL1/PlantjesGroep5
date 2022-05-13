@@ -119,7 +119,7 @@
                 </Canvas>
                 <!--Label & Button-->
                 <Canvas>
-                    <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" Foreground="White"  FontSize="11" Height="44" VerticalAlignment="Center" Canvas.Left="682" Canvas.Top="269" Width="416" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="11" Height="44" VerticalAlignment="Center" Canvas.Left="682" Canvas.Top="269" Width="416" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Button Content="opslaan abiotiek" Canvas.Left="842" Canvas.Top="143" Height="74" Width="256" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="24" Foreground="White" RenderTransformOrigin="0.43,0.878" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <Button.Resources>
                             <Style TargetType="Border">
