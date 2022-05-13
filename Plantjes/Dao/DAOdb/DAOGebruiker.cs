@@ -26,7 +26,13 @@ namespace Plantjes.Dao.DAOdb
 
             return gebruiker;
         }
+        public Gebruiker GetGebruikerWithVivesnr(string userVivesnr)
+        {
 
+            var gebruiker = Context.Gebruikers.FirstOrDefault(g => g.Vivesnr == userVivesnr);
+
+            return gebruiker;
+        }
 
         public List<Gebruiker> getAllGebruikers()
         {
@@ -58,6 +64,17 @@ namespace Plantjes.Dao.DAOdb
         {
             bool result = false;
             if (GetGebruikerWithEmail(email) == null)
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+        public bool CheckIVivesnrAlreadyExists(string vivesnr)
+        {
+            bool result = false;
+            if (GetGebruikerWithVivesnr(vivesnr) == null)
             {
                 result = true;
             }

@@ -14,12 +14,25 @@ namespace Plantjes.ViewModels
         //private ServiceProvider _serviceProvider;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        public IloginUserService loginUserService;
 
-        public ViewModelNameResult(ISearchService searchService)
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService)
         {
-
+            //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
+            loggedInMessage = loginUserService.LoggedInMessage();
             this._searchService = searchService;
             //_searchService = new SearchService();
+
+            //writen by Mathias
+            // hids the button if a oldstudent is logt in
+            if (loggedInMessage.Contains("Oudstudent"))
+            {
+                btnVisible = "Hidden";
+            }
+            else 
+            {
+                btnVisible = "Visible";
+            }
 
             //Observable Collections 
             //Observable collections to fill with the necessary objects to show in the comboboxes
@@ -253,6 +266,38 @@ namespace Plantjes.ViewModels
         }
 
 
+        #endregion
+
+        //written by Mathias
+        #region button toevoegen hidden
+        private string _loggedInMessage { get; set; }
+        public string loggedInMessage
+        {
+            get
+            {
+                return _loggedInMessage;
+            }
+            set
+            {
+                _loggedInMessage = value;
+
+                RaisePropertyChanged("loggedInMessage");
+            }
+        }
+
+        private string _btnVisible { get; set; }
+        public string btnVisible
+        {
+            get
+            {
+                return _btnVisible;
+            }
+            set
+            {
+                _btnVisible = value;
+                RaisePropertyChanged("btnVisible");
+            }
+        }
         #endregion
 
         //geschreven door owen

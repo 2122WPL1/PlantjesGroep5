@@ -19,7 +19,6 @@ namespace Plantjes.ViewModels
             this._loginService = loginUserService;
             cmbRols = new ObservableCollection<Rol>();
             registerCommand = new RelayCommand(RegisterButtonClick);
-            //backCommand = new RelayCommand(BackButtonClick);
             fillComboboxe();
         }
 
@@ -27,19 +26,12 @@ namespace Plantjes.ViewModels
         {
             _loginService.fillComboBoxRol(cmbRols);
         }
-
-        //public void BackButtonClick()
-        //{
-        //    LoginWindow loginWindow = new LoginWindow();
-        //    loginWindow.Show();
-        //    Application.Current.Windows[0]?.Close();
-        //}
+       
         public void RegisterButtonClick()
-        {   //gemaakt door Mathias
-            //checken dat er iets is in gevult zo dat het programma niet crached.
+        {   //written by Mathias
+            //checks if the fields are filled
             if (firstNameInput != null &&
                 lastNameInput != null &&
-                //SelectedRol != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
                 passwordRepeatInput != null)
@@ -47,8 +39,8 @@ namespace Plantjes.ViewModels
                 errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                 firstNameInput, emailAdresInput,
                 passwordInput, passwordRepeatInput, SelectedRol);
-                
-            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
+
+            }//error handeling fields if everything is empty.
             else
             {
                 errorMessage = "al de velden moeten worden in gevuld \r\nom te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";

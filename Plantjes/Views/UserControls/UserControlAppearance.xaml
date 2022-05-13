@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="Plantjes.Views.UserControls.UserControlAppearance"
+﻿<!--Codes first year, save for maybe later reuse if neccessary--> 
+    <UserControl x:Class="Plantjes.Views.UserControls.UserControlAppearance"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

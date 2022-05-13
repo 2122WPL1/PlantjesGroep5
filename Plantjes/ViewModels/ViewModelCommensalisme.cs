@@ -22,6 +22,8 @@ namespace Plantjes.ViewModels
         private ObservableCollection<UIElement> _CommControlsOntwikkelsnelheid, _CommControlsStrategie, _CommControlsSociabiliteit,
                 _CommControlsLevensvorm;
 
+        private string _plantName;
+
         //J: property's to bind in the Abiotiek xaml
         public ObservableCollection<UIElement> CommControlsOntwikkelsnelheid
         {
@@ -47,9 +49,13 @@ namespace Plantjes.ViewModels
             set { _CommControlsLevensvorm = value; }
         }
 
-        
+        public string plantName
+        {
+            get { return _plantName; }
+            set { _plantName = value; }
+        }
 
-        //property's to bind in the Abiotiek xaml
+        //constr
         public ViewModelCommensalisme(IDetailService detailservice)
         {
             _detailService = detailservice;
@@ -58,11 +64,13 @@ namespace Plantjes.ViewModels
             CreateControlsStrategie();
             CreateControlsSociabiliteit();
             CreateControlsLevensvorm();
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
         public override void Load()
         {
             FillBasedOnPlant(_searchService.getSelectedPlant());
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
         #region Functions to create contols(checkboxes) from what we know in the tables from database

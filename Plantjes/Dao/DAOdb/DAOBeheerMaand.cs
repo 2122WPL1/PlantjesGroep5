@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plantjes.Dao.DAOdb
 {
     public class DAOBeheerMaand : DAOGeneric
     {
+        
+
         public DAOBeheerMaand() : base()
         {
             //ctor
@@ -21,9 +24,8 @@ namespace Plantjes.Dao.DAOdb
             return selection;
         }
 
-        
 
-        //Get a list of all the Beheermaand types
+        //Get a list of all the Beheermaand types 
         public List<BeheerMaand> GetBeheerMaanden()
         {
             var beheerMaanden = Context.BeheerMaands.ToList();
@@ -36,5 +38,7 @@ namespace Plantjes.Dao.DAOdb
             var selection = Context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
             return selection;
         }
+
+    
     }
 }
