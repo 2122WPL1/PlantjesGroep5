@@ -31,5 +31,46 @@ namespace Plantjes.Dao.DAOdb
             var selection = Context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
             return selection;
         }
+
+
+
+        //de dao die toevoegd aan de database multiabiotiek
+        public void AddPlantAbiotiekMulti(long PlantId, List<string> waarde)
+        {
+
+            //voor elke item in de lijst zal er een nieuwe abiotiek object gemaakt worden maar wel met dezelfde plantId fk (omdat het om de
+            //zelfde plant gaat
+            //Elke eigenschap is habitat dus geen rede om verder te zoeken
+            foreach (string item in waarde)
+            {
+                AbiotiekMulti abioM = new AbiotiekMulti()
+                {
+
+                    PlantId = PlantId,
+                    Waarde = item,
+
+                    Eigenschap = "habitat"
+
+
+
+
+                };
+
+                //elke t
+                //Update database Abiotieks -Imran
+                Context.AbiotiekMultis.Add(abioM);
+
+
+
+
+            }
+
+          
+
+            Context.SaveChanges();
+
+
+
+        }
     }
 }

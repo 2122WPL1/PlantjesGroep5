@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Media;
 using GalaSoft.MvvmLight.Command;
+using System.Collections.Generic;
 
 namespace Plantjes.ViewModels
 {
@@ -17,12 +18,14 @@ namespace Plantjes.ViewModels
         //decl necessary components like DAO and ioc container
         private DAOPlant _plantId;
         private DAOAbiotiek _dao;
+        private DAOAbiotiekMulti _daoMulti; //multi Abiotiek
         private static SimpleIoc iocc = SimpleIoc.Default;
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
-        
+        private IAddAbiotiekMultiService _addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
+
         //decl user interface elements 
         private ObservableCollection<UIElement> _AbioControlsBezonning, _AbioControlsVochtbehoefte, _AbioControlsVoedingsbehoefte,
                 _AbioControlsGrondsoort, _AbioControlsReactieAntagonischeOmg, _AbioControlsHabitat;
@@ -67,13 +70,15 @@ namespace Plantjes.ViewModels
         }
 
         //J: const
-        public ViewModelAbiotiek(IDetailService detailservice, IAddAbiotiekService addBiotiekService)
+        public ViewModelAbiotiek(IDetailService detailservice, IAddAbiotiekService addBiotiekService, IAddAbiotiekMultiService addAbiotiekMultiService)
         {
             _addAbiotiekService = addBiotiekService;
+            _addAbiotiekMultiService = addAbiotiekMultiService;
 
 
             _detailService = detailservice;
             this._dao = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
+            this._daoMulti = SimpleIoc.Default.GetInstance<DAOAbiotiekMulti>();
             CreateControlsBezonning();
             CreateControlsVochtbehoefte();
             CreateControlsVoedingsbehoefte();
@@ -887,6 +892,8 @@ namespace Plantjes.ViewModels
             string abioVoedingsBehoefte = null;
             string AbioReactieAntagonischeOmg = null;
 
+            List<string> abioHabitat = new List<string>();
+
             //go over each element in generated radiobutton listbox and give back the element that is checked - Imran
             foreach (RadioButton item in AbioControlsBezonning)
             {
@@ -934,16 +941,26 @@ namespace Plantjes.ViewModels
 
 
 
+            
+            
+            //looks at the checkboxes and for each item it will add it to the string list-Imran
+                foreach (CheckBox item in AbioControlsHabitat)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioHabitat.Add(item.Content.ToString()); 
+                }
+            }
+
 
 
             //the assigned variables shall be eventually addded to database - Imran
             _addAbiotiekService.AddAbiotiekButton(abioBezonning, abioGrondsoort, abioVochtBehoefte, abioVoedingsBehoefte, AbioReactieAntagonischeOmg);
 
 
+            _addAbiotiekMultiService.AddAbiotiekMultiButton(abioHabitat);
 
-
-           
-
+            
 
         }
 

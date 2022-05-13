@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace Plantjes.ViewModels
 {
@@ -24,13 +25,13 @@ namespace Plantjes.ViewModels
 
         private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
+        private IAddAbiotiekMultiService _addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
 
 
-
-        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService)
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService, IAddAbiotiekMultiService addBiotiekMultiService)
         {
             _addAbiotiekService = addBiotiekService;
-
+            _addAbiotiekMultiService = addBiotiekMultiService;
 
             //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
             loggedInMessage = loginUserService.LoggedInMessage();
@@ -162,7 +163,11 @@ namespace Plantjes.ViewModels
 
 
 
-            string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, AbioReactieAntagonischeOmg=null;
+            string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, 
+                AbioReactieAntagonischeOmg=null;
+
+            List<string> abioHabitat = new List<string>();
+
 
             //functie toevoegen abiotiek ---------------------------
 
@@ -209,13 +214,21 @@ namespace Plantjes.ViewModels
             }
 
 
-            
+
+            foreach (CheckBox item in abiotiek.AbioControlsHabitat)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioHabitat.Add(item.Content.ToString());
+                }
+            }
 
 
-            
+
+
             _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort, AbioVochtbehoefte, AbioVoedingsBehoefte, AbioReactieAntagonischeOmg);
 
-
+            _addAbiotiekMultiService.AddAbiotiekMultiButton(abioHabitat);
         }
 
 
