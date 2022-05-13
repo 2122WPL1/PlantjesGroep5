@@ -85,6 +85,30 @@ namespace Plantjes.Dao.DAOdb
             return soorten;
         }
 
+        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie)
+        {
+
+
+            Fenotype feno = new Fenotype()
+            {
+
+                PlantId = PlantId,
+                Bladgrootte = fenoBladgrootte,
+                Bladvorm = fenoBladvorm,
+                RatioBloeiBlad = fenoRatioBloeiBlad,
+                Spruitfenologie = fenoSpruitfenologie,
+
+
+            };
+
+
+
+            Context.Fenotypes.Add(feno);
+
+            Context.SaveChanges();
+
+
+        }
 
 
     }

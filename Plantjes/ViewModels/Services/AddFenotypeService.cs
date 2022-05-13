@@ -12,11 +12,8 @@ using System.Threading.Tasks;
 
 namespace Plantjes.ViewModels.Services
 {
-    public class AddBiotiekService : IAddAbiotiekService, INotifyPropertyChanged
+    public class AddFenotypeService: IAddFenotypeService, INotifyPropertyChanged
     {
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -26,32 +23,27 @@ namespace Plantjes.ViewModels.Services
 
         //dao verklaren om data op te vragen en te setten in de databank
 
-    
+        
 
         private DAOPlant _plantDao;
 
-        private DAOAbiotiek _daoAbiotiek;
+        private DAOFenotype _daoFenotype;
 
 
-        public AddBiotiekService()
-        {
-            
-            this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
-            this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
-        }
-
-
-        public void AddAbiotiekButton(string abioBezonning, string abioGrondsoort)
+        public AddFenotypeService()
         {
            
-
-          // _plantDao.RegisterNewPlant(naam, type, familie, geslacht, soort, variant);
-
-           _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort);
-           //MessageBox.Show(_plantDao.getCurrentPlant().NederlandsNaam);
-
+            this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
+            this._daoFenotype= SimpleIoc.Default.GetInstance<DAOFenotype>();
         }
 
 
+        public void AddFenotypeButton(int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie)
+        {
+
+            _daoFenotype.AddPlantFenotype(_plantDao.GetPlant.PlantId, fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie);
+
+        }
     }
 }
+

@@ -929,10 +929,6 @@ namespace Plantjes.ViewModels
             //gemaakt en is dan verdwenen
 
 
-
-            
-
-
         }
 
 

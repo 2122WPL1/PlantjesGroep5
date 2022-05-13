@@ -39,6 +39,8 @@ namespace Plantjes.ViewModels.HelpClasses
 
             var addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
+            var addFenotypeService = iocc.GetInstance<IAddFenotypeService>();
+
 
 
 
