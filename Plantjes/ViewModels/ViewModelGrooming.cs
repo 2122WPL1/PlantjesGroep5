@@ -44,8 +44,8 @@ namespace Plantjes.ViewModels
             CreateControlsMaanden();
             plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
-            //cmbBeheerdaad = new ObservableCollection<string>();
-            //fillComboBoxBeheerdaad();
+            cmbBeheerdaad = new ObservableCollection<string>();
+            fillComboBoxBeheerdaad();
         }
 
         public override void Load()

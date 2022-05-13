@@ -81,8 +81,6 @@
                 </Grid>
             </Canvas>
         </Grid>
-
-
         <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="10" Height="52" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="450" HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="685,262,0,0" Grid.Row="1" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -120,7 +120,6 @@
                 <!--Label & Button-->
                 <Canvas>
                     <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="11" Height="44" VerticalAlignment="Center" Canvas.Left="655" Canvas.Top="263" Width="416" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-
                 </Canvas>
             </Grid>
         </Grid>
