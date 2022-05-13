@@ -22,9 +22,6 @@ namespace Plantjes.ViewModels
             this._loginUserService = loginUserService;
             this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
 
-            //ICommands
-            ////These will be used to bind our buttons in the xaml and to give them functionality
-            //addStudentCommand = new RelayCommand(InsertStudentsClick);
         }
 
     }
