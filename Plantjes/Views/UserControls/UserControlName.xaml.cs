@@ -27,11 +27,8 @@ namespace Plantjes.Views.UserControls
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnExportPlant_Click(object sender, RoutedEventArgs e)
         {
-
-
-
             //StreamWriter myOutputStream = new StreamWriter("Myfile.csv");
 
             //foreach (var item in lstDetails.Items)
@@ -42,7 +39,7 @@ namespace Plantjes.Views.UserControls
             //myOutputStream.Close();
 
 
-            if (lstDetails.Items.Count !=0)
+            if (lstDetails.Items.Count != 0)
             {
 
                 //roept op een dialog box met een default file type csv
@@ -51,7 +48,7 @@ namespace Plantjes.Views.UserControls
                 savefile.Filter = "CSV Files|*.csv";
 
 
-                
+
                 if (savefile.ShowDialog() == true)
                 {
 
@@ -73,14 +70,11 @@ namespace Plantjes.Views.UserControls
                 MessageBox.Show("Zoek en kies eerst een plant");
             }
 
-           
+
 
             //Foutcontrole
+        }
 
 
-
-
-
-        }       
     }
 }

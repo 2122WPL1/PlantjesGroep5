@@ -70,7 +70,7 @@
             <!-- Buttons voor het zoeken, toevoegen en resetten -->
             <Button x:Name="btnZoeken" Content="zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding SearchCommand}"
-                    Height="35" Canvas.Left="20" Canvas.Top="408" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Height="35" Canvas.Left="20" Canvas.Top="394" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -78,9 +78,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnNameReset"
-                    Content="reset all" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
-                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="481" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button x:Name="btnWissen"
+                    Content="wissen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="455" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -90,7 +90,7 @@
 
             <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
                 Visibility="{Binding btnVisible, Mode=TwoWay}"
-                Height="35" Canvas.Left="20" Canvas.Top="553" Width="176">
+                Height="35" Canvas.Left="20" Canvas.Top="515" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <!--Command="{Binding SearchCommand}">-->
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -98,7 +98,18 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="Exporteer details" Canvas.Left="65" Canvas.Top="423" Click="Button_Click"/>
+            <!--<Button Content="Exporteer details" Canvas.Left="65" Canvas.Top="423" Click="Button_Click"/>-->
+
+            <Button x:Name="btnExportPlant" Content="plant exporteren"    BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
+                Visibility="{Binding btnVisible, Mode=TwoWay}"
+                Height="35" Canvas.Left="22" Canvas.Top="575" Width="176"
+                Command="{Binding mainNavigationCommand}"  HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnExportPlant_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Canvas>
 
         <!-- 2 listboxen -->
@@ -156,10 +167,9 @@
                  Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom"/>
 
         <!-- labels boven listboxen -->
-        <Label Content="resultaat planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C"  FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
+        <Label Content="resultaat planten" BorderThickness="1" Background="#FF7AC867"   FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
         </Label>
-        <Label Content="details planten" BorderThickness="1" Background="#FF7AC867"  BorderBrush="#FF20331C" FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" Grid.RowSpan="2" >
-        </Label>
+        <Label Content="details planten" BorderThickness="1" Background="#FF7AC867"   FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" />
 
         <!-- fotos die bovenaan gaan komen-->
         <Image Source="{Binding ImageHabitus}" Margin="479,0,575,575" Height="122" VerticalAlignment="Bottom" />
