@@ -163,14 +163,24 @@
         </ListBox>
         <ListBox x:Name="lstDetails"
                  ItemsSource="{Binding detailsSelectedPlant}"
-
-                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom"/>
-
+                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom">
+        </ListBox>
         <!-- labels boven listboxen -->
         <Label Content="resultaat planten" BorderThickness="1" Background="#FF7AC867"   FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Label.Resources>
         </Label>
-        <Label Content="details planten" BorderThickness="1" Background="#FF7AC867"   FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" />
+        <Label Content="details planten" BorderThickness="1" Background="#FF7AC867"   FontSize="24" Height="44" Margin="985,76,10,0" VerticalAlignment="Top" >
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Label.Resources>
 
+        </Label>
         <!-- fotos die bovenaan gaan komen-->
         <Image Source="{Binding ImageHabitus}" Margin="479,0,575,575" Height="122" VerticalAlignment="Bottom" />
         <Image Source="{Binding ImageBlad}" Margin="638,0,418,581" Height="113" VerticalAlignment="Bottom" />

@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             <!--BladGrootte-->
             <Canvas x:Name="cvsBladgrootte" Grid.Column="0">
-                <Grid Background="#FFE8E5BF" Width="180" Height="166" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Background="#FFE8E5BF" Width="180" Height="195" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <Label Content="bladgrootte" Foreground="Black"   Height="40" Width="102"     BorderThickness="1" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" />
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBladgrootte}" Width="104" Height="122" Canvas.Left="26" Canvas.Top="15" >
@@ -37,10 +37,10 @@
             </Canvas>
             <!--Bladvorm-->
             <Canvas x:Name="cvsBladvorm" Grid.Column="1">
-                <Grid Background="#FFE8E5BF" Width="180" Height="164" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Background="#FFE8E5BF" Width="180" Height="195" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical" Margin="0,0,0,62">
                         <Label Content="bladvorm" Foreground="Black"   Height="40" Width="108"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBladvorm}" Width="156" Height="190" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl ItemsSource="{Binding Path=FenoControlsBladvorm}" Width="156" Height="153" Canvas.Left="26" Canvas.Top="15" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Vertical" />
@@ -53,7 +53,7 @@
 
             <!--Ratiobloeiblad-->
             <Canvas x:Name="cvsRatiobloeiblad" Grid.Column="2">
-                <Grid Background="#FFE8E5BF" Width="180" Height="162" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Background="#FFE8E5BF" Width="180" Height="195" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <Label Content="ratiobloeiblad" Foreground="Black"   Height="40" Width="128"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsRatiobloeiblad}" Width="132" Height="117" Canvas.Left="26" Canvas.Top="15" >
@@ -68,7 +68,7 @@
             </Canvas>
             <!--Spruitfenologie-->
             <Canvas x:Name="cvsSpruitfenologie" Grid.Column="3">
-                <Grid Background="#FFE8E5BF" Width="180" Height="162" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Background="#FFE8E5BF" Width="180" Height="195" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <Label Content="spruitfenologie" Foreground="Black"   Height="40" Width="140"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsSpruitfenologie}" Width="116" Height="113" Canvas.Left="26" Canvas.Top="15" >
@@ -83,7 +83,7 @@
             </Canvas>
             <!--Bloeiwijze-->
             <Canvas x:Name="cvsBloeiwijze" Grid.Column="4">
-                <Grid Background="#FFE8E5BF" Width="180" Height="162" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Background="#FFE8E5BF" Width="180" Height="195" Canvas.Left="26" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <Label Content="bloeiwijze" Foreground="Black"   Height="40" Width="117"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
                         <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiwijze}" Width="114" Height="111" Canvas.Left="26" Canvas.Top="15" >
@@ -148,11 +148,11 @@
                     <Canvas>
 
                         <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="11" Height="45" VerticalAlignment="Top" Canvas.Left="4" Canvas.Top="195" Width="377" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                        <Label.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Label.Resources>
+                            <Label.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Label.Resources>
                         </Label>
                     </Canvas>
 
