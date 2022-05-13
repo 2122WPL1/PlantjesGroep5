@@ -14,9 +14,12 @@ namespace Plantjes.ViewModels
 {
     public class ViewModelNameResult : ViewModelBase
     {
+
+        
+
         //private ServiceProvider _serviceProvider;
         private static SimpleIoc iocc = SimpleIoc.Default;
-        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        private ISearchService _searchService;
         public IloginUserService loginUserService;
 
         public IAddPlantService addPlantService;
@@ -32,6 +35,8 @@ namespace Plantjes.ViewModels
         {
             _addAbiotiekService = addBiotiekService;
             _addAbiotiekMultiService = addBiotiekMultiService;
+
+            
 
             //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
             loggedInMessage = loginUserService.LoggedInMessage();
@@ -99,12 +104,22 @@ namespace Plantjes.ViewModels
             cmbSoort.Clear();
             cmbVariant.Clear();
             cmbRatioBladBloei.Clear();
+
+
+            cmbVariantText = null;
             SelectedNederlandseNaam = null;
+
+
+
+            
+
+
+
 
             fillComboboxes();
 
         }
-
+        
         
 
         public void ApplyFilterClick()
@@ -122,7 +137,21 @@ namespace Plantjes.ViewModels
         public void AddPlantClick()
         {
 
-
+            if (string.IsNullOrEmpty(SelectedType?.Planttypenaam))
+            {
+                MessageBox.Show("VUl DE TYPE IN !");
+                return;
+            }
+            if (string.IsNullOrEmpty(SelectedFamilie?.Familienaam))
+            {
+                MessageBox.Show("VUl DE FAMILIE IN !");
+                return;
+            }
+            if (string.IsNullOrEmpty(SelectedGeslacht?.Geslachtnaam))
+            {
+                MessageBox.Show("VUl DE GESLACHT IN !");
+                return;
+            }
             //MessageBox.Show(cmbVariantText);
             //variant kan alleen bestaan als hij opkomt in bepaalde gevallen maar niet bij alles
             //het probleem is dat er verwacht wordt dat er een bestaande object is, ook al is er niets in
@@ -130,37 +159,23 @@ namespace Plantjes.ViewModels
             //werkt -> 
 
 
-            if (_selectedVariant == null)
-            {
-                TfgsvVariant incaseOfNull = new TfgsvVariant();
-                incaseOfNull.Variantnaam = cmbVariantText;
-                SelectedVariant = incaseOfNull;
-                
-
-            }
             //Hierdoor kun je je eigen variant invullen , maar wordt niet weergegeven in de fillcomboxlist 
             //Ook is er hier geen idee aan gekoppeld
 
 
-            if (_selectedSoort==null)
-            {
-                TfgsvSoort incaseOfNull = new TfgsvSoort();
-                incaseOfNull.Soortnaam = _cmbSoortText;
-                SelectedSoort = incaseOfNull;
-            }
 
 
 
 
 
             
-                addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
+            addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
                     SelectedSoort, SelectedVariant);
 
 
            
             ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
-
+            
 
 
             string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, 
@@ -244,11 +259,15 @@ namespace Plantjes.ViewModels
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
 
+
         ////Bind to ListBoxes
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
 
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         
+
+
+
 
         #region RelayCommands
 
@@ -274,6 +293,12 @@ namespace Plantjes.ViewModels
                 cmbGeslacht.Clear();
                 cmbSoort.Clear();
                 cmbVariant.Clear();
+
+
+               
+
+
+
 
                 _searchService.fillComboBoxFamilie(SelectedType, cmbFamilies);
                 OnPropertyChanged();
@@ -390,6 +415,8 @@ namespace Plantjes.ViewModels
             }
         }
 
+
+
         //This will update the selected plant in the result listbox
         //This will be used to show the selected plant details
         private Plant _selectedPlantInResult;
@@ -460,15 +487,18 @@ namespace Plantjes.ViewModels
         set
         {
 
-                _cmbVariantText = value;
+                if (_cmbVariantText == "")
+                {
+                    _cmbVariantText = null;
+                }
+                else
+                {
+                    _cmbVariantText = value;
+                }
 
-                //if (value != this.cmbVariantText)
-                //{
-                //    this.cmbVariantText = value;
-                //    RaisePropertyChanged("cmbVariantText");
-                //}
+                OnPropertyChanged();
 
-         
+
 
 
 
@@ -487,13 +517,17 @@ namespace Plantjes.ViewModels
             set
             {
 
-                _cmbSoortText = value;
+                if (_cmbSoortText == "")
+                {
+                    _cmbSoortText = null;
+                }
+                else
+                {
+                    _cmbSoortText = value;
+                }
 
-                //if (value != this.cmbVariantText)
-                //{
-                //    this.cmbVariantText = value;
-                //    RaisePropertyChanged("cmbVariantText");
-                //}
+                OnPropertyChanged();
+
 
 
 

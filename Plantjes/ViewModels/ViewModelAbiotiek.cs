@@ -899,7 +899,7 @@ namespace Plantjes.ViewModels
             {
                 if ((bool)item.IsChecked)
                 {
-
+                    
                     abioBezonning = item.Content.ToString();
                     
                 }

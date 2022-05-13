@@ -61,18 +61,23 @@ namespace Plantjes.ViewModels.Services
             //When you add a Abiotiek you need a plantId, this is where the calls works in - Imran
 
 
-            _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort, AbioControlsVochtbehoefte, AbioControlsVoedingsbehoefte, AbioControlsReactieAntagonischeOmg);
+        _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort, AbioControlsVochtbehoefte, AbioControlsVoedingsbehoefte, AbioControlsReactieAntagonischeOmg);
             
 
      }
 
 
 
-        
+        public void AddAbiotiekMultiButton(List<string> waarde)
+        {
 
 
+            _daoAbiotiekMulti.AddPlantAbiotiekMulti(_plantDao.GetPlant.PlantId, waarde);
 
-       
+
+        }
+
+
 
     }
 
