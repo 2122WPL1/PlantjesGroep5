@@ -883,7 +883,9 @@ namespace Plantjes.ViewModels
 
             string abioGrondsoort=null;
 
-
+            string abioVochtBehoefte = null;
+            string abioVoedingsBehoefte = null;
+            string AbioReactieAntagonischeOmg = null;
 
             //go over each element in generated radiobutton listbox and give back the element that is checked - Imran
             foreach (RadioButton item in AbioControlsBezonning)
@@ -905,13 +907,42 @@ namespace Plantjes.ViewModels
                 }
             }
 
-      
+
+            foreach (RadioButton item in AbioControlsVochtbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioVochtBehoefte = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in AbioControlsVoedingsbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioVoedingsBehoefte = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in AbioControlsReactieAntagonischeOmg)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioReactieAntagonischeOmg = item.Content.ToString();
+                }
+            }
+
+
+
+
+
             //the assigned variables shall be eventually addded to database - Imran
-            _addAbiotiekService.AddAbiotiekButton(abioBezonning, abioGrondsoort);
+            _addAbiotiekService.AddAbiotiekButton(abioBezonning, abioGrondsoort, abioVochtBehoefte, abioVoedingsBehoefte, AbioReactieAntagonischeOmg);
 
 
 
-            
+
+           
 
 
         }

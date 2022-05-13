@@ -9,7 +9,8 @@ namespace Plantjes.ViewModels.Interfaces
     public interface IAddAbiotiekService
     {
         //declaratation interface with necessary parameters - Imran
-        public void AddAbiotiekButton( string abioBezonning, string abioGrondsoort);
+        public void AddAbiotiekButton( string abioBezonning, string abioGrondsoort, string abioVochtBehoefte, 
+            string abioVoedingsBehoefte, string AbioReactieAntagonischeOmg);
 
 
     }
