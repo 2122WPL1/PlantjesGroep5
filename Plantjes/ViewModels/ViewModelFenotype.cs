@@ -384,7 +384,8 @@ namespace Plantjes.ViewModels
 
 
 
-        #region code vorig jaar
+        #region code vorig 
+
         //geschreven door christophe, op basis van een voorbeeld van owen
         private string _selectedBloeiHoogte;
 
