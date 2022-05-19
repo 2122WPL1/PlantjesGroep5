@@ -7,26 +7,14 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOTfgsvVariant
+    public class DAOTfgsvVariant : DAOGeneric
     {
-        private static readonly DAOTfgsvVariant instance = new DAOTfgsvVariant();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOTfgsvVariant()
+        public DAOTfgsvVariant() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
+            //ctor
         }
 
-        public static DAOTfgsvVariant Instance()
-        {
-            return instance;
-        }
-
-        public IQueryable<TfgsvVariant> fillTfgsvVariant()
+        public IQueryable<TfgsvVariant> fillTfgsvVariant(int selectedItem)
         {
             // request List of wanted type
             // distinct to prevrent more than one of each type
@@ -35,9 +23,19 @@ namespace Plantjes.Dao.DAOdb
             // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
             // Good way to interact with our datacontext
 
-            var selection = context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
-            return selection;
-
+            //var selection = Context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
+            //return selection;
+            // aangepast door Mathias
+            if (selectedItem > 0)
+            {
+                var selection = Context.TfgsvVariants.Where(s => s.SoortSoortid == selectedItem).OrderBy(s => s.Variantnaam).Distinct();
+                return selection;
+            }
+            else
+            {
+                var selection = Context.TfgsvVariants.Distinct().OrderBy(s => s.Variantnaam);
+                return selection;
+            }
         }
     }
 }

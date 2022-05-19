@@ -7,30 +7,48 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOCommensalisme
+    public class DAOCommensalisme : DAOGeneric
     {
-        private static readonly DAOCommensalisme instance = new DAOCommensalisme();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOCommensalisme()
+        public DAOCommensalisme() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOCommensalisme Instance()
-        {
-            return instance;
+            //ctor
         }
 
         //Get a list of all the Commensalisme types
         public List<Commensalisme> GetAllCommensalisme()
         {
-            var commensalisme = context.Commensalismes.ToList();
+            var commensalisme = Context.Commensalismes.ToList();
             return commensalisme;
         }
+
+        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        {
+
+            var selection = Context.Commensalismes.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        //J: lists to get all types from db tables COMMENSALISME
+        public List<CommOntwikkelsnelheid> getAllTypesOntwSnelheid()
+        {
+            var soorten = Context.CommOntwikkelsnelheids.ToList();
+            return soorten;
+        }
+        public List<CommStrategie> getAllTypesStrategie()
+        {
+            var soorten = Context.CommStrategies.ToList();
+            return soorten;
+        }
+        public List<CommSocialbiliteit> getAllTypesSociabiliteit()
+        {
+            var soorten = Context.CommSocialbiliteits.ToList();
+            return soorten;
+        }
+        public List<CommLevensvorm> getAllTypesLevensvorm()
+        {
+            var soorten = Context.CommLevensvorms.ToList();
+            return soorten;
+        }
+
     }
 }

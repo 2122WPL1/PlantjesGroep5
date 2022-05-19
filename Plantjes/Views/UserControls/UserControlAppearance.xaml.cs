@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using GalaSoft.MvvmLight.Ioc;
+using Plantjes.ViewModels;
+using System.Windows.Controls;
 
 namespace Plantjes.Views.UserControls
 {

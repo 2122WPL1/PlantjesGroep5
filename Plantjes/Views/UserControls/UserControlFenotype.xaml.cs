@@ -14,18 +14,13 @@ using System.Windows.Shapes;
 namespace Plantjes.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for UserControlHabitat.xaml
+    /// Interaction logic for UserControlBloom.xaml
     /// </summary>
-    public partial class UserControlHabitat : UserControl
+    public partial class UserControlFenotype : UserControl
     {
-        public UserControlHabitat()
+        public UserControlFenotype()
         {
             InitializeComponent();
-        }
-
-        private void cmbOntwikkelsnelheid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

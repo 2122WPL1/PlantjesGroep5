@@ -10,6 +10,8 @@ using Plantjes.Models;
 using Plantjes.ViewModels.Interfaces;
 using Plantjes.Models.Db;
 using Plantjes.Dao.DAOdb;
+using GalaSoft.MvvmLight.Ioc;
+using Plantjes.Models.Classes;
 
 namespace Plantjes.ViewModels.Services
 {
@@ -17,7 +19,8 @@ namespace Plantjes.ViewModels.Services
     /*written by kenny and robin from an example of Roy and some help of Killian*/
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
-        private DAOPlant _daoPlant;
+        private DAOPlant _dao;
+        //private DAOPlant _daoPlant;
         private DAOFoto _daoFoto;
         private DAOAbiotiek _daoAbiotiek;
         private DAOAbiotiekMulti _daoAbiotiekMulti;
@@ -31,24 +34,27 @@ namespace Plantjes.ViewModels.Services
         private DAOTfgsvType _daoTfgsvType;
         private DAOTfgsvSoort _daoTfgsvSoort;
         private DAOTfgsvVariant _daoTfgsvVariant;
+        private DAOFenotypeMulti _daoFenotypeMulti;
+
+        private Plant _SelectedPlant;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        
         public SearchService()
         {
-            this._daoPlant = DAOPlant.Instance();
+            this._dao = SimpleIoc.Default.GetInstance<DAOPlant>();
             //this._daoAbiotiek = DAOAbiotiek.Instance();
 
         }
 
         #region RelayCommandMethods
        
-        //Geschreven door Owen op basis van de eerste Search van Kenny.
-        //Christophe & Owen: gedeeltelijke omzetting naar mvvm
-        //Omgezet naar service door kenny
+        
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
-            var listPlants = _daoPlant.getAllPlants();
+            var listPlants = _dao.getAllPlants();
 
             if (SelectedtType != null)
             {
@@ -185,15 +191,15 @@ namespace Plantjes.ViewModels.Services
 
         //geschreven door kenny
         public string Simplify(string stringToSimplify)
-        {
-            string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
+        {                                              // sommige planten hebben geen soort maar wel een variant en dan kan je __ gebruiken om die variant te vinden
+            string answer = stringToSimplify.Replace(",", "").Replace("'", "")/*.Replace("__", "")*/;
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
         //geschreven door owen, aangepast door robin voor mvvm en later services
         public void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection)
         {
-            this._daoTfgsvType = DAOTfgsvType.Instance();
+            this._daoTfgsvType = SimpleIoc.Default.GetInstance<DAOTfgsvType>();
             var list = _daoTfgsvType.fillTfgsvType();
 
             foreach (var item in list)
@@ -204,7 +210,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection)
         {
-            this._daoTfgsvFamilie = DAOTfgsvFamilie.Instance();
+            this._daoTfgsvFamilie = SimpleIoc.Default.GetInstance<DAOTfgsvFamilie>();
             var list = new List<TfgsvFamilie>(); /*Enumerable.Empty<TfgsvFamilie>().AsQueryable();*/
 
             //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
@@ -238,7 +244,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection)
         {
-            this._daoTfgsvGeslacht = DAOTfgsvGeslacht.Instance();
+            this._daoTfgsvGeslacht = SimpleIoc.Default.GetInstance<DAOTfgsvGeslacht>();
             var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
 
             //use the FamilieId, selected in the combobox to filter the list and load the remaining plant geslacht in the geslacht combobox
@@ -271,7 +277,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
         {
-            this._daoTfgsvSoort = DAOTfgsvSoort.Instance();
+            this._daoTfgsvSoort = SimpleIoc.Default.GetInstance<DAOTfgsvSoort>();
             var list = Enumerable.Empty<TfgsvSoort>().AsQueryable();
 
             //use the GeslachtId, selected in the combobox to filter the list and load the remaining plant Soort in the Soort combobox
@@ -302,14 +308,27 @@ namespace Plantjes.ViewModels.Services
             }
         }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
-        public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
+        //aangepast door Mathias om de cmb variant te vullen na het selecteren van een soort
+        public void fillComboBoxVariant(TfgsvSoort selectedSoort, ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
             //initialiseer DAOTfgsvVariant:
-            this._daoTfgsvVariant = DAOTfgsvVariant.Instance();
+            this._daoTfgsvVariant = SimpleIoc.Default.GetInstance<DAOTfgsvVariant>();
+            var list = Enumerable.Empty<TfgsvVariant>().AsQueryable(); ;
+
             // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
-            var list = _daoTfgsvVariant.fillTfgsvVariant();
-                // clearing te content of te combobox of Variant
-                cmbVariantCollection.Clear();
+            if (selectedSoort != null)
+            {
+                // Requesting te list of Variant 
+                list = _daoTfgsvVariant.fillTfgsvVariant(Convert.ToInt32(selectedSoort.Soortid));
+            }
+            else
+            {
+                // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
+                list = _daoTfgsvVariant.fillTfgsvVariant(0);
+            }
+
+            // clearing te content of te combobox of Variant
+            cmbVariantCollection.Clear();
                 // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
                 var ControleList = new List<string>();
                 //adding or list to the combobox
@@ -326,7 +345,7 @@ namespace Plantjes.ViewModels.Services
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
             {
-            this._daoFenotype = DAOFenotype.Instance();
+            this._daoFenotype = SimpleIoc.Default.GetInstance<DAOFenotype>();
             //not currently used in the cascade search
             //will be adjusted later (dao)
             var list = _daoFenotype.fillFenoTypeRatioBloeiBlad();
@@ -343,7 +362,7 @@ namespace Plantjes.ViewModels.Services
                 }
             }
         #endregion
-        #region Fill plant details in detain screen
+        #region Fill plant details in detail screen
         /// <summary>
         /// Plant detail listbox methods, geschreven door Robin, omgezet voor de service door kenny
         /// </summary>
@@ -375,6 +394,8 @@ namespace Plantjes.ViewModels.Services
                 FillExtraEigenschap(detailsSelectedPlant, SelectedPlantInResult);
                 ////FenoType
                 FillFenotype(detailsSelectedPlant, SelectedPlantInResult);
+                //J: Fenotype Multi
+                FillDetailsPlantFenotypeMulti(detailsSelectedPlant, SelectedPlantInResult);
 
                 ////Foto
                 ////UpdatePlant
@@ -403,7 +424,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek list, then we'll need to filter that list
             ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
-            this._daoAbiotiek = DAOAbiotiek.Instance();
+            this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
             var abioList = _daoAbiotiek.GetAllAbiotieks();
 
             foreach (var itemAbio in abioList)
@@ -427,7 +448,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Abiotiek_Multi list, then we'll need to filter that list
             ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
-            this._daoAbiotiekMulti = DAOAbiotiekMulti.Instance();
+            this._daoAbiotiekMulti = SimpleIoc.Default.GetInstance<DAOAbiotiekMulti>();
             var abioMultiList = _daoAbiotiekMulti.GetAllAbiotieksMulti();
             bool hasCheckedPlant;
 
@@ -459,7 +480,7 @@ namespace Plantjes.ViewModels.Services
             ////Once filtered: put the remaining Beheermaand types in the detailSelectedPlant Observable Collection
 
             //initialiseer DAOBeheerMaand
-            this._daoBeheerMaand = DAOBeheerMaand.Instance();
+            this._daoBeheerMaand = SimpleIoc.Default.GetInstance<DAOBeheerMaand>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var beheerMaandList = _daoBeheerMaand.GetBeheerMaanden();
 
@@ -496,7 +517,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Commensalisme list consisting of every possible property, then we'll need to filter that list
             ////by checking if the Commensalisme.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Commensalisme types in the detailSelectedPlant Observable Collection
-            this._daoCommensalisme = DAOCommensalisme.Instance();
+            this._daoCommensalisme = SimpleIoc.Default.GetInstance<DAOCommensalisme>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var commensalismeList = _daoCommensalisme.GetAllCommensalisme();
 
@@ -519,7 +540,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an CommensalismeMulti list consisting of every possible property, then we'll need to filter that list
             ////by checking if the CommensalismeMulti.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining CommensalismeMulti types in the detailSelectedPlant Observable Collection
-            this._daoCommensalismeMulti = DAOCommensalismeMulti.Instance();
+            this._daoCommensalismeMulti = SimpleIoc.Default.GetInstance<DAOCommensalismeMulti>();
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var commensalismeMultiList = _daoCommensalismeMulti.GetAllCommensalismeMulti();
             bool hasCheckedPlant;
@@ -546,7 +567,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an ExtraEigenschap list, then we'll need to filter that list
             ////by checking if the ExtraEigenschap.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining ExtraEigenschap types in the detailSelectedPlant Observable Collection
-            this._daoExtraEigenschap = DAOExtraEigenschap.Instance();
+            this._daoExtraEigenschap = SimpleIoc.Default.GetInstance<DAOExtraEigenschap>();
             var extraEigenschapList = _daoExtraEigenschap.GetAllExtraEigenschap();
 
             foreach (var itemExtraEigenschap in extraEigenschapList)
@@ -619,7 +640,7 @@ namespace Plantjes.ViewModels.Services
             ////First we need an Fenotype list, then we'll need to filter that list
             ////by checking if the Fenotype.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Fenotype types in the detailSelectedPlant Observable Collection
-            this._daoFenotype = DAOFenotype.Instance();
+            this._daoFenotype = SimpleIoc.Default.GetInstance<DAOFenotype>();
             var fenoTypeList = _daoFenotype.GetAllFenoTypes();
 
             foreach (var itemFenotype in fenoTypeList)
@@ -641,6 +662,36 @@ namespace Plantjes.ViewModels.Services
                 }
             }
         }
+
+
+        public void FillDetailsPlantFenotypeMulti(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Abiotiek_Multi list, then we'll need to filter that list
+            ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
+            this._daoFenotypeMulti = SimpleIoc.Default.GetInstance<DAOFenotypeMulti>();
+            var fenoMultiList = _daoFenotypeMulti.GetAllFenotypesMulti();
+            bool hasCheckedPlant;
+
+            //bool gebruiken
+            foreach (var itemFenoMulti in fenoMultiList)
+            {
+                //A multi table contains the same PlantId multiple times because it can contain multiple properties
+                //To refrain the app from showing duplicate data, I use a bool to limit the foreach to 1 run per plantId
+                hasCheckedPlant = true;
+                foreach (var plantItem in SelectedPlantInResult.FenotypeMultis)
+                {
+                    if (hasCheckedPlant == true && itemFenoMulti.PlantId == plantItem.PlantId)
+                    {
+                        //EVENTUEEL 1 EIGENSCHAP-> VERSCHILLENDE WAARDES MEEGEVEN OP 1 LIJN OF ONDER ELKAAR
+                        detailsSelectedPlant.Add("Feno Eigenschap: " + itemFenoMulti.Eigenschap);
+                        detailsSelectedPlant.Add("Feno Waarde: " + itemFenoMulti.Waarde);
+                    }
+                    hasCheckedPlant = false;
+                }
+            }
+        }
         #endregion
 
         //geschreven door owen
@@ -648,7 +699,7 @@ namespace Plantjes.ViewModels.Services
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {
             //initialise DAOFoto
-            this._daoFoto = DAOFoto.Instance();
+            this._daoFoto = SimpleIoc.Default.GetInstance<DAOFoto>();
             // Request location of the image
             string location = "";
             if (SelectedPlantInResult != null)
@@ -672,5 +723,21 @@ namespace Plantjes.ViewModels.Services
             return null;
         }
 
+        public LoginResult CheckCredentials(string userNameInput, string passwordInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string RegisterButton(string vivesNrInput, string lastNameInput, string firstNameInput, string emailAdresInput, string passwordInput, string passwordRepeatInput, int rolInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setSelectedPlant(Plant p)
+        {
+            _SelectedPlant = p;
+        }
+
+        public Plant getSelectedPlant() { return _SelectedPlant; }
     }
 }

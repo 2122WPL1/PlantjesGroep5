@@ -11,9 +11,7 @@ namespace Plantjes.ViewModels
     {
         private IloginUserService _loginService { get; }
         public RelayCommand loginCommand { get; set; }
-        public RelayCommand cancelCommand { get; set; }
-        public RelayCommand registerCommand { get; set; }
-
+       
         private string _userNameInput;
         private string _passwordInput;
         private string _errorMessage;
@@ -21,21 +19,8 @@ namespace Plantjes.ViewModels
 
         public ViewModelLogin(IloginUserService loginUserService)
         {
-
             this._loginService = loginUserService;
             loginCommand = new RelayCommand(LoginButtonClick);
-            cancelCommand = new RelayCommand(CancelButton);
-            registerCommand = new RelayCommand(RegisterButtonView);
-        }
-        public void RegisterButtonView()
-        {
-            RegisterWindow registerWindow = new RegisterWindow();
-            registerWindow.Show();
-            Application.Current.Windows[0]?.Close();
-        }
-        public void CancelButton()
-        {
-            Application.Current.Shutdown();
         }
 
         private void LoginButtonClick()
@@ -67,8 +52,8 @@ namespace Plantjes.ViewModels
             {
                 errorMessage = "gebruikersnaam invullen";
             }
-
         }
+
         public string errorMessage
         {
             get

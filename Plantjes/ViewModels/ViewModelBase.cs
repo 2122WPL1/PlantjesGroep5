@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Plantjes.Models.Db;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plantjes.ViewModels
 {
@@ -35,6 +38,26 @@ namespace Plantjes.ViewModels
                 Task.Run(() => PropertyChanged(this, new PropertyChangedEventArgs(propName)));
             }
         }
-        
+
+        public virtual void Load() { }
+
+        public string FillLabelWithNamePlant(Plant? plant)
+        {
+            string message = String.Empty;
+
+            if (plant != null)
+            {
+                message = $"plant: {plant.Fgsv}";
+            }
+
+            return message;
+
+
+        }
+
+
+
+
+
     }
 }

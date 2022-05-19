@@ -4,38 +4,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOBeheerMaand
+    public class DAOBeheerMaand : DAOGeneric
     {
-        private static readonly DAOBeheerMaand instance = new DAOBeheerMaand();
+        
 
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOBeheerMaand()
+        public DAOBeheerMaand() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
+            //ctor
         }
+
+
         public List<BeheerMaand> FillBeheerdaad()
         {
-            var selection = context.BeheerMaands.ToList();
+            var selection = Context.BeheerMaands.ToList();
             return selection;
         }
 
-        public static DAOBeheerMaand Instance()
-        {
-            return instance;
-        }
 
-        //Get a list of all the Beheermaand types
+        //Get a list of all the Beheermaand types 
         public List<BeheerMaand> GetBeheerMaanden()
         {
-            var beheerMaanden = context.BeheerMaands.ToList();
+            var beheerMaanden = Context.BeheerMaands.ToList();
             return beheerMaanden;
         }
+
+        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        {
+
+            var selection = Context.BeheerMaands.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+    
     }
 }
