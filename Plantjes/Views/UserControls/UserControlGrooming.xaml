@@ -97,7 +97,7 @@
             </StackPanel>-->
         <!--</StackPanel>-->
 
-        <Grid Width="1088" Canvas.Left="26" Canvas.Top="90" Background="#FFE8E5BF" Margin="36,180,36,395" >
+        <Grid Width="1088" Canvas.Left="26" Canvas.Top="90" Background="#FFE8E5BF" Margin="36,180,36,45" >
 
             <StackPanel Margin="0,0,0,-214" >
 
