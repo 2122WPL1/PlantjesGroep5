@@ -30,6 +30,10 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<IAddAbiotiekMultiService, AddBiotiekMultiService>();
 
 
+            //mathias
+            iocc.Register<IAddFenotypeService, AddFenotypeService>();
+
+
         }
     }
 }

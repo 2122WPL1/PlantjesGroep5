@@ -13,6 +13,7 @@ using Plantjes.Models.Db;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Linq;
+using GalaSoft.MvvmLight.Command;
 
 namespace Plantjes.ViewModels
 {
@@ -25,6 +26,11 @@ namespace Plantjes.ViewModels
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        private IAddFenotypeService _addFenotypeService = iocc.GetInstance<IAddFenotypeService>();
+
+        private DAOPlant _plantId;
+     
+
 
         //J
         BeheerMaand beheermaandObject = new BeheerMaand();
@@ -99,7 +105,7 @@ namespace Plantjes.ViewModels
         }
 
         //constr
-        public ViewModelFenotype(IDetailService detailservice)
+        public ViewModelFenotype(IDetailService detailservice, IAddFenotypeService addFenotypeService)
         {
             _detailService = detailservice;
             this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
@@ -117,6 +123,7 @@ namespace Plantjes.ViewModels
             CreateControlsMaandenBloei();
             plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
+            OpslaanFenotypeCommand = new RelayCommand(AddFenotypeClick);
 
         }
 
@@ -381,6 +388,92 @@ namespace Plantjes.ViewModels
         #endregion
 
 
+          public void AddFenotypeClick()
+        {
+
+            Plant currentPlant = _plantId.GetPlant;
+
+            long currentPlantId = currentPlant.PlantId;
+
+            //de bedoeling is om het eerst gecheckte item doorgeven
+            int fenoBladgrootte = 0;
+            string fenoBladvorm = null;
+            string fenoRatioBloeiBlad = null;
+            string fenoSpruitfenologie = null;
+            string fenoBloeiwijze = null;
+            string fenoHabitus = null;
+            string fenoLevensvorm = null;
+
+
+            //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
+            foreach (RadioButton item in FenoControlsBladgrootte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBladgrootte = item.Content.GetHashCode();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsBladvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBladvorm = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsRatiobloeiblad)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoRatioBloeiBlad = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsSpruitfenologie)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoSpruitfenologie = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsBloeiwijze)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBloeiwijze = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsHabitus)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoHabitus = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsLevensvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoLevensvorm = item.Content.ToString();
+                }
+            }
+
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie/*, fenoBloeiwijze, fenoHabitus, fenoLevensvorm*/);
+
+            //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
+            //object fenotype te maken om dat alleen door te voeren
+
+            //probleem: wanneer je een plant maakt is die current plant id niet present want hij is maar voor een moment
+            //gemaakt en is dan verdwenen
+
+
+        }
+
+        public RelayCommand OpslaanFenotypeCommand { get; set; }
 
 
 
