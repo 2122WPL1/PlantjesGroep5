@@ -22,8 +22,6 @@ namespace Plantjes.ViewModels.Services
 
         //Declare DAO -I
 
-       
-
         private DAOPlant _plantDao;
 
 
