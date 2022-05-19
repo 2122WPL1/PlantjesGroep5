@@ -35,18 +35,19 @@
                 </Grid>
             </Canvas>
             <!--GrondSoort-->
-            <Canvas x:Name="cvsGrondsoort" Grid.Column="1">
-                <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="18" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <StackPanel>
-                    <Label Content="grondsoort" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsGrondsoort}" Width="194" Height="341" Canvas.Left="18" Canvas.Top="27">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                </StackPanel>
+            <Canvas x:Name="cvsGrondsoort" Grid.Column="3" Grid.ColumnSpan="2" Margin="222,0,10,0">
+                <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="20" Canvas.Top="24" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="grondsoort" Foreground="Black"   Height="40" Width="111"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsGrondsoort}" Width="140" Height="237" Canvas.Left="18" Canvas.Top="27">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+
                 </Grid>
 
             </Canvas>
@@ -54,32 +55,34 @@
             <Canvas Grid.Column="2">
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Center" Canvas.Left="20" VerticalAlignment="Top" Canvas.Top="26">
                     <StackPanel>
-                        <Label Content="vochtbehoefte" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVochtbehoefte}" Width="194" Height="341" Canvas.Left="20" Canvas.Top="26">
-                        <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                        <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                </StackPanel>
+                        <Label Content="vochtbehoefte" Foreground="Black"   Height="40" Width="144"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVochtbehoefte}" Width="119" Height="243" Canvas.Left="20" Canvas.Top="26">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+
                 </Grid>
             </Canvas>
             <!--Voedingsbehoefte-->
             <Canvas Grid.Column="3">
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Center" Canvas.Left="18" VerticalAlignment="Top" Canvas.Top="24">
-                <StackPanel>
-                        <Label Content="voedingsbehoefte" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVoedingsbehoefte}" Width="194" Height="341"  Canvas.Left="18" Canvas.Top="24">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                </StackPanel>
-        </Grid>
-        </Canvas>
+                    <StackPanel>
+                        <Label Content="voedingsbehoefte" Foreground="Black"   Height="40" Width="140"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsVoedingsbehoefte}" Width="124" Height="253"  Canvas.Left="18" Canvas.Top="24">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </Canvas>
+
             <!--Antagonische omgeving-->
             <Canvas Grid.Column="4">
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Left" Canvas.Top="24" VerticalAlignment="Center" Canvas.Left="20">

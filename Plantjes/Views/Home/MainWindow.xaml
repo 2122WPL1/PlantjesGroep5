@@ -184,7 +184,7 @@
                 Content="exporteer geselecteerd" HorizontalAlignment="Left" Margin="859,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" Click="btnExporteergeselecteerd_Click">-->
 
             <Button x:Name="btnImporteerStudenten" 
-                Content="studenten importeren" HorizontalAlignment="Left" Margin="717,52,0,0" VerticalAlignment="Top" Height="32" Width="234" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+                Content="studenten importeren" HorizontalAlignment="Left" Margin="729,52,0,0" VerticalAlignment="Top" Height="32" Width="234" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                     Command="{Binding mainNavigationCommand}"
                     CommandParameter="VIEWUSERMANAGEMENT"
                     Visibility="{Binding btnVisible, Mode=TwoWay}">
@@ -196,7 +196,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="btnRegister" Content="registreer" HorizontalAlignment="Left" Margin="984,52,0,0" VerticalAlignment="Top" Height="32" Width="116" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
+            <Button x:Name="btnRegister" Content="registreer" HorizontalAlignment="Left" Margin="988,52,0,0" VerticalAlignment="Top" Height="32" Width="116" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White"
                     Command="{Binding mainNavigationCommand}"
                     CommandParameter="VIEWREGISTER"
                     Visibility="{Binding btnVisible, Mode=TwoWay}">
@@ -222,9 +222,9 @@
             </Grid>
 
             <!-- log in boodschap-->
-            <Canvas Margin="42,51,613,796" Background="#99FFFFFF">
+            <Canvas Margin="57,51,587,796" Background="#99FFFFFF" Height="38">
 
-                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF1C610B" FontWeight="DemiBold" FontSize="20" Height="38" Canvas.Top="-1" Width="654" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Calibri"/>
+                <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF1C610B" FontWeight="DemiBold" FontSize="20" Height="38" Canvas.Top="-1" Width="655" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Calibri"/>
             </Canvas>
 
 
