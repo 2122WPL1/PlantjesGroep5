@@ -19,12 +19,12 @@
     <Window.Background>
         <SolidColorBrush Color="#FFC6DCBF"/>
     </Window.Background>
-    <Viewbox MaxHeight="499" MaxWidth="564">
+    <Viewbox MaxHeight="600" MaxWidth="700">
         <Grid RenderTransformOrigin="-0.043,0.578" Margin="0,0,-61,-16" Height="474">
 
             <!-- logo + Titel + lbl voor foutmelding -->
-            <Image Margin="20,8,445,363" Source="/Image/Vives_Logo_NeoGreen.png"  />
-            <Label Margin="230,36,155,390"  Content="Plantendatabase" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" />
+            <Image Margin="26,-18,439,389" Source="/Image/Vives_Logo_NeoGreen.png"  />
+            <Label Margin="252,14,133,399"  Content="Plantendatabase" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" />
             <Label x:Name="lblError" Content="{Binding errorMessage}" Margin="142,89,199,329" Foreground="WhiteSmoke" Height="56" FontWeight="Bold"/>
 
 
