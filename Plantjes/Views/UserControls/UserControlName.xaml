@@ -57,6 +57,7 @@
             </ComboBox>
             <ComboBox x:Name="cmbVariant" Canvas.Left="6" Canvas.Top="311" Width="198" Height="28"
                       ItemsSource="{Binding cmbVariant}"
+                      
                       DisplayMemberPath="Variantnaam"
                       SelectedValuePath="VariantId"
                       Text="{Binding cmbVariantText}"
