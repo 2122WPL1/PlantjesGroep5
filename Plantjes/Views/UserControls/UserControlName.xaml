@@ -73,7 +73,7 @@
             <!-- Buttons voor het zoeken, toevoegen en resetten -->
             <Button x:Name="btnZoeken" Content="zoeken"  BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding SearchCommand}"
-                    Height="35" Canvas.Left="20" Canvas.Top="394" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Height="35" Canvas.Left="20" Canvas.Top="423" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -83,7 +83,7 @@
 
             <Button x:Name="btnWissen"
                     Content="wissen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
-                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="455" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Command="{Binding ResetCommand}" Height="35" Canvas.Left="20" Canvas.Top="478" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -93,8 +93,10 @@
 
             <Button x:Name="btnToevoegen" Content="toevoegen" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
                 Visibility="{Binding btnVisible, Mode=TwoWay}"
-                Height="35" Canvas.Left="20" Canvas.Top="515" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <!--Command="{Binding SearchCommand}">-->
+                Height="35" Canvas.Left="20" Canvas.Top="538" Width="176" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Command="{Binding AddPlantCommand}"
+                    >
+
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -105,8 +107,8 @@
 
             <Button x:Name="btnExportPlant" Content="plant exporteren"    BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White"  
                 Visibility="{Binding btnVisible, Mode=TwoWay}"
-                Height="35" Canvas.Left="22" Canvas.Top="575" Width="176"
-                Command="{Binding mainNavigationCommand}"  HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnExportPlant_Click" >
+                Height="35" Canvas.Left="20" Canvas.Top="603" Width="176"
+                Command="{Binding mainNavigationCommand}"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnExportPlant_Click" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>

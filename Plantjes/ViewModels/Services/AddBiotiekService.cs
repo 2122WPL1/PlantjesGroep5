@@ -23,7 +23,7 @@ namespace Plantjes.ViewModels.Services
 
     //declare DAO objects to asign later for access to databank-Imran
 
-    private DAOLogic _dao;
+
 
         //necessary for PlantId (fk)-I
     private DAOPlant _plantDao;
@@ -39,7 +39,7 @@ namespace Plantjes.ViewModels.Services
         //Assignement of DAO - I
     public AddBiotiekService()
     {
-        this._dao = DAOLogic.Instance();
+    
         this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
          this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
 
