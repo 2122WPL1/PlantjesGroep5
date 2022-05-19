@@ -10,6 +10,9 @@ namespace Plantjes.Dao
 {
     public class DAOAbiotiek : DAOGeneric
     {
+        //Imran
+        
+
         public DAOAbiotiek() : base()
         {
             //ctor
@@ -22,6 +25,7 @@ namespace Plantjes.Dao
             return abiotiek;
         }
 
+        //gives up a query based on id-I
         public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
         {
 
@@ -61,6 +65,40 @@ namespace Plantjes.Dao
             var soorten = Context.AbioHabitats.ToList();
             return soorten;
         }
+
+        
+
+       
+       //Add Abiotiek properties to database   - Imran
+        public void AddPlantAbiotiek(long PlantId, string abioBezonning, string abioGrondsoort , string AbioControlsVochtbehoefte, string AbioControlsVoedingsbehoefte, string AbioControlsReactieAntagonischeOmg)
+        {
+            //Decl object Abiotiek to add to database- Imran
+            Abiotiek abio = new Abiotiek()
+            {
+
+                PlantId = PlantId,
+                Bezonning = abioBezonning,
+                Grondsoort = abioGrondsoort,
+                Vochtbehoefte = AbioControlsVochtbehoefte,
+                Voedingsbehoefte = AbioControlsVoedingsbehoefte,
+                AntagonischeOmgeving = AbioControlsReactieAntagonischeOmg
+
+
+
+
+            };
+
+
+            //Update database Abiotieks -Imran
+            Context.Abiotieks.Add(abio);
+
+            Context.SaveChanges();
+
+
+        }
+
+
+        
 
     }
 }

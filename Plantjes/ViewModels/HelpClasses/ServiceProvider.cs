@@ -20,8 +20,14 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<IloginUserService, LoginUserService>();
             iocc.Register<ISearchService, SearchService>();
             iocc.Register<IDetailService, DetailService>();
-
             iocc.Register<IChangePassword, ChangePasswordService>();
+
+            //Register services addplant and addbiotic - Imran
+
+            iocc.Register<IAddPlantService, AddPlantService>();
+
+            iocc.Register<IAddAbiotiekService, AddBiotiekService>();
+            iocc.Register<IAddAbiotiekMultiService, AddBiotiekMultiService>();
 
 
         }
