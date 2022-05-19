@@ -19,40 +19,43 @@ namespace Plantjes.ViewModels.Services
     {
        
 
-       // private DAONieuwWachtwoord _nieuwWachtwoord;
+       // private DAONieuwWachtwoord _nieuwWachtwoord; - Imran
 
 
-        //declaratie van propertychanged (om data het model te laten weten wanneer er iets verandert is)
+        //decl propertychanged - I
 
         public event PropertyChangedEventHandler PropertyChanged;
-        //declaratie DAta access object voor gebruiker (waarbij het wachtwoord opgehaald wordt) en de passwordchange
+       
 
+
+        //decl used variables of DAO type  - I
         private DAOGebruiker _dao;
 
 
-        //error kwam hier op van instantie
+       
         private DAONieuwWachtwoord _daoNieuwWachtwoord = new DAONieuwWachtwoord();
 
 
-        //zet de dao object gelijk aan de instantie van DAoGebruiker = je krijgt de huidige gebruiker in een object met al zijn info
+        //assign the instance of user, which means you get the current user their info -I
         public ChangePasswordService()
         {
             this._dao = SimpleIoc.Default.GetInstance<DAOGebruiker>();
         }
 
 
-
+        //function ChangePassword (check i it's the same or not, or give a error message which will be pasted into the label in UI-I
         public string ChangePasswordButton(string passwordInput, string passwordRepeatInput ,int id)
         {
-            //Message voor de lblError om te laten zien of passwoord is changed of niet (of error)
+            //Message for lblError to show if password is changed or not -I
             string message = String.Empty;
 
 
-            //Als het gelijk is aan elkaar, niet leeg en als het gewoon geen lege spatie is
+            //Check the input and see if it's correct (two times the same written password and if it isn't just empty) -I
             if (passwordInput.Equals( passwordRepeatInput) && passwordInput != null  && !passwordInput.Trim().Equals(""))
             {
-                //oproep functie register passwoord (met inpassering van het id van de gebruiker)
+                //Call up the function to replace the new password in database - I
                 _daoNieuwWachtwoord.RegisterNewPassword(passwordInput, id);
+
 
                 message = "Paswoord is verandert";
                
@@ -61,55 +64,12 @@ namespace Plantjes.ViewModels.Services
             {
                 message = "Paswoord is niet verandert";
             }
-
+            //the message for lblError
             return message;
 
 
 
         }
-
-
-        //public string RegisterButton(
-        //                           string passwordInput, string passwordRepeatInput)
-        //{
-        //    //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
-        //    string Message = string.Empty;
-        //    //checken of alle velden ingevuld zijn
-        //    if (
-        //        passwordInput != null &&
-        //        passwordRepeatInput != null)
-        //    { //checken welke rol je hebt gekozen.
-        //       if (passwordInput == passwordRepeatInput)
-        //                    {   //gebruiker registreren.
-        //                        _daoNieuwWachtwoord.RegisterNewPassword(passwordInput);
-        //                        Message = $"{firstNameInput}, je hebt het wachtwoord verandert,";
-        //                        LoginWindow loginWindow = new LoginWindow();
-        //                        loginWindow.Show();
-        //                        Application.Current.Windows[0]?.Close();
-        //                    }//foutafhandeling wachtwoord
-        //                    else
-        //                    {
-        //                        Message = "zorg dat de wachtwoorden overeen komen.";
-        //                    }
-        //                    if (passwordInput == passwordRepeatInput)
-        //                    {   //gebruiker registreren.
-        //                        _daoNieuwWachtwoord.RegisterNewPassword(passwordInput);
-
-        //                        LoginWindow loginWindow = new LoginWindow();
-        //                        loginWindow.Show();
-        //                        Application.Current.Windows[0]?.Close();
-        //                    }//foutafhandeling wachtwoord
-        //                    else
-        //                    {
-        //                        Message = "zorg dat de wachtwoorden overeen komen.";
-        //                    }
-        //                }
-        //    else
-        //    {
-        //        Message = "zorg dat alle velden ingevuld zijn";
-        //    }//Message terugsturen om te binden aan een label in de viewModel.
-        //    return Message;
-        //}
 
 
 

@@ -6,22 +6,46 @@ using Plantjes.Models.Db;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
+using System.Windows;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace Plantjes.ViewModels
 {
     public class ViewModelNameResult : ViewModelBase
     {
+
+        
+
         //private ServiceProvider _serviceProvider;
         private static SimpleIoc iocc = SimpleIoc.Default;
-        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        private ISearchService _searchService;
         public IloginUserService loginUserService;
 
-        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService)
+        public IAddPlantService addPlantService;
+
+        //addbiotiek
+
+        private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
+
+        private IAddAbiotiekMultiService _addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
+
+
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService, IAddAbiotiekMultiService addBiotiekMultiService)
         {
+            _addAbiotiekService = addBiotiekService;
+            _addAbiotiekMultiService = addBiotiekMultiService;
+
+            
+
             //loggedInMessage is used to see which user is logt in (docent, student, oldstudent)
             loggedInMessage = loginUserService.LoggedInMessage();
             this._searchService = searchService;
             //_searchService = new SearchService();
+
+            //add the addplantservice
+            this.addPlantService = addPlantService;
+
 
             //writen by Mathias
             // hids the button if a oldstudent is logt in
@@ -51,7 +75,7 @@ namespace Plantjes.ViewModels
             //These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new RelayCommand(ApplyFilterClick);
             ResetCommand = new RelayCommand(ResetClick);
-
+            AddPlantCommand = new RelayCommand(AddPlantClick);
             //These comboboxes will already be filled with data on startup
             fillComboboxes();
         }
@@ -80,12 +104,22 @@ namespace Plantjes.ViewModels
             cmbSoort.Clear();
             cmbVariant.Clear();
             cmbRatioBladBloei.Clear();
+
+
+            cmbVariantText = null;
             SelectedNederlandseNaam = null;
+
+
+
+            
+
+
+
 
             fillComboboxes();
 
         }
-
+        
         
 
         public void ApplyFilterClick()
@@ -99,6 +133,114 @@ namespace Plantjes.ViewModels
             }
         }
 
+
+        public void AddPlantClick()
+        {
+
+            //Checks to see if the user written in the required info , otherwise give up an error message
+
+            if (string.IsNullOrEmpty(SelectedType?.Planttypenaam))
+            {
+                MessageBox.Show("VUl DE TYPE IN !");
+                return;
+            }
+            if (string.IsNullOrEmpty(SelectedFamilie?.Familienaam))
+            {
+                MessageBox.Show("VUl DE FAMILIE IN !");
+                return;
+            }
+            if (string.IsNullOrEmpty(SelectedGeslacht?.Geslachtnaam))
+            {
+                MessageBox.Show("VUl DE GESLACHT IN !");
+                return;
+            }
+
+          
+           
+
+
+            addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
+                     SelectedSoort, SelectedVariant);
+
+         
+        
+            
+
+            //Get the info from viewmodel Abiotiek -I
+
+            ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
+            
+            //declaration of empty elements-I
+
+            string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, 
+                AbioReactieAntagonischeOmg=null;
+
+            List<string> abioHabitat = new List<string>();
+
+
+            //checks in Viewmodel Abiotiek and checks each element and gets the element associated string if it's checked
+
+            foreach (RadioButton item in abiotiek.AbioControlsBezonning)
+            {
+                if ((bool)item.IsChecked)
+                {
+
+                    abioBezonning = item.Content.ToString();
+
+                }
+            }
+
+
+            foreach (RadioButton item in abiotiek.AbioControlsGrondsoort)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioGrondsoort = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in abiotiek.AbioControlsVochtbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioVochtbehoefte = item.Content.ToString();
+                }
+            }
+            foreach (RadioButton item in abiotiek.AbioControlsVoedingsbehoefte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioVoedingsBehoefte = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in abiotiek.AbioControlsReactieAntagonischeOmg)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    AbioReactieAntagonischeOmg = item.Content.ToString();
+                }
+            }
+
+
+
+            foreach (CheckBox item in abiotiek.AbioControlsHabitat)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    abioHabitat.Add(item.Content.ToString());
+                }
+            }
+
+
+
+            //Links the datataken from viewmodel to the AddBiotiekButton and continue in the classes focused in Abiotiek-I
+            _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort, AbioVochtbehoefte, AbioVoedingsBehoefte, AbioReactieAntagonischeOmg);
+
+            _addAbiotiekMultiService.AddAbiotiekMultiButton(abioHabitat);
+        }
+
+
         #endregion
 
 
@@ -111,18 +253,22 @@ namespace Plantjes.ViewModels
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
 
+
         ////Bind to ListBoxes
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
 
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         
 
+
+
+
         #region RelayCommands
 
         //RelayCommands
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
-
+        public RelayCommand AddPlantCommand { get; set; }
         #endregion
 
         //Selected Item variables for each combobox
@@ -141,6 +287,12 @@ namespace Plantjes.ViewModels
                 cmbGeslacht.Clear();
                 cmbSoort.Clear();
                 cmbVariant.Clear();
+
+
+               
+
+
+
 
                 _searchService.fillComboBoxFamilie(SelectedType, cmbFamilies);
                 OnPropertyChanged();
@@ -195,19 +347,29 @@ namespace Plantjes.ViewModels
                 _selectedSoort = value;
 
                 cmbVariant.Clear();
-                // vult de cmb van variant na dat er een soort is geselecteert
+                // fills the combobox in
                 _searchService.fillComboBoxVariant(SelectedSoort, cmbVariant);
                 OnPropertyChanged();
             }
         }
 
+        //Binding properties - Imran
+
         private TfgsvVariant _selectedVariant;
 
         public TfgsvVariant SelectedVariant
         {
-            get { return _selectedVariant; }
+            get {
+
+                    return _selectedVariant;
+                
+            
+            
+            }
             set
             {
+
+
                 _selectedVariant = value;
                 OnPropertyChanged();
             }
@@ -220,6 +382,8 @@ namespace Plantjes.ViewModels
             get { return _selectedRatioBloeiBlad; }
             set
             {
+               
+
                 _selectedRatioBloeiBlad = value;
                 OnPropertyChanged();
             }
@@ -244,6 +408,8 @@ namespace Plantjes.ViewModels
                 OnPropertyChanged();
             }
         }
+
+
 
         //This will update the selected plant in the result listbox
         //This will be used to show the selected plant details
@@ -298,6 +464,76 @@ namespace Plantjes.ViewModels
                 RaisePropertyChanged("btnVisible");
             }
         }
+
+
+
+        //Bindings combobox -Imran
+
+        private string _cmbVariantText { get; set; }
+   
+
+    public string cmbVariantText
+        {
+        get
+        {
+                
+
+
+            return this._cmbVariantText;
+        }
+        set
+        {
+
+                if (_cmbVariantText == "")
+                {
+                    _cmbVariantText = null;
+                }
+                else
+                {
+                    _cmbVariantText = value;
+                }
+
+                OnPropertyChanged();
+
+
+
+
+
+            }
+    }
+
+
+        private string _cmbSoortText { get; set; }
+
+        public string cmbSoortText
+        {
+            get
+            {
+                return this._cmbSoortText;
+            }
+            set
+            {
+
+                if (_cmbSoortText == "")
+                {
+                    _cmbSoortText = null;
+                }
+                else
+                {
+                    _cmbSoortText = value;
+                }
+
+                OnPropertyChanged();
+
+
+
+
+
+
+            }
+        }
+
+
         #endregion
 
         //geschreven door owen

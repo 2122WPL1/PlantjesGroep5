@@ -23,15 +23,15 @@
             <Canvas x:Name="cvsBezonning" Grid.Column="0">
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="19" Canvas.Top="27">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="bezonning" Foreground="Black"   Height="40" Width="99"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                        <ItemsControl ItemsSource="{Binding Path=AbioControlsBezonning}" Width="178" Height="271" Canvas.Left="19" Canvas.Top="27" >
+                        <Label Content="bezonning" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsBezonning}" Width="194" Height="341" Canvas.Left="19" Canvas.Top="27" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Vertical" />
+                                    <WrapPanel />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
-                    </StackPanel>
+                    </StackPanel>                    
                 </Grid>
             </Canvas>
             <!--GrondSoort-->
@@ -47,6 +47,7 @@
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
                     </StackPanel>
+
                 </Grid>
 
             </Canvas>
@@ -63,6 +64,7 @@
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
                     </StackPanel>
+
                 </Grid>
             </Canvas>
             <!--Voedingsbehoefte-->
@@ -80,56 +82,48 @@
                     </StackPanel>
                 </Grid>
             </Canvas>
+
             <!--Antagonische omgeving-->
-            <Canvas x:Name="cvsGroei" Visibility="Visible"  HorizontalAlignment="Left" Grid.Row="1">
-                <Grid  Width="194" Height="341" Canvas.Left="254" Canvas.Top="25" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                    <StackPanel>
-                        <Label Content="habitat" Foreground="Black"   Height="40" Width="87"     BorderThickness="1" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" />
-                        <ItemsControl ItemsSource="{Binding AbioControlsHabitat}" Height="183" Width="160" Canvas.Left="28" Canvas.Top="42">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Vertical" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                        </ItemsControl>
+            <Canvas Grid.Column="4">
+                <Grid Background="#FFE8E5BF" Width="194" Height="341" HorizontalAlignment="Left" Canvas.Top="24" VerticalAlignment="Center" Canvas.Left="20">
+                <StackPanel>
+                        <Label Content="antagonische omgeving" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=AbioControlsReactieAntagonischeOmg}" Width="194" Height="341" Canvas.Top="24"  Canvas.Left="20" FontSize="10">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
                     </StackPanel>
                 </Grid>
             </Canvas>
-
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid>
-                <!--Habitat-->
-                <Canvas Grid.Column="4">
-                    <Grid Background="#FFE8E5BF" Height="259" Width="427" HorizontalAlignment="Center" Canvas.Top="24" VerticalAlignment="Top" Canvas.Left="112">
-                        <StackPanel>
-                            <Label Content="antagonische omgeving" Foreground="Black"   Height="40" Width="168"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                            <ItemsControl ItemsSource="{Binding Path=AbioControlsReactieAntagonischeOmg}" Width="381" Height="196" Canvas.Top="24"  Canvas.Left="20" FontSize="14">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Vertical" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Grid>
-                </Canvas>
-                <!--Label & Button-->
-                <Canvas>
-                    <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"   Foreground="White"  FontSize="11" Height="45" VerticalAlignment="Top" Canvas.Left="655" Canvas.Top="221" Width="416" HorizontalAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
-                    <Label.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Label.Resources>
-                    </Label>
-                </Canvas>
+        <!--Habitat-->
+        <Canvas x:Name="cvsGroei" Margin="0,54,0,54" Visibility="Visible"  HorizontalAlignment="Left" Width="1143" Grid.Row="1">
+            <Grid Height="173" Width="1088" Canvas.Left="28" Canvas.Top="42" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <StackPanel>
+                    <Label Content="habitat" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=AbioControlsHabitat}" Height="173" Width="1088" Canvas.Left="28" Canvas.Top="42">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
             </Grid>
-        </Grid>
+            <Button x:Name="btnOpslaanAbiotiek"
+                    Content="Opslaan Abiotiek" BorderBrush="#FF595757"   Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Command="{Binding OpslaanAbiotiekCommand}" Canvas.Left="890" Canvas.Top="254" Height="50" Width="226"  HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
+
+        </Canvas>
     </Grid>
 </UserControl>
