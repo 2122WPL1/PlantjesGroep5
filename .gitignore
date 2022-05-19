@@ -18,7 +18,7 @@ mono_crash.*
 Plantjes/Dao/SQLConnection.cs
 
 #GitIgnore toevoegen
-Plantjes/Dao/SQLConnection.cs
+Plantjes/Dao/DAOdb/SQLConnection.cs
 
 #Connectionstring ignore
 
