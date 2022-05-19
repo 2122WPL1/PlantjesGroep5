@@ -41,6 +41,8 @@ namespace Plantjes.Dao.DAOdb
         public Plant RegisterNewPlant(string naamPlant, TfgsvType typePlant, TfgsvFamilie familiePlant, TfgsvGeslacht geslachtPlant,
             TfgsvSoort soortPlant, TfgsvVariant variantPlant)
         {
+            //make a new object but only if the necessary information is written -Imran
+
             Plant plant = new Plant();
 
             if (!string.IsNullOrEmpty(naamPlant))
@@ -86,6 +88,7 @@ namespace Plantjes.Dao.DAOdb
 
             //Add to the database and afterwards assign that same Plant object to the property-Imran
 
+            
             Context.Plants.Add(plant);
             Context.SaveChanges();
             return plant;

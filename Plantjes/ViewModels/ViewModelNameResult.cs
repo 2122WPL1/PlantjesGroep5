@@ -137,6 +137,8 @@ namespace Plantjes.ViewModels
         public void AddPlantClick()
         {
 
+            //Checks to see if the user written in the required info , otherwise give up an error message
+
             if (string.IsNullOrEmpty(SelectedType?.Planttypenaam))
             {
                 MessageBox.Show("VUl DE TYPE IN !");
@@ -152,31 +154,23 @@ namespace Plantjes.ViewModels
                 MessageBox.Show("VUl DE GESLACHT IN !");
                 return;
             }
-            //MessageBox.Show(cmbVariantText);
-            //variant kan alleen bestaan als hij opkomt in bepaalde gevallen maar niet bij alles
-            //het probleem is dat er verwacht wordt dat er een bestaande object is, ook al is er niets in
-            //dus in geval dat het niet bestaat, voeg het toe maar niets anders
-            //werkt -> 
 
-
-            //Hierdoor kun je je eigen variant invullen , maar wordt niet weergegeven in de fillcomboxlist 
-            //Ook is er hier geen idee aan gekoppeld
-
-
-
-
-
-
-
-            
-            addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
-                    SelectedSoort, SelectedVariant);
-
-
+          
            
+
+
+            addPlantService.AddPlantButton(SelectedNederlandseNaam, SelectedType, SelectedFamilie, SelectedGeslacht,
+                     SelectedSoort, SelectedVariant);
+
+         
+        
+            
+
+            //Get the info from viewmodel Abiotiek -I
+
             ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
             
-
+            //declaration of empty elements-I
 
             string abioBezonning =null, abioGrondsoort =null, AbioVochtbehoefte=null, AbioVoedingsBehoefte =null, 
                 AbioReactieAntagonischeOmg=null;
@@ -184,7 +178,7 @@ namespace Plantjes.ViewModels
             List<string> abioHabitat = new List<string>();
 
 
-            //functie toevoegen abiotiek ---------------------------
+            //checks in Viewmodel Abiotiek and checks each element and gets the element associated string if it's checked
 
             foreach (RadioButton item in abiotiek.AbioControlsBezonning)
             {
@@ -240,7 +234,7 @@ namespace Plantjes.ViewModels
 
 
 
-
+            //Links the datataken from viewmodel to the AddBiotiekButton and continue in the classes focused in Abiotiek-I
             _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort, AbioVochtbehoefte, AbioVoedingsBehoefte, AbioReactieAntagonischeOmg);
 
             _addAbiotiekMultiService.AddAbiotiekMultiButton(abioHabitat);
@@ -482,6 +476,9 @@ namespace Plantjes.ViewModels
         {
         get
         {
+                
+
+
             return this._cmbVariantText;
         }
         set
