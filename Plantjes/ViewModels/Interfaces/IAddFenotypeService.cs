@@ -8,6 +8,6 @@ namespace Plantjes.ViewModels.Interfaces
 {
     public interface IAddFenotypeService
     {
-        public void AddFenotypeButton(int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie/*, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm*/);
+        public void AddFenotypeButton(int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm);
     }
 }
