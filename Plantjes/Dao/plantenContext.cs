@@ -10,6 +10,8 @@ namespace Plantjes.Dao
     {
         public plantenContext()
         {
+            //var 
+
         }
 
         public plantenContext(DbContextOptions<plantenContext> options)
@@ -54,6 +56,8 @@ namespace Plantjes.Dao
         public virtual DbSet<TfgsvType> TfgsvTypes { get; set; }
         public virtual DbSet<TfgsvVariant> TfgsvVariants { get; set; }
         public virtual DbSet<UpdatePlant> UpdatePlants { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
