@@ -104,17 +104,74 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="2" Background="#FFE8E5BF" Height="223" Width="218">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="bladhoogte" Foreground="Black"   Height="40" Width="170"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
-                    <ItemsControl ItemsSource="{Binding Path=noggeen}" Width="168" Height="137">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-                </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="2" Background="#FFE8E5BF" Height="223" Width="218">                
+                    <Label Content="bladhoogte" Foreground="Black"   Height="40" Width="170"     BorderThickness="1" FontWeight="Bold" FontSize="14" Margin="48,10,0,173" />
+                    <Label Content="max" FontWeight="Bold" FontSize="14" Width="54" Margin="18,117,146,70" />
+                    <Label Content="min" FontWeight="Bold" FontSize="14" Width="59" Margin="18,70,142,111"/>
+                <ComboBox x:Name="CmbBladhoogteMax" 
+                                  ItemsSource="{Binding cmbBladHoogteMax}" 
+                                  SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="113,70,65,127" >
+                    <ComboBoxItem Content="240/250"/>
+                    <ComboBoxItem Content="230/239"/>
+                    <ComboBoxItem Content="220/229"/>
+                    <ComboBoxItem Content="210/219"/>
+                    <ComboBoxItem Content="200/209"/>
+                    <ComboBoxItem Content="190/199"/>
+                    <ComboBoxItem Content="180/189"/>
+                    <ComboBoxItem Content="170/179"/>
+                    <ComboBoxItem Content="160/169"/>
+                    <ComboBoxItem Content="150/159"/>
+                    <ComboBoxItem Content="140/149"/>
+                    <ComboBoxItem Content="130/139"/>
+                    <ComboBoxItem Content="120/129"/>
+                    <ComboBoxItem Content="110/119"/>
+                    <ComboBoxItem Content="100/109"/>
+                    <ComboBoxItem Content="90/99"/>
+                    <ComboBoxItem Content="80/89"/>
+                    <ComboBoxItem Content="70/79"/>
+                    <ComboBoxItem Content="60/69"/>
+                    <ComboBoxItem Content="50/59"/>
+                    <ComboBoxItem Content="40/49"/>
+                    <ComboBoxItem Content="30/39"/>
+                    <ComboBoxItem Content="20/29"/>
+                    <ComboBoxItem Content="10/19"/>
+                    <ComboBoxItem Content="0/9"/>
+                </ComboBox>
+
+                <ComboBox x:Name="CmbBladhoogteMin" 
+                                  ItemsSource="{Binding cmbBloeiHoogteMin}" 
+                                  SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="113,127,65,70" RenderTransformOrigin="0.4,0.622">
+                    <ComboBoxItem Content="240/250"/>
+                    <ComboBoxItem Content="230/239"/>
+                    <ComboBoxItem Content="220/229"/>
+                    <ComboBoxItem Content="210/219"/>
+                    <ComboBoxItem Content="200/209"/>
+                    <ComboBoxItem Content="190/199"/>
+                    <ComboBoxItem Content="180/189"/>
+                    <ComboBoxItem Content="170/179"/>
+                    <ComboBoxItem Content="160/169"/>
+                    <ComboBoxItem Content="150/159"/>
+                    <ComboBoxItem Content="140/149"/>
+                    <ComboBoxItem Content="130/139"/>
+                    <ComboBoxItem Content="120/129"/>
+                    <ComboBoxItem Content="110/119"/>
+                    <ComboBoxItem Content="100/109"/>
+                    <ComboBoxItem Content="90/99"/>
+                    <ComboBoxItem Content="80/89"/>
+                    <ComboBoxItem Content="70/79"/>
+                    <ComboBoxItem Content="60/69"/>
+                    <ComboBoxItem Content="50/59"/>
+                    <ComboBoxItem Content="40/49"/>
+                    <ComboBoxItem Content="30/39"/>
+                    <ComboBoxItem Content="20/29"/>
+                    <ComboBoxItem Content="10/19"/>
+                    <ComboBoxItem Content="0/9"/>
+                </ComboBox>
+
+
+
             </Grid>
             <Grid Grid.Column="3" Background="#FFE8E5BF" Width="238" Height="223" Canvas.Left="76" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Vertical">
