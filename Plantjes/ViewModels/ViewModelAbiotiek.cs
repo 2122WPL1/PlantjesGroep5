@@ -949,6 +949,11 @@ namespace Plantjes.ViewModels
 
 
 
+            //probleem: wanneer je een plant maakt is die current plant id niet present want hij is maar voor een moment
+            //gemaakt en is dan verdwenen
+
+
+        }
             
             
             //looks at the checkboxes and for each item it will add it to the string list-Imran

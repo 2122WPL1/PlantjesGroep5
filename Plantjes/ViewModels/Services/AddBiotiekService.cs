@@ -29,6 +29,9 @@ namespace Plantjes.ViewModels.Services
     private DAOPlant _plantDao;
 
 
+    
+
+        private DAOPlant _plantDao;
         //To get into Databank Abiotiek-I
     private DAOAbiotiek _daoAbiotiek;
 
@@ -36,6 +39,11 @@ namespace Plantjes.ViewModels.Services
 
 
 
+        public AddBiotiekService()
+        {
+            
+            this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
+            this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
         //Assignement of DAO - I
     public AddBiotiekService()
     {
@@ -47,6 +55,10 @@ namespace Plantjes.ViewModels.Services
             this._daoAbiotiekMulti = SimpleIoc.Default.GetInstance<DAOAbiotiekMulti>();
         }
 
+
+        public void AddAbiotiekButton(string abioBezonning, string abioGrondsoort)
+        {
+           
 
 
     
@@ -75,6 +87,8 @@ namespace Plantjes.ViewModels.Services
             _daoAbiotiekMulti.AddPlantAbiotiekMulti(_plantDao.GetPlant.PlantId, waarde);
 
 
+           _daoAbiotiek.AddPlantAbiotiek( _plantDao.GetPlant.PlantId,  abioBezonning,  abioGrondsoort);
+           //MessageBox.Show(_plantDao.getCurrentPlant().NederlandsNaam);
         }
 
 

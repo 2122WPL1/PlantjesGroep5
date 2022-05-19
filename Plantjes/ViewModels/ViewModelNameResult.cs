@@ -28,12 +28,18 @@ namespace Plantjes.ViewModels
 
         private IAddAbiotiekService _addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
+        //Fenotype
+        private IAddFenotypeService _addFenotypeService = iocc.GetInstance<IAddFenotypeService>();
         private IAddAbiotiekMultiService _addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
 
 
+
+
+        public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService, IAddFenotypeService addFenotyêService)
         public ViewModelNameResult(ISearchService searchService, IloginUserService loginUserService, IAddPlantService addPlantService, IAddAbiotiekService addBiotiekService, IAddAbiotiekMultiService addBiotiekMultiService)
         {
             _addAbiotiekService = addBiotiekService;
+            _addFenotypeService = addFenotyêService;
             _addAbiotiekMultiService = addBiotiekMultiService;
 
             
@@ -137,6 +143,14 @@ namespace Plantjes.ViewModels
         public void AddPlantClick()
         {
 
+            //MessageBox.Show(cmbVariantText);
+            //variant kan alleen bestaan als hij opkomt in bepaalde gevallen maar niet bij alles
+            //het probleem is dat er verwacht wordt dat er een bestaande object is, ook al is er niets in
+            //dus in geval dat het niet bestaat, voeg het toe maar niets anders
+            //werkt -> 
+
+
+            if (_selectedVariant == null)
             //Checks to see if the user written in the required info , otherwise give up an error message
 
             if (string.IsNullOrEmpty(SelectedType?.Planttypenaam))
@@ -169,6 +183,10 @@ namespace Plantjes.ViewModels
             //Get the info from viewmodel Abiotiek -I
 
             ViewModelAbiotiek abiotiek  =  iocc.GetInstance<ViewModelAbiotiek>();
+            ViewModelFenotype fenotype  =  iocc.GetInstance<ViewModelFenotype>();
+
+            
+            MessageBox.Show(abiotiek.AbioControlsBezonning.ToString());
             
             //declaration of empty elements-I
 
@@ -199,6 +217,72 @@ namespace Plantjes.ViewModels
                 }
             }
 
+
+            int fenoBladgrootte = 0;
+            string fenoBladvorm = null, fenoRatioBloeiBlad = null, fenoSpruitfenologie = null, fenoBloeiwijze = null, fenoHabitus = null, fenoLevensvorm = null;
+            //functie toevoegen abiotiek
+            //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
+            foreach (RadioButton item in fenotype.FenoControlsBladgrootte)
+            {
+                if ((bool)item.IsChecked)
+                {
+
+                    fenoBladgrootte = item.Content.GetHashCode();
+
+                }
+            }
+
+
+            foreach (RadioButton item in fenotype.FenoControlsBladvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBladvorm = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsRatiobloeiblad)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoRatioBloeiBlad = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsSpruitfenologie)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoSpruitfenologie = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsBloeiwijze)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBloeiwijze = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsHabitus)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoHabitus = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in fenotype.FenoControlsLevensvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoLevensvorm = item.Content.ToString();
+                }
+            }
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie/*, fenoBloeiwijze, fenoHabitus, fenoLevensvorm*/);
+
+            _addAbiotiekService.AddAbiotiekButton( abioBezonning, abioGrondsoort);
             foreach (RadioButton item in abiotiek.AbioControlsVochtbehoefte)
             {
                 if ((bool)item.IsChecked)
@@ -359,6 +443,8 @@ namespace Plantjes.ViewModels
 
         public TfgsvVariant SelectedVariant
         {
+            get 
+            {
             get {
 
                     return _selectedVariant;
@@ -368,8 +454,6 @@ namespace Plantjes.ViewModels
             }
             set
             {
-
-
                 _selectedVariant = value;
                 OnPropertyChanged();
             }

@@ -12,6 +12,7 @@ using Plantjes.Dao.DAOdb;
 using Plantjes.Models.Db;
 using System.Windows.Controls;
 using System.Windows.Media;
+using GalaSoft.MvvmLight.Command;
 using System.Linq;
 
 namespace Plantjes.ViewModels
@@ -20,10 +21,12 @@ namespace Plantjes.ViewModels
     {
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
-       
+        private DAOPlant _plantId;
         private DAOFenotype _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+        private IAddFenotypeService _addFenotypeService = iocc.GetInstance<IAddFenotypeService>();
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
         //J
@@ -99,8 +102,9 @@ namespace Plantjes.ViewModels
         }
 
         //constr
-        public ViewModelFenotype(IDetailService detailservice)
+        public ViewModelFenotype(IDetailService detailservice, IAddFenotypeService addFenotypeService)
         {
+            _addFenotypeService = addFenotypeService;
             _detailService = detailservice;
             this._dao = SimpleIoc.Default.GetInstance<DAOFenotype>();
             GetMonthsFromBeheerMaand();
@@ -117,6 +121,7 @@ namespace Plantjes.ViewModels
             CreateControlsMaandenBloei();
             plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
+            OpslaanFenotypeCommand = new RelayCommand(AddFenotypeClick);
 
         }
 
@@ -375,14 +380,102 @@ namespace Plantjes.ViewModels
                         rbbloeik.IsChecked = true;
 
                     }
+                }
+            }
+        }
+
+        public void AddFenotypeClick()
+        {
+
+            Plant currentPlant = _plantId.getCurrentPlant();
+
+            long currentPlantId = currentPlant.PlantId;
+
+            //de bedoeling is om het eerst gecheckte item doorgeven
+            int fenoBladgrootte = 0;
+            string fenoBladvorm = null;
+            string fenoRatioBloeiBlad = null;
+            string fenoSpruitfenologie = null;
+            string fenoBloeiwijze = null;
+            string fenoHabitus = null;
+            string fenoLevensvorm = null;
+
+
+            //gaat elke radio button af in de ui, als hij één checked vindt dan weergeeft hij de radioButtonweer
+            foreach (RadioButton item in FenoControlsBladgrootte)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBladgrootte = item.Content.GetHashCode();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsBladvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBladvorm = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsRatiobloeiblad)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoRatioBloeiBlad = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsSpruitfenologie)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoSpruitfenologie = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsBloeiwijze)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoBloeiwijze = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsHabitus)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoHabitus = item.Content.ToString();
+                }
+            }
+
+            foreach (RadioButton item in FenoControlsLevensvorm)
+            {
+                if ((bool)item.IsChecked)
+                {
+                    fenoLevensvorm = item.Content.ToString();
+                }
+            }
+                    }
                 } 
             }
         } 
         #endregion
 
 
+            _addFenotypeService.AddFenotypeButton(fenoBladgrootte, fenoBladvorm, fenoRatioBloeiBlad, fenoSpruitfenologie/*, fenoBloeiwijze, fenoHabitus, fenoLevensvorm*/);
+
+            //mogelijkheden: nu is het plan om als string door te voeren maar als alternatief is er een
+            //object fenotype te maken om dat alleen door te voeren
+
+            //probleem: wanneer je een plant maakt is die current plant id niet present want hij is maar voor een moment
+            //gemaakt en is dan verdwenen
 
 
+        }
+
+        public RelayCommand OpslaanFenotypeCommand { get; set; }
 
         #region code vorig 
 

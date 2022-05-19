@@ -84,7 +84,31 @@ namespace Plantjes.Dao.DAOdb
             var soorten = Context.FenoKleurs.ToList();
             return soorten;
         }
+        //written by Mathias
+        //this is used to add the fenotypes when making a new plant
+        public void AddPlantFenotype(long PlantId, int fenoBladgrootte, string fenoBladvorm, string fenoRatioBloeiBlad, string fenoSpruitfenologie/*, string fenoBloeiwijze, string fenoHabitus, string fenoLevensvorm*/)
+        {
 
+
+            Fenotype feno = new Fenotype()
+            {
+
+                PlantId = PlantId,
+                Bladgrootte = fenoBladgrootte,
+                Bladvorm = fenoBladvorm,
+                RatioBloeiBlad = fenoRatioBloeiBlad,
+                Spruitfenologie = fenoSpruitfenologie,
+                //Bloeiwijze = fenoBloeiwijze,
+                //Habitus = fenoHabitus,
+                //Levensvorm = fenoLevensvorm
+
+            };
+
+            Context.Fenotypes.Add(feno);
+
+            Context.SaveChanges();
+
+        }
 
 
     }

@@ -38,6 +38,9 @@ namespace Plantjes.ViewModels.HelpClasses
             var addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
             var addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
+            var addFenotypeService = iocc.GetInstance<IAddFenotypeService>();
+
+
 
 
             // registreer de viewmodels in de IoC Container
@@ -47,7 +50,7 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
-            iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService));
+            iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService, addFenotypeService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
             iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService, addAbiotiekService, addAbiotiekMultiService));
 
@@ -59,6 +62,8 @@ namespace Plantjes.ViewModels.HelpClasses
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
             
             iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService, addAbiotiekMultiService));
+            //om aan de name result te komen
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService, addFenotypeService));
             iocc.Register<ViewModelUserManagement>(() => new ViewModelUserManagement(loginService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
