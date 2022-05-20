@@ -20,22 +20,256 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Grid/>
+            <Grid Background="#FFE8E5BF" Width="210" Height="224" Canvas.Left="-557" Canvas.Top="-257" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Margin="0,0,0,10">
+                    <Label Content="bladgrootte" Foreground="Black"   Height="40" Width="102"     BorderThickness="1" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsBladgrootte}" Width="104" Height="153" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" Background="#FFE8E5BF" Width="216" Height="224" Canvas.Left="26" Canvas.Top="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="bladvorm" Foreground="Black"   Height="40" Width="108"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsBladvorm}" Width="156" Height="105" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2" Background="#FFE8E5BF" Width="216" Height="223" Canvas.Left="26" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="ratiobloeiblad" Foreground="Black"   Height="40" Width="128"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsRatiobloeiblad}" Width="132" Height="117" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3" Background="#FFE8E5BF" Width="216" Height="223" Canvas.Left="26" Canvas.Top="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" Margin="0,0,0,-36">
+                    <Label Content="spruitfenologie" Foreground="Black"   Height="40" Width="140"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsSpruitfenologie}" Width="116" Height="113" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" >
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Grid/>
+            <Grid Background="#FFE8E5BF" Width="216" Height="223" Canvas.Left="26" Canvas.Top="51" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="bloeiwijze" Foreground="Black"   Height="40" Width="117"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiwijze}" Width="114" Height="154" Canvas.Left="26" Canvas.Top="15" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" Height="223" Width="218" Canvas.Left="41" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="-4" >
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                    <Label Content="habitus" Foreground="Black"   Height="31" Width="96"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsHabitus}" Height="177" Width="136" Canvas.Left="28" Canvas.Top="42">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical"  />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2" Background="#FFE8E5BF" Height="223" Width="218">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="bladhoogte" Foreground="Black"   Height="40" Width="170"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=noggeen}" Width="168" Height="137">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3" Background="#FFE8E5BF" Width="238" Height="223" Canvas.Left="76" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="bladkleur" Foreground="Black"   Height="30" Width="157"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding FenoControlsBladKleur}" Width="168" Height="81" >
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <Label Content="maanden" Foreground="Black"   Height="30" Width="164"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding FenoBeheermaandBlad}" Width="134" Height="77" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+
+            </Grid>
+
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <!--<ColumnDefinition Height="1*"/>
-                <ColumnDefinition Height="2*"/>
-                <ColumnDefinition/>-->
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
+            <Grid/>
+            <Grid Grid.Column="2" Height="217" Width="512" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-111">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="levensvorm" Foreground="Black"   Height="40" Width="210"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsLevensvorm}" Height="166" Canvas.Left="28" Canvas.Top="42" Width="464" FontSize="12">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+
+            </Grid>
+            <Grid Grid.Column="1" Background="#FFE8E5BF" Width="220" Height="220" Canvas.Left="44" Canvas.Top="-1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,13,0,0">
+                <StackPanel Orientation="Vertical" Margin="0,0,-17,0">
+                    <Label Content="bloeikleur" Foreground="Black"   Height="30" Width="150"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                    <ItemsControl ItemsSource="{Binding Path=FenoControlsBloeiKleur}" Width="145" Height="140" Canvas.Left="26" Canvas.Top="7" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <!--<Label Content="maanden" Foreground="Black"   Height="30" Width="142"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding FenoBeheermaandBloei}" Width="140" Height="93" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>-->
+                </StackPanel>
+
+            </Grid>
+            <Grid Background="#FFE8E5BF" Width="220" Height="220"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,13,0,0">
+                <Label Content="bloeihoogte" Foreground="Black"   Height="40"     BorderThickness="1" FontWeight="Bold" FontSize="14" Margin="46,0,39,190" />
+                <Label Content="min"            Height="30" Width="94"  FontWeight="Bold" FontSize="14" Margin="47,100,79,100" >
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.569"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <ComboBox x:Name="CmbBloeihoogteMin" 
+                                  ItemsSource="{Binding cmbBloeiHoogteMin}" 
+                                  SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="141,102,39,102" RenderTransformOrigin="0.4,0.622">
+                    <ComboBoxItem Content="240/250"/>
+                    <ComboBoxItem Content="230/239"/>
+                    <ComboBoxItem Content="220/229"/>
+                    <ComboBoxItem Content="210/219"/>
+                    <ComboBoxItem Content="200/209"/>
+                    <ComboBoxItem Content="190/199"/>
+                    <ComboBoxItem Content="180/189"/>
+                    <ComboBoxItem Content="170/179"/>
+                    <ComboBoxItem Content="160/169"/>
+                    <ComboBoxItem Content="150/159"/>
+                    <ComboBoxItem Content="140/149"/>
+                    <ComboBoxItem Content="130/139"/>
+                    <ComboBoxItem Content="120/129"/>
+                    <ComboBoxItem Content="110/119"/>
+                    <ComboBoxItem Content="100/109"/>
+                    <ComboBoxItem Content="90/99"/>
+                    <ComboBoxItem Content="80/89"/>
+                    <ComboBoxItem Content="70/79"/>
+                    <ComboBoxItem Content="60/69"/>
+                    <ComboBoxItem Content="50/59"/>
+                    <ComboBoxItem Content="40/49"/>
+                    <ComboBoxItem Content="30/39"/>
+                    <ComboBoxItem Content="20/29"/>
+                    <ComboBoxItem Content="10/19"/>
+                    <ComboBoxItem Content="0/9"/>
+                </ComboBox>
+                <Label Content="max"          Height="30" FontWeight="Bold" FontSize="14" Margin="46,55,92,145" />
+                <ComboBox x:Name="CmbBloeihoogteMax" 
+                                  ItemsSource="{Binding cmbBladHoogteMax}" 
+                                  SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="141,59,39,145" >
+                    <ComboBoxItem Content="240/250"/>
+                    <ComboBoxItem Content="230/239"/>
+                    <ComboBoxItem Content="220/229"/>
+                    <ComboBoxItem Content="210/219"/>
+                    <ComboBoxItem Content="200/209"/>
+                    <ComboBoxItem Content="190/199"/>
+                    <ComboBoxItem Content="180/189"/>
+                    <ComboBoxItem Content="170/179"/>
+                    <ComboBoxItem Content="160/169"/>
+                    <ComboBoxItem Content="150/159"/>
+                    <ComboBoxItem Content="140/149"/>
+                    <ComboBoxItem Content="130/139"/>
+                    <ComboBoxItem Content="120/129"/>
+                    <ComboBoxItem Content="110/119"/>
+                    <ComboBoxItem Content="100/109"/>
+                    <ComboBoxItem Content="90/99"/>
+                    <ComboBoxItem Content="80/89"/>
+                    <ComboBoxItem Content="70/79"/>
+                    <ComboBoxItem Content="60/69"/>
+                    <ComboBoxItem Content="50/59"/>
+                    <ComboBoxItem Content="40/49"/>
+                    <ComboBoxItem Content="30/39"/>
+                    <ComboBoxItem Content="20/29"/>
+                    <ComboBoxItem Content="10/19"/>
+                    <ComboBoxItem Content="0/9"/>
+                </ComboBox>
+                <!--<StackPanel Orientation="Vertical">
+                        <Label Content="bloeihoogte" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+                        <ItemsControl ItemsSource="{Binding Path=noggeen}" Width="220" Height="190" Canvas.Left="26" Canvas.Top="7" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>-->
+
+            </Grid>
         </Grid>
+        <Label Content="{Binding plantName}" BorderThickness="1" Background="#99FFFFFF"   Foreground="#FF1C610B"  
+               FontSize="10" Height="38" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="655" 
+               HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="12,6,0,0" VerticalContentAlignment="Center"/>
 
     </Grid>
 </UserControl>
