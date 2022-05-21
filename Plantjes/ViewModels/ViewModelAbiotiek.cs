@@ -88,6 +88,7 @@ namespace Plantjes.ViewModels
 
 
 
+
            // OpslaanAbiotiekCommand = new RelayCommand(AddAbiotiekClick);
 
         }

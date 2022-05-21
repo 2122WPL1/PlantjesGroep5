@@ -115,7 +115,7 @@ namespace Plantjes.ViewModels
             CreateControlsBloeikleur();
             CreateControlsMaandenBlad();
             CreateControlsMaandenBloei();
-            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
+            //plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
 
         }
@@ -352,7 +352,6 @@ namespace Plantjes.ViewModels
                 }
 
             }
-
             
             foreach (FenotypeMulti fenoMulti in plant.FenotypeMultis.Where(fenoMulti => fenoMulti.Eigenschap.ToLower() == "bladkleur"))
             {
