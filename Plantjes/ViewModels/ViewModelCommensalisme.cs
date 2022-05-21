@@ -64,7 +64,7 @@ namespace Plantjes.ViewModels
             CreateControlsStrategie();
             CreateControlsSociabiliteit();
             CreateControlsLevensvorm();
-            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
+            //plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
         public override void Load()
