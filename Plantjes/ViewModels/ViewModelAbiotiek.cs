@@ -78,7 +78,7 @@ namespace Plantjes.ViewModels
             CreateControlsGrondsoort();
             CreateControlsReactieAntagonischeOmg();
             CreateControlsReactieAbioHabitat();
-            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
+            //plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
 
             
         }

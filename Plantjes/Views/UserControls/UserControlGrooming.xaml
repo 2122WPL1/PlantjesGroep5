@@ -13,19 +13,23 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="cvsVerzorging" Margin="0,30,0,342" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
-            <Grid Height="90" Width="1088" Canvas.Left="26" Canvas.Top="36" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Label Content="maanden" Foreground="Black"   Height="40"     BorderThickness="1" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.469,0.475" Margin="0,26,905,24" />
-                <ItemsControl ItemsSource="{Binding Path=BeheermaandCollection}" Width="900" Canvas.Left="19" Canvas.Top="27" Margin="188,24,0,20" >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </Grid>
+        <Label  Content="{Binding plantName}" BorderThickness="1" Background="#99FFFFFF"   Foreground="#FF1C610B"  
+               FontSize="10" Height="38" VerticalAlignment="Top"  Width="655" Grid.ColumnSpan="3" 
+               HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="12,6,0,0" VerticalContentAlignment="Center">
+        </Label>
+        
+        <Grid Height="90" Width="1088" Canvas.Left="26" Canvas.Top="36" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" >
+            <Label Content="maanden" Foreground="Black"   Height="40"     BorderThickness="1" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.469,0.475" Margin="0,26,905,24" />
+            <ItemsControl ItemsSource="{Binding Path=BeheermaandCollection}" Width="900" Canvas.Left="19" Canvas.Top="27" Margin="188,24,0,20" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
 
-        </Canvas>
+
 
 
 
@@ -124,8 +128,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-     
-            <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  Foreground="White"  FontSize="11" Height="52" Width="430" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,216,0,0"/>
+
+                <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  Foreground="White"  FontSize="11" Height="52" Width="430" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,216,0,0"/>
             </Grid>
         </Grid>
 
