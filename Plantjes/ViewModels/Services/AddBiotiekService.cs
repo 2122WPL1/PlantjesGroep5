@@ -23,7 +23,7 @@ namespace Plantjes.ViewModels.Services
 
     //declare DAO objects to asign later for access to databank-Imran
 
-    private DAOLogic _dao;
+    //private DAOLogic _dao;
 
 
         //necessary for PlantId (fk)-I

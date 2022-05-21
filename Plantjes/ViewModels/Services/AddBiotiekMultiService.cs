@@ -15,7 +15,7 @@ namespace Plantjes.ViewModels.Services
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private DAOLogic _dao;
+        //private DAOLogic _dao;
       
 
       

@@ -22,7 +22,7 @@ namespace Plantjes.ViewModels.Services
 
         //Declare DAO -I
 
-        private DAOLogic _dao;
+        //private DAOLogic _dao;
        
 
         private DAOPlant _plantDao;
