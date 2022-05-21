@@ -22,7 +22,8 @@ namespace Plantjes.ViewModels.Services
 
         //Declare DAO -I
 
-        private DAOLogic _dao;
+        //private DAOLogic _dao;
+       
 
         private DAOPlant _plantDao;
 
@@ -32,7 +33,7 @@ namespace Plantjes.ViewModels.Services
         //constr assignement DAO - I
         public AddPlantService()
         {
-            this._dao = DAOLogic.Instance();
+         
             this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
             this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
         }
@@ -57,7 +58,7 @@ namespace Plantjes.ViewModels.Services
 
             _plantDao.GetPlant = _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
 
-
+            MessageBox.Show("Plant is opgeslaan");
             
             
 

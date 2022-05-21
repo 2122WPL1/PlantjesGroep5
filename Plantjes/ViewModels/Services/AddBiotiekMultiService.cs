@@ -15,7 +15,8 @@ namespace Plantjes.ViewModels.Services
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private DAOLogic _dao;
+        //private DAOLogic _dao;
+      
 
       
 
@@ -30,7 +31,7 @@ namespace Plantjes.ViewModels.Services
 
         public AddBiotiekMultiService()
         {
-            this._dao = DAOLogic.Instance();
+           
             this._plantDao = SimpleIoc.Default.GetInstance<DAOPlant>();
             this._daoAbiotiek = SimpleIoc.Default.GetInstance<DAOAbiotiek>();
 
