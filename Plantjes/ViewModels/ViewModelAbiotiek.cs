@@ -30,6 +30,8 @@ namespace Plantjes.ViewModels
         private ObservableCollection<UIElement> _AbioControlsBezonning, _AbioControlsVochtbehoefte, _AbioControlsVoedingsbehoefte,
                 _AbioControlsGrondsoort, _AbioControlsReactieAntagonischeOmg, _AbioControlsHabitat;
 
+        private string _plantName;
+
         //J: property's to bind in the Abiotiek xaml
         public ObservableCollection<UIElement> AbioControlsBezonning
         {
@@ -69,6 +71,12 @@ namespace Plantjes.ViewModels
             set { _AbioControlsHabitat = value; }
         }
 
+        public string plantName
+        {
+            get { return _plantName; }
+            set { _plantName = value; }
+        }
+
         //J: const
         public ViewModelAbiotiek(IDetailService detailservice, IAddAbiotiekService addBiotiekService, IAddAbiotiekMultiService addAbiotiekMultiService)
         {
@@ -95,6 +103,7 @@ namespace Plantjes.ViewModels
         public override void Load()
         {
             FillBasedOnPlant(_searchService.getSelectedPlant());
+            plantName = FillLabelWithNamePlant(_searchService.getSelectedPlant());
         }
 
 

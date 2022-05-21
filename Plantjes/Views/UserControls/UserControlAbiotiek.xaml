@@ -112,8 +112,5 @@
                 </StackPanel>
             </Grid>
         </Canvas>
-
-
-        </Canvas>
     </Grid>
 </UserControl>

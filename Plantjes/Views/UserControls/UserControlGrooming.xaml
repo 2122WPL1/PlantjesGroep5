@@ -54,8 +54,6 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-
-                <Label Content="{Binding plantName}" BorderThickness="1" Background="#FF7AC867"  Foreground="White"  FontSize="11" Height="52" Width="430" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,216,0,0"/>
             </Grid>
         </Grid>
 
