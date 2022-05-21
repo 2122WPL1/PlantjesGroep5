@@ -8,7 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="790" d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
@@ -26,19 +25,23 @@
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="50" Canvas.Top="27">
                     <StackPanel Orientation="Vertical">
                         <Label Content="bezonning" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
+
                         <ItemsControl ItemsSource="{Binding Path=AbioControlsBezonning}" Width="194" Height="303" Canvas.Left="19" Canvas.Top="27" >
+
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
-                    </StackPanel>
+                    </StackPanel>                    
                 </Grid>
             </Canvas>
             <!--GrondSoort-->
+
             <Canvas x:Name="cvsGrondsoort" Grid.Column="2" Margin="10,170,5,-384">
                 <Grid Background="#FFE8E5BF" Width="194" Height="341" Canvas.Left="50" Canvas.Top="24" HorizontalAlignment="Left" VerticalAlignment="Center">
+
                     <StackPanel>
                         <Label Content="grondsoort" Foreground="Black"   Height="40" Width="111"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
                         <ItemsControl ItemsSource="{Binding Path=AbioControlsGrondsoort}" Width="140" Height="237" Canvas.Left="18" Canvas.Top="27">
@@ -83,6 +86,7 @@
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
+
                     </StackPanel>
                 </Grid>
             </Canvas>
@@ -92,11 +96,13 @@
             </Label>
         </Grid>
         <!--Habitat-->
+
         <Canvas x:Name="cvsGroei" Margin="0,54,0,54" Visibility="Visible"  HorizontalAlignment="Left" Width="1143" Grid.Row="2">
             <Grid Height="173" Width="1088" Canvas.Left="28" Canvas.Top="42" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <StackPanel>
                     <Label Content="habitat" Foreground="Black"   Height="40" Width="194"     BorderThickness="1" FontWeight="Bold" FontSize="14" />
                     <ItemsControl ItemsSource="{Binding Path=AbioControlsHabitat}" Height="126" Width="1088" Canvas.Left="28" Canvas.Top="42">
+
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel />
@@ -105,10 +111,9 @@
                     </ItemsControl>
                 </StackPanel>
             </Grid>
-
+        </Canvas>
 
 
         </Canvas>
-
     </Grid>
 </UserControl>

@@ -29,31 +29,36 @@ namespace Plantjes.ViewModels.HelpClasses
             var detailService = iocc.GetInstance<IDetailService>();
 
 
-            //deze werkt nog niet, er is een overflow exception, opzoeken hoe dat komt
-
             var changePasswordService = iocc.GetInstance<IChangePassword>();
 
+         
+            var addPlantService = iocc.GetInstance<IAddPlantService>();
 
 
+            var addAbiotiekService = iocc.GetInstance<IAddAbiotiekService>();
 
+            var addAbiotiekMultiService = iocc.GetInstance<IAddAbiotiekMultiService>();
 
 
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
-            
+
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
             iocc.Register<ViewModelFenotype>(() => new ViewModelFenotype(detailService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
-            iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService));
+            iocc.Register<ViewModelAbiotiek>(() => new ViewModelAbiotiek(detailService, addAbiotiekService, addAbiotiekMultiService));
+
+
             iocc.Register<ViewModelCommensalisme>(() => new ViewModelCommensalisme(detailService));
             iocc.Register<ViewModelImages>(() => new ViewModelImages(detailService));
             iocc.Register<ViewModelRequest>(() => new ViewModelRequest());
 
             iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
-            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService));
+            
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, loginService, addPlantService, addAbiotiekService, addAbiotiekMultiService));
             iocc.Register<ViewModelUserManagement>(() => new ViewModelUserManagement(loginService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
@@ -64,8 +69,10 @@ namespace Plantjes.ViewModels.HelpClasses
             
             
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
-            //changepassword
+          
             iocc.Register<ViewModelChangePassword>(() => new ViewModelChangePassword(changePasswordService));
+
+           
 
 
         }

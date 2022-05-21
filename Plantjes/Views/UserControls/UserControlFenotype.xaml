@@ -329,6 +329,5 @@
         <Label Content="{Binding plantName}" BorderThickness="1" Background="#99FFFFFF"   Foreground="#FF1C610B"  
                FontSize="10" Height="38" VerticalAlignment="Top" Canvas.Left="23" Canvas.Top="180" Width="655" 
                HorizontalAlignment="Left" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="12,6,0,0" VerticalContentAlignment="Center"/>
-
     </Grid>
 </UserControl>

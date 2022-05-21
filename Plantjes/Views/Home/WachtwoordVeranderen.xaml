@@ -16,7 +16,7 @@
     </UserControl.Background>
     <Viewbox MaxHeight="500" MaxWidth="560">
 
-        <Grid Height="500" Width="560">
+        <Grid Height="500" Width="613">
             <Grid.RowDefinitions>
                 <RowDefinition Height="373*"/>
                 <RowDefinition Height="127*"/>
@@ -24,11 +24,11 @@
             <Image Margin="20,8,361,194" Source="/Image/Vives_Logo_NeoGreen.png"  />
             <Label Margin="232,73,21,201"  Content="Plantendatabase" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" />
 
-            <Label Content="Geef nieuw wachtwoord in " HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="15" Height="36" Width="203"/>
-            <Label Content="Herhaling Wachtwoord" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="15" Height="36" Width="203"/>
-            <TextBox x:Name="newPassword" Text="{Binding txtPassword}"  Margin="232,193,161,156"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold" FontFamily="{StaticResource Password}"/>
-            <TextBox x:Name="controlPassword" Text="{Binding txtControlPassword}" Margin="232,256,161,93"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold"  FontFamily="{StaticResource Password}" />
-            <Button x:Name="btnRegisterNewPassword" Content="Registreer nieuw wachtwoord" Margin="232,321,161,22" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="11" Foreground="White" 
+            <Label Content="nieuw wachtwoord: " HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="20" Height="36" Width="203"/>
+            <Label Content="herhaling wachtwoord:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="20" Height="36" Width="242"/>
+            <TextBox x:Name="newPassword" Text="{Binding txtPassword}"  Margin="279,193,98,154"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold" FontFamily="{StaticResource Password}" Height="26" Width="236"/>
+            <TextBox x:Name="controlPassword" Text="{Binding txtControlPassword}" Margin="280,256,97,91"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold"  FontFamily="{StaticResource Password}" Height="26" Width="236"/>
+            <Button x:Name="btnRegisterNewPassword" Content="registreer nieuw wachtwoord" Margin="176,321,97,0" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
                     Command="{Binding Path= newPasswordCmd}" >
                 <Button.Resources>
                     <Style TargetType="Border">

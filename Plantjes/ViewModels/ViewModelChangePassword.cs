@@ -12,99 +12,68 @@ namespace Plantjes.ViewModels
     public class ViewModelChangePassword : ViewModelBase
     {
 
-        //Maakt de relay command (button laten werken)
-        public RelayCommand registerCommand { get; set; }
+        //makes the relay for the command on the UI-I
+     
+        public RelayCommand newPasswordCmd { get; set; }
 
 
-
+        //decl and asign Ioc container alongside interfaces-I
         private SimpleIoc iocc = SimpleIoc.Default;
-        //ioc container - een lijst die de info van de huidige gebruiker bevat -> het haalt de huidige gebruiker hun paswoord o.a
-
-        //Interfaces waarop de Ioc content toegepast zal worden
+     
         public IloginUserService loginUserService;
+
+
 
         private IChangePassword _ChangePassword { get; set; }
 
 
-        //Past wachtwoord aan en zet de interface gelijk aan de content.
+        //constructor and asignement of interface, relaycommand and IOc-I
         public ViewModelChangePassword(IChangePassword _changePassword)
         {
-            //steek de gegevens van de gebruiker in de loginUserService
+           
             loginUserService = iocc.GetInstance<IloginUserService>();
 
             this._ChangePassword = _changePassword;
 
-            //de button werkt en op klik voert ChangePassword Click uit
-            registerCommand = new RelayCommand(ChangePasswordClick);
-
-
-            //!!!!!!!!!!
-            //
-            //
-            //dit werkt ->txtPassword = loginUserService.getCurrentUser().Voornaam;
-            //
-            //_txtControlPassword = "test2";
-            //_lblErrorsPasswordText = "label";
+            //In the assignement of the button there must be a function, this is changepasswordClick-I
 
 
 
-
+            
             newPasswordCmd = new RelayCommand(ChangePasswordClick);
 
 
 
         }
-
+        //function when you press the button-I
         public void ChangePasswordClick()
         {
 
-            //gebruiker wordt opgehaald en zijn id wordt ingenomen voor verder gebruik
+            //user gets searched up and gives their id in int-I
              int id = loginUserService.getCurrentUser().Id;
 
 
-            //kijkt of het ingegeven password leeg is of niet
+            //sees if the password is empty or not-I
 
             if (_txtPassword != null &&
                 _txtControlPassword != null)
             {
-                //voert de functie uit en geeft het id mee
+                //performs the function as giving back a string for label if there's something wrong-I
                  lblErrorsPasswordText = _ChangePassword.ChangePasswordButton( _txtPassword, _txtControlPassword, id);
                
 
-            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
+            }//foutafhandeling velden bij het registeren als alle velden leeg zijn.-I
             else
             {
                 lblErrorsPasswordText = "al de velden moeten worden in gevuld ";
             }
 
 
-
-           //_lblErrorsPasswordText = "sdfsdkfdfkl,kdl,k";
-
-
         }
 
 
-        //voor referentie, niet gebruikt
-        //public void RegisterButtonClick()
-        //{   //checken dat er iets is in gevult zo dat het programma niet crached.
-        //    if (txtPassword != null &&
-        //        txtControlPassword != null)
-        //    {
-        //        lblErrorsPasswordText = _ChangePassword.ChangePasswordButton(_txtPassword, _txtControlPassword);
+        //prop textbox passsword and checkpassword from ui-I
 
-
-        //    }//foutafhandeling velden bij het registeren als alle velden leeg zijn.
-        //    else
-        //    {
-        //        lblErrorsPasswordText = "al de velden moeten worden in gevuld \r\n om te registeren, maar voor \r\n oudstudenten is een VivesNr niet nodig";
-        //    }
-
-        //    //Application.Current.Windows[0]?.Close();
-        //}
-
-         
-        //properties (binding) van textbox van passwoord (en checken passwoord) en label (voor fouten)
 
         private string _txtPassword;
         public string txtPassword
@@ -132,7 +101,7 @@ namespace Plantjes.ViewModels
 
 
         }
-
+        //if there's no input, set it to null-I
         private string _txtControlPassword;
         public string txtControlPassword
         {
@@ -151,6 +120,7 @@ namespace Plantjes.ViewModels
 
 
                 }
+                //let the ui know something changed-I
                 OnPropertyChanged();
             }
 
@@ -160,37 +130,21 @@ namespace Plantjes.ViewModels
 
 
 
-        
+        //property labels to give it value of something important to convey to the user-I
         private string _lblErrorsPasswordText;
         public string lblErrorsPasswordText
         {
             get { return _lblErrorsPasswordText; } 
             
-            
             set
             {
-                
                     _lblErrorsPasswordText = value;
-                    
                 RaisePropertyChanged("lblErrorsPasswordText");
-
-                    //RaisePropertyChanged("lblErrorsPassword");
-                  // OnPropertyChanged();
 
             } }
 
 
 
-        
-
-
-
-        public RelayCommand newPasswordCmd { get; set; }
-
-
-        
-
-        //Delen zijn er nog niet in. Dus heet is belangrijk dat de eigenlijke data kan doorgevoerd worden
 
     }
 }

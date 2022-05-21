@@ -1,11 +1,13 @@
 ﻿using Plantjes.Models.Db;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Plantjes.ViewModels
 {
@@ -13,7 +15,7 @@ namespace Plantjes.ViewModels
     //erover van inotify... 
     public class ViewModelBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged; 
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string property = null)
         {
@@ -52,6 +54,10 @@ namespace Plantjes.ViewModels
 
 
         }
+
+
+
+
 
     }
 }
