@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Plantjes.Views.Home.WachtwoordVeranderen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Plantjes.Views.Home"
+        mc:Ignorable="d"
+         Height="450" Width="800"
+        xmlns:viewmodels="clr-namespace:Plantjes.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ViewModelChangePassword}"
+        >
+
+
+
+    <UserControl.Background>
+        <SolidColorBrush Color="#FFC6DCBF"/>
+    </UserControl.Background>
+    <Viewbox MaxHeight="500" MaxWidth="560">
+
+        <Grid Height="500" Width="613">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="373*"/>
+                <RowDefinition Height="127*"/>
+            </Grid.RowDefinitions>
+            <Image Margin="20,8,361,194" Source="/Image/Vives_Logo_NeoGreen.png"  />
+            <Label Margin="232,73,21,201"  Content="Plantendatabase" Background="#FFC6DCBF" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" />
+
+            <Label Content="nieuw wachtwoord: " HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="20" Height="36" Width="203"/>
+            <Label Content="herhaling wachtwoord:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="20" Height="36" Width="242"/>
+            <TextBox x:Name="newPassword" Text="{Binding txtPassword}"  Margin="279,193,98,154"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold" FontFamily="{StaticResource Password}" Height="26" Width="236"/>
+            <TextBox x:Name="controlPassword" Text="{Binding txtControlPassword}" Margin="280,256,97,91"  Foreground="#FF10380A" FontSize="15" FontWeight="Bold"  FontFamily="{StaticResource Password}" Height="26" Width="236"/>
+            <Button x:Name="btnRegisterNewPassword" Content="registreer nieuw wachtwoord" Margin="176,321,97,0" BorderBrush="#FF595757"  Background="#FF33BE11"   FontWeight="Bold" FontSize="20" Foreground="White" 
+                    Command="{Binding Path= newPasswordCmd}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label x:Name="lblErrorsPassword"  Content="{Binding lblErrorsPasswordText}" HorizontalAlignment="Left" Margin="199,136,0,0" VerticalAlignment="Top" Foreground="#FF10380A" FontWeight="Bold" FontSize="15" Height="36" Width="351" />
+
+        </Grid>
+    </Viewbox>
+</UserControl>

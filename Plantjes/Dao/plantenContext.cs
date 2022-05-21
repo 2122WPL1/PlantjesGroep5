@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Plantjes.Dao;
 using Plantjes.Models.Db;
 
 namespace Plantjes.Dao
@@ -41,6 +42,7 @@ namespace Plantjes.Dao
         public virtual DbSet<FenoHabitu> FenoHabitus { get; set; }
         public virtual DbSet<FenoKleur> FenoKleurs { get; set; }
         public virtual DbSet<FenoLevensvorm> FenoLevensvorms { get; set; }
+        public virtual DbSet<FenoRatioBloeiBlad> FenoRatioBloeiBlads { get; set; }
         public virtual DbSet<FenoSpruitfenologie> FenoSpruitfenologies { get; set; }
         public virtual DbSet<Fenotype> Fenotypes { get; set; }
         public virtual DbSet<FenotypeMulti> FenotypeMultis { get; set; }
@@ -59,7 +61,6 @@ namespace Plantjes.Dao
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer(SQLConnection.connectionstring);
             }
         }
@@ -486,6 +487,17 @@ namespace Plantjes.Dao
                     .HasColumnName("url/locatie");
             });
 
+            modelBuilder.Entity<FenoRatioBloeiBlad>(entity =>
+            {
+                entity.ToTable("Feno_RatioBloeiBlad");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.RatioBloeiBlad)
+                    .HasMaxLength(50)
+                    .HasColumnName("ratioBloeiBlad");
+            });
+
             modelBuilder.Entity<FenoSpruitfenologie>(entity =>
             {
                 entity.ToTable("Feno_Spruitfenologie");
@@ -577,7 +589,7 @@ namespace Plantjes.Dao
                     .HasMaxLength(20)
                     .HasColumnName("eigenschap");
 
-                entity.Property(e => e.PlantId).HasColumnName("plant");
+                entity.Property(e => e.Plant).HasColumnName("plant");
 
                 entity.Property(e => e.Tumbnail)
                     .HasColumnType("image")
@@ -589,7 +601,7 @@ namespace Plantjes.Dao
 
                 entity.HasOne(d => d.PlantNavigation)
                     .WithMany(p => p.Fotos)
-                    .HasForeignKey(d => d.PlantId)
+                    .HasForeignKey(d => d.Plant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("foto_plant_FK");
             });

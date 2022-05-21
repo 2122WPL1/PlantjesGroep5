@@ -19,11 +19,19 @@ namespace Plantjes.ViewModels
        
         private ViewModelNameResult viewModelNameResult = iocc.GetInstance<ViewModelNameResult>();
         private ViewModelRegister viewModelRegister = iocc.GetInstance<ViewModelRegister>();
-        private ViewModelHabitat viewModelHabitat = iocc.GetInstance<ViewModelHabitat>();
-        private ViewModelBloom viewModelBloom = iocc.GetInstance<ViewModelBloom>();
-        private ViewModelGrow viewModelGrow = iocc.GetInstance<ViewModelGrow>();
+        private ViewModelCommensalisme viewModelHabitat = iocc.GetInstance<ViewModelCommensalisme>();
+        private ViewModelFenotype viewModelBloom = iocc.GetInstance<ViewModelFenotype>();
+        private ViewModelAbiotiek viewModelGrow = iocc.GetInstance<ViewModelAbiotiek>();
         private ViewModelAppearance viewModelAppearance = iocc.GetInstance<ViewModelAppearance>();
         private ViewModelGrooming viewModelGrooming = iocc.GetInstance<ViewModelGrooming>();
+        private ViewModelImages viewModelImages = iocc.GetInstance<ViewModelImages>();
+        private ViewModelRequest viewModelRequest = iocc.GetInstance<ViewModelRequest>();
+        private ViewModelUserManagement viewModelUserManagement = iocc.GetInstance<ViewModelUserManagement>();
+
+        
+
+        //werkt niet, vast iets met de IOC container
+        private ViewModelChangePassword viewModelChangePassword = iocc.GetInstance<ViewModelChangePassword>();
         
 
         public ViewModelRepo()
@@ -36,6 +44,11 @@ namespace Plantjes.ViewModels
             _viewModels.Add("VIEWAPPEARANCE", viewModelAppearance);
             _viewModels.Add("VIEWGROOMING",viewModelGrooming);
             _viewModels.Add("VIEWREGISTER", viewModelRegister);
+            _viewModels.Add("VIEWIMAGES", viewModelImages);
+            _viewModels.Add("VIEWREQUEST", viewModelRequest);
+            _viewModels.Add("VIEWUSERMANAGEMENT", viewModelUserManagement);
+            _viewModels.Add("CHANGEPASSWORD", viewModelChangePassword);
+
            
         }
         //

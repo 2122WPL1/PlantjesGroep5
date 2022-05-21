@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOAbiotiekMulti
+    public class DAOAbiotiekMulti : DAOGeneric
     {
-        private static readonly DAOAbiotiekMulti instance = new DAOAbiotiekMulti();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOAbiotiekMulti()
+        public DAOAbiotiekMulti() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOAbiotiekMulti Instance()
-        {
-            return instance;
+            //ctor
         }
 
         //Get a list of all the AbiotiekMulti types
@@ -32,9 +20,57 @@ namespace Plantjes.Dao.DAOdb
             //List is unfiltered, a plantId can be present multiple times
             //The aditional filteren will take place in the ViewModel
 
-            var abioMultiList = context.AbiotiekMultis.ToList();
+            var abioMultiList = Context.AbiotiekMultis.ToList();
 
             return abioMultiList;
+        }
+
+        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        {
+
+            var selection = Context.AbiotiekMultis.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+
+        //de dao die toevoegd aan de database multiabiotiek
+        public void AddPlantAbiotiekMulti(long PlantId, List<string> waarde)
+        {
+
+            //voor elke item in de lijst zal er een nieuwe abiotiek object gemaakt worden maar wel met dezelfde plantId fk (omdat het om de
+            //zelfde plant gaat
+            //Elke eigenschap is habitat dus geen rede om verder te zoeken
+            foreach (string item in waarde)
+            {
+                AbiotiekMulti abioM = new AbiotiekMulti()
+                {
+
+                    PlantId = PlantId,
+                    Waarde = item,
+
+                    Eigenschap = "habitat"
+
+
+
+
+                };
+
+                //elke t
+                //Update database Abiotieks -Imran
+                Context.AbiotiekMultis.Add(abioM);
+
+
+
+
+            }
+
+          
+
+            Context.SaveChanges();
+
+
+
         }
     }
 }

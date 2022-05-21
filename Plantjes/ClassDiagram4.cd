@@ -34,9 +34,6 @@
       <HashCode>AAAoIBBAAIIQAUAAAAAIBACIDQARAIAABABACIAAAAE=</HashCode>
       <FileName>ViewModels\ViewModelGrooming.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_dao" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Plantjes.ViewModels.ViewModelGrow" Collapsed="true">
     <Position X="2.75" Y="5.25" Width="1.5" />
@@ -51,7 +48,7 @@
   <Class Name="Plantjes.ViewModels.ViewModelHabitat" Collapsed="true">
     <Position X="7.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QYsEgACGIMBEAAADQAQGRAIAABKhiDBQIOADIIAAFFw=</HashCode>
+      <HashCode>QYsEgACGIMBEAAADQAUGQAIAABKhiDBQIOAjIIAAFFw=</HashCode>
       <FileName>ViewModels\ViewModelHabitat.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,8 +66,8 @@
       <FileName>ViewModels\ViewModelMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="loginUserService" />
       <Field Name="iocc" />
+      <Field Name="loginUserService" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Plantjes.ViewModels.ViewModelNameResult" Collapsed="true">
@@ -87,14 +84,14 @@
   <Class Name="Plantjes.ViewModels.ViewModelRegister" Collapsed="true">
     <Position X="9.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAMJAAAAAAAIoAAQBAgEAIAIAAAQAQACAoAAIAA=</HashCode>
+      <HashCode>AQQAAAMJAAAAAAgIgAAQBACEAYAIAAAQAQACAoAAIAA=</HashCode>
       <FileName>ViewModels\ViewModelRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Plantjes.ViewModels.ViewModelRepo" Collapsed="true">
     <Position X="20.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEEAAAAAAAgAAACAQEAAAEAAAAAAAEAAIAAAQ=</HashCode>
+      <HashCode>AAAAAAAEEAAAAAAAgAAACAQEAAAEAEAAgAAEAAIAAAY=</HashCode>
       <FileName>ViewModels\ViewModelRepo.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -104,12 +101,12 @@
   <Class Name="Plantjes.Dao.DAOLogic" Collapsed="true">
     <Position X="5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>UgECAAAEDILCQCAIiMgEAAAQEAJAQAAAQUAAhAAAIIA=</HashCode>
+      <HashCode>AAECAAAABAACAAAAAIAAAAAQEABAQAAAQAAABAAAAAA=</HashCode>
       <FileName>Dao\DAOLogic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GalaSoft.MvvmLight.Ioc.SimpleIoc" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+  <Class Name="GalaSoft.MvvmLight.Ioc.SimpleIoc">
+    <Position X="11.75" Y="0.5" Width="3" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
@@ -343,28 +340,28 @@
   <Class Name="Plantjes.Models.Db.FenotypeMulti" Collapsed="true">
     <Position X="4.25" Y="18.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAEAAAA=</HashCode>
+      <HashCode>AAASAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAEAAAA=</HashCode>
       <FileName>Models\Db\FenotypeMulti.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Plantjes.Models.Db.Gebruiker" Collapsed="true">
     <Position X="4.25" Y="17.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAABgEAAKAAAAAAAAAAAAAAACAgAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAACAABgEAAKAAAAAAAAAAAAAAACAgAAAAAAAAAAEBA=</HashCode>
       <FileName>Models\Db\Gebruiker.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Plantjes.Models.Db.Plant" Collapsed="true">
     <Position X="11.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAiAAACEEIgBBCCAAAACAEAAAAGAUACgQYCBAAAAAAQ=</HashCode>
+      <HashCode>AAiAAACEEIgBBCCAQAACAEAAAAGAUACgQYCBAAAAAAQ=</HashCode>
       <FileName>Models\Db\Plant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Plantjes.Models.Db.Rol" Collapsed="true">
     <Position X="0.5" Y="18" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAA=</HashCode>
       <FileName>Models\Db\Rol.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -385,7 +382,7 @@
   <Class Name="Plantjes.Models.Db.TfgsvSoort" Collapsed="true">
     <Position X="0.5" Y="16.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAGAAAEAAAAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAGAAAEAAAAAAAAAAAAQAAAAAABAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Models\Db\TfgsvSoort.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -399,7 +396,7 @@
   <Class Name="Plantjes.Models.Db.TfgsvVariant" Collapsed="true">
     <Position X="4.25" Y="18" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAABAAAAACAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>ABAIAAAAAAAABAAAAACAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Models\Db\TfgsvVariant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -433,7 +430,7 @@
   <Interface Name="Plantjes.ViewModels.Interfaces.IloginUserService">
     <Position X="20.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAgABA=</HashCode>
       <FileName>ViewModels\Interfaces\IloginUserService.cs</FileName>
     </TypeIdentifier>
   </Interface>

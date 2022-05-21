@@ -4,9 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Plantjes.Views.UserControls"
+             xmlns:viewmodels="clr-namespace:Plantjes.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ViewModelUserManagement}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="790"
+             d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
-            
+        <Canvas x:Name="cvsUserManagement" Margin="0,30,0,10" Visibility="Visible"  HorizontalAlignment="Center" Width="1140">
+            <Grid>
+                <!--DataGrid-->
+                <Grid Height="500" Width="1100" Canvas.Left="26" Canvas.Top="45" Background="#FFE8E5BF" VerticalAlignment="Center" Margin="32,10,32,0" HorizontalAlignment="Center">
+                    <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto" FontSize="18" Background="#FFFEFFDE" FontWeight="Bold" Margin="4,0,-4,0" >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="vives nummer"  Binding="{Binding Vivesnr}" />
+                            <DataGridTextColumn Header="voornaam" Binding="{Binding Voornaam}" />
+                            <DataGridTextColumn Header="achternaam"  Binding="{Binding Achternaam}" />
+                            <DataGridTextColumn Header="emailadres" Binding="{Binding Emailadres}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <!--Buttons-->
+                <!--Button Load-->
+                <Button x:Name="btnLoad" Content="kies een bestand" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="58,550,820,-155" Click="btnLoad_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <!--Button Opslaan-->
+                <Button x:Name="btnStudentAanmaken" Content="student aanmaken" Command="{Binding Path=addStudentCommand}" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" Margin="823,550,55,-155" Click="btnStudentAanmaken_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Canvas>
     </Grid>
 </UserControl>
+
+

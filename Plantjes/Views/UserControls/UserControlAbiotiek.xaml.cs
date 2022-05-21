@@ -5,11 +5,13 @@ namespace Plantjes.Views.UserControls
     /// <summary>
     /// Interaction logic for UserControlGrow.xaml
     /// </summary>
-    public partial class UserControlGrow : UserControl
+    public partial class UserControlAbiotiek : UserControl
     {
-        public UserControlGrow()
+        public UserControlAbiotiek()
         {
             InitializeComponent();
         }
+
+      
     }
 }

@@ -4,13 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" 
-             d:DesignHeight="790" d:DesignWidth="1160" Background="#FFC6DCBF">
+             d:DesignHeight="1000" d:DesignWidth="1160" Background="#FFC6DCBF">
     <Grid>
-        <Canvas x:Name="cvsBloei" Margin="0,30,0,84" Visibility="Visible"  HorizontalAlignment="Center" Width="1150">
-         
-            
+        <Canvas x:Name="cvsBloei" Margin="0,30,0,0" Visibility="Visible"  HorizontalAlignment="Center" Width="1150">
+
+
             <!-- grid kleuren en bloeikleur -->
-            <Grid Height="143" Width="1087" Canvas.Left="28" Canvas.Top="10" Background="#FFE8E5BF" >
+            <Grid Height="155" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Label Content="kleuren"  Width="100"  FontWeight="Bold" FontSize="14" Margin="32,37,955,75"/>
                 <Label Content="zwart"  Foreground="Black"   Height="28" BorderBrush="Black"                BorderThickness="1" Margin="140,38,900,77"/>
                 <Label Content="wit"    Foreground="Black"   Height="28" Width="50" BorderBrush="White"     BorderThickness="1" Margin="200,32,823,70"/>
@@ -26,7 +26,7 @@
                 <Label Content="paars"  Foreground="Black"   Height="28" Width="50" BorderBrush="Purple"    BorderThickness="1" Margin="900,32,108,70"/>
                 <Label Content="bruin"  Foreground="Black"   Height="28" Width="50" BorderBrush="Brown"     BorderThickness="1" Margin="970,32,20,70"/>
 
-                
+
                 <Label Content="bloeikleur" Height="28" Width="100"   FontWeight="Bold" FontSize="14" Margin="32,88,955,14"/>
                 <TextBox  TextWrapping="Wrap" Height="35" Width="35" Background="Black" Margin="144,84,909,11" IsReadOnly="True"/>
                 <CheckBox x:Name="CbxBloeikleurZwart" 
@@ -95,7 +95,7 @@
             </Grid>
 
             <!-- grid maanden, bloeihoogte en bloeit in -->
-            <Grid Height="127" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" Canvas.Top="198">
+            <Grid Height="127" Width="1087" Canvas.Left="28" Canvas.Top="198">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="30,10,50,10">
                         <Label Content="maanden"  Height="28" Width="93"  FontWeight="Bold" FontSize="14"/>
@@ -113,11 +113,13 @@
                         <Label Content="dec"      Height="28" Width="50"  FontWeight="Bold" FontSize="14" Margin="0,0,50,0"/>
                         <Label Content="min"      Height="26" Width="50"  FontWeight="Bold" FontSize="14" Margin="0,0,20,0"/>
                         <Label Content="max"      Height="26" Width="54"  FontWeight="Bold" FontSize="14" Margin="15,0,0,0"/>
-                     </StackPanel>
-                    
+                    </StackPanel>
+
+
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+
                         <Label Content="bloeihoogte"   Height="28" Width="100"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
-                        
+
                         <CheckBox x:Name="CbxBloeihoogteJan" 
                                     Height="15" Width="15" Margin="10,0,0,0"  
                                     IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -125,7 +127,7 @@
                         <CheckBox x:Name="CbxBloeihoogteFeb" 
                                     Height="14" Width="16" Margin="45,0,0,0"
                                     IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                       </CheckBox>
+                        </CheckBox>
                         <CheckBox x:Name="CbxBloeihoogteMar" 
                                     Height="15" Width="15" Margin="50,0,0,0"
                                     IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -170,67 +172,67 @@
                                     ItemsSource="{Binding cmbBloeiHoogteMin}" 
                                     SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
                                     Height="26" Width="80" Margin="50,0,0,0">
-                                        <ComboBoxItem Content="240/250"/>
-                                        <ComboBoxItem Content="230/239"/>
-                                        <ComboBoxItem Content="220/229"/>
-                                        <ComboBoxItem Content="210/219"/>
-                                        <ComboBoxItem Content="200/209"/>
-                                        <ComboBoxItem Content="190/199"/>
-                                        <ComboBoxItem Content="180/189"/>
-                                        <ComboBoxItem Content="170/179"/>
-                                        <ComboBoxItem Content="160/169"/>
-                                        <ComboBoxItem Content="150/159"/>
-                                        <ComboBoxItem Content="140/149"/>
-                                        <ComboBoxItem Content="130/139"/>
-                                        <ComboBoxItem Content="120/129"/>
-                                        <ComboBoxItem Content="110/119"/>
-                                        <ComboBoxItem Content="100/109"/>
-                                        <ComboBoxItem Content="90/99"/>
-                                        <ComboBoxItem Content="80/89"/>
-                                        <ComboBoxItem Content="70/79"/>
-                                        <ComboBoxItem Content="60/69"/>
-                                        <ComboBoxItem Content="50/59"/>
-                                        <ComboBoxItem Content="40/49"/>
-                                        <ComboBoxItem Content="30/39"/>
-                                        <ComboBoxItem Content="20/29"/>
-                                        <ComboBoxItem Content="10/19"/>
-                                        <ComboBoxItem Content="0/9"/>
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
                         </ComboBox>
                         <ComboBox x:Name="CboBloeihoogteMax" 
                                     ItemsSource="{Binding cmbBloeiHoogteMax}" 
                                     SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
                                     Height="26" Width="84" Margin="10,0,0,0">
-                                        <ComboBoxItem Content="240/250"/>
-                                        <ComboBoxItem Content="230/239"/>
-                                        <ComboBoxItem Content="220/229"/>
-                                        <ComboBoxItem Content="210/219"/>
-                                        <ComboBoxItem Content="200/209"/>
-                                        <ComboBoxItem Content="190/199"/>
-                                        <ComboBoxItem Content="180/189"/>
-                                        <ComboBoxItem Content="170/179"/>
-                                        <ComboBoxItem Content="160/169"/>
-                                        <ComboBoxItem Content="150/159"/>
-                                        <ComboBoxItem Content="140/149"/>
-                                        <ComboBoxItem Content="130/139"/>
-                                        <ComboBoxItem Content="120/129"/>
-                                        <ComboBoxItem Content="110/119"/>
-                                        <ComboBoxItem Content="100/109"/>
-                                        <ComboBoxItem Content="90/99"/>
-                                        <ComboBoxItem Content="80/89"/>
-                                        <ComboBoxItem Content="70/79"/>
-                                        <ComboBoxItem Content="60/69"/>
-                                        <ComboBoxItem Content="50/59"/>
-                                        <ComboBoxItem Content="40/49"/>
-                                        <ComboBoxItem Content="30/39"/>
-                                        <ComboBoxItem Content="20/29"/>
-                                        <ComboBoxItem Content="10/19"/>
-                                        <ComboBoxItem Content="0/9"/>
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
                         </ComboBox>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <Label Content="bloeit in"   Height="28" Width="100"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
-                        
+
                         <CheckBox x:Name="CbxBloeitInJan" 
                                     Height="16" Width="15" Margin="10,0,0,0"  
                                     IsChecked="{Binding SelectedCheckBoxBloeitInJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -281,8 +283,8 @@
                 </StackPanel>
             </Grid>
 
-            <!-- Grid voor bloeiwijze-->
-            <Grid Height="94" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" Canvas.Top="371">
+            <!-- Grid voor Bladgrootte-->
+            <Grid Height="70" Width="1086" Canvas.Left="32" Background="#FFE8E5BF" Canvas.Top="420" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                         <Label Content="bloeiwijze"     Height="30" Width="100"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
@@ -293,11 +295,11 @@
                         <Label Content="margrietachtig" Height="30" Width="126"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
                         <Label Content="transparant"    Height="30" Width="93"  FontWeight="Bold" FontSize="14" Margin="30,0,0,0"/>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <CheckBox x:Name="CbxBloeiwijzeVorm1" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Height="15" Width="15" Margin="155,0,0,0">
+                                  IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="15" Margin="155,0,0,0">
                         </CheckBox>
                         <CheckBox x:Name="CbxBloeiwijzeVorm2" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -329,13 +331,387 @@
 
 
 
-            <Button x:Name="BtnOpslagZoekenBloei" Content="opslaan bloei" Width="241" Height="50" Canvas.Left="854" Canvas.Top="560" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White">
+            <Button x:Name="BtnOpslagZoekenBloei" Content="Opslaan FenoType" Width="241" Height="50" Canvas.Left="899" Canvas.Top="851" BorderBrush="#FF595757"  Background="#FF1C610B"   FontWeight="Bold" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
+            <Grid Height="76" Width="1086" Canvas.Left="32" Background="#FFE8E5BF" Canvas.Top="604" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                        <Label Content="RatioBladGroei"     Height="30" Width="112"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Pachysandra sp."            Height="30" Width="115"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="Geranium nodosum"  Height="30" Width="140"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="Salvia nemorosa"          Height="30" Width="120" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="Aster sp."    Height="30" Width="65"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="SpruitFenologie"     Height="30" Width="115"  FontWeight="Bold" FontSize="14" />
+                        <Label Content="ZomerGroei"     Height="30" Width="90"  FontWeight="Bold" FontSize="14" />
+                        <Label Content="WinterGroei"     Height="30" Width="91"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="AltijdGroen"     Height="30" Width="45"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="VoorjaarsGroen"     Height="30" Width="140"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="CbxRatioBladGroei1" 
+                            IsChecked="{Binding SelectedCheckBoxRatioBladGroei1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="132" Margin="160,0,0,0"/>
+                        <CheckBox x:Name="CbxRatioBladGroei2" 
+                            IsChecked="{Binding SelectedCheckBoxRatioBladGroei2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="130"/>
+                        <CheckBox x:Name="CbxRatioBladGroei3" 
+                            IsChecked="{Binding SelectedCheckBoxRatioBladGroei3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="105"/>
+                        <CheckBox x:Name="CbxBBoxRatioBladGroei4" 
+                            IsChecked="{Binding SelectedCheckBoxRatioBladGroei4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="200"/>
+                        <CheckBox x:Name="CbxSpruitFenologie1" 
+                            IsChecked="{Binding SelectedCheckBoxSpruitFenologie1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="115"/>
+                        <CheckBox x:Name="CbxSpruitFenologie2" 
+                            IsChecked="{Binding SelectedCheckBoxSpruitFenologie2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="85"/>
+                        <CheckBox x:Name="CbxSpruitFenologie3" 
+                            IsChecked="{Binding SelectedCheckBoxSpruitFenologie3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="95"/>
+                        <CheckBox x:Name="CbxSpruitFenologie4" 
+                            IsChecked="{Binding SelectedCheckBoxSpruitFenologie4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="90"/>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+            <Grid Height="76" Width="1079" Canvas.Left="36" Background="#FFE8E5BF" Canvas.Top="680" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                        <Label Content="Habitus"     Height="30" Width="47"  FontWeight="Bold" FontSize="10" Margin="20,0,0,0" />
+                        <Label Content="Tuffed"            Height="30" Width="40"  FontWeight="Bold" FontSize="10"/>
+                        <Label Content="Upr.Arch"  Height="30" Width="55"  FontWeight="Bold" FontSize="10"/>
+                        <Label Content="Arching"          Height="30" Width="50" FontWeight="Bold" FontSize="10"/>
+                        <Label Content="Upr.Div"    Height="30" Width="50"  FontWeight="Bold" FontSize="10"/>
+                        <Label Content="Upr.Er"     Height="30" Width="45"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Mounted"     Height="30" Width="70"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Kruip.Hor.Gr"     Height="30" Width="75"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Rond/Waai"     Height="30" Width="85"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="KussendVorm"     Height="30" Width="105"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Uitbuigend"     Height="30" Width="85"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Wrtel.RozeVorm"     Height="30" Width="120"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="Secullent"     Height="30" Width="75"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="PolVomers"     Height="30" Width="60"  FontWeight="Bold" FontSize="10" />
+                        <Label Content="ParosolVormers"     Height="30" Width="90"  FontWeight="Bold" FontSize="10" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="CbxHabitus1" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="47" Margin="80,0,0,0"/>
+                        <CheckBox x:Name="CbxHabitus2" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="55"/>
+                        <CheckBox x:Name="CbxHabitus3" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="50"/>
+                        <CheckBox x:Name="CbxHabitus4" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="40"/>
+                        <CheckBox x:Name="CbxHabitus5" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="55"/>
+                        <CheckBox x:Name="CbxHabitus6" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="85"/>
+                        <CheckBox x:Name="CbxHabitus7" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="60"/>
+                        <CheckBox x:Name="CbxHabitus8" 
+                            IsChecked="{Binding SelectedCheckBoxHabitus8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="90"/>
+                        <CheckBox x:Name="CbxHabitus9" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="90"/>
+                        <CheckBox x:Name="CbxHabitus10" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus10, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="90"/>
+                        <CheckBox x:Name="CbxHabitus11" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus11, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="90"/>
+
+                        <CheckBox x:Name="CbxHabitus12" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus12, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="90"/>
+                        <CheckBox x:Name="CbxHabitus13" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus13, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="85"/>
+                        <CheckBox x:Name="CbxHabitus14" 
+                                  IsChecked="{Binding SelectedCheckBoxHabitus14, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                  Height="15" Width="85"/>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+            <Grid Height="85" Width="1087" Canvas.Left="31" Background="#FFE8E5BF" Canvas.Top="761" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="30,10,50,10" Width="1147">
+                        <Label Content="LevensVorm"  Height="28" Width="52"  FontWeight="Bold" FontSize="7"/>
+                        <Label Content="Hydroften/Waterplanten"      Height="28" Width="90"  FontWeight="Bold" FontSize="7" Margin="0,0,10,0"/>
+                        <Label Content="Helofyten-Winterknoppen onder water"      Height="28" Width="140"  FontWeight="Bold" FontSize="7"/>
+                        <Label Content="Cryptofyten of Geofyten -winterknoppen onder de grond"      Height="28" Width="200"  FontWeight="Bold" FontSize="7"/>
+                        <Label Content="HemiCryptofyten -winterknoppen of iets onder de grond"      Height="28" Width="195"  FontWeight="Bold" FontSize="7"/>
+                        <Label Content="Chamaefyten-winterknoppen (+50 cm bvn de grond)"      Height="28" Width="180"  FontWeight="Bold" FontSize="7"/>
+                        <Label Content="Phanerofyten-winterknoppen (minstens +50 cm bvn de grond)"      Height="28" Width="185"  FontWeight="Bold" FontSize="7" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+
+                        <CheckBox x:Name="CbxLevensVorm1" 
+                            Height="14" Width="92" Margin="110,0,0,0"  
+                            IsChecked="{Binding SelectedCheckBoxLevensVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CbxLevensVorm2" 
+                            Height="14" Width="100" Margin="45,0,0,0"
+                            IsChecked="{Binding SelectedCheckBoxLevensVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CbxLevensVorm3" 
+                            Height="14" Width="180" Margin="50,0,0,0"
+                            IsChecked="{Binding SelectedCheckBoxLevensVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CbxLevensVorm4" 
+                            Height="14" Width="175" Margin="40,0,0,0"
+                            IsChecked="{Binding SelectedCheckBoxLevensVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CbxLevensVorm5" 
+                            Height="15" Width="75" Margin="45,0,0,0"
+                            IsChecked="{Binding SelectedCheckBoxLevensVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <CheckBox x:Name="CbxLevensVorm6" 
+                                  Height="15" Width="15" Margin="45,0,0,0"
+                                  IsChecked="{Binding SelectedCheckBoxLevensVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+
+
+
+                </StackPanel>
+            </Grid>
+            <Grid Height="114" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" Canvas.Top="490" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                        <Label Content="BladGrootte"     Height="30" Width="90"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="5"            Height="30" Width="17"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="10"  Height="30" Width="25"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="20"          Height="30" Width="25" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="50"    Height="30" Width="25"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="100" Height="30" Width="35"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="150"    Height="30" Width="35"  FontWeight="Bold" FontSize="14"/>
+                        <Label Content="BladVorm"     Height="30" Width="75"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Naald of PriemVormig"     Height="30" Width="155"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="LancetVormig"     Height="30" Width="100"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Rond"     Height="30" Width="45"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Samengesteld Grof"     Height="30" Width="140"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Samengesteld verfijnd"     Height="30" Width="160"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+
+
+
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <CheckBox x:Name="CbxBladGrootte1" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="22" Margin="110,0,0,0"/>
+                        <CheckBox x:Name="CbxBladGrootte2" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="20"/>
+                        <CheckBox x:Name="CbxBladGrootte3" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="30"/>
+                        <CheckBox x:Name="CbxBladGrootte4" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="25"/>
+                        <CheckBox x:Name="CbxBladGrootte5" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="30"/>
+                        <CheckBox x:Name="CbxBladGrootte6" 
+                            IsChecked="{Binding SelectedCheckBoxBladGrootte6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="210"/>
+                        <CheckBox x:Name="CbxBladVorm1" 
+                            IsChecked="{Binding SelectedCheckBoxBladVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="155"/>
+                        <CheckBox x:Name="CbxBladVorm2" 
+                            IsChecked="{Binding SelectedCheckBoxBladVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="90"/>
+                        <CheckBox x:Name="CbxBladVorm3" 
+                            IsChecked="{Binding SelectedCheckBoxBladVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="100"/>
+                        <CheckBox x:Name="CbxBladVorm4" 
+                            IsChecked="{Binding SelectedCheckBoxBladVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="175"/>
+                        <CheckBox x:Name="CbxBladVorm5" 
+                            IsChecked="{Binding SelectedCheckBoxBladVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Height="15" Width="22"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="BladHoogte"     Height="30" Width="162"  FontWeight="Bold" FontSize="14" Margin="20,0,0,0" />
+                        <Label Content="Min"            Height="30" Width="94"  FontWeight="Bold" FontSize="14" >
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-0.569"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                        <ComboBox x:Name="CmbBladhoogteMin" 
+                                  ItemsSource="{Binding cmbBladHoogteMin}" 
+                                  SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="120,0,0,0">
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
+                        </ComboBox>
+                        <Label Content="Max"          Height="30" Width="151" FontWeight="Bold" FontSize="14"/>
+                        <ComboBox x:Name="CmbBladhoogteMax" 
+                                  ItemsSource="{Binding cmbBladHoogteMax}" 
+                                  SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                                  Height="26" Width="40" Margin="25,0,0,0">
+                            <ComboBoxItem Content="240/250"/>
+                            <ComboBoxItem Content="230/239"/>
+                            <ComboBoxItem Content="220/229"/>
+                            <ComboBoxItem Content="210/219"/>
+                            <ComboBoxItem Content="200/209"/>
+                            <ComboBoxItem Content="190/199"/>
+                            <ComboBoxItem Content="180/189"/>
+                            <ComboBoxItem Content="170/179"/>
+                            <ComboBoxItem Content="160/169"/>
+                            <ComboBoxItem Content="150/159"/>
+                            <ComboBoxItem Content="140/149"/>
+                            <ComboBoxItem Content="130/139"/>
+                            <ComboBoxItem Content="120/129"/>
+                            <ComboBoxItem Content="110/119"/>
+                            <ComboBoxItem Content="100/109"/>
+                            <ComboBoxItem Content="90/99"/>
+                            <ComboBoxItem Content="80/89"/>
+                            <ComboBoxItem Content="70/79"/>
+                            <ComboBoxItem Content="60/69"/>
+                            <ComboBoxItem Content="50/59"/>
+                            <ComboBoxItem Content="40/49"/>
+                            <ComboBoxItem Content="30/39"/>
+                            <ComboBoxItem Content="20/29"/>
+                            <ComboBoxItem Content="10/19"/>
+                            <ComboBoxItem Content="0/9"/>
+                        </ComboBox>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+            <Grid Height="145" Width="1087" Canvas.Left="28" Background="#FFE8E5BF" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="160" >
+                <Label Content="kleuren"  Height="34" Width="61"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824" Margin="0,17,1021,66"/>
+                <Label Content="zwart" Foreground="Black"   Height="28" Width="50" BorderBrush="Black" BorderThickness="1" Margin="60,18,930,71"/>
+                <Label Content="  wit" Foreground="Black"   Height="28" Width="50" BorderBrush="White" BorderThickness="1" Margin="140,18,873,71"/>
+                <Label Content=" rosé" Foreground="Black"   Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1" Margin="220,18,810,71"/>
+                <Label Content=" rood" Foreground="Black"   Height="28" Width="50" BorderBrush="Red" BorderThickness="1" Margin="300,18,730,71"/>
+                <Label Content="oranje" Foreground="Black"  Height="28" Width="50" BorderBrush="Orange" BorderThickness="1" Margin="380,18,650,71"/>
+                <Label Content="  lila" Foreground="Black"  Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1" Margin="460,18,570,71"/>
+                <Label Content="  grijs" Foreground="Black" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1" Margin="540,18,490,71"/>
+                <Label Content=" groen" Foreground="Black"  Height="28" Width="50" BorderBrush="Green" BorderThickness="1" Margin="620,18,410,71"/>
+                <Label Content=" geel" Foreground="Black"   Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1" Margin="700,18,330,71"/>
+                <Label Content=" blauw" Foreground="Black"  Height="28" Width="50" BorderBrush="Blue" BorderThickness="1" Margin="780,18,250,71"/>
+                <Label Content=" violet" Foreground="Black" Height="28" BorderBrush="Violet" BorderThickness="1" Margin="860,18,170,71" HorizontalAlignment="Stretch"/>
+                <Label Content=" paars" Foreground="Black"  Height="28" Width="50" BorderBrush="Purple" BorderThickness="1" Margin="940,18,88,71" Padding="6,5,5,5"/>
+                <Label Content=" bruin" Foreground="Black"  Height="28" Width="50" BorderBrush="Brown" BorderThickness="1" Margin="1020,18,10,71"/>
+
+                <TextBox   Height="35" Width="36" Background="Black" Margin="88,72,958,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurZwart" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="16" Margin="98,82,968,20"/>
+
+                <TextBox Height="35" Width="34" Background="White" Margin="158,72,890,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurWit"
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurWit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="168,82,900,20"/>
+
+                <TextBox Height="35" Width="34" Background="RosyBrown" Margin="229,70,819,12" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurRosé"
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurRosé, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="239,82,829,20"/>
+
+                <TextBox Height="35" Width="34" Background="Red" Margin="309,70,739,12" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurRood" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurRood, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="319,82,749,20"/>
+
+                <TextBox Height="35" Width="34" Background="Orange" Margin="389,72,659,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurOranje" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurOranje, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="399,82,669,20"/>
+
+                <TextBox Height="35" Width="34" Background="#c8a2c8" Margin="469,72,579,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurLila"
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurLila, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="479,82,589,20"/>
+
+                <TextBox Height="35" Width="34" Background="Gray" Margin="549,72,499,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurGrijs" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurGrijs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="559,82,509,20"/>
+
+                <TextBox Height="35" Width="34" Background="Green" Margin="629,72,419,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbBladkleurGroen"
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurGroen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="639,82,429,20"/>
+
+                <TextBox Height="35" Width="34" Background="Yellow" Margin="709,72,339,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurGeel" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurGeel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="16" Margin="718,82,348,20"/>
+
+                <TextBox Height="35" Width="34" Background="Blue" Margin="789,72,259,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurBlauw"
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurBlauw, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="799,82,269,20"/>
+
+                <TextBox Height="35" Width="34" Background="Violet" Margin="869,72,179,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurViolet" 
+                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurPaars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                       Height="15" Width="14" Margin="879,82,189,20"/>
+
+                <TextBox Height="35" Width="34" Background="Purple" Margin="950,72,98,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurPaars" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurPaars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="960,82,108,20"/>
+
+                <TextBox Height="35" Width="34" Background="Brown" Margin="1029,72,19,10" IsReadOnly="True"/>
+                <CheckBox x:Name="CbxBladkleurBruin" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBladkleurBruin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Height="15" Width="14" Margin="1039,82,29,20"/>
+
+                <Label Content="bladkleur" Height="28" Width="79" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571" Margin="1,72,1002,17"/>
+            </Grid>
 
 
 

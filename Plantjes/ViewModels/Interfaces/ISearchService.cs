@@ -8,11 +8,14 @@ namespace Plantjes.ViewModels.Interfaces
 {
     public interface ISearchService
     {
+        void setSelectedPlant(Plant p);
+        Plant getSelectedPlant();
+
         void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection);
         void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection);
         void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection);
         void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection);
-        void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection);
+        void fillComboBoxVariant(TfgsvSoort selectedSoort ,ObservableCollection<TfgsvVariant> cmbVariantCollection);
         void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection);
 
         void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult);

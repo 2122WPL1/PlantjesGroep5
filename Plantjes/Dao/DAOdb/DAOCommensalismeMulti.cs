@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace Plantjes.Dao.DAOdb
 {
-    public class DAOCommensalismeMulti
+    public class DAOCommensalismeMulti : DAOGeneric
     {
-        private static readonly DAOCommensalismeMulti instance = new DAOCommensalismeMulti();
-
-        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-        private readonly plantenContext context;
-
-        //2. private contructor
-        private DAOCommensalismeMulti()
+        public DAOCommensalismeMulti() : base()
         {
-            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAOLogic*/
-            this.context = new plantenContext();
-        }
-
-        public static DAOCommensalismeMulti Instance()
-        {
-            return instance;
+            //ctor
         }
 
         public List<CommensalismeMulti> GetAllCommensalismeMulti()
@@ -31,8 +19,15 @@ namespace Plantjes.Dao.DAOdb
             //List is unfiltered, a plantId can be present multiple times
             //The aditional filtering will take place in the ViewModel
 
-            var commensalismeMulti = context.CommensalismeMultis.ToList();
+            var commensalismeMulti = Context.CommensalismeMultis.ToList();
             return commensalismeMulti;
+        }
+
+        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        {
+
+            var selection = Context.CommensalismeMultis.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
         }
 
     }
