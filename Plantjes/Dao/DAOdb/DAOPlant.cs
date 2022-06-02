@@ -49,46 +49,30 @@ namespace Plantjes.Dao.DAOdb
                 plant.NederlandsNaam = naamPlant;
             if (!string.IsNullOrEmpty(typePlant?.Planttypenaam))
                 plant.Type = typePlant.Planttypenaam;
+            //add planttypeid
+                plant.TypeId = (int?)typePlant.Planttypeid;
             if (!string.IsNullOrEmpty(familiePlant?.Familienaam))
                 plant.Familie = familiePlant.Familienaam;
+                plant.FamilieId = (int?)familiePlant.FamileId;
             if (!string.IsNullOrEmpty(geslachtPlant?.Geslachtnaam))
                 plant.Geslacht = geslachtPlant.Geslachtnaam;
+                plant.GeslachtId = (int?)geslachtPlant?.GeslachtId;
             if (!string.IsNullOrEmpty(soortPlant?.Soortnaam))
                 plant.Soort = soortPlant.Soortnaam;
+                plant.SoortId = (int?)soortPlant?.Soortid;
             if (!string.IsNullOrEmpty(variantPlant?.Variantnaam))
                 plant.Variant = variantPlant.Variantnaam;
-
-            //vrder in doen
-            //Incase the object is nonexistant, declare a default one with none and assign it-Imran
+                plant.VariantId = (int?)variantPlant?.VariantId;
 
 
-            //Make an object Plant to add to DataBase-Imran
-
-            
-
-            //Plant plant = new Plant()
-            //{
-            //    NederlandsNaam = naamPlant,
-            //    Type = typePlant.Planttypenaam,
-            //    Familie = familiePlant.Familienaam,
-            //    Geslacht = geslachtPlant.Geslachtnaam,
-            //    Soort = soortPlant.Soortnaam,
-            //    Variant = variantPlant.Variantnaam,
-            //    Fgsv = familiePlant.Familienaam + " " + geslachtPlant.Geslachtnaam + " " + soortPlant.Soortnaam + " " + variantPlant.Variantnaam,
-            //    TypeId = (int?)typePlant.Planttypeid,
-            //    FamilieId = (int?)familiePlant.FamileId,
-            //    GeslachtId = (int?)geslachtPlant.GeslachtId,
-            //    SoortId = convertSoort,
-            //    VariantId = convertVariant,
+            //adds the whole familie name
+            plant.Fgsv = familiePlant.Familienaam + " " + geslachtPlant.Geslachtnaam + " " + soortPlant?.Soortnaam + " " + variantPlant?.Variantnaam + plant?.NederlandsNaam;
 
 
-
-
-            //};
 
             //Add to the database and afterwards assign that same Plant object to the property-Imran
 
-            
+
             Context.Plants.Add(plant);
             Context.SaveChanges();
             return plant;

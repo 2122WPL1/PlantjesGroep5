@@ -58,7 +58,7 @@ namespace Plantjes.ViewModels.Services
 
             _plantDao.GetPlant = _plantDao.RegisterNewPlant(naam, type,familie, geslacht, soort, variant);
 
-            MessageBox.Show("Plant is opgeslaan");
+            MessageBox.Show("Plant wordt toegevoegd aan de database.");
             
             
 

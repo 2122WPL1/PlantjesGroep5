@@ -139,21 +139,21 @@ namespace Plantjes.ViewModels
 
             //Checks to see if the user written in the required info , otherwise give up an error message
 
-            if (string.IsNullOrEmpty(SelectedType?.Planttypenaam))
+            if (string.IsNullOrEmpty(SelectedType?.Planttypenaam) || string.IsNullOrEmpty(SelectedFamilie?.Familienaam) || string.IsNullOrEmpty(SelectedGeslacht?.Geslachtnaam))
             {
-                MessageBox.Show("VUl DE TYPE IN !");
+                MessageBox.Show("Type, Familie en geslacht zijn verplicht!");
                 return;
             }
-            if (string.IsNullOrEmpty(SelectedFamilie?.Familienaam))
-            {
-                MessageBox.Show("VUl DE FAMILIE IN !");
-                return;
-            }
-            if (string.IsNullOrEmpty(SelectedGeslacht?.Geslachtnaam))
-            {
-                MessageBox.Show("VUl DE GESLACHT IN !");
-                return;
-            }
+            //if (string.IsNullOrEmpty(SelectedFamilie?.Familienaam))
+            //{
+            //    MessageBox.Show("Familie is verplicht!");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(SelectedGeslacht?.Geslachtnaam))
+            //{
+            //    MessageBox.Show("Geslacht is verplicht!");
+            //    return;
+            //}
 
           
            

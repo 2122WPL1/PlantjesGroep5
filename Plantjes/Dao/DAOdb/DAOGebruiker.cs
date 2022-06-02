@@ -158,6 +158,8 @@ namespace Plantjes.Dao.DAOdb
 
             }
 
+            MessageBox.Show("De nieuwe gebruikers werden geregistreerd en toegevoegd aan de database");
+
         }
 
     }

@@ -65,7 +65,7 @@ namespace Plantjes.ViewModels
             }//foutafhandeling velden bij het registeren als alle velden leeg zijn.-I
             else
             {
-                lblErrorsPasswordText = "al de velden moeten worden in gevuld ";
+                lblErrorsPasswordText = "Al de velden moeten worden ingevuld. ";
             }
 
 

@@ -57,12 +57,12 @@ namespace Plantjes.ViewModels.Services
                 _daoNieuwWachtwoord.RegisterNewPassword(passwordInput, id);
 
 
-                message = "Paswoord is verandert";
+                message = "Paswoord is gewijzigd";
                
             }
             else
             {
-                message = "Paswoord is niet verandert";
+                message = "Paswoord is niet gewijzigd";
             }
             //the message for lblError
             return message;
